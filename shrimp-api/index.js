@@ -17,17 +17,8 @@ app.use(cookieParser());
 // Routes
 app.use('/api', routes);
 
-app.use('/', express.static('../front_gamba/dist'))
-// Sirve el frontend ReactJS en cualquier ruta no definida anteriormente
-// importante! no definir rutas en la API que apunten a "/", siempre a "/api/…"
-// las rutas genéricas las tenemos que desviar al front
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,  '..', 'front_gamba', 'dist', 'index.html'));
-});
-
-
 // iniciem servidor
 const PORT = 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
