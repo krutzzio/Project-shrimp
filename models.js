@@ -1,9 +1,10 @@
+// npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
+
+
 // Es defineix la configuració de sequelize
 const { Sequelize, DataTypes } = require("sequelize"); // Importa la llibreria Sequelize
 
-
 const bcrypt = require("bcrypt"); // Importa la llibreria bcrypt per a encriptar contrasenyes
-
 
 const sequelize = new Sequelize("gamba", "root", "admin", {
     host: "localhost",
@@ -11,7 +12,6 @@ const sequelize = new Sequelize("gamba", "root", "admin", {
     port: 3308,
     dialect: "mysql", // connectem a mysql
 });
-
 
 // Model per a la taula Projectes
 const Usuario = sequelize.define("Usuario", {
@@ -46,7 +46,6 @@ const Usuario = sequelize.define("Usuario", {
     }
 });
 
-
 // Model per a la taula Issues
 const Restaurante = sequelize.define("Restaurante", {
     nombre_restaurante: {
@@ -62,7 +61,15 @@ const Restaurante = sequelize.define("Restaurante", {
         allowNull: false,
         unique: true,
     },
-    localizacion:{
+    numero:{
+        type: DataTypes.STRING,// o INT si es CP????
+        allowNull: false,
+    },
+    direccion:{
+        type: DataTypes.STRING,// o INT si es CP????
+        allowNull: false,
+    },
+    cp:{
         type: DataTypes.STRING,// o INT si es CP????
         allowNull: false,
     },
@@ -79,7 +86,6 @@ const Restaurante = sequelize.define("Restaurante", {
         allowNull: false,
     }
 });
-
 
 // Model per a la taula Receta
 const Receta = sequelize.define("Receta", {
@@ -98,7 +104,6 @@ const Receta = sequelize.define("Receta", {
     },
 });
 
-
 // Model per a la taula Receta
 const Ingrediente = sequelize.define("Ingrediente", {
     nombre_ingrediente: {
@@ -107,7 +112,6 @@ const Ingrediente = sequelize.define("Ingrediente", {
     },
 });
 
-
 // Model per a la taula Receta
 const GrupoAlimento = sequelize.define("GrupoAlimento", {
     nombre_grupo: {
@@ -115,7 +119,6 @@ const GrupoAlimento = sequelize.define("GrupoAlimento", {
         allowNull: false,
     },
 });
-
 
 // Model per a la taula Receta
 const Promo = sequelize.define("Promo", {
@@ -129,7 +132,6 @@ const Promo = sequelize.define("Promo", {
     },
 });
 
-
 // Model per a la taula Receta
 const TipoCocina = sequelize.define("TipoCocina", {
     nombre_tipo: {
@@ -137,7 +139,6 @@ const TipoCocina = sequelize.define("TipoCocina", {
         allowNull: false,
     },
 });
-
 
 // Model per a la taula Receta
 const Procedimiento = sequelize.define("Procedimiento", {
@@ -155,7 +156,6 @@ const Procedimiento = sequelize.define("Procedimiento", {
     },
 });
 
-
 // Model per a la taula Receta
 const Receta_Ingrediente = sequelize.define("Receta_Ingrediente", {
     cantidad: {
@@ -165,90 +165,68 @@ const Receta_Ingrediente = sequelize.define("Receta_Ingrediente", {
 });
 
 
-
-
 // hook per encriptar la contrasenya abans de desar un nou usuari o restaurant
 Usuario.beforeCreate(async (user) => {
     const hashedPassword = await bcrypt.hash(user.password, 10); // Encripta la contrasenya amb bcrypt
     user.password = hashedPassword;
 });
 
-
 Restaurante.beforeCreate(async (restaurant) => {
-    const hashedPassword2 = await bcrypt.hash(restaurant.password, 10); // Encripta la contrasenya amb bcrypt
-    restaurant.password = hashedPassword2;
+    const hashedPassword = await bcrypt.hash(restaurant.password_restaurante, 10); // Encripta la contrasenya amb bcrypt
+    restaurant.password_restaurante = hashedPassword;
 });
+
 
 
 // Definim les relacions
 
-
 // Project.hasMany(Issue, { onDelete: 'CASCADE', hooks: true });  DE REFERNCIA PER SI ESTE QUE BORRAR ALGO EN CASCADA
-
 
 Usuario.hasMany(Restaurante); // Un usuario puede seguir a muchos restaurantes
 Restaurante.hasMany(Usuario); // Un restaurante puede seguir a muchos restaurantes
 
-
 Receta.hasMany(Ingrediente); // Una receta puede tener varios ingredientes
 Ingrediente.hasMany(Receta); // Un ingrediente puede ser usado por varias recetas
-
 
 Usuario.hasMany(TipoCocina); // Un usuario puede tener varios tipos cocina
 TipoCocina.hasMany(Usuario); // Un tipo de cocina lo pueden tener varios usuarios
 
-
 Receta.belongsTo(TipoCocina); // Una receta tiene un unico tipo de cocina
 TipoCocina.hasMany(Receta); // Un tipo de cocina pertence a varias recetas
-
 
 Ingrediente.belongsTo(GrupoAlimento); // Un ingrediente tiene un unico grupo
 GrupoAlimento.hasMany(Ingrediente); // Un grupo pertence a varios ingredientes
 
-
 Promo.belongsTo(Usuario); // Una promo tiene un unico usuario
 Usuario.hasMany(Promo); // Un usuario puede tener varias promos
-
 
 Promo.belongsTo(Restaurante); // Una promo tiene un unico restaurante
 Restaurante.hasMany(Promo); // Un restaurante puede tener varias promos
 
-
 Procedimiento.belongsTo(Receta); // Un procedimineto tiene una unica receta
 Receta.hasMany(Procedimiento); // Un receta puede tener varios procedimiento
-
 
 Receta_Ingrediente.belongsTo(Receta); // Un procedimineto tiene una unica receta
 Receta.hasMany(Receta_Ingrediente); // Un receta puede tener varios procedimiento
 
-
 Receta_Ingrediente.belongsTo(Ingrediente); // Un procedimineto tiene una unica receta
 Ingrediente.hasMany(Receta_Ingrediente); // Una receta puede tener varios procedimiento
 
+GrupoAlimento.hasMany(Usuario) // Un grupo de alimento puede estar en muchos usuarios
+Usuario.hasMany(GrupoAlimento) // Un usuario puede tener muchos grupos de alimentos
 
-// ESTAS ME DAN UN ERROR MAÑANA ME LAS MIRO
-
-
-// Usuario_Restaraunte.belongsTo(Usuario); // Un Usuario_Restaraunte tiene un usuario
-// Usuario.belongsTo(Usuario_Restaraunte); // Un usuario puede tener varios Usuari_Restaraunte
-
-
-// Usuario_Restaraunte.belongsTo(Restaurante); // Un Usuario_Restaraunte tiene un Restaurante
-// Restaurante.belongsTo(Usuario_Restaraunte); // Un Restaurante puede tener varios Usuari_Restaraunte
-
-
+Restaurante.hasMany(Receta)// Un restaurante puede tener muchas recetas
+Receta.belongsTo(Restaurante) // Un receta pertences a un solo restaurante
 // connectem a base de dades
 async function iniDB() {
     await sequelize.sync({ force: true });
 }
 
-
-iniDB();
-
+// iniDB();
 
 //Exportem els models
 module.exports = {
-    // Usuario_Restaraunte,
+
     Receta,
     Usuario,
     Restaurante,
@@ -260,6 +238,3 @@ module.exports = {
     TipoCocina,
     sequelize, // Per si vols utilitzar la instància de Sequelize per a altres operacions
 };
-
-
-

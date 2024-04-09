@@ -1,0 +1,3 @@
+Entreu a docker y activeu el mysql
+Entrar al workbench y crear un schema que es digui gamba!!!
+dependecias npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
