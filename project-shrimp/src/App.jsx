@@ -1,5 +1,5 @@
-import { Card, Image } from "@nextui-org/react";
-import { Link } from "react-router-dom";
+import { Card, Image, Button, Link } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
 
 export default function App() {
   return (
@@ -15,7 +15,8 @@ export default function App() {
         <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
         <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
       </Card>
-      <Link to={"/register"}>Register</Link>
+      <Link className="p-0"><NavLink to={"/register"}>Register</NavLink></Link>
+      <Button>Hola</Button>
     </div>
 
   );
