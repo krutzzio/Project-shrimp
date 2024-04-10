@@ -36,14 +36,14 @@ const Usuario = sequelize.define("Usuario", {
         type: DataTypes.STRING,// o INT si es CP????
         allowNull: false,
     },
-    tipo_cocina: {
-        type: DataTypes.ENUM('india','china','japonesa','mediteranea','mexicana'),
-
+    tipos_cocina: {
+        type: DataTypes.ENUM('india','china','japonesa','mediteranea'),
+        allowNull: false,
     },
-    tipo_grupo:{
-        type: DataTypes.ENUM('omnivoro','vegetariano','vegano','sin gluten','otro'),
-
-    }
+    dieta: {
+        type: DataTypes.ENUM('vegana','vegetariana','sin gluten','otra'),
+        allowNull: false,
+    },
 });
 
 // Model per a la taula Issues
@@ -81,10 +81,10 @@ const Restaurante = sequelize.define("Restaurante", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    tipo_cocina: {
-        type: DataTypes.ENUM('india','china','japonesa','mediteranea','mexicana'),
+    tipos_cocina: {
+        type: DataTypes.ENUM('india','china','japonesa','mediteranea'),
         allowNull: false,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -96,7 +96,7 @@ const Receta = sequelize.define("Receta", {
     desc_receta: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -104,7 +104,7 @@ const Ingrediente = sequelize.define("Ingrediente", {
     nombre_ingrediente: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -112,7 +112,11 @@ const GrupoAlimento = sequelize.define("GrupoAlimento", {
     nombre_grupo: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
+    dieta: {
+        type: DataTypes.ENUM('vegetal','vegano'),
+        allowNull: false,
+    },
 });
 
 // Model per a la taula Receta
@@ -124,7 +128,7 @@ const Promo = sequelize.define("Promo", {
     validada: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -132,7 +136,7 @@ const TipoCocina = sequelize.define("TipoCocina", {
     nombre_tipo: {
         type: DataTypes.STRING,
         allowNull: false,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -148,7 +152,7 @@ const Procedimiento = sequelize.define("Procedimiento", {
     foto_procedimiento: {
         type: DataTypes.STRING,
         allowNull: true,
-    }
+    },
 });
 
 // Model per a la taula Receta
@@ -222,7 +226,7 @@ async function iniDB() {
     await sequelize.sync({ force: true });
 }
 
-iniDB();
+// iniDB();
 
 //Exportem els models
 module.exports = {
