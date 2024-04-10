@@ -95,7 +95,7 @@ const Receta = sequelize.define("Receta", {
     },
     desc_receta: {
         type: DataTypes.STRING,
-        // unique: true,
+        allowNull: false,
     },
 });
 

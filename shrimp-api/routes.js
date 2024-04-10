@@ -177,13 +177,14 @@ router.delete('/recipes/:id', async (req, res) => await deleteItem(req, res, Rec
 
 router.post('/registerReceta', async (req, res) => {
   try {
+    
     const { nombre_receta, desc_receta, TipoCocinaId } = req.body;
     // Verifica si se proporcionó un ID de TipoCocina
     if (!nombre_receta || !desc_receta || !TipoCocinaId) {
       return res.status(400).json({ error: 'Nombre, descripción y TipoCocinaId son requeridos' });
     }
     // Verifica si el TipoCocinaId recibido es válido
-    const tipoCocina = await TipoCocina.find(TipoCocinaId);
+    const tipoCocina = await TipoCocina.findByPk(TipoCocinaId);
     if (!tipoCocina) {
       return res.status(404).json({ error: 'Tipo de cocina no encontrado' });
     }
