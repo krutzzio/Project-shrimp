@@ -95,7 +95,7 @@ const Receta = sequelize.define("Receta", {
     },
     desc_receta: {
         type: DataTypes.STRING,
-        unique: true,
+        // unique: true,
     },
 });
 
@@ -111,6 +111,10 @@ const Ingrediente = sequelize.define("Ingrediente", {
 const GrupoAlimento = sequelize.define("GrupoAlimento", {
     nombre_grupo: {
         type: DataTypes.STRING,
+        allowNull: false,
+    },
+    dieta: {
+        type: DataTypes.ENUM('vegetal','vegano'),
         allowNull: false,
     },
 });
@@ -222,7 +226,7 @@ async function iniDB() {
     await sequelize.sync({ force: true });
 }
 
-iniDB();
+// iniDB();
 
 //Exportem els models
 module.exports = {
