@@ -1,8 +1,9 @@
 import { Card, Image } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="h-full flex justify-center items-center">
+    <div className="h-full flex flex-col justify-center items-center">
       <Card className="max-w-[400px] p-4 items-center ">
         <Image
           alt="nextui logo"
@@ -14,6 +15,7 @@ export default function App() {
         <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
         <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
       </Card>
+      <Link to={"/register"}>Register</Link>
     </div>
 
   );
