@@ -14,11 +14,11 @@ export default function Login() {
                     <h1 className='text-white text-6xl font-semibold'>Gamba</h1>
                 </header>
             </main>
-            <footer className='h-[10dvh] w-fit z-10 relative m-auto'>
+            <footer className='h-[10dvh] flex items-center justify-center z-10 relative'>
                 <h1>Quiere registro?</h1>
             </footer>
 
-            <article className='absolute z-0 -bottom-[21rem] rotate-[35deg] hover:rotate-[-35deg] hover:-bottom-[20rem] transition-all'>
+            <article className='absolute z-0 -bottom-[21rem] rotate-[35deg] hover:rotate-[-35deg] hover:-bottom-[19rem] transition-all'>
                 <img src={wave} className='w-[50rem] scale-[2.5] ' alt="" />
             </article>
 
