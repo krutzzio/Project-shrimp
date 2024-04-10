@@ -16,6 +16,8 @@ export default function App() {
         <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
       </Card>
       <Link to={"/register"}>Register</Link>
+      <Link to={"/login"}>Login</Link>
+
     </div>
 
   );
