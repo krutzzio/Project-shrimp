@@ -3,7 +3,31 @@
 
 // Es defineix la configuració de sequelize
 const { Sequelize, DataTypes } = require("sequelize"); // Importa la llibreria Sequelize
-
+const coci = [[
+    "Americana",
+    "Britanica",
+    "China",
+    "Croacia",
+    "Alemana",
+    "Egicia",
+    "Filipino",
+    "Frances",
+    "Grega",
+    "Indiana",
+    "Italiana",
+    "Jamaicana",
+    "Japonesa",
+    "Malaysiana",
+    "Mexicana",
+    "Moroccan",
+    "Portuguesa",
+    "Rusa",
+    "Española",
+    "Thailandes",
+    "Indonesiana",
+    "Otros"
+]
+]
 const bcrypt = require("bcrypt"); // Importa la llibreria bcrypt per a encriptar contrasenyes
 
 const sequelize = new Sequelize("gamba", "root", "admin", {
@@ -37,7 +61,7 @@ const Usuario = sequelize.define("Usuario", {
         allowNull: false,
     },
     tipos_cocina: {
-        type: DataTypes.ENUM('india','china','japonesa','mediteranea'),
+        type: DataTypes.ENUM(coci),
         allowNull: false,
     },
     dieta: {
@@ -82,7 +106,7 @@ const Restaurante = sequelize.define("Restaurante", {
         allowNull: false,
     },
     tipos_cocina: {
-        type: DataTypes.ENUM('india','china','japonesa','mediteranea'),
+        type: DataTypes.ENUM(coci),
         allowNull: false,
     },
 });
@@ -223,7 +247,17 @@ Usuario.belongsToMany(GrupoAlimento, { through: 'UsuarioAlimento' }) // Un usuar
 
 // connectem a base de dades
 async function iniDB() {
-    await sequelize.sync({ force: true });
+
+        await sequelize.sync({ force: true });
+        
+    const cocinas = require("./data/tipococina.json");
+    
+    const cocinas_añadidas =  TipoCocina.bulkCreate(cocinas);
+    
+    const grupos = require("./data/grupos_alimentos.json");
+    const grupos_añadidos = GrupoAlimento.bulkCreate(grupos);
+    
+    
 }
 
 // iniDB();

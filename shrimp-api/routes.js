@@ -175,11 +175,12 @@ router.delete('/recipes/:id', async (req, res) => await deleteItem(req, res, Rec
 
 ///CREAR RECETA
 
-router.post('/registerReceta', async (req, res) => {
+router.post('/home/:restId/registerReceta', async (req, res) => {
   try {
     
-    const { nombre_receta, desc_receta, TipoCocinaId } = req.body;
+    const { nombre_receta, desc_receta, TipoCocinaId} = req.body;
     // Verifica si se proporcionó un ID de TipoCocina
+    const restauranteId = req.params.restId;
     if (!nombre_receta || !desc_receta || !TipoCocinaId) {
       return res.status(400).json({ error: 'Nombre, descripción y TipoCocinaId son requeridos' });
     }
@@ -189,12 +190,13 @@ router.post('/registerReceta', async (req, res) => {
       return res.status(404).json({ error: 'Tipo de cocina no encontrado' });
     }
     // Crea la receta con los datos proporcionados
-    const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId });
+    const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId,RestauranteId: restauranteId });
     res.status(201).json({
       id: receta.id,
       nombre_receta: receta.nombre_receta,
       desc_receta: receta.desc_receta,
-      TipoCocinaId: receta.TipoCocinaId
+      TipoCocinaId: receta.TipoCocinaId,
+      RestauranteId: restauranteId
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
