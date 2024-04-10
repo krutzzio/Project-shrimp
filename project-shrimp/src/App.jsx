@@ -15,8 +15,8 @@ export default function App() {
         <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
         <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
       </Card>
-      <Link to={"/register"}>Register</Link>
-      <Link to={"/login"}>Login</Link>
+      <NavLink to={"/register"}>Register</NavLink>
+      <NavLink to={"/login"}>Login</NavLink>
 
     </div>
 
