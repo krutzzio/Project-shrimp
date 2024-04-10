@@ -1,5 +1,8 @@
-import {categoria, ingrediente, tipococina} from './data';
+//import { tipococina } from './data/tipococina';
 
+const jsonData = require('./data/tipococina.json');
+
+console.log(jsonData);
 // npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
 
 

@@ -149,13 +149,13 @@ router.post('/loginRest', async (req, res) => {
 
 //INGREDIENTES
 
-router.post('/registerIngrediente', async (req, res) => {
+/* router.post('/registerIngrediente', async (req, res) => {
   try {
     const nuevoIngrediente = await Ingrediente.create(req.body);
     res.status(201).json(nuevoIngrediente);
   } catch (error) {
     res.status(500).json({ error: error.message });
-  }
+  } */
 
 
 
