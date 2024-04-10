@@ -1,70 +1,68 @@
-{
-  "tipococina": [
-    {
-      "nombre_tipo": "Americana"
-    },
-    {
-      "strArea": "Britanica"
-    },
-    {
-      "strArea": "China"
-    },
-    {
-      "strArea": "Croacia"
-    },
-    {
-      "strArea": "Alemana"
-    },
-    {
-      "strArea": "Egicia"
-    },
-    {
-      "strArea": "Filipino"
-    },
-    {
-      "strArea": "Frances"
-    },
-    {
-      "strArea": "Grega"
-    },
-    {
-      "strArea": "Indiana"
-    },
-    {
-      "strArea": "Italiana"
-    },
-    {
-      "strArea": "Jamaicana"
-    },
-    {
-      "strArea": "Japonesa"
-    },
-    {
-      "strArea": "Malaysiana"
-    },
-    {
-      "strArea": "Mexicana"
-    },
-    {
-      "strArea": "Moroccan"
-    },
-    {
-      "strArea": "Portuguesa"
-    },
-    {
-      "strArea": "Rusa"
-    },
-    {
-      "strArea": "Española"
-    },
-    {
-      "strArea": "Thailandes"
-    },
-    {
-      "strArea": "Indonesiana"
-    },
-    {
-      "strArea": "Otros"
-    }
-  ]
-}
+[
+  {
+    "nombre_tipo": "Americana"
+  },
+  {
+    "nombre_tipo": "Britanica"
+  },
+  {
+    "nombre_tipo": "China"
+  },
+  {
+    "nombre_tipo": "Croacia"
+  },
+  {
+    "nombre_tipo": "Alemana"
+  },
+  {
+    "nombre_tipo": "Egicia"
+  },
+  {
+    "nombre_tipo": "Filipino"
+  },
+  {
+    "nombre_tipo": "Frances"
+  },
+  {
+    "nombre_tipo": "Grega"
+  },
+  {
+    "nombre_tipo": "Indiana"
+  },
+  {
+    "nombre_tipo": "Italiana"
+  },
+  {
+    "nombre_tipo": "Jamaicana"
+  },
+  {
+    "nombre_tipo": "Japonesa"
+  },
+  {
+    "nombre_tipo": "Malaysiana"
+  },
+  {
+    "nombre_tipo": "Mexicana"
+  },
+  {
+    "nombre_tipo": "Moroccan"
+  },
+  {
+    "nombre_tipo": "Portuguesa"
+  },
+  {
+    "nombre_tipo": "Rusa"
+  },
+  {
+    "nombre_tipo": "Española"
+  },
+  {
+    "nombre_tipo": "Thailandes"
+  },
+  {
+    "nombre_tipo": "Indonesiana"
+  },
+  {
+    "nombre_tipo": "Otros"
+  }
+]
