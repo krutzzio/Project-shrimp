@@ -1,3 +1,5 @@
+import {categoria, ingrediente, tipococina} from './data';
+
 // npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
 
 
@@ -210,7 +212,10 @@ async function iniDB() {
     await sequelize.sync({ force: true });
 }
 
-iniDB();
+//iniDB();
+
+//const Cocinas = await TipoCocina.bulkCreate([]);
+console.log(tipococina);
 
 //Exportem els models
 module.exports = {

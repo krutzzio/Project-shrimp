@@ -1,0 +1,70 @@
+{
+    "tipococina": [
+      {
+        "nombre_tipo": "Americana"
+      },
+      {
+        "strArea": "Britanica"
+      },
+      {
+        "strArea": "China"
+      },
+      {
+        "strArea": "Croacia"
+      },
+      {
+        "strArea": "Alemana"
+      },
+      {
+        "strArea": "Egicia"
+      },
+      {
+        "strArea": "Filipino"
+      },
+      {
+        "strArea": "Frances"
+      },
+      {
+        "strArea": "Grega"
+      },
+      {
+        "strArea": "Indiana"
+      },
+      {
+        "strArea": "Italiana"
+      },
+      {
+        "strArea": "Jamaicana"
+      },
+      {
+        "strArea": "Japonesa"
+      },
+      {
+        "strArea": "Malaysiana"
+      },
+      {
+        "strArea": "Mexicana"
+      },
+      {
+        "strArea": "Moroccan"
+      },
+      {
+        "strArea": "Portuguesa"
+      },
+      {
+        "strArea": "Rusa"
+      },
+      {
+        "strArea": "Española"
+      },
+      {
+        "strArea": "Thailandes"
+      },
+      {
+        "strArea": "Indonesiana"
+      },
+      {
+        "strArea": "Otros"
+      }
+    ]
+  }

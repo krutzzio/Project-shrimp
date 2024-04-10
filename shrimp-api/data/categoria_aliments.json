@@ -1,0 +1,46 @@
+{
+  "categoria": [
+    {
+      "strCategory": "Carne de res"
+    },
+    {
+      "strCategory": "Desayuno"
+    },
+    {
+      "strCategory": "Pollo"
+    },
+    {
+      "strCategory": "Postre"
+    },
+    {
+      "strCategory": "Cabra"
+    },
+    {
+      "strCategory": "Cordero"
+    },
+    {
+      "strCategory": "Varios"
+    },
+    {
+      "strCategory": "Pasta"
+    },
+    {
+      "strCategory": "Cerdo"
+    },
+    {
+      "strCategory": "Mariscos"
+    },
+    {
+      "strCategory": "Acompañamiento"
+    },
+    {
+      "strCategory": "Entrante"
+    },
+    {
+      "strCategory": "Vegano"
+    },
+    {
+      "strCategory": "Vegetariano"
+    }
+  ]
+}
