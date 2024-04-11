@@ -138,7 +138,7 @@ const GrupoAlimento = sequelize.define("GrupoAlimento", {
         allowNull: false,
     },
     dieta: {
-        type: DataTypes.ENUM('vegetal','vegano'),
+        type: DataTypes.ENUM('vegetal','vegano','otro'),
         allowNull: false,
     },
 });
@@ -251,16 +251,18 @@ async function iniDB() {
         await sequelize.sync({ force: true });
         
     const cocinas = require("./data/tipococina.json");
-    
+
     const cocinas_añadidas =  TipoCocina.bulkCreate(cocinas);
     
     const grupos = require("./data/grupos_alimentos.json");
     const grupos_añadidos = GrupoAlimento.bulkCreate(grupos);
+    const ingredientes = require("./data/ingredientes.json");
+    const ingredientes_añadidos = Ingrediente.bulkCreate(ingredientes);
     
     
 }
 
-// iniDB();
+iniDB();
 
 //Exportem els models
 module.exports = {

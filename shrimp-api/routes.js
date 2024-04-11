@@ -168,9 +168,9 @@ router.post('/loginRest', async (req, res) => {
 
 //RECETAS
 
-router.get('/recipes', async (req, res) => await readItems(req, res, Receta)); // Llegeix tots els restaurants
+router.get('/home/restId/recipes/:id', async (req, res) => await readItems(req, res, Receta)); // Llegeix tots els restaurants
 router.get('/recipes/:id', async (req, res) => await readItem(req, res, Receta)); // Llegeix un recipes específic
-router.put('/recipes/:id', async (req, res) => await updateItem(req, res, Receta)); // Actualitza un recipes
+router.put('/home/:restId/recipes/:id', async (req, res) => await updateItem(req, res, Receta)); // Actualitza un recipes
 router.delete('/recipes/:id', async (req, res) => await deleteItem(req, res, Receta)); // Elimina un recipes
 
 ///CREAR RECETA
