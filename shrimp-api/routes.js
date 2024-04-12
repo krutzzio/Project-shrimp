@@ -143,11 +143,7 @@ router.delete('/restaurant/:id', async (req, res) => await deleteItem(req, res, 
 //REGISTER
 router.post('/registerRest', async (req, res) => {
   try {
-<<<<<<< HEAD
-    const { nombre_restaurante, correo_restaurante, password_restaurante, numero, direccion, cp, telefono, descripcio, tipo_cuina} = req.body; // Obté el nom, email i contrasenya de la petició
-=======
     const { nombre_restaurante, correo_restaurante, password_restaurante, numero, direccion, cp, telefono, descripcio, tipos_cocina} = req.body; // Obté el nom, email i contrasenya de la petició
->>>>>>> origin/hannibal
     if (!nombre_restaurante || !cp || !correo_restaurante || !password_restaurante) {
       return res.status(400).json({ error: 'Nombre, cp, email, password y localización son requeridos' }); // Retorna error 400 si no es proporcionen el nom, email o contrasenya
     }
@@ -155,11 +151,7 @@ router.post('/registerRest', async (req, res) => {
     if (existingRest) {
       return res.status(400).json({ error: 'Email ja existeix' }); // Retorna error 400 si l'email ja està registrat
     }
-<<<<<<< HEAD
-    const restaurant = await Restaurante.create({ nombre_restaurante, telefono, correo_restaurante, password_restaurante, descripcio, numero, tipo_cuina, direccion, cp }); // Crea l'usuari amb les dades proporcionades
-=======
     const restaurant = await Restaurante.create({ nombre_restaurante, telefono, correo_restaurante, password_restaurante, descripcio, numero, tipos_cocina, direccion, cp }); // Crea l'usuari amb les dades proporcionades
->>>>>>> origin/hannibal
 
     res.status(201).json({
       id: restaurant.id, 
