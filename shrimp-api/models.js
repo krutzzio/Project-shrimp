@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-//import { tipococina } from './data/tipococina';
-
-// npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
-
-// Es defineix la configuració de sequelize
-const { Sequelize, DataTypes } = require("sequelize"); // Importa la llibreria Sequelize
-
-const bcrypt = require("bcrypt"); // Importa la llibreria bcrypt per a encriptar contrasenyes
-
-const sequelize = new Sequelize("gamba", "root", "admin", {
-  host: "localhost",
-  //host: '192.168.1.133', //IP de la base de dades
-  port: 3308,
-  dialect: "mysql", // connectem a mysql
-=======
 // npm install bcrypt mysql2 sequelize cors express cookie-parser jsonwebtoken multer
 
 
@@ -51,7 +35,6 @@ const sequelize = new Sequelize("gamba", "root", "admin", {
     //host: '192.168.1.133', //IP de la base de dades
     port: 3308,
     dialect: "mysql", // connectem a mysql
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Projectes
