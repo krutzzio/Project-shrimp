@@ -39,30 +39,6 @@ const sequelize = new Sequelize("gamba", "root", "admin", {
 
 // Model per a la taula Projectes
 const Usuario = sequelize.define("Usuario", {
-<<<<<<< HEAD
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  apellidos: {
-    // no se si aquesta columna la voleu o no?
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  correo: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  localizacion: {
-    type: DataTypes.STRING, // o INT si es CP????
-    allowNull: false,
-  },
-=======
     nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -92,46 +68,10 @@ const Usuario = sequelize.define("Usuario", {
         type: DataTypes.ENUM('vegana','vegetariana','sin gluten','otra'),
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Issues
 const Restaurante = sequelize.define("Restaurante", {
-<<<<<<< HEAD
-  nombre_restaurante: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  password_restaurante: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  correo_restaurante: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  numero: {
-    type: DataTypes.STRING, // o INT si es CP????
-    allowNull: false,
-  },
-  direccion: {
-    type: DataTypes.STRING, // o INT si es CP????
-    allowNull: false,
-  },
-  cp: {
-    type: DataTypes.STRING, // o INT si es CP????
-    allowNull: false,
-  },
-  telefono: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  descripcio: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-=======
     nombre_restaurante: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -169,7 +109,6 @@ const Restaurante = sequelize.define("Restaurante", {
         type: DataTypes.ENUM(coci),
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
@@ -387,19 +326,11 @@ TipoCocina.belongsToMany(Usuario, { through: 'UsuarioCocina' }); // Un tipo de c
 Receta.belongsTo(TipoCocina); // Una receta tiene un unico tipo de cocina
 TipoCocina.hasMany(Receta); // Un tipo de cocina pertence a varias recetas
 
-<<<<<<< HEAD
-Restaurante.belongsToMany(TipoCocina, { through: "RestauranteCocina" });
-TipoCocina.belongsToMany(Restaurante, { through: "RestauranteCocina" });
-
-Ingrediente.belongsTo(GrupoAlimento, { foreignKey: 'GrupoAlimentoID' }); // Un ingrediente tiene un unico grupo
-GrupoAlimento.hasMany(Ingrediente, { foreignKey: 'GrupoAlimentoID' }); // Un grupo pertence a varios ingredientes
-=======
 Restaurante.belongsToMany(TipoCocina, { through: 'RestauranteCocina' })
 TipoCocina.belongsToMany(Restaurante, { through: 'RestauranteCocina' })
 
 Ingrediente.belongsTo(GrupoAlimento); // Un ingrediente tiene un unico grupo
 GrupoAlimento.hasMany(Ingrediente); // Un grupo pertence a varios ingredientes
->>>>>>> origin/hannibal
 
 Promo.belongsTo(Usuario); // Una promo tiene un unico usuario
 Usuario.hasMany(Promo); // Un usuario puede tener varias promos
