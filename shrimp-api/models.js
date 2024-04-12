@@ -262,7 +262,7 @@ async function iniDB() {
     
 }
 
-iniDB();
+// iniDB();
 
 //Exportem els models
 module.exports = {
