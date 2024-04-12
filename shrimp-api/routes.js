@@ -13,7 +13,7 @@ const {
   // Usuario_Restaraunte,
 
   Usuario, Restaurante,
-  Receta,TipoCocina
+  Receta,TipoCocina,Procedimiento
 
 } = require('./models'); // Importa els models de dades
 
@@ -174,29 +174,46 @@ router.put('/home/:restId/recipes/:id', async (req, res) => await updateItem(req
 router.delete('/recipes/:id', async (req, res) => await deleteItem(req, res, Receta)); // Elimina un recipes
 
 ///CREAR RECETA
-
 router.post('/home/:restId/registerReceta', async (req, res) => {
   try {
-    
-    const { nombre_receta, desc_receta, TipoCocinaId} = req.body;
-    // Verifica si se proporcionó un ID de TipoCocina
+    const { nombre_receta, desc_receta, TipoCocinaId, procedimientos } = req.body;
     const restauranteId = req.params.restId;
-    if (!nombre_receta || !desc_receta || !TipoCocinaId) {
-      return res.status(400).json({ error: 'Nombre, descripción y TipoCocinaId son requeridos' });
+    
+    // Verifica que todos los campos requeridos estén presentes en la solicitud
+    if (!nombre_receta || !desc_receta || !TipoCocinaId || !procedimientos || procedimientos.length === 0) {
+      return res.status(400).json({ error: 'Nombre, descripción, TipoCocinaId y al menos un procedimiento son requeridos' });
     }
-    // Verifica si el TipoCocinaId recibido es válido
+    
     const tipoCocina = await TipoCocina.findByPk(TipoCocinaId);
     if (!tipoCocina) {
       return res.status(404).json({ error: 'Tipo de cocina no encontrado' });
     }
+
     // Crea la receta con los datos proporcionados
-    const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId,RestauranteId: restauranteId });
+    const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId, RestauranteId: restauranteId });
+
+    // Crea los procedimientos asociados a la receta
+    const procedimientosCreados = [];
+    for (const procedimiento of procedimientos) {
+      const nuevoProcedimiento = await Procedimiento.create({
+        numero_procedimiento: procedimiento.numero_procedimiento,
+        desc_procedimiento: procedimiento.desc_procedimiento,
+        foto_procedimiento: procedimiento.foto_procedimiento,
+        RecetumId: receta.id // Asociar el procedimiento con la receta recién creada
+      });
+      procedimientosCreados.push(nuevoProcedimiento);
+    }
+    
+    // Devuelve la receta junto con los procedimientos creados
     res.status(201).json({
-      id: receta.id,
-      nombre_receta: receta.nombre_receta,
-      desc_receta: receta.desc_receta,
-      TipoCocinaId: receta.TipoCocinaId,
-      RestauranteId: restauranteId
+      receta: {
+        id: receta.id,
+        nombre_receta: receta.nombre_receta,
+        desc_receta: receta.desc_receta,
+        TipoCocinaId: receta.TipoCocinaId,
+        RestauranteId: restauranteId
+      },
+      procedimientos: procedimientosCreados
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
