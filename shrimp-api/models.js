@@ -121,6 +121,22 @@ const Receta = sequelize.define("Receta", {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    persones: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    tiempo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    dificultad: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    tipo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
 });
 
 // Model per a la taula Receta
@@ -262,7 +278,8 @@ async function iniDB() {
     
 }
 
-// iniDB();
+iniDB();
+
 
 //Exportem els models
 module.exports = {
