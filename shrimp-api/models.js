@@ -113,16 +113,6 @@ const Restaurante = sequelize.define("Restaurante", {
 
 // Model per a la taula Receta
 const Receta = sequelize.define("Receta", {
-<<<<<<< HEAD
-  nombre_receta: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  desc_receta: {
-    type: DataTypes.STRING,
-    unique: true,
-  },
-=======
     nombre_receta: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -131,33 +121,18 @@ const Receta = sequelize.define("Receta", {
         type: DataTypes.STRING,
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const Ingrediente = sequelize.define("Ingrediente", {
-<<<<<<< HEAD
-  nombre_ingrediente: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  
-=======
     nombre_ingrediente: {
         type: DataTypes.STRING,
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const GrupoAlimento = sequelize.define("GrupoAlimento", {
-<<<<<<< HEAD
-  nombre_grupo: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-=======
     nombre_grupo: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -166,21 +141,10 @@ const GrupoAlimento = sequelize.define("GrupoAlimento", {
         type: DataTypes.ENUM('vegetal','vegano','otro'),
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const Promo = sequelize.define("Promo", {
-<<<<<<< HEAD
-  codigo: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  validada: {
-    type: DataTypes.BOOLEAN,
-    allowNull: false,
-  },
-=======
     codigo: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -189,40 +153,18 @@ const Promo = sequelize.define("Promo", {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const TipoCocina = sequelize.define("TipoCocina", {
-<<<<<<< HEAD
-  nombre_tipo: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-=======
     nombre_tipo: {
         type: DataTypes.STRING,
         allowNull: false,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const Procedimiento = sequelize.define("Procedimiento", {
-<<<<<<< HEAD
-  numero_procedimiento: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  desc_procedimiento: {
-    type: DataTypes.STRING,
-    unique: false,
-  },
-  foto_procedimiento: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-=======
     numero_procedimiento: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -235,34 +177,10 @@ const Procedimiento = sequelize.define("Procedimiento", {
         type: DataTypes.STRING,
         allowNull: true,
     },
->>>>>>> origin/hannibal
 });
 
 // Model per a la taula Receta
 const Receta_Ingrediente = sequelize.define("Receta_Ingrediente", {
-<<<<<<< HEAD
-  cantidad: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  medida: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
-
-// hook per encriptar la contrasenya abans de desar un nou usuari o restaurant
-Usuario.beforeCreate(async (user) => {
-  const hashedPassword = await bcrypt.hash(user.password, 10); // Encripta la contrasenya amb bcrypt
-  user.password = hashedPassword;
-});
-
-Restaurante.beforeCreate(async (restaurant) => {
-  const hashedPassword = await bcrypt.hash(restaurant.password_restaurante, 10); // Encripta la contrasenya amb bcrypt
-  restaurant.password_restaurante = hashedPassword;
-});
-
-=======
     cantidad: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -287,32 +205,16 @@ Restaurante.beforeCreate(async (restaurant) => {
 
 
 
->>>>>>> origin/hannibal
 // Definim les relacions
 
 // Project.hasMany(Issue, { onDelete: 'CASCADE', hooks: true });  DE REFERNCIA PER SI ESTE QUE BORRAR ALGO EN CASCADA
 
-<<<<<<< HEAD
-Usuario.belongsToMany(Restaurante, { through: "UsuarioRestaurante" }); // Un usuario puede seguir a muchos restaurantes
-Restaurante.belongsToMany(Usuario, { through: "UsuarioRestaurante" }); // Un restaurante puede seguir a muchos restaurantes
-=======
 Usuario.belongsToMany(Restaurante, { through: 'UsuarioRestaurante' }); // Un usuario puede seguir a muchos restaurantes
 Restaurante.belongsToMany(Usuario, { through: 'UsuarioRestaurante' }); // Un restaurante puede seguir a muchos restaurantes
->>>>>>> origin/hannibal
 
 Receta.belongsToMany(Ingrediente, { through: Receta_Ingrediente }); // Una receta puede tener varios ingredientes
 Ingrediente.belongsToMany(Receta, { through: Receta_Ingrediente }); // Un ingrediente puede ser usado por varias recetas
 
-<<<<<<< HEAD
-Receta.belongsToMany(Usuario, { through: "RecetaUsuario" });
-Usuario.belongsToMany(Receta, { through: "RecetaUsuario" });
-
-Restaurante.hasMany(Receta); // Un restaurante puede tener muchas recetas
-Receta.belongsTo(Restaurante); // Un receta pertences a un solo restaurante
-
-Usuario.belongsToMany(TipoCocina, { through: "UsuarioCocina" }); // Un usuario puede tener varios tipos cocina
-TipoCocina.belongsToMany(Usuario, { through: "UsuarioCocina" }); // Un tipo de cocina lo pueden tener varios usuarios
-=======
 Receta.belongsToMany(Usuario, { through: 'RecetaUsuario' });
 Usuario.belongsToMany(Receta, { through: 'RecetaUsuario' });
 
@@ -321,7 +223,6 @@ Receta.belongsTo(Restaurante) // Un receta pertences a un solo restaurante
 
 Usuario.belongsToMany(TipoCocina, { through: 'UsuarioCocina' }); // Un usuario puede tener varios tipos cocina
 TipoCocina.belongsToMany(Usuario, { through: 'UsuarioCocina' }); // Un tipo de cocina lo pueden tener varios usuarios
->>>>>>> origin/hannibal
 
 Receta.belongsTo(TipoCocina); // Una receta tiene un unico tipo de cocina
 TipoCocina.hasMany(Receta); // Un tipo de cocina pertence a varias recetas
@@ -341,43 +242,6 @@ Restaurante.hasMany(Promo); // Un restaurante puede tener varias promos
 Procedimiento.belongsTo(Receta); // Un procedimineto tiene una unica receta
 Receta.hasMany(Procedimiento); // Un receta puede tener varios procedimiento
 
-<<<<<<< HEAD
-GrupoAlimento.belongsToMany(Usuario, { through: "UsuarioAlimento" }); // Un grupo de alimento puede estar en muchos usuarios
-Usuario.belongsToMany(GrupoAlimento, { through: "UsuarioAlimento" }); // Un usuario puede tener muchos grupos de alimentos
-
-
-
-
-//console.log(cocinas_añadidas);
-
-// connectem a base de dades
-async function iniDB() {
-    await sequelize.sync({ force: true });
-    
-const cocinas = require("./data/tipococina.json");
-
-const cocinas_añadidas =  TipoCocina.bulkCreate(cocinas);
-
-const grupos = require("./data/grupo_alimentos.json");
-const grupos_añadidos = GrupoAlimento.bulkCreate( grupos, { transaction });
-
-  }
-  
-iniDB();
-  
-//Exportem els models
-module.exports = {
-  Receta,
-  Usuario,
-  Restaurante,
-  Receta_Ingrediente,
-  Ingrediente,
-  Promo,
-  Procedimiento,
-  GrupoAlimento,
-  TipoCocina,
-  sequelize, // Per si vols utilitzar la instància de Sequelize per a altres operacions
-=======
 GrupoAlimento.belongsToMany(Usuario, { through: 'UsuarioAlimento' }) // Un grupo de alimento puede estar en muchos usuarios
 Usuario.belongsToMany(GrupoAlimento, { through: 'UsuarioAlimento' }) // Un usuario puede tener muchos grupos de alimentos
 
@@ -412,5 +276,4 @@ module.exports = {
     GrupoAlimento,
     TipoCocina,
     sequelize, // Per si vols utilitzar la instància de Sequelize per a altres operacions
->>>>>>> origin/hannibal
 };
