@@ -7,12 +7,8 @@ export function ThemeProvider({ children }) {
 
     const [userType, setUserType] = useState(false)
 
-    const handleTheme = () => {
-        setUserType(!userType)
-    }
-
     return (
-        <ThemeContext.Provider value={{ userType, handleTheme }}>
+        <ThemeContext.Provider value={{ userType, setUserType }}>
             {children}
         </ThemeContext.Provider>
     )
