@@ -18,6 +18,7 @@ const {
 } = require('./models'); // Importa els models de dades
 
 const {
+  updateRestItem,
   createItem,
   updateItem,
   deleteItem,
@@ -168,28 +169,58 @@ router.post('/loginRest', async (req, res) => {
 
 //RECETAS
 
-router.get('/home/restId/recipes/:id', async (req, res) => await readItems(req, res, Receta)); // Llegeix tots els restaurants
+router.get('/home/:restId/recipes/:id', async (req, res) => await readItems(req, res, Receta)); // Llegeix tots els restaurants
 router.get('/recipes/:id', async (req, res) => await readItem(req, res, Receta)); // Llegeix un recipes específic
-router.put('/home/:restId/recipes/:id', async (req, res) => await updateItem(req, res, Receta)); // Actualitza un recipes
+router.put('/home/:restId/recipes/:id', async (req, res) => {
+ try{
+  const restaurantId = req.params.restId
+  const recipesId = req.params.restId
+  await updateRestItem(req, res, Receta, restaurantId, recipesId)}
+  catch(error) {
+    return res.status(404).json({ error: 'Tipo de cocina no encontrado' });
+  }
+}); // Actualitza un recipes
 router.delete('/recipes/:id', async (req, res) => await deleteItem(req, res, Receta)); // Elimina un recipes
 
 ///CREAR RECETA
 router.post('/home/:restId/registerReceta', async (req, res) => {
   try {
+    const { nombre_receta, desc_receta, TipoCocinaId, procedimientos, personas, tiempo, dificultad, tipo} = req.body;
     const { nombre_receta, desc_receta, TipoCocinaId, procedimientos } = req.body;
     const restauranteId = req.params.restId;
     
     // Verifica que todos los campos requeridos estén presentes en la solicitud
     if (!nombre_receta || !desc_receta || !TipoCocinaId || !procedimientos || procedimientos.length === 0) {
       return res.status(400).json({ error: 'Nombre, descripción, TipoCocinaId y al menos un procedimiento son requeridos' });
+    
+    // Verifica que todos los campos requeridos estén presentes en la solicitud
+    if (!nombre_receta || !desc_receta || !TipoCocinaId || !procedimientos || procedimientos.length === 0) {
+      return res.status(400).json({ error: 'Nombre, descripción, TipoCocinaId y al menos un procedimiento son requeridos' });
     }
+    
     
     const tipoCocina = await TipoCocina.findByPk(TipoCocinaId);
     if (!tipoCocina) {
       return res.status(404).json({ error: 'Tipo de cocina no encontrado' });
     }
 
+
     // Crea la receta con los datos proporcionados
+    const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId, RestauranteId: restauranteId, personas, tiempo, dificultad, tipo});
+
+    // Crea los procedimientos asociados a la receta
+    const procedimientosCreados = [];
+    for (const procedimiento of procedimientos) {
+      const nuevoProcedimiento = await Procedimiento.create({
+        numero_procedimiento: procedimiento.numero_procedimiento,
+        desc_procedimiento: procedimiento.desc_procedimiento,
+        foto_procedimiento: procedimiento.foto_procedimiento,
+        RecetumId: receta.id // Asociar el procedimiento con la receta recién creada
+      });
+      procedimientosCreados.push(nuevoProcedimiento);
+    }
+    
+    // Devuelve la receta junto con los procedimientos creados
     const receta = await Receta.create({ nombre_receta, desc_receta, TipoCocinaId, RestauranteId: restauranteId });
 
     // Crea los procedimientos asociados a la receta
@@ -206,6 +237,14 @@ router.post('/home/:restId/registerReceta', async (req, res) => {
     
     // Devuelve la receta junto con los procedimientos creados
     res.status(201).json({
+      receta: {
+        id: receta.id,
+        nombre_receta: receta.nombre_receta,
+        desc_receta: receta.desc_receta,
+        TipoCocinaId: receta.TipoCocinaId,
+        RestauranteId: restauranteId
+      },
+      procedimientos: procedimientosCreados
       receta: {
         id: receta.id,
         nombre_receta: receta.nombre_receta,
