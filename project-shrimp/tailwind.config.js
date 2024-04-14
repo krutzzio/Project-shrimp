@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const { nextui } = require("@nextui-org/react");
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 
 export default {
@@ -9,7 +10,11 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        jomhuria: ['"Jomhuria"', ...defaultTheme.fontFamily.sans]
+      }
+    },
   },
   darkMode: "class",
   plugins: [nextui({
@@ -30,7 +35,7 @@ export default {
             700: "#FCADF9",
             800: "#FDD5F9",
             900: "#FEECFE",
-            DEFAULT: "#9CB53F",
+            DEFAULT: "#FE7139",
             foreground: "#ffffff",
           },
           focus: "#F182F6",
