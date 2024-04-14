@@ -84,6 +84,26 @@ const createItem = async (req,res,Model) => {
     }
   }
   
+
+  const updateRestItem = async (req, res, Model, restauranteId, recetaId) => {
+    try {
+      const item = await Model.findByPk(recetaId);
+      if (!item) {
+        return res.status(404).json({ error: 'Receta not found' });
+      }
+  
+      // Verificar si la receta pertenece al restaurante
+      if (item.RestauranteId !== restauranteId) {
+        return res.status(403).json({ error: 'Receta does not belong to this restaurante' });
+      }
+  
+      await item.update(req.body);
+      res.json(item);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
   const deleteItemForUser = async (req,res,Model) => {
     try {
       if (!req.userId) {
@@ -102,6 +122,7 @@ const createItem = async (req,res,Model) => {
   
   
   module.exports = {
+    updateRestItem,
     createItem,
     updateItem,
     deleteItem,
