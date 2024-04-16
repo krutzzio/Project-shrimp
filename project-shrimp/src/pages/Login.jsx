@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
 import shape1 from '../assets/shapes/shape1.svg'
 import shape2 from '../assets/shapes/shape2.svg'
@@ -13,29 +14,29 @@ export default function Login() {
 
 
     return (
-        <div className={`overflow-hidden relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <main className='h-[90dvh] relative z-10 flex flex-col justify-start items-center'>
-                <header className='flex pt-16 pb-10 items-center'>
-                    <Image
-                        width={40}
-                        src={logo}
-                        alt='Gamba Logo' />
-                    <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
-                </header>
-                <main className='w-8/12 flex flex-col gap-10 items-center justify-start'>
-                    <section className=''>
-                        <h3 className='text-center mb-1'>¿Quién eres?</h3>
-                        <SwitchUser />
-                    </section>
-                    <section className='w-full'>
-                        <LogForm userType={userType} />
-                    </section>
-                </main>
+        <div className={`overflow-hidden flex flex-col items-center justify-between relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
+            <header className='flex pt-8 items-center'>
+                <Image
+                    width={40}
+                    src={logo}
+                    alt='Gamba Logo' />
+                <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
+            </header>
+
+            <main className='w-8/12 h-3/6 flex flex-col gap-10 items-center justify-start'>
+                <section className='flex flex-col items-center gap-2'>
+                    <h3 className=''>¿Quién eres?</h3>
+                    <SwitchUser />
+                </section>
+                <section className='w-full'>
+                    <LogForm userType={userType} />
+                </section>
             </main>
             <footer className='h-[10dvh] pb-4 flex items-end justify-center z-10 relative'>
-                <h1 className='text-black font-medium'>¿Nuevo en Gamba? <span className='text-primary font-semibold'>Regístrate</span></h1>
+                <NavLink to={"/register"} className='text-black font-medium'>¿Nuevo en Gamba? <span className='text-primary font-semibold'>Regístrate</span></NavLink>
             </footer>
-            <article className={`absolute z-0 -top-[12rem] rotate-[40deg] right-[10rem]`}>
+
+            <article className={`absolute z-0 top-[-14rem] left-[-17rem] rotate-[20deg]`}>
                 <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
 
