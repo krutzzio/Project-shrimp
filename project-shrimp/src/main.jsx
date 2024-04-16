@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* Podem fer un context per pasar el tema de (fosc a clar) */}
     <NextUIProvider>
       <ThemeProvider>
-        <main className="h-dvh">
+        <main className="min-h-dvh h-screen">
           <RouterProvider router={router} />
         </main>
       </ThemeProvider>

@@ -2,7 +2,7 @@ import { Button } from "@nextui-org/react"
 import "./forms.css"
 import { useState } from "react"
 
-export default function LogForm({ userType }) {
+export default function LogForm() {
     const [logging, setLogging] = useState(false)
     return (
         <div className="w-full flex flex-col gap-8">

@@ -1,26 +1,30 @@
 import { Button } from "@nextui-org/react"
-import "./forms.css"
+import "../forms.css"
 import { useState } from "react"
 
-export default function RegisterForm({ userType }) {
+export default function RegisterClientForm() {
     const [logging, setLogging] = useState(false)
     return (
         <div className="w-full flex flex-col gap-8">
             <article className="flex flex-col justify-start">
-                <label className="w-fit text-xs font-semibold" htmlFor="correo">Nombre</label>
-                <input type="email" id="correo" name="correo" />
+                <label className="w-fit text-xs font-semibold" htmlFor="name">Nombre</label>
+                <input type="text" id="name" name="name" />
             </article>
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
                 <input type="email" id="correo" name="correo" />
             </article>
             <article className="flex flex-col justify-start">
-                <label className="w-fit text-xs font-semibold" htmlFor="correo">Contraseña</label>
-                <input type="email" id="correo" name="correo" />
+                <label className="w-fit text-xs font-semibold" htmlFor="cp">Codigo Postal</label>
+                <input type="number" max={5} id="cp" name="cp" />
             </article>
             <article className="flex flex-col justify-start">
-                <label className="w-fit text-xs font-semibold" htmlFor="password">Confirma la contraseña</label>
+                <label className="w-fit text-xs font-semibold" htmlFor="password">Contraseña</label>
                 <input type="password" id="password" name="password" />
+            </article>
+            <article className="flex flex-col justify-start">
+                <label className="w-fit text-xs font-semibold" htmlFor="confirmedPassword">Confirma la contraseña</label>
+                <input type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
             <article className="py-8">
                 {

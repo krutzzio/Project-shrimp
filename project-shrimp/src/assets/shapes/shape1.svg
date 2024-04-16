@@ -1,8 +1,6 @@
-<!--?xml version="1.0" standalone="no"?-->
 <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-
     <path fill="#FED339"
         d="M16.3,-25.1C18.8,-23.9,16.7,-15.3,20.4,-8.8C24.1,-2.4,33.6,1.9,35.4,6.7C37.2,11.5,31.4,16.9,25,18.3C18.5,19.7,11.4,17.2,5.1,20.4C-1.2,23.6,-6.7,32.6,-12.2,34.3C-17.7,36,-23.2,30.4,-24.5,24C-25.7,17.5,-22.8,10.2,-23.9,3.3C-25,-3.5,-30.2,-9.8,-29.8,-14.8C-29.4,-19.7,-23.3,-23.2,-17.4,-22.9C-11.5,-22.6,-5.7,-18.5,0.6,-19.4C7,-20.4,13.9,-26.4,16.3,-25.1Z"
-        width="100%" height="100%" transform="translate(50 50)" stroke-width="0"
-        style="transition: all 0.3s ease 0s;"></path>
+        width="100%" height="100%" transform="translate(50 50)" strokeWidth="0"
+        style="transition: all 0.3s ease 0s"></path>
 </svg>

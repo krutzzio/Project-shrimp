@@ -23,7 +23,7 @@ export default function Login() {
                 <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
             </header>
 
-            <main className='w-8/12 h-3/6 flex flex-col gap-10 items-center justify-start'>
+            <main className='w-9/12 h-3/6 flex flex-col gap-10 items-center justify-start'>
                 <section className='flex flex-col items-center gap-2'>
                     <h3 className=''>¿Quién eres?</h3>
                     <SwitchUser />
@@ -32,19 +32,17 @@ export default function Login() {
                     <LogForm userType={userType} />
                 </section>
             </main>
-            <footer className='h-[10dvh] pb-4 flex items-end justify-center z-10 relative'>
-                <NavLink to={"/register"} className='text-black font-medium'>¿Nuevo en Gamba? <span className='text-primary font-semibold'>Regístrate</span></NavLink>
+            <footer className='mb-12 flex items-end justify-center z-10 relative'>
+                <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
             </footer>
 
             <article className={`absolute z-0 top-[-14rem] left-[-17rem] rotate-[20deg]`}>
                 <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
 
-            <article className={`absolute z-0  ${userType ? `rotate-[46deg] -bottom-[34.5rem] -left-[12rem]` : `rotate-[-43deg] -bottom-[33.8rem] -left-[12rem]`} transition-all`}>
+            <article className={`absolute z-0  ${userType ? `rotate-[46deg] bottom-[-30rem] left-[-10rem]` : `rotate-[-43deg] bottom-[-30rem] left-[-12rem]`} transition-all`}>
                 <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
             </article>
-
-
         </div >
     )
 }
