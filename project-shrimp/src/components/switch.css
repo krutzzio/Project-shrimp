@@ -1,0 +1,52 @@
+.toggle {
+  background: #efefef;
+  height: 30px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  padding: 0 .35rem;
+  gap: 1rem;
+  width: fit-content;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+  cursor: pointer;
+}
+
+.selector {
+  height: 1.4rem;
+  width: 108px;
+  border-radius: 30px;
+  position: absolute;
+  top: 3.75px;
+  left: 4px;
+  z-index: 1;
+  transition: left 0.25s ease-in-out;
+}
+
+.client,
+.restaurant {
+  transition: all 400ms;
+}
+
+.client:checked~.selector {
+  left: 4px;
+}
+
+.restaurant:checked~.selector {
+  left: 115.2px;
+}
