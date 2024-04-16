@@ -7,24 +7,24 @@ const coci = [[
     "Americana",
     "Britanica",
     "China",
-    "Croacia",
+    "Croata",
     "Alemana",
     "Egicia",
-    "Filipino",
-    "Frances",
-    "Grega",
-    "Indiana",
+    "Filipina",
+    "Francesa",
+    "Griega",
+    "India",
     "Italiana",
     "Jamaicana",
     "Japonesa",
     "Malaysiana",
     "Mexicana",
-    "Moroccan",
+    "Marroqui",
     "Portuguesa",
     "Rusa",
     "Española",
-    "Thailandes",
-    "Indonesiana",
+    "Thailandesa",
+    "Indonesia",
     "Otros"
 ]
 ]
@@ -68,6 +68,10 @@ const Usuario = sequelize.define("Usuario", {
         type: DataTypes.ENUM('vegana','vegetariana','sin gluten','otra'),
         allowNull: false,
     },
+    foto_perfil: {
+        type: DataTypes.STRING, // Tipo de datos para almacenar la URL de la imagen
+        allowNull: true, // Permitir que el campo sea nulo
+    }
 });
 
 // Model per a la taula Issues
@@ -109,6 +113,10 @@ const Restaurante = sequelize.define("Restaurante", {
         type: DataTypes.ENUM(coci),
         allowNull: false,
     },
+    foto_restaurante: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
 });
 
 // Model per a la taula Receta
@@ -134,8 +142,12 @@ const Receta = sequelize.define("Receta", {
         allowNull: false,
     },
     tipo: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM('postre','primero','segundo','entrante'),
         allowNull: false,
+    },
+    foto_receta: {
+        type: DataTypes.STRING,
+        allowNull: true,
     },
 });
 
@@ -278,7 +290,8 @@ async function iniDB() {
     
 }
 
-iniDB();
+    // iniDB();
+
 
 
 //Exportem els models

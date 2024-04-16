@@ -1,20 +1,39 @@
-import { Card, Image } from "@nextui-org/react";
+import { useState, useEffect } from 'react';
 
-export default function App() {
+function UserProfile() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/api/users/1');
+        if (!response.ok) {
+          console.log(response)
+          throw new Error('Error al obtener el usuario');
+        }
+        const userData = await response.json();
+        setUser(userData);
+      } catch (error) {
+        console.error('Error al obtener el usuario:', error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
-    <div className="h-full flex justify-center items-center">
-      <Card className="max-w-[400px] p-4 items-center ">
-        <Image
-          alt="nextui logo"
-          height={100}
-          radius="sm"
-          src="https://static.vecteezy.com/system/resources/previews/025/722/189/original/prawn-icon-logo-isolated-on-white-background-vector.jpg"
-          width={100}
-        />
-        <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
-        <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
-      </Card>
+    <div>
+      {user && (
+        <div>
+          <h2>Perfil de Usuario</h2>
+          <p>Nombre: {user.nombre}</p>
+          <p>Apellidos: {user.apellidos}</p>
+          <p>Correo: {user.correo}</p>
+          <img src={`http://localhost:3000/api/${user.foto_perfil}`} alt="Foto de perfil" />
+        </div>
+      )}
     </div>
-
   );
 }
+
+export default UserProfile;

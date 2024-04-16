@@ -16,14 +16,15 @@ if (!fs.existsSync(uploadDirectory)) {
 // Middlewares
 // permet llegir contingut json en posts
 app.use(express.json());
+
 app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 // cors necessari quan api/front son a servidors diferents
 // permet llegir les cookies
 app.use(cookieParser());
 
 // Routes
+app.use('/uploads', express.static(uploadDirectory));
 app.use('/api', routes);
-
 // iniciem servidor
 const PORT = 3000;
 app.listen(PORT, () => {
