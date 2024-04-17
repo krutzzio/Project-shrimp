@@ -1,17 +1,40 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
+
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import { NextUIProvider } from "@nextui-org/react";
+import Register from './pages/Register.jsx';
+import Login from './pages/Login.jsx';
+import { ThemeProvider } from './contexts/ThemeContext.jsx';
+import LandingPage from './pages/LandingPage.jsx';
+import CreateProfile from './pages/CreateProfile.jsx';
 import Perfil_cliente from "./components/Perfil_cliente.jsx";
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
 import Recetas_vista from "./components/Recetas_vista.jsx";
 
 const router = createBrowserRouter([
   {
+    path: '/',
+    element: <LandingPage />
+  },
+  {
+    path: '/register',
+    element: <Register />
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: "/create/:profileType",
+    element: <CreateProfile />
+  }, {
     path: "/Recetas_vista",
     element: <Recetas_vista />,
   },
@@ -31,19 +54,18 @@ const router = createBrowserRouter([
     path: "/Recetas_guardadas",
     element: <Recetas_guardadas />,
   },
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
+])
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
     {/* Podem fer un context per pasar el tema de (fosc a clar) */}
     <NextUIProvider>
-      <main className="h-screen light text-foreground bg-background">
-      <RouterProvider router={router} />
-      </main>
+      <ThemeProvider>
+        <main className="h-dvh client-theme">
+          <RouterProvider router={router} />
+        </main>
+      </ThemeProvider>
     </NextUIProvider>
-  </React.StrictMode>
-);
+  </>,
+)
