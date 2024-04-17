@@ -1,10 +1,9 @@
 import { useContext } from "react";
-import logo from "../assets/logo.svg";
+import logoGamba from "../assets/logo/logoGamba_logoBlanco.svg";
 import shape1 from "../assets/shapes/shape1.svg";
 import shape2 from "../assets/shapes/shape2.svg";
 import landing1 from "../assets/illustrations/landing1.svg";
 import { Button } from "@nextui-org/react";
-import { Image } from "@nextui-org/react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import { Link } from "react-router-dom";
 
@@ -17,11 +16,8 @@ export default function LandingPage() {
         userType ? `restaurant-theme` : `client-theme`
       } bg-primary transition-colors`}
     >
-      <header className="relative z-10 flex p-8 items-center justify-between ">
-        <article className="flex items-center">
-          <Image className="mb-2" width={35} src={logo} alt="Gamba Logo" />
-          <h1 className="h-fit tracking-wide text-6xl font-jomhuria">Gamba</h1>
-        </article>
+      <header className="relative z-10 flex p-4 items-center justify-between ">
+        <img className="w-32" src={logoGamba} alt="Gamba Logo" />
         <Button color="primary" className="shadow-xl content-end font-bold">
           <Link to={"/login"}>Log in</Link>
         </Button>

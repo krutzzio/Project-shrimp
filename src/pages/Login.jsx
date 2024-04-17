@@ -1,8 +1,7 @@
 import { useContext } from 'react'
-import logo from '../assets/logo.svg'
+import logoGamba from "../assets/logo/logoGamba_logoBlanco.svg";
 import shape1 from '../assets/shapes/shape1.svg'
 import shape2 from '../assets/shapes/shape2.svg'
-import { Image } from "@nextui-org/react"
 import SwitchUser from '../components/SwitchUser'
 import { ThemeContext } from '../contexts/ThemeContext'
 import LogForm from '../components/forms/LogForm'
@@ -16,11 +15,10 @@ export default function Login() {
         <div className={`overflow-hidden relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
             <main className='h-[90dvh] relative z-10 flex flex-col justify-start items-center'>
                 <header className='flex pt-16 pb-10 items-center'>
-                    <Image
-                        width={40}
-                        src={logo}
+                    <img
+                        className="w-40"
+                        src={logoGamba}
                         alt='Gamba Logo' />
-                    <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
                 </header>
                 <main className='w-8/12 flex flex-col gap-10 items-center justify-start'>
                     <section className=''>
