@@ -14,7 +14,7 @@ export default function Register() {
     const { userType } = useContext(ThemeContext)
 
     return (
-        <div className={`h-full flex flex-col justify-between items-center overflow-auto relative text-white ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
+        <div className={`h-full flex flex-col justify-between items-center overflow-hidden relative text-white ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
             <header className='flex pt-8 pb-10 items-center'>
                 <Image
                     width={40}
@@ -34,7 +34,7 @@ export default function Register() {
                                 tus recetas y consigue descuentos.</p>
                     }
                 </section>
-                <section className='w-full'>
+                <section className='w-full relative z-10'>
                     {
                         userType
                             ? <RegisterRestaurantForm />
@@ -42,20 +42,15 @@ export default function Register() {
                     }
                 </section>
             </main>
-
-            <footer className='h-[20dvh] w-full pt-20 flex items-center justify-center z-10 relative overflow-hidden'>
-                <h1 className='text-black relative z-10 font-medium'>¿Ya estas registrado? <NavLink to={"/login"} className='text-primary font-semibold'>Entra</NavLink></h1>
-                <article className={`absolute z-0 bottom-[-35rem] left-[-10rem] ${userType ? `rotate-[46deg]` : `rotate-[-43deg]`} transition-all`}>
-                    <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
-                </article>
+            <footer className='mb-6 w-full flex items-end justify-center  overflow-hidden'>
+                <h1 className='text-black z-10 relative font-medium'>¿Ya estas registrado? <NavLink to={"/login"} className='text-primary font-semibold'>Entra</NavLink></h1>
             </footer>
-            <article className={`absolute z-0 top-[-14rem] left-[-17rem] rotate-[20deg]`}>
-                <img src={shape1} className='max-w-[30rem] w-[30rem]' alt="" />
+            <article className={`absolute z-0 top-[-19rem] left-[-15rem] rotate-[50deg]`}>
+                <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
-
-
-
-
+            <article className={`absolute z-0  ${userType ? `bottom-[-33rem] left-[-10rem] rotate-[66deg]` : `bottom-[-33.5rem] left-[-10rem] rotate-[-53deg]`} transition-all`}>
+                <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
+            </article>
         </div >
     )
 }
