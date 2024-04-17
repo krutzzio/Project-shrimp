@@ -14,6 +14,7 @@ import LandingPage from './pages/LandingPage.jsx';
 
 const router = createBrowserRouter([
   {
+
     path: '/register',
     element: <Register />
   },
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <LandingPage />
   },
+
 ])
 
 
