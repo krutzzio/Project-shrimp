@@ -85,11 +85,34 @@ router.get(
   checkToken,
   async (req, res) => await readItems(req, res, Usuario)
 ); // Llegeix tots els usuaris
-router.get(
-  "/users/:id",
-  checkToken,
-  async (req, res) => await readItem(req, res, Usuario)
-); // Llegeix un usuari específic
+// router.get(
+//   "/users/:id",
+//   checkToken,
+//   async (req, res) => await readItem(req, res, Usuario)
+// ); // Llegeix un usuari específic
+
+router.get("/users/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await Usuario.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Comprueba si el usuario tiene una imagen de perfil
+
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+
+
+
+
 router.put(
   "/users/:id",
   checkToken,
@@ -140,7 +163,8 @@ router.post("/registerUser", upload.single("photo"), async (req, res) => {
       dieta,
     } = req.body; // Obté el nom, email i contrasenya de la petició
 
-    const foto_perfil = req.file ? req.file.path : null; // Obtiene la ruta del archivo subido
+    const baseUrl = 'http://localhost:3000/api/uploads/'
+    const foto_perfil = req.file ? baseUrl + req.file.filename : null; // Obtiene la ruta del archivo subido
 
     if (!nombre || !apellidos || !correo || !password || !localizacion) {
       return res
@@ -370,7 +394,7 @@ router.delete(
 /* ----------------------------- CREAR RECETA ---------------------------- */
 router.post(
   "/home/:restId/registerReceta",
-  checkToken,
+
   upload.single("photo"),
   async (req, res) => {
     try {
@@ -477,4 +501,15 @@ router.post(
   }
 );
 
+
+
+
+
+router.get('/uploads/:fileName', (req, res) => {
+  const fileName = req.params.fileName;
+  const filePath = path.join(__dirname, 'uploads', fileName);
+
+  // Envía el archivo al cliente
+  res.sendFile(filePath);
+});
 module.exports = router; // Exporta el router amb les rutes definides
