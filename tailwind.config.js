@@ -19,11 +19,15 @@ export default {
   darkMode: "class",
   plugins: [nextui({
     themes: {
+      light: {
+        colors: {
+          background: "#F2F2F2"
+          
+        }
+      },
       "client-theme": {
         extend: "light", // <- inherit default values from dark theme
         colors: {
-          background: "#0D001A",
-          foreground: "#ffffff",
           primary: {
             DEFAULT: "#FE7139",
             foreground: "#FED339",
@@ -34,10 +38,7 @@ export default {
       "restaurant-theme": {
         extend: "light", // <- inherit default values from dark theme
         colors: {
-          background: "#0D001A",
-          foreground: "#ffffff",
           primary: {
-
             DEFAULT: "#3964fe",
             foreground: "#FED339",
           },

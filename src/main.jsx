@@ -10,8 +10,13 @@ import Register from './pages/Register.jsx';
 import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
+import CreateProfile from './pages/CreateProfile.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LandingPage />
+  },
   {
     path: '/register',
     element: <Register />
@@ -21,12 +26,10 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/',
-    element: <LandingPage />
-  },
-
+    path: "/create/:profileType",
+    element: <CreateProfile />
+  }
 ])
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -34,7 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* Podem fer un context per pasar el tema de (fosc a clar) */}
     <NextUIProvider>
       <ThemeProvider>
-        <main className="h-dvh">
+        <main className="h-dvh client-theme">
           <RouterProvider router={router} />
         </main>
       </ThemeProvider>
