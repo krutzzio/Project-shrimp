@@ -37,6 +37,7 @@ export default {
           background: "#0D001A",
           foreground: "#ffffff",
           primary: {
+
             DEFAULT: "#3964fe",
             foreground: "#FED339",
           },

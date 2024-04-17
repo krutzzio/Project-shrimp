@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+
 import { NavLink } from "react-router-dom"
 import logo from '../assets/logo.svg'
 import shape1 from '../assets/shapes/shape1.svg'
@@ -14,6 +15,7 @@ export default function Login() {
 
 
     return (
+
         <div className={`overflow-hidden flex flex-col items-center justify-between relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
             <header className='flex pt-8 items-center'>
                 <Image
