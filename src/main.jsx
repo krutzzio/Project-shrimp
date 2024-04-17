@@ -10,8 +10,13 @@ import Register from './pages/Register.jsx';
 import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
+import CreateProfile from './pages/CreateProfile.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LandingPage />
+  },
   {
     path: '/register',
     element: <Register />
@@ -21,9 +26,9 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: '/',
-    element: <LandingPage />
-  },
+    path: "/create/:userType",
+    element: <CreateProfile />
+  }
 
 ])
 

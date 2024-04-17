@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react"
 import "../forms.css"
 import { useState } from "react"
+import { NavLink } from "react-router-dom"
 
 export default function RegisterRestaurantForm() {
     const [logging, setLogging] = useState(false)
@@ -23,11 +24,7 @@ export default function RegisterRestaurantForm() {
                 <input type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
             <article className="py-8">
-                {
-                    logging
-                        ? <Button isLoading className="w-full text-xl bg-black text-white font-semibold">Crear cuenta</Button>
-                        : <Button onClick={() => setLogging(true)} className="w-full text-xl bg-black text-white font-semibold">Crear cuenta</Button>
-                }
+                <Button className="w-full text-xl bg-black text-white font-semibold"><NavLink to={"/create/restaurant"} className="w-full" >Crear cuenta</NavLink></Button>
             </article>
         </div>
     )
