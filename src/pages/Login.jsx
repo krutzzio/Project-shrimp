@@ -15,7 +15,6 @@ export default function Login() {
 
 
     return (
-
         <div className={`overflow-hidden flex flex-col items-center justify-between relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
             <header className='flex pt-8 items-center'>
                 <Image
@@ -24,7 +23,6 @@ export default function Login() {
                     alt='Gamba Logo' />
                 <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
             </header>
-
             <main className='w-9/12 h-3/6 flex flex-col gap-10 items-center justify-start'>
                 <section className='flex flex-col items-center gap-2'>
                     <h3 className=''>¿Quién eres?</h3>
@@ -38,7 +36,7 @@ export default function Login() {
                 <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
             </footer>
 
-            <article className={`absolute z-0 top-[-14rem] left-[-17rem] rotate-[20deg]`}>
+            <article className={`absolute z-0 top-[-17rem] left-[-17rem] rotate-[50deg]`}>
                 <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
 
