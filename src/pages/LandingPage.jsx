@@ -22,7 +22,7 @@ export default function LandingPage() {
           <Image className="mb-2" width={35} src={logo} alt="Gamba Logo" />
           <h1 className="h-fit tracking-wide text-6xl font-jomhuria">Gamba</h1>
         </article>
-        <Button color="primary" className="shadow-xl content-end font-bold">
+        <Button color="primary" className="shadow-xl text-white content-end font-bold">
           <Link to={"/login"}>Log in</Link>
         </Button>
       </header>
