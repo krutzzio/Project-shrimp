@@ -34,7 +34,7 @@ export default function Register() {
                                 tus recetas y consigue descuentos.</p>
                     }
                 </section>
-                <section className='w-full'>
+                <section className='w-full relative z-10'>
                     {
                         userType
                             ? <RegisterRestaurantForm />
@@ -42,13 +42,13 @@ export default function Register() {
                     }
                 </section>
             </main>
-            <footer className='h-[20dvh] w-full  flex items-center justify-center  overflow-hidden'>
+            <footer className='mb-6 w-full flex items-end justify-center  overflow-hidden'>
                 <h1 className='text-black z-10 relative font-medium'>¿Ya estas registrado? <NavLink to={"/login"} className='text-primary font-semibold'>Entra</NavLink></h1>
             </footer>
             <article className={`absolute z-0 top-[-19rem] left-[-15rem] rotate-[50deg]`}>
                 <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
-            <article className={`absolute z-0  ${userType ? `bottom-[-34rem] left-[-10rem] rotate-[66deg]` : `bottom-[-32rem] left-[-10rem] rotate-[-53deg]`} transition-all`}>
+            <article className={`absolute z-0  ${userType ? `bottom-[-33rem] left-[-10rem] rotate-[66deg]` : `bottom-[-33.5rem] left-[-10rem] rotate-[-53deg]`} transition-all`}>
                 <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
             </article>
         </div >

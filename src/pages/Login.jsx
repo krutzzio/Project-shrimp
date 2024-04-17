@@ -28,7 +28,7 @@ export default function Login() {
                     <h3 className=''>¿Quién eres?</h3>
                     <SwitchUser />
                 </section>
-                <section className='w-full'>
+                <section className='w-full relative z-10'>
                     <LogForm userType={userType} />
                 </section>
             </main>
