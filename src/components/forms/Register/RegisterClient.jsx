@@ -1,9 +1,10 @@
 import { Button } from "@nextui-org/react"
 import "../forms.css"
 import { useState } from "react"
+import { NavLink } from "react-router-dom"
 
 export default function RegisterClientForm() {
-    const [logging, setLogging] = useState(false)
+
     return (
         <div className="w-full flex flex-col gap-6">
             <article className="flex flex-col justify-start">
@@ -27,11 +28,7 @@ export default function RegisterClientForm() {
                 <input type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
             <article className="py-2">
-                {
-                    logging
-                        ? <Button isLoading className="w-full text-xl bg-black text-white font-semibold">Crear cuenta</Button>
-                        : <Button onClick={() => setLogging(true)} className="w-full text-xl bg-black text-white font-semibold">Crear cuenta</Button>
-                }
+                <Button className="w-full text-xl bg-black text-white font-semibold"><NavLink to={"/create/client"} className="w-full" >Crear cuenta</NavLink></Button>
             </article>
         </div>
     )
