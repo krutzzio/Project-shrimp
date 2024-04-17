@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+shrimp-api
+project-shrimp
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
