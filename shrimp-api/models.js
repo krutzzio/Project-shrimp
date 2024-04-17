@@ -169,7 +169,9 @@ const Promo = sequelize.define("Promo", {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
+    
 });
+
 
 // Model per a la taula Receta
 const TipoCocina = sequelize.define("TipoCocina", {
@@ -220,7 +222,6 @@ Restaurante.beforeCreate(async (restaurant) => {
 });
 
 
-
 // Definim les relacions
 
 // Project.hasMany(Issue, { onDelete: 'CASCADE', hooks: true });  DE REFERNCIA PER SI ESTE QUE BORRAR ALGO EN CASCADA
@@ -250,10 +251,10 @@ Ingrediente.belongsTo(GrupoAlimento); // Un ingrediente tiene un unico grupo
 GrupoAlimento.hasMany(Ingrediente); // Un grupo pertence a varios ingredientes
 
 Promo.belongsTo(Usuario); // Una promo tiene un unico usuario
-Usuario.hasMany(Promo); // Un usuario puede tener varias promos
+Usuario.hasMany(Promo); // Un usuario puede tener varias
 
 Promo.belongsTo(Restaurante); // Una promo tiene un unico restaurante
-Restaurante.hasMany(Promo); // Un restaurante puede tener varias promos
+Restaurante.hasMany(Promo);
 
 Procedimiento.belongsTo(Receta); // Un procedimineto tiene una unica receta
 Receta.hasMany(Procedimiento); // Un receta puede tener varios procedimiento
@@ -261,17 +262,19 @@ Receta.hasMany(Procedimiento); // Un receta puede tener varios procedimiento
 GrupoAlimento.belongsToMany(Usuario, { through: 'UsuarioAlimento' }) // Un grupo de alimento puede estar en muchos usuarios
 Usuario.belongsToMany(GrupoAlimento, { through: 'UsuarioAlimento' }) // Un usuario puede tener muchos grupos de alimentos
 
+
+
 // connectem a base de dades
 async function iniDB() {
 
         await sequelize.sync({ force: true });
         
     const cocinas = require("./data/tipococina.json");
-
     const cocinas_añadidas =  TipoCocina.bulkCreate(cocinas);
     
     const grupos = require("./data/grupos_alimentos.json");
     const grupos_añadidos = GrupoAlimento.bulkCreate(grupos);
+    
     const ingredientes = require("./data/ingredientes.json");
     const ingredientes_añadidos = Ingrediente.bulkCreate(ingredientes);
     

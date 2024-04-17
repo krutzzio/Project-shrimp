@@ -1,19 +1,10 @@
 import { Card, Image } from "@nextui-org/react";
+import Perfil_cliente from "./components/Perfil_cliente";
 
 export default function App() {
   return (
     <div className="h-full flex justify-center items-center">
-      <Card className="max-w-[400px] p-4 items-center ">
-        <Image
-          alt="nextui logo"
-          height={100}
-          radius="sm"
-          src="https://static.vecteezy.com/system/resources/previews/025/722/189/original/prawn-icon-logo-isolated-on-white-background-vector.jpg"
-          width={100}
-        />
-        <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
-        <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
-      </Card>
+      <Perfil_cliente />
     </div>
 
   );

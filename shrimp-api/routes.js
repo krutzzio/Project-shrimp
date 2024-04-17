@@ -2,6 +2,7 @@ const express = require('express'); // Importa la llibreria Express per gestiona
 const router = express.Router(); // Crea un router d'Express
 const bcrypt = require('bcrypt'); // Importa la llibreria bcrypt per a encriptar contrasenyes
 const jwt = require('jsonwebtoken'); // Importa la llibreria jsonwebtoken per a generar i verificar JWT
+const models = require('./models'); // Importa els models de dades
 // const multer  = require('multer');
 // const fs = require('fs');
 // const path = require('path');
@@ -86,7 +87,7 @@ router.post('/loginUser', async (req, res) => {
 // Endpoint per registrar un usuari
 router.post('/registerUser', async (req, res) => {
   try {
-    const { nombre, apellidos, correo, password, localizacion, tipos_cocina, grupo_alimento } = req.body; // Obté el nom, email i contrasenya de la petició
+    const { nombre, apellidos, correo, password, localizacion, tipos_cocina, dieta } = req.body; // Obté el nom, email i contrasenya de la petició
     if (!nombre || !apellidos || !correo || !password || !localizacion) {
       return res.status(400).json({ error: 'Nombre, apellido, email, password y localización son requeridos' }); // Retorna error 400 si no es proporcionen el nom, email o contrasenya
     }
@@ -94,7 +95,7 @@ router.post('/registerUser', async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ error: 'Email ja existeix' }); // Retorna error 400 si l'email ja està registrat
     }
-    const user = await Usuario.create({ nombre, apellidos, correo, password, localizacion, tipos_cocina, grupo_alimento }); // Crea l'usuari amb les dades proporcionades
+    const user = await Usuario.create({ nombre, apellidos, correo, password, localizacion, tipos_cocina, dieta }); // Crea l'usuari amb les dades proporcionades
 
     res.status(201).json({id: user.id, nombre: user.nombre, apellidos: user.apellidos, email: user.email, localizacion: user.localizacion,}); // Retorna l'usuari creat amb el codi d'estat 201 (Creat)
   } catch (error) {
@@ -229,6 +230,81 @@ router.post('/home/:restId/registerReceta', async (req, res) => {
   }
 });
 
+/////////
+/////////
+/////////
+//PROMOSSSSS
+/////////
+/////////
+/////////
+
+const { Promo } = require('./models');
+
+// Obtener todas las promos
+router.get('/promos', async (req, res) => {
+  try {
+    const promos = await Promo.findAll();
+    res.json(promos);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al obtener las promos' }); 
+  }
+});
+
+// Obtener una promo por ID
+router.get('/promos/:id', async (req, res) => {
+  try { 
+    const promo = await Promo.findByPk(req.params.id);
+    if(!promo) {
+      return res.status(404).json({ message: 'Promo no encontrada' });
+    }
+    res.json(promo);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al obtener la promo' });
+  }
+});
+
+// Crear una nueva promo
+router.post('/promos', async (req, res) => {
+  try {
+    const promo = await Promo.create(req.body);
+    res.status(201).json(promo); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al crear la promo' });
+  }  
+});
+
+// Actualizar una promo
+router.put('/promos/:id', async (req, res) => {
+  try {
+    const promo = await Promo.findByPk(req.params.id);
+    if(!promo) {
+      return res.status(404).json({ message: 'Promo no encontrada' });
+    }
+    await promo.update(req.body);
+    res.json(promo);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al actualizar la promo' }); 
+  }
+});
+
+// Eliminar una promo
+router.delete('/promos/:id', async (req, res) => {
+  try {
+    const promo = await Promo.findByPk(req.params.id);
+    if(!promo) {
+      return res.status(404).json({ message: 'Promo no encontrada' });
+    }
+    await promo.destroy();
+    res.json({ message: 'Promo eliminada' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error al eliminar la promo' });
+  }
+});
 
 
 
