@@ -30,12 +30,13 @@ export default function Login() {
                         <LogForm userType={userType} />
                     </section>
                 </main>
+
             </main>
             <footer className='mb-12 flex items-end justify-center z-10 relative'>
                 <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
             </footer>
 
-            <article className={`absolute z-0 top-[-14rem] left-[-17rem] rotate-[20deg]`}>
+            <article className={`absolute z-0 top-[-17rem] left-[-17rem] rotate-[50deg]`}>
                 <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
             </article>
 
