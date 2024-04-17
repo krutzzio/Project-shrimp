@@ -22,7 +22,7 @@ export default {
       "client-theme": {
         extend: "light", // <- inherit default values from dark theme
         colors: {
-          background: "#0D001A",
+          background: "#F2F2F2",
           foreground: "#ffffff",
           primary: {
             DEFAULT: "#FE7139",
@@ -34,10 +34,9 @@ export default {
       "restaurant-theme": {
         extend: "light", // <- inherit default values from dark theme
         colors: {
-          background: "#0D001A",
+          background: "#F2F2F2",
           foreground: "#ffffff",
           primary: {
-
             DEFAULT: "#3964fe",
             foreground: "#FED339",
           },

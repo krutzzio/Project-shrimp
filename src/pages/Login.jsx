@@ -13,25 +13,24 @@ export default function Login() {
 
 
     return (
-        <div className={`overflow-hidden relative text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <main className='h-[90dvh] relative z-10 flex flex-col justify-start items-center'>
-                <header className='flex pt-16 pb-10 items-center'>
-                    <img
-                        className="w-40"
-                        src={logoGamba}
-                        alt='Gamba Logo' />
-                </header>
-                <main className='w-8/12 flex flex-col gap-10 items-center justify-start'>
-                    <section className=''>
-                        <h3 className='text-center mb-1'>¿Quién eres?</h3>
-                        <SwitchUser />
-                    </section>
-                    <section className='w-full'>
-                        <LogForm userType={userType} />
-                    </section>
-                </main>
+        <div className={`overflow-hidden relative flex flex-col items-center justify-between text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
+            <header className='pt-10 flex justify-center'>
+                <img
+                    className="w-44"
+                    src={logoGamba}
+                    alt='Gamba Logo' />
+            </header>
 
+            <main className='w-9/12 flex flex-col gap-10 items-center justify-center'>
+                <section className=''>
+                    <h3 className='text-center mb-1'>¿Quién eres?</h3>
+                    <SwitchUser />
+                </section>
+                <section className='w-full'>
+                    <LogForm userType={userType} />
+                </section>
             </main>
+
             <footer className='mb-12 flex items-end justify-center z-10 relative'>
                 <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
             </footer>

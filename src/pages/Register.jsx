@@ -1,9 +1,8 @@
 
 import { useContext } from 'react'
-import logo from '../assets/logo.svg'
 import shape1 from '../assets/shapes/shape1.svg'
 import shape2 from '../assets/shapes/shape2.svg'
-import { Image } from "@nextui-org/react"
+import logoGamba from '../assets/logo/logoGamba_logoBlanco.svg'
 import { ThemeContext } from '../contexts/ThemeContext'
 import RegisterRestaurantForm from '../components/forms/Register/RegisterRestaurant'
 import { NavLink } from 'react-router-dom'
@@ -15,12 +14,11 @@ export default function Register() {
 
     return (
         <div className={`h-full flex flex-col justify-between items-center overflow-hidden relative text-white ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <header className='flex pt-8 pb-10 items-center'>
-                <Image
-                    width={40}
-                    src={logo}
+            <header className='pt-10 flex justify-center'>
+                <img
+                    className="w-44"
+                    src={logoGamba}
                     alt='Gamba Logo' />
-                <h1 className='h-fit tracking-wide text-4xl font-semibold'>Gamba</h1>
             </header>
             <main className='w-10/12 flex flex-col gap-10 items-center justify-start'>
                 <section className='text-center'>

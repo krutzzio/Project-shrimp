@@ -26,12 +26,10 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/create/:userType",
+    path: "/create/:profileType",
     element: <CreateProfile />
   }
-
 ])
-
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -39,7 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* Podem fer un context per pasar el tema de (fosc a clar) */}
     <NextUIProvider>
       <ThemeProvider>
-        <main className="h-dvh">
+        <main className="h-dvh client-theme">
           <RouterProvider router={router} />
         </main>
       </ThemeProvider>
