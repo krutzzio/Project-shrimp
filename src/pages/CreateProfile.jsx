@@ -2,11 +2,18 @@ import { useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Avatar } from "@nextui-org/react"
+import { useState } from "react"
 
 
 export default function CreateProfile() {
 
   const { profileType } = useParams()
+
+  const [imgProfile, setImageProfile] = useState()
+
+  const handleChange = (event) => {
+    setImageProfile(URL.createObjectURL(event.target.files[0]))
+  }
 
   return (
     <div className={`bg-background h-full flex flex-col items-center justify-between relative overflow-hidden ${profileType}-theme`}>
@@ -31,7 +38,8 @@ export default function CreateProfile() {
         </header>
         <main>
           <h1>Añade un avatar</h1>
-          <Avatar />
+          <input type="file" onChange={handleChange} />
+          <img className="w-16 h-16 border-black" src={imgProfile} alt="" />
         </main>
       </main>
 
