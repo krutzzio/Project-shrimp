@@ -431,6 +431,7 @@ router.post(
               "Nombre, descripción, TipoCocinaId, al menos un procedimiento y al menos un ingrediente son requeridos",
           });
       }
+      // Mira si hay otra igual sengun el nombre de la receta en un mismo restaurante
       const existingReceta = await Receta.findOne({
         where: { nombre_receta, RestauranteId: restauranteId },
       });
@@ -447,7 +448,7 @@ router.post(
         return res.status(404).json({ error: "Tipo de cocina no encontrado" });
       }
 
-      // Crea la receta
+      // Crea receta
       const receta = await Receta.create({
         nombre_receta,
         desc_receta,
@@ -460,7 +461,7 @@ router.post(
         foto_receta,
       });
 
-      // Crea los procedimientos
+      // Crea procedimientos
       const procedimientosCreados = [];
       for (const procedimiento of procedimientos) {
         const nuevoProcedimiento = await Procedimiento.create({
@@ -471,8 +472,7 @@ router.post(
         });
         procedimientosCreados.push(nuevoProcedimiento);
       }
-
-      // Crea los ingredientes
+      // Crea ingredientes
       for (const ingrediente of ingredientes) {
         const { id, cantidad, medida } = ingrediente;
         const recetaIngrediente = await Receta_Ingrediente.create({
@@ -483,7 +483,7 @@ router.post(
         });
       }
 
-      // Devuelve la receta
+
       res.status(201).json({
         receta: {
           id: receta.id,
@@ -500,8 +500,6 @@ router.post(
     }
   }
 );
-
-
 
 
 

@@ -8,34 +8,38 @@ const RegistroRecetaForm = () => {
   const [dificultad, setDificultad] = useState("");
   const [tipo, setTipo] = useState("");
   const [persones, setPersones] = useState("");
+  const [photo, setPhotos] = useState("");
   const [procedimientos, setProcedimientos] = useState([]);
   const [ingredientes, setIngredientes] = useState([]);
   const [fotosProcedimiento, setFotosProcedimiento] = useState([]);
 
-  const agregarProcedimientoInput = () => {
+  const addProcedimiento = (e) => {
     setProcedimientos([
       ...procedimientos,
       {
         desc_procedimiento: "",
-        foto_procedimiento:'',
         numero_procedimiento: procedimientos.length + 1,
+        foto_procedimiento:""
 
       },
     ]);
   };
 
-  const agregarIngreIn = () => {
+  const addIngrediente = () => {
     setIngredientes([
       ...ingredientes,
       {
+        nombre:"",
         medida: "",
         cantidad: "",
+
       },
     ]);
   };
 
-  const handleRegistroReceta = (e) => {
+  const registroReceta = (e) => {
     e.preventDefault();
+
 
     const recetaData = {
       nombre_receta: nombreReceta,
@@ -46,8 +50,10 @@ const RegistroRecetaForm = () => {
       tipo: tipo,
       tiempo: tiempo,
       procedimientos: procedimientos,
-      ingredientes: ingredientes
+      ingredientes: ingredientes,
+      foto_receta: photo
     };
+    console.log(recetaData)
 
     const options = {
       method: "POST",
@@ -66,15 +72,23 @@ const RegistroRecetaForm = () => {
         console.error("Error al registrar receta:", error);
       });
   };
-  const handleCambiarDescProcedimiento = (index, value) => {
+
+  const DescProcedimiento = (index, value) => {
     const nuevosProcedimientos = [...procedimientos];
     nuevosProcedimientos[index].desc_procedimiento = value;
     setProcedimientos(nuevosProcedimientos);
   };
-  const cantiIngre = (index, value) => {
+  const CantiIngre = (index, value) => {
     const nuevosIngredientes = [...ingredientes];
     nuevosIngredientes[index].cantidad = value;
     setIngredientes(nuevosIngredientes);
+  };
+
+  const ImgProcedimiento = (index, file) => {
+    const nuevosImg = [...procedimientos];
+    nuevosImg[index].foto_procedimiento = file;
+    console.log(nuevosImg[index].foto_procedimiento)
+    setProcedimientos(nuevosImg);
   };
 
   const mediIngre = (index, value) => {
@@ -83,15 +97,21 @@ const RegistroRecetaForm = () => {
     setIngredientes(nuevosIngredientes);
   };
 
-  const handleCambiarFotoProcedimiento = (index, file) => {
-    const nuevasFotos = [...fotosProcedimiento];
-    nuevasFotos[index] = file;
-    setFotosProcedimiento(nuevasFotos);
-  };
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0]; // Obtiene el archivo de imagen seleccionado
+    const fileName = file.name; // Obtiene el nombre del archivo
+    const photoUrl = `http://localhost:3000/api/uploads/${fileName}`; // Construye la URL deseada
   
+    // Ahora puedes usar photoUrl según sea necesario, como guardarla en el estado
+    setPhotos(photoUrl);
+  };
+
+
+
+
 
   return (
-    <form onSubmit={handleRegistroReceta}>
+    <form onSubmit={registroReceta}>
       <div>
         <label htmlFor="nombreReceta">Nombre</label>
         <input
@@ -114,12 +134,13 @@ const RegistroRecetaForm = () => {
         />
       </div>
       <div>
-      <label htmlFor="tipoCocinaId">Imatge</label>
-      <input
-              type="file"
-              onChange={(e) => setTipoCocinaId(e.target.value)}
-            />
-          </div>
+        <label htmlFor="photo">Imatge</label>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handlePhotoUpload}
+        />
+      </div>
       <div>
         <label htmlFor="tiempo">Tiempo</label>
         <input onInput={(e) => setTiempo(e.target.value)} value={tiempo} />
@@ -148,7 +169,7 @@ const RegistroRecetaForm = () => {
               type="text"
               value={procedimiento.desc_procedimiento}
               onChange={(e) =>
-                handleCambiarDescProcedimiento(index, e.target.value)
+                DescProcedimiento(index, e.target.value)
               }
               placeholder="Descripción del paso"
             />
@@ -157,40 +178,47 @@ const RegistroRecetaForm = () => {
               // value={procedimiento.foto_procedimiento}
               accept="image/*"
               onChange={(e) =>
-                handleCambiarFotoProcedimiento(index, e.target.files[0])
+                ImgProcedimiento(index, e.target.files[0])
               }
               placeholder="URL de la imagen"
             />
           </div>
         ))}
-        <button type="button" onClick={agregarProcedimientoInput}>
+        <button type="button" onClick={addProcedimiento}>
           Agregar Procedimiento
         </button>
       </div>
       <h3>Ingredientes</h3>
       {ingredientes.map((ingrediente, index) => (
-          <div key={index}>
-            <label>Ingrediente{index + 1}:</label> {/* Hay que poner el nombre del ingrediente*/ }
-            <input
-              type="text"
-              value={ingrediente.cantidad}
-              onChange={(e) =>
-                cantiIngre(index, e.target.value)
-              }
-              placeholder="Descripción del paso"
-            />
-            <input
-              type="text"
-              value={ingrediente.medida}
-              onChange={(e) =>
-                mediIngre(index, e.target.value)
-              }
-            />
-          </div>
-        ))}
-        <button type="button" onClick={agregarIngreIn}>
-          Agregar Ingrediente
-        </button>
+        <div key={index}>
+          <label>Ingrediente{index + 1}:</label> {/* Hay que poner el nombre del ingrediente*/}
+          <input
+            type="text"
+            value={ingrediente.IngredienteId}
+            onChange={(e) => handleIngredientChange(index, e.target.value)}
+            placeholder="Nombre"
+          />
+          <input
+            type="text"
+            value={ingrediente.cantidad}
+            onChange={(e) =>
+              CantiIngre(index, e.target.value)
+            }
+            placeholder="Cantidad"
+          />
+          <input
+            type="text"
+            value={ingrediente.medida}
+            onChange={(e) =>
+              mediIngre(index, e.target.value)
+            }
+            placeholder="Medida"
+          />
+        </div>
+      ))}
+      <button type="button" onClick={addIngrediente}>
+        Agregar Ingrediente
+      </button>
       <button type="submit">Registrar Receta</button>
     </form>
   );
