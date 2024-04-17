@@ -16,15 +16,15 @@ export default function LandingPage() {
         userType ? `restaurant-theme` : `client-theme`
       } bg-primary transition-colors`}
     >
-      <header className="relative z-10 flex p-4 items-center justify-between ">
-        <img className="w-32" src={logoGamba} alt="Gamba Logo" />
+      <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
+        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
         <Button color="primary" className="shadow-xl content-end font-bold">
           <Link to={"/login"}>Log in</Link>
         </Button>
       </header>
 
-      <main className="relative z-10 flex justify-center">
-        <section className="flex flex-col items-center md:flex-row md:gap-4 md:max-w-xl lg:max-w-4xl">
+      <main className="relative z-10 flex justify-around">
+        <section className="flex flex-col items-center md:flex-row md:gap-4 md:max-w-xl lg:max-w-4xl xl:max-w-5xl">
           <img
             src={landing1}
             className="w-full h-96 md:h-auto md:w-1/2 md:hidden"
@@ -54,13 +54,15 @@ export default function LandingPage() {
 
       <footer className="h-[10dvh]"></footer>
 
+      {/* Mancha arriba derecha */}
       <article
-        className={`absolute z-0 top-[-14rem] rotate-[100deg] right-[-10rem]`}
+        className={`absolute z-0 top-[-17rem] rotate-[100deg] right-[-14rem] md:top-[-14rem] md:right-[-12rem]`}
       >
         <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
       </article>
 
-      <article className={`absolute z-0 rotate-[-20deg] bottom-[-30rem] right-[-26rem]`}>
+      {/* Mancha abajo derecha */}
+      <article className={`absolute z-0 rotate-[-20deg] bottom-[-36rem] right-[-26rem] md:right-[-22rem] md:bottom-[-26rem] lg:bottom-[-32rem] xl:bottom-[-26rem]`}>
         <img
           src={shape2}
           className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
@@ -68,7 +70,7 @@ export default function LandingPage() {
         />
       </article>
 
-      <article className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block`}>
+      <article className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block xl:bottom-[-26rem]`}>
         <img
           src={shape2}
           className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
