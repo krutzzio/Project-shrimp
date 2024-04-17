@@ -8,7 +8,7 @@ const RegistroRecetaForm = () => {
   const [dificultad, setDificultad] = useState("");
   const [tipo, setTipo] = useState("");
   const [persones, setPersones] = useState("");
-  const [photo, setPhotos] = useState("");
+  const [foto_receta, setFoto_Receta] = useState("");
   const [procedimientos, setProcedimientos] = useState([]);
   const [ingredientes, setIngredientes] = useState([]);
   const [fotosProcedimiento, setFotosProcedimiento] = useState([]);
@@ -51,7 +51,7 @@ const RegistroRecetaForm = () => {
       tiempo: tiempo,
       procedimientos: procedimientos,
       ingredientes: ingredientes,
-      foto_receta: photo
+      foto_receta: foto_receta
     };
     console.log(recetaData)
 
@@ -134,7 +134,7 @@ const RegistroRecetaForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="photo">Imatge</label>
+        <label htmlFor="foto_receta">Imatge</label>
         <input
           type="file"
           accept="image/*"
