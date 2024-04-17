@@ -14,7 +14,7 @@ export default function Register() {
 
     return (
         <div className={`h-full flex flex-col justify-between items-center overflow-hidden relative text-white ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <header className='pt-10 flex justify-center'>
+            <header className='pt-6 flex justify-center'>
                 <img
                     className="w-44"
                     src={logoGamba}

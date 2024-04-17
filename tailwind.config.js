@@ -21,10 +21,9 @@ export default {
   darkMode: "class",
   plugins: [nextui({
     themes: {
-      light: {
+      "light": {
         colors: {
           background: "#F2F2F2"
-          
         }
       },
       "client-theme": {
