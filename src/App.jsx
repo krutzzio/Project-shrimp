@@ -21,6 +21,7 @@ export default function App() {
           <h1 className="font-bold text-2xl mb-2">Project Shrimp</h1>
           <h4 className="">Raquel | Joel | Hannibal | Gerard</h4>
         </Card>
+        <NavLink to={"/landing"}>Landing</NavLink>
         <NavLink to={"/register"}>Register</NavLink>
         <NavLink to={"/login"}>Login</NavLink>
 

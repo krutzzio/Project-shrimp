@@ -10,12 +10,9 @@ import { NextUIProvider } from "@nextui-org/react";
 import Register from './pages/Register.jsx';
 import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
+import LandingPage from './pages/LandingPage.jsx';
 
 const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />
-  },
   {
     path: '/register',
     element: <Register />
@@ -23,7 +20,11 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
-  }
+  },
+  {
+    path: '/',
+    element: <LandingPage />
+  },
 ])
 
 
