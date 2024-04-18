@@ -1,47 +1,92 @@
-import { useContext } from 'react'
-import { NavLink } from "react-router-dom"
-import logoGamba from '../assets/logo/logoGamba_logoBlanco.svg'
-import shape1 from '../assets/shapes/shape1.svg'
-import shape2 from '../assets/shapes/shape2.svg'
-import SwitchUser from '../components/SwitchUser'
-import { ThemeContext } from '../contexts/ThemeContext'
-import LogForm from '../components/forms/LogForm'
+import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import logoGamba from "../assets/logo/logoGamba_logoBlanco.svg";
+import shape1 from "../assets/shapes/shape1.svg";
+import shape2 from "../assets/shapes/shape2.svg";
+import SwitchUser from "../components/SwitchUser";
+import { ThemeContext } from "../contexts/ThemeContext";
+import LogForm from "../components/forms/LogForm";
+import landing2 from "../assets/illustrations/landing2.svg";
 
 export default function Login() {
+  const { userType } = useContext(ThemeContext);
 
-    const { userType } = useContext(ThemeContext)
+  return (
+    <div
+      className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${
+        userType ? `restaurant-theme` : `client-theme`
+      } bg-primary transition-colors`}
+    >
+      <header className="relative z-10 flex p-4 justify-center lg:px-8">
+        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+      </header>
 
+      <main className="relative z-10 flex">
+        <section className="flex flex-col items-center justify-center md:flex-row md:gap-6 md:max-w-2xl lg:max-w-6xl xl:max-w-6xl">
 
-    return (
-        <div className={`overflow-hidden relative flex flex-col items-center justify-between text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <header className='pt-6 flex justify-center'>
-                <img
-                    className="w-44"
-                    src={logoGamba}
-                    alt='Gamba Logo' />
-            </header>
+            {/* Formulario Log in */}
+            <div className="flex flex-col gap-20">
 
-            <main className='w-10/12 flex flex-col gap-10 items-center justify-center'>
-                <section className=''>
-                    <h3 className='text-center mb-1'>¿Quién eres?</h3>
+                {/* Switch */}
+                <section className="flex flex-col justify-center items-center">
+                    <h3 className="text-center mb-1">¿Quién eres?</h3>
                     <SwitchUser />
                 </section>
-                <section className='w-full'>
+
+                {/* Formulario */}
+                <section className="">
                     <LogForm userType={userType} />
                 </section>
-            </main>
 
-            <footer className='mb-12 flex items-end justify-center z-10 relative'>
-                <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
-            </footer>
+                {/* Link registro */}
+                <section className="flex items-end justify-center z-10 relative">
+                    <h1 className="text-black font-medium">
+                    ¿Nuevo en Gamba?{" "}
+                    <NavLink
+                    to={"/register"}
+                    className="text-primary font-semibold"
+                    >
+                    Regístrate
+                    </NavLink>
+                </h1>
+                </section>
+            </div>
 
-            <article className={`absolute z-0 top-[-17rem] left-[-17rem] rotate-[50deg]`}>
-                <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
-            </article>
+          {/* Ilustración */}
+          <img
+            src={landing2}
+            className="hidden md:block md:h-auto md:w-9/12 "
+            alt="landing2"
+          />
+        </section>
+      </main>
 
-            <article className={`absolute z-0  ${userType ? `rotate-[46deg] bottom-[-30rem] left-[-10rem]` : `rotate-[-43deg] bottom-[-30rem] left-[-12rem]`} transition-all`}>
-                <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
-            </article>
-        </div >
-    )
+      <footer className="h-[10dvh]"></footer>
+
+      {/* Mancha arriba izquierda */}
+      <article
+        className={`absolute z-0 top-[-17rem] left-[-16rem] rotate-[50deg] md:left-[-10rem] lg:top-[-18rem] lg:left-[-12rem] xl:top-[-14rem]`}
+      >
+        <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
+      </article>
+
+      {/* Mancha arriba derecha */}
+      <article
+        className={`absolute z-0 rotate-[46deg] bottom-[26rem] left-[12rem] md:bottom-[-16rem] lg:left-[30rem] lg:bottom-[22rem] xl:left-[36rem] xl:bottom-[32rem]`}
+      >
+        <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
+      </article>
+
+      {/* Mancha abajo izquierda */}
+      <article
+        className={`absolute z-0  ${
+          userType
+            ? `rotate-[46deg] bottom-[-26rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+            : `rotate-[-43deg] bottom-[-26rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+        } transition-all`}
+      >
+        <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
+      </article>
+    </div>
+  );
 }
