@@ -4,8 +4,8 @@ import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
 
 const checkbox = tv({
     slots: {
-        base: "border-primary hover:bg-default",
-        content: "text-default-500"
+        base: "border-primary w-fit hover:bg-default",
+        content: "text-default-500 w-fit"
     },
     variants: {
         isSelected: {
@@ -30,9 +30,7 @@ export const CustomCheckboxTest = (props) => {
         getBaseProps,
         getLabelProps,
         getInputProps,
-    } = useCheckbox({
-        ...props
-    })
+    } = useCheckbox({ ...props })
 
     const styles = checkbox({ isSelected, isFocusVisible })
 
@@ -63,31 +61,22 @@ export default function CheckboxGroupTest() {
     const [groupSelected, setGroupSelected] = React.useState([]);
 
     return (
-        <div className="flex flex-col gap-1 w-full">
+        <div className="w-full">
             <CheckboxGroup
-                className="justify-center"
+                className=""
+                classNames={{
+                    wrapper: "grid grid-cols-2 content-center"
+                }}
                 orientation="horizontal"
                 value={groupSelected}
                 onChange={setGroupSelected}
             >
-                <CustomCheckboxTest value="wifi">Wifi</CustomCheckboxTest>
-                <CustomCheckboxTest value="tv">TV</CustomCheckboxTest>
-                <CustomCheckboxTest value="kitchen">Kitchen</CustomCheckboxTest>
-                <CustomCheckboxTest value="parking">Parking</CustomCheckboxTest>
-                <CustomCheckboxTest value="pool">Pool</CustomCheckboxTest>
-                <CustomCheckboxTest value="gym">Gym</CustomCheckboxTest>
-                <CustomCheckboxTest value="wifi">Wifi</CustomCheckboxTest>
-                <CustomCheckboxTest value="tv">TV</CustomCheckboxTest>
-                <CustomCheckboxTest value="kitchen">Kitchen</CustomCheckboxTest>
-                <CustomCheckboxTest value="parking">Parking</CustomCheckboxTest>
-                <CustomCheckboxTest value="pool">Pool</CustomCheckboxTest>
-                <CustomCheckboxTest value="gym">Gym</CustomCheckboxTest>
-                <CustomCheckboxTest value="wifi">Wifi</CustomCheckboxTest>
-                <CustomCheckboxTest value="tv">TV</CustomCheckboxTest>
-                <CustomCheckboxTest value="kitchen">Kitchen</CustomCheckboxTest>
-                <CustomCheckboxTest value="parking">Parking</CustomCheckboxTest>
-                <CustomCheckboxTest value="pool">Pool</CustomCheckboxTest>
-                <CustomCheckboxTest value="gym">Gym</CustomCheckboxTest>
+                <CustomCheckboxTest value="wifi">Gluten</CustomCheckboxTest>
+                <CustomCheckboxTest value="tv">Cacahuetes</CustomCheckboxTest>
+                <CustomCheckboxTest value="kitchen">Huevo</CustomCheckboxTest>
+                <CustomCheckboxTest value="parking">Soja</CustomCheckboxTest>
+                <CustomCheckboxTest value="pool">Pescado</CustomCheckboxTest>
+                <CustomCheckboxTest value="gym">Lacteos</CustomCheckboxTest>
             </CheckboxGroup>
         </div>
     );
