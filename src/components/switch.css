@@ -1,15 +1,31 @@
 .toggle {
-  background: #efefef;
-  height: 30px;
+  background: #f2f2f2;
+  height: 32px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
-  padding: 0 .35rem;
+  padding: 0.35rem;
+  gap: 1rem;
+  width: fit-content;
+}
+
+.toggleHome {
+  background: #FE7139;
+  height: 32px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  padding: 0.35rem;
   gap: 1rem;
   width: fit-content;
 }
@@ -28,12 +44,11 @@ label {
 }
 
 .selector {
-  height: 1.4rem;
+  height: 1.52rem;
   width: 108px;
   border-radius: 30px;
   position: absolute;
   top: 3.75px;
-  left: 4px;
   z-index: 1;
   transition: left 0.25s ease-in-out;
 }
@@ -43,10 +58,3 @@ label {
   transition: all 400ms;
 }
 
-.client:checked~.selector {
-  left: 4px;
-}
-
-.restaurant:checked~.selector {
-  left: 115.2px;
-}

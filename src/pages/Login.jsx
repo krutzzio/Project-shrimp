@@ -14,7 +14,7 @@ export default function Login() {
 
     return (
         <div className={`overflow-hidden relative flex flex-col items-center justify-between text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <header className='pt-10 flex justify-center'>
+            <header className='pt-6 flex justify-center'>
                 <img
                     className="w-44"
                     src={logoGamba}

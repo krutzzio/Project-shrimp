@@ -2,17 +2,18 @@ import { useContext } from "react"
 import "./switch.css"
 import { ThemeContext } from "../contexts/ThemeContext"
 
-export default function SwitchUser() {
+export default function SwitchHome() {
 
     const { userType, setUserType } = useContext(ThemeContext)
 
     return (
-        <div className="toggle ">
+        <div className="toggleHome">
             <input onClick={() => setUserType(false)} type="radio" name="toggle" value="Client" className="client" id="client" />
-            <label className={` ${userType ? `text-primary` : `text-white`}`} htmlFor="client">Cliente</label>
+            <label className={` ${userType ? `text-white` : `text-primary`}`} htmlFor="client">Recetas</label>
+
             <input onClick={() => setUserType(true)} type="radio" name="toggle" value="Restaurant" className="restaurant" id="restaurant" />
-            <label className={`${userType ? `text-white` : `text-primary`}`} htmlFor="restaurant">Restaurante</label>
-            <div className={`selector bg-primary ${userType ? `left-[115.2px]` : `left-[4px]`}`}>&nbsp;</div>
+            <label className={`${userType ? `text-primary` : `text-white`}`} htmlFor="restaurant">Restaurantes</label>
+            <div className={`selector bg-white ${userType ? `left-[115.2px]` : `left-[4px]`}`}>&nbsp;</div>
         </div>
     )
 }
