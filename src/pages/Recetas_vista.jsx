@@ -1,20 +1,20 @@
 import { Link } from 'react-router-dom';
 
 const Recetas_vista = () => {
-  fetch ('https://example.com/api/recipe')
+
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <header className="flex justify-between items-center mb-4">
+    <div className="max-w-2xl mx-auto p-4 ">
+      <header className="flex justify-between items-center mb-4 ">
         <Link to={`/`}>
         <img
-          className="h-12 mb-4"
+          className="h-12 mb-4 hover:opacity-75"
           src="src\assets\logo\logoGamba_logoNaranja.svg"
           alt="Logo"
         />
         </Link>
         <Link to={`/Perfil_cliente`}>
-        <img src="src\assets\Recetas\Icon_perfil.png" className="h-16 mb-4 rounded-full" alt="Perfil"/>
+        <img src="src\assets\Recetas\Icon_perfil.png" className="h-16 mb-4 rounded-full hover:opacity-75" alt="Perfil"/>
         </Link>
       </header>
 
@@ -57,10 +57,10 @@ const Recetas_vista = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="src\assets\Recetas\utensilios.png"
+                src="src\assets\Recetas\pastel.png"
                 alt="Utensilios"
               />
-              <p className="text-gray-500">utensilios</p>
+              <p className="text-gray-500">Tipo de comida</p>
             </div>
           </div>
 
@@ -79,6 +79,7 @@ const Recetas_vista = () => {
               <img className="w-full" src="src\assets\Recetas\paso1.avif" alt="Receta" />
               <p className="text-ml text-gray-500">
                 Paso 1 de la preparación...
+                <br></br>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem quas maiores tempore possimus vitae, atque, molestias sequi doloribus non fugiat aut hic facere ut? Animi sunt labore fugiat velit esse.
               </p>
             </div>
@@ -86,6 +87,7 @@ const Recetas_vista = () => {
               <img className="w-full" src="src\assets\Recetas\paso2.jpg" alt="Receta" />
               <p className="text-ml text-gray-500">
                 Paso 2 de la preparación...
+                <br></br>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quasi suscipit distinctio dolore dolorem quas ea perferendis placeat optio molestiae eos quia ipsam dolorum aspernatur, culpa doloremque voluptates dignissimos rerum!
               </p>
             </div>
