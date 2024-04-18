@@ -1,16 +1,30 @@
 import { useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
-import { Avatar } from "@nextui-org/react"
+import { Button } from "@nextui-org/react"
+import { useState } from "react"
+import Step1 from "../components/CreateProfile/Step1"
+import Step2Client from "../components/CreateProfile/Client/Step2Client"
+import Next from "../assets/next-arrow.svg"
+import Prev from "../assets/prev-arrow.svg"
+import Step3Client from "../components/CreateProfile/Client/Step3Client"
+
 
 
 export default function CreateProfile() {
 
   const { profileType } = useParams()
 
+  const [steps, setSteps] = useState(1)
+  const [imgProfile, setImageProfile] = useState()
+
+  const handleChange = (event) => {
+    setImageProfile(URL.createObjectURL(event.target.files[0]))
+  }
+
   return (
-    <div className={`bg-background h-full flex flex-col items-center justify-between relative overflow-hidden ${profileType}-theme`}>
-      <header className='pt-10 flex justify-center'>
+    <div className={`h-full flex flex-col items-center justify-between relative overflow-hidden ${profileType}-theme`}>
+      <header className='pt-6 flex justify-center'>
         {
           profileType === "client"
             ? <img
@@ -24,19 +38,34 @@ export default function CreateProfile() {
         }
       </header>
 
-      <main className="h-[80%] text-center">
-        <header>
-          <h1 className="text-primary text-3xl font-bold leading-8">¡Bienvenido! Vamos<br /> a crear tu perfil</h1>
-          <p className="text-gray-400 text-sm font-medium">¡Deja que te conozcamos mejor!</p>
-        </header>
-        <main>
-          <h1>Añade un avatar</h1>
-          <Avatar />
-        </main>
-      </main>
+      {/* Formularios para cada paso de la alta del perfil */}
 
-      <footer className="">
-        footer elimina esta linia es un test
+      {
+        steps === 1
+          ? <Step1 imgProfile={imgProfile} handleChange={handleChange} profileType={profileType} />
+          : steps === 2
+            ? <Step2Client />
+            : steps === 3
+              ? <Step3Client />
+              : steps === 4
+      }
+
+      {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
+      <footer className="w-8/12 h-[10dvh] flex justify-center ">
+        {
+          steps === 1
+            ? (<Button onClick={() => setSteps(steps + 1)} className="w-full text-xl bg-primary text-white font-semibold">
+              Continuar
+            </Button>)
+            : (<section className="flex justify-between w-full">
+              <Button onClick={() => setSteps(steps - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
+                <img src={Prev} alt="" />
+              </Button>
+              <Button onClick={() => setSteps(steps + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
+                <img className="w-[48px]" src={Next} alt="" />
+              </Button>
+            </section>)
+        }
       </footer>
     </div >
   )
