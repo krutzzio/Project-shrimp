@@ -62,8 +62,8 @@ export default function CreateProfile() {
               Continuar
             </Button>)
             : steps === maxSteps
-              ? (<Button onClick={() => setSteps(steps + 1)} className="w-full text-xl bg-primary text-white font-semibold">
-                <NavLink to={"/home"}>Completar alta</NavLink>
+              ? (<Button className="w-full text-xl bg-primary text-white font-semibold">
+                <NavLink className="w-full" to={"/home"}>Completar alta</NavLink>
               </Button>)
               : (<section className="flex justify-between w-full">
                 <Button onClick={() => setSteps(steps - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
