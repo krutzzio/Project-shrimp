@@ -41,24 +41,27 @@ const router = createBrowserRouter([
     element: <HomeRecetas />
   },
   {
-    path: "/Recetas_vista",
-    element: <Recetas_vista />,
-  },
-  {
-    path: "/Promociones",
-    element: <Promociones />,
-  },
-  {
-    path: "/Recetas_hechas",
-    element: <Recetas_hechas />,
-  },
-  {
-    path: "/Perfil_cliente",
+    path: "/perfil",
     element: <Perfil_cliente />,
-  },
-  {
-    path: "/Recetas_guardadas",
-    element: <Recetas_guardadas />,
+    children: [
+      {
+        path: "perfil/recetas-guardadas",
+        element: <Recetas_guardadas />,
+      },
+      {
+        path: "perfil/recetas-hechas",
+        element: <Recetas_hechas />,
+      },
+      {
+        path: "perfil/promos",
+        element: <Promociones />,
+      },
+      {
+        path: "perfil/restaurantes-seguidos",
+        element: <Recetas_vista />,
+      },
+
+    ]
   },
 ])
 

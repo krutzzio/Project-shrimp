@@ -4,7 +4,7 @@ import { UbicationClientForm, UbicationRestaurantForm } from "../forms/Ubication
 
 
 // eslint-disable-next-line react/prop-types
-export default function Step1({ handleChange, imgProfile, profileType }) {
+export default function Step2Rest() {
     return (
         <main className="h-[70%] w-full text-center flex flex-col gap-8">
             <header>
@@ -19,15 +19,10 @@ export default function Step1({ handleChange, imgProfile, profileType }) {
                         <img src={AddIcon} alt="" />
                         <span className="absolute h-7 w-7 rounded-full border-3 border-bgcolor"></span>
                     </label>
-                    <input type="file"  className="hidden" id="img" name="img" onChange={handleChange} />
-                    <Avatar classNames={{ icon: "text-white" }} className="w-40 h-40 bg-primary-50" src={imgProfile} />
+                    <input type="file" className="hidden" id="img" name="img" onChange={handleChange} />
                 </article>
             </main>
-            {
-                profileType === "client"
-                    ? <UbicationClientForm />
-                    : <UbicationRestaurantForm />
-            }
+
         </main>
     )
 }

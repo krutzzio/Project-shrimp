@@ -5,7 +5,7 @@ export function UbicationClientForm() {
             <h1 className="text-gray-400 font-medium">Añade tu Codigo Postal</h1>
             <section className="w-8/12 flex flex-col justify-start">
                 <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="cp">Codigo Postal</label>
-                <input className="border-primary border-b-2 " type="number" id="cp" name="cp" />
+                <input className="outline-none bg-transparent border-primary border-b-2 " type="number" max={5} id="cp" name="cp" />
             </section>
         </div>
     )
@@ -18,18 +18,18 @@ export function UbicationRestaurantForm() {
             <section className="w-8/12 flex flex-col gap-4">
                 <article className="flex flex-col justify-start">
                     <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="calle">Calle</label>
-                    <input className="border-primary border-b-2 " type="text" id="calle" name="calle" />
+                    <input className="outline-none bg-transparent border-primary border-b-2 " type="text" id="calle" name="calle" />
                 </article>
 
                 <section className="flex justify-between">
                     <article className="w-[35%] flex flex-col justify-start">
                         <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="num">Num.</label>
-                        <input className=" border-primary border-b-2" type="number" id="num" name="num" />
+                        <input className="outline-none bg-transparent border-primary border-b-2" type="number" id="num" name="num" />
                     </article>
 
                     <article className="w-[55%] flex flex-col justify-start">
                         <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="cp">Codigo Postal</label>
-                        <input className="border-primary border-b-2 " type="number" id="cp" name="cp" />
+                        <input className="outline-none bg-transparent border-primary border-b-2 " type="number" max={5} id="cp" name="cp" />
                     </article>
                 </section>
             </section>
