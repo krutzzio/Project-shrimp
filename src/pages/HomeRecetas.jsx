@@ -1,5 +1,4 @@
 import {
-  Avatar,
   Button,
   Dropdown,
   DropdownItem,
@@ -22,6 +21,8 @@ import NavBar from "../components/navbar/NavBar";
 export default function HomeRecetas() {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Dietética"]));
   const [selectedDif, setSelectedDif] = React.useState(new Set(["Dificultad"]));
+  const [selectedPlato, setSelectedPlato] = React.useState(new Set(["Plato"]));
+
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
@@ -31,12 +32,16 @@ export default function HomeRecetas() {
     () => Array.from(selectedDif).join(", ").replaceAll("_", " "),
     [selectedDif]
   );
+  const selectedValuePlato = React.useMemo(
+    () => Array.from(selectedPlato).join(", ").replaceAll("_", " "),
+    [selectedPlato]
+  );
 
   return (
     <div className="max-w-screen-2xl mx-auto">
       <NavBar/>
       <main className="block">
-        <div className="pl-4 lg:pl-8">
+        <div className="md:pl-4 lg:pl-8">
           {/*Tipos de comida*/}
           <section className="relative flex">
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
@@ -271,11 +276,11 @@ export default function HomeRecetas() {
           </section>
 
           {/*Filtros*/}
-          <section className="flex pt-4 pl-1 overflow-x-auto	">
+          <section className="flex pt-4 pl-1 overflow-x-auto hidden lg:block	">
             <div className="mx-1 flex gap-2">
               <Dropdown >
-                <DropdownTrigger>
-                  <Button variant="bordered" color="primary" >
+                <DropdownTrigger >
+                  <Button disableRipple variant="bordered" color="primary" className="min-w-36">
                     {selectedValue}
                   </Button>
                 </DropdownTrigger>
@@ -296,7 +301,7 @@ export default function HomeRecetas() {
               </Dropdown>
               <Dropdown >
                 <DropdownTrigger>
-                  <Button variant="bordered" color="primary">
+                  <Button disableRipple variant="bordered" color="primary" className="min-w-32">
                     {selectedValueDif}
                   </Button>
                 </DropdownTrigger>
@@ -312,6 +317,29 @@ export default function HomeRecetas() {
                   <DropdownItem key="Medio">Medio</DropdownItem>
                   <DropdownItem key="Dificil">Difícil</DropdownItem>
                   <DropdownItem key="Dietética" className="text-danger" color="danger">
+                    Restablecer
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <Dropdown >
+                <DropdownTrigger>
+                  <Button disableRipple variant="bordered" color="primary" className="min-w-32">
+                    {selectedValuePlato}
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="Single selection example"
+                  variant="flat"
+                  disallowEmptySelection
+                  selectionMode="single"
+                  selectedKeys={selectedPlato}
+                  onSelectionChange={setSelectedPlato}
+                >
+                  <DropdownItem key="Entrante">Entrante</DropdownItem>
+                  <DropdownItem key="Principal">Principal</DropdownItem>
+                  <DropdownItem key="Segundo">Segundo</DropdownItem>
+                  <DropdownItem key="Postre">Postre</DropdownItem>
+                  <DropdownItem key="Plato" className="text-danger" color="danger">
                     Restablecer
                   </DropdownItem>
                 </DropdownMenu>
