@@ -19,7 +19,7 @@ export default function LandingPage() {
         <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
         <Button color="primary" className="shadow-xl content-end font-bold">
 
-          <Link to={"/login"}>Log in</Link>
+          <Link className="text-[#FAFAFA]" to={"/login"}>Log in</Link>
         </Button>
       </header>
 
@@ -43,6 +43,7 @@ export default function LandingPage() {
             <Button className="px-28 py-7 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
               <Link to={"/register"}>Regístrate</Link>
             </Button>
+            <Link to={"/home"}>Home</Link>
           </div>
           <img
             src={landing1}
@@ -58,7 +59,10 @@ export default function LandingPage() {
       <article
         className={`absolute z-0 top-[-17rem] rotate-[100deg] right-[-14rem] md:top-[-14rem] md:right-[-12rem]`}
       >
-        <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
+        <img 
+        src={shape1} 
+        className="max-w-[30rem] w-[50rem]" 
+        alt="" />
       </article>
 
       {/* Mancha abajo derecha */}
@@ -69,7 +73,7 @@ export default function LandingPage() {
           alt=""
         />
       </article>
-
+      {/* Mancha abajo izquierda */}
       <article className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block xl:bottom-[-26rem]`}>
         <img
           src={shape2}

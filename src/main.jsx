@@ -11,6 +11,7 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
+import HomeRecetas from './pages/HomeRecetas.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/create/:profileType",
     element: <CreateProfile />
+  },
+  {
+    path: "/home",
+    element: <HomeRecetas />
   }
 ])
 

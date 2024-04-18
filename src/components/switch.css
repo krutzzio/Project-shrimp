@@ -1,15 +1,15 @@
 .toggle {
-  background: #efefef;
-  height: 30px;
+  background: #f2f2f2;
+  height: 32px;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   display: flex;
-  padding: 0 .35rem;
+  padding: 0.35rem;
   gap: 1rem;
   width: fit-content;
 }
