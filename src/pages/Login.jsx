@@ -21,7 +21,7 @@ export default function Login() {
                     alt='Gamba Logo' />
             </header>
 
-            <main className='w-9/12 flex flex-col gap-10 items-center justify-center'>
+            <main className='w-10/12 flex flex-col gap-10 items-center justify-center'>
                 <section className=''>
                     <h3 className='text-center mb-1'>¿Quién eres?</h3>
                     <SwitchUser />

@@ -27,7 +27,7 @@ export default function RegisterForm() {
                 <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
             <article className="py-8">
-                <Button className="w-full text-xl bg-black text-white font-semibold">
+                <Button className="w-[20rem] h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
                     {
                         userType
                             ? < NavLink to={"/create/restaurant"} className="w-full" >Crear cuenta</NavLink>
