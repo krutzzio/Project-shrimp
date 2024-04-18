@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logoGamba from "../assets/logo/logoGamba_logoBlanco.svg";
 import shape1 from "../assets/shapes/shape1.svg";
 import shape2 from "../assets/shapes/shape2.svg";
@@ -7,6 +7,7 @@ import SwitchUser from "../components/SwitchUser";
 import { ThemeContext } from "../contexts/ThemeContext";
 import LogForm from "../components/forms/LogForm";
 import landing2 from "../assets/illustrations/landing2.svg";
+import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 
 export default function Login() {
   const { userType } = useContext(ThemeContext);
@@ -17,8 +18,22 @@ export default function Login() {
         userType ? `restaurant-theme` : `client-theme`
       } bg-primary transition-colors`}
     >
-      <header className="relative z-10 flex p-4 justify-center lg:px-8">
-        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+      <header className="w-full">
+        <div className="max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
+
+            {/*Flecha*/}
+            <Link to={"/"} className="w-6 flex-1/3">
+                <img src={flecha}/>
+            </Link>
+
+            {/*Logo*/}
+            <div className="flex-1/3">
+                <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+            </div>
+
+            <div className="flex-1/3"></div>
+            
+        </div>
       </header>
 
       <main className="relative z-10 flex">
