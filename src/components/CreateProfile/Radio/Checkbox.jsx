@@ -1,4 +1,3 @@
-import React from "react";
 import { CheckboxGroup } from "@nextui-org/react";
 import { useCheckbox, Chip, VisuallyHidden, tv } from "@nextui-org/react";
 
@@ -57,8 +56,8 @@ export const CustomCheckboxTest = (props) => {
 
 
 
-export default function CheckboxGroupTest() {
-    const [groupSelected, setGroupSelected] = React.useState([]);
+// eslint-disable-next-line react/prop-types
+export default function CheckboxGroupTest({ children, group, setGroup }) {
 
     return (
         <div className="w-full">
@@ -68,15 +67,10 @@ export default function CheckboxGroupTest() {
                     wrapper: "grid grid-cols-2 content-center"
                 }}
                 orientation="horizontal"
-                value={groupSelected}
-                onChange={setGroupSelected}
+                value={group}
+                onChange={setGroup}
             >
-                <CustomCheckboxTest value="wifi">Gluten</CustomCheckboxTest>
-                <CustomCheckboxTest value="tv">Cacahuetes</CustomCheckboxTest>
-                <CustomCheckboxTest value="kitchen">Huevo</CustomCheckboxTest>
-                <CustomCheckboxTest value="parking">Soja</CustomCheckboxTest>
-                <CustomCheckboxTest value="pool">Pescado</CustomCheckboxTest>
-                <CustomCheckboxTest value="gym">Lacteos</CustomCheckboxTest>
+                {children}
             </CheckboxGroup>
         </div>
     );

@@ -1,19 +1,21 @@
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
 import { useState } from "react"
 import Step1 from "../components/CreateProfile/Step1"
 import Step2Client from "../components/CreateProfile/Client/Step2Client"
+import Step3Client from "../components/CreateProfile/Client/Step3Client"
+import Step4Client from "../components/CreateProfile/Client/Step4Client"
 import Next from "../assets/next-arrow.svg"
 import Prev from "../assets/prev-arrow.svg"
-import Step3Client from "../components/CreateProfile/Client/Step3Client"
 
 
 
 export default function CreateProfile() {
 
   const { profileType } = useParams()
+  const maxSteps = profileType === "client" ? 4 : 3
 
   const [steps, setSteps] = useState(1)
   const [imgProfile, setImageProfile] = useState()
@@ -48,6 +50,8 @@ export default function CreateProfile() {
             : steps === 3
               ? <Step3Client />
               : steps === 4
+                ? <Step4Client />
+                : <></>
       }
 
       {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
@@ -57,14 +61,18 @@ export default function CreateProfile() {
             ? (<Button onClick={() => setSteps(steps + 1)} className="w-full text-xl bg-primary text-white font-semibold">
               Continuar
             </Button>)
-            : (<section className="flex justify-between w-full">
-              <Button onClick={() => setSteps(steps - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
-                <img src={Prev} alt="" />
-              </Button>
-              <Button onClick={() => setSteps(steps + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
-                <img className="w-[48px]" src={Next} alt="" />
-              </Button>
-            </section>)
+            : steps === maxSteps
+              ? (<Button onClick={() => setSteps(steps + 1)} className="w-full text-xl bg-primary text-white font-semibold">
+                <NavLink to={"/home"}>Completar alta</NavLink>
+              </Button>)
+              : (<section className="flex justify-between w-full">
+                <Button onClick={() => setSteps(steps - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
+                  <img src={Prev} alt="" />
+                </Button>
+                <Button onClick={() => setSteps(steps + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
+                  <img className="w-[48px]" src={Next} alt="" />
+                </Button>
+              </section>)
         }
       </footer>
     </div >
