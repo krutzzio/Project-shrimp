@@ -19,7 +19,7 @@ export default function Step1({ handleChange, imgProfile, profileType }) {
                         <img src={AddIcon} alt="" />
                         <span className="absolute h-7 w-7 rounded-full border-3 border-bgcolor"></span>
                     </label>
-                    <input type="file" className="hidden" id="img" name="img" onChange={handleChange} />
+                    <input type="file"  className="hidden" id="img" name="img" onChange={handleChange} />
                     <Avatar classNames={{ icon: "text-white" }} className="w-40 h-40 bg-primary-50" src={imgProfile} />
                 </article>
             </main>
