@@ -12,7 +12,10 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
-import Perfil_cliente from "./pages/Perfil_cliente.jsx";
+
+import HomeRecetas from './pages/HomeRecetas.jsx';
+import Perfil_cliente from "./components/Perfil_cliente.jsx";
+
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
@@ -34,25 +37,33 @@ const router = createBrowserRouter([
   {
     path: "/create/:profileType",
     element: <CreateProfile />
-  }, {
-    path: "/Recetas_vista",
-    element: <Recetas_vista/>,
   },
   {
-    path: "/Promociones",
-    element: <Promociones />,
+    path: "/home",
+    element: <HomeRecetas />
   },
   {
-    path: "/Recetas_hechas",
-    element: <Recetas_hechas />,
-  },
-  {
-    path: "/Perfil_cliente",
+    path: "/perfil",
     element: <Perfil_cliente />,
-  },
-  {
-    path: "/Recetas_guardadas",
-    element: <Recetas_guardadas />,
+    children: [
+      {
+        path: "perfil/recetas-guardadas",
+        element: <Recetas_guardadas />,
+      },
+      {
+        path: "perfil/recetas-hechas",
+        element: <Recetas_hechas />,
+      },
+      {
+        path: "perfil/promos",
+        element: <Promociones />,
+      },
+      {
+        path: "perfil/restaurantes-seguidos",
+        element: <Recetas_vista />,
+      },
+
+    ]
   },
 ])
 

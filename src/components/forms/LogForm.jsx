@@ -9,11 +9,11 @@ export default function LogForm() {
         <div className="w-full flex flex-col gap-8">
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
-                <input type="email" id="correo" name="correo" />
+                <input className="input-form" type="email" id="correo" name="correo" />
             </article>
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="password">Contraseña</label>
-                <input type="password" id="password" name="password" />
+                <input className="input-form" type="password" id="password" name="password" />
             </article>
             <article className="py-8">
                 {

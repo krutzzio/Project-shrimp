@@ -21,16 +21,17 @@ export default {
   darkMode: "class",
   plugins: [nextui({
     themes: {
-      light: {
+      "light": {
         colors: {
-          background: "#F2F2F2"
-          
+          background: "#F2F2F2",
+          bgcolor: "#F2F2F2"
         }
       },
       "client-theme": {
         extend: "light", // <- inherit default values from dark theme
         colors: {
           primary: {
+            50: "#FF7C03",
             DEFAULT: "#FE7139",
             foreground: "#FED339",
           },
@@ -41,6 +42,7 @@ export default {
         extend: "light", // <- inherit default values from dark theme
         colors: {
           primary: {
+            50: "#6183FE",
             DEFAULT: "#3964fe",
             foreground: "#FED339",
           },
