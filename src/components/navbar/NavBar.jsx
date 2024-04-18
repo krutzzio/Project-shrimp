@@ -10,6 +10,7 @@ import lupa from "../../assets/iconos/iconos_Lupa.svg";
 import CP from "../../assets/iconos/iconos_Mapa.svg";
 import rest from "../../assets/iconos/iconos_Restaurante.svg";
 import receta from "../../assets/iconos/iconos_Recetas.svg";
+import filtro from "../../assets/iconos/iconos_Filtro.svg";
 
 export default function NavBar() {
 
@@ -109,24 +110,15 @@ export default function NavBar() {
         </div>
         </section>
         
-        <div className="mt-4 lg:hidden">
+        <div className="flex mt-4 lg:hidden">
         <Input
             variant="underlined"
-            classNames={{
-              input: [
-                "bg-transparent",
-                "text-black/90 dark:text-white/90",
-                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-              ],
-              innerWrapper: "bg-transparent",
-              inputWrapper: [
-                "group-data-[focused=true]:bg-default-200/50",
-                "!cursor-text",
-              ],
-            }}
             placeholder="Buscar..."
             startContent={<img src={lupa} className="w-7" />}
           />
+          <button className="lg:hidden w-8">
+            <img src={filtro} />
+          </button>
         </div>
       </header>
     )
