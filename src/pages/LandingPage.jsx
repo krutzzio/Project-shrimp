@@ -17,8 +17,7 @@ export default function LandingPage() {
     >
       <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
         <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
-        <Button color="primary" className="shadow-xl content-end font-bold">
-
+        <Button color="primary" className="shadow-xl text-white content-end font-bold">
           <Link to={"/login"}>Log in</Link>
         </Button>
       </header>

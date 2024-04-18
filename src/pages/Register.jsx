@@ -4,9 +4,8 @@ import shape1 from '../assets/shapes/shape1.svg'
 import shape2 from '../assets/shapes/shape2.svg'
 import logoGamba from '../assets/logo/logoGamba_logoBlanco.svg'
 import { ThemeContext } from '../contexts/ThemeContext'
-import RegisterRestaurantForm from '../components/forms/Register/RegisterRestaurant'
+import RegisterForm from '../components/forms/Register/RegisterForm'
 import { NavLink } from 'react-router-dom'
-import RegisterClientForm from '../components/forms/Register/RegisterClient'
 
 export default function Register() {
 
@@ -33,11 +32,7 @@ export default function Register() {
                     }
                 </section>
                 <section className='w-full relative z-10'>
-                    {
-                        userType
-                            ? <RegisterRestaurantForm />
-                            : <RegisterClientForm />
-                    }
+                    <RegisterForm />
                 </section>
             </main>
             <footer className='mb-6 w-full flex items-end justify-center  overflow-hidden'>
