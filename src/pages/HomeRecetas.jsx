@@ -1,6 +1,15 @@
 import logoGamba from "../assets/logo/logoGamba_logoNaranja.svg";
 import iconoGamba from "../assets/logo/iconoGamba_iconoNaranja.svg";
-import { Avatar, Input, Switch } from "@nextui-org/react";
+import {
+  Avatar,
+  Button,
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
+  Switch,
+} from "@nextui-org/react";
 import SwitchHome from "../components/SwitchHome";
 import lupa from "../assets/iconos/iconos_Lupa.svg";
 import CP from "../assets/iconos/iconos_Mapa.svg";
@@ -15,16 +24,33 @@ import marroc from "../assets/iconosComida/Marroquí.svg";
 import pincho from "../assets/iconosComida/Pincho.svg";
 import italia from "../assets/iconosComida/Pizza.svg";
 import poke from "../assets/iconosComida/Poke.svg";
-
+import { Link } from "react-router-dom";
+import React from "react";
 
 export default function HomeRecetas() {
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Dietética"]));
+  const [selectedDif, setSelectedDif] = React.useState(new Set(["Dificultad"]));
+
+  const selectedValue = React.useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
+  const selectedValueDif = React.useMemo(
+    () => Array.from(selectedDif).join(", ").replaceAll("_", " "),
+    [selectedDif]
+  );
+
   return (
     <div>
       <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
         {/*Desktop*/}
 
         {/*Logo*/}
-        <img className="hidden w-32 lg:block lg:w-44" src={logoGamba} alt="Gamba Logo" />
+        <img
+          className="hidden w-32 lg:block lg:w-44"
+          src={logoGamba}
+          alt="Gamba Logo"
+        />
         {/*Switch largo*/}
         <section className="hidden mx-2 lg:block">
           <SwitchHome />
@@ -74,9 +100,18 @@ export default function HomeRecetas() {
 
         {/*Logo + switch pequeño*/}
         <div className="flex gap-2 items-center">
-          <img className="hidden w-32 md:block lg:hidden lg:w-44" src={logoGamba} alt="Gamba Logo" />
-          <img className="w-9 md:hidden lg:w-44" src={iconoGamba} alt="Gamba Icono" />
-          <Switch className="lg:hidden"
+          <img
+            className="hidden w-32 md:block lg:hidden lg:w-44"
+            src={logoGamba}
+            alt="Gamba Logo"
+          />
+          <img
+            className="w-9 md:hidden lg:w-44"
+            src={iconoGamba}
+            alt="Gamba Icono"
+          />
+          <Switch
+            className="lg:hidden"
             defaultSelected
             size="lg"
             color="primary"
@@ -97,77 +132,298 @@ export default function HomeRecetas() {
           <button type="button" className="lg:hidden w-8">
             <img src={lupa} />
           </button>
-          <Avatar size="sm" classNames={{base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }} />
+          <Avatar
+            size="sm"
+            classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+          />
         </div>
       </header>
 
-      <section className="items-center justify-evenly">
-      <article className="flex flex-col items-center">
-                <img src={mex} className="w-20"/>
-                <p>Mexicano</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={chino} className="w-20"/>
-                <p>Chino</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={burguer} className="w-20"/>
-                <p>Americano</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={indio} className="w-20"/>
-                <p>Indio</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={japo} className="w-20"/>
-                <p>Japo</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={marroc} className="w-20"/>
-                <p>Marroquí</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={pincho} className="w-20"/>
-                <p>Española</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={italia} className="w-20"/>
-                <p>Italiana</p>
-            </article>
-            <article className="flex flex-col items-center">
-                <img src={poke} className="w-20"/>
-                <p>Hawaiana</p>
-            </article>
-      </section>
-            
-      <main className="relative z-10 flex justify-around"></main>
-      {/*
-      <article
-        className={`absolute z-0 top-[-17rem] rotate-[100deg] right-[-14rem] md:top-[-14rem] md:right-[-12rem]`}
-      >
-        <img 
-        src={shape1} 
-        className="max-w-[30rem] w-[50rem]" 
-        alt="" />
-      </article>
+      <main className="block">
+        <div className="pl-4 lg:pl-8">
+          {/*Tipos de comida*/}
+          <section className="relative flex">
+            <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
+              <div className="relative flex gap-1 lg:gap-2">
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={mex}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Mexicano
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={chino}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Chino
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={burguer}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Americano
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={indio}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Indio
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={japo}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Japonés
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={marroc}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Marruecos
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={pincho}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            España
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={italia}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Italiano
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+                <div className="block">
+                  <li className="relative max-w-24 block">
+                    <Link className="max-w-fit min-w-16 items-center flex flex-col">
+                      <div className="flex flex-col items-center">
+                        <div className="block relative mb-1">
+                          <div className="object-contain aspect-square block w-full transition">
+                            <div className="w-fit overflow-hidden flex">
+                              <div className="w-max overflow-hidden flex">
+                                <img
+                                  src={poke}
+                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="break-all overflow-hidden	">
+                          <span className="no-underline whitespace-pre-wrap text-xs p-0 leading-4 font-medium">
+                            Hawaiano
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </li>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      
-      <article className={`absolute z-0 rotate-[-20deg] bottom-[-36rem] right-[-26rem] md:right-[-22rem] md:bottom-[-26rem] lg:bottom-[-32rem] xl:bottom-[-26rem]`}>
-        <img
-          src={shape2}
-          className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
-          alt=""
-        />
-      </article>
-      
-      <article className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block xl:bottom-[-26rem]`}>
-        <img
-          src={shape2}
-          className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
-          alt=""
-        />
-      </article>
-        */}
+          {/*Filtros*/}
+          <section className="flex pt-4 pl-1 overflow-x-auto	">
+            <div className="mx-1 flex gap-2">
+              <Dropdown >
+                <DropdownTrigger>
+                  <Button variant="bordered" color="primary" >
+                    {selectedValue}
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="Single selection example"
+                  variant="flat"
+                  disallowEmptySelection
+                  selectionMode="single"
+                  selectedKeys={selectedKeys}
+                  onSelectionChange={setSelectedKeys}
+                >
+                  <DropdownItem key="Vegetariano">Vegetariano</DropdownItem>
+                  <DropdownItem key="Vegano">Vegano</DropdownItem>
+                  <DropdownItem key="Dietética" className="text-danger" color="danger">
+                    Restablecer
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <Dropdown >
+                <DropdownTrigger>
+                  <Button variant="bordered" color="primary">
+                    {selectedValueDif}
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu
+                  aria-label="Single selection example"
+                  variant="flat"
+                  disallowEmptySelection
+                  selectionMode="single"
+                  selectedKeys={selectedDif}
+                  onSelectionChange={setSelectedDif}
+                >
+                  <DropdownItem key="Fácil">Fácil</DropdownItem>
+                  <DropdownItem key="Medio">Medio</DropdownItem>
+                  <DropdownItem key="Dificil">Difícil</DropdownItem>
+                  <DropdownItem key="Dietética" className="text-danger" color="danger">
+                    Restablecer
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </div>
+          </section>
+        </div>
+      </main>
     </div>
   );
 }
