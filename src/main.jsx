@@ -39,8 +39,8 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <HomeRecetas />
-  }
-  }, {
+  },
+  {
     path: "/Recetas_vista",
     element: <Recetas_vista />,
   },
