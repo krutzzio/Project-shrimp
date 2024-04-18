@@ -12,6 +12,7 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
+import HomeRecetas from './pages/HomeRecetas.jsx';
 import Perfil_cliente from "./components/Perfil_cliente.jsx";
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
   {
     path: "/create/:profileType",
     element: <CreateProfile />
+  },
+  {
+    path: "/home",
+    element: <HomeRecetas />
+  }
   }, {
     path: "/Recetas_vista",
     element: <Recetas_vista />,
