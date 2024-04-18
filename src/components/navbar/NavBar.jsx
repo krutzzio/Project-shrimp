@@ -14,8 +14,9 @@ import receta from "../../assets/iconos/iconos_Recetas.svg";
 export default function NavBar() {
 
     return (
-        <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
-        {/*Desktop*/}
+        <header className="p-4">
+        <section className="relative z-10 flex items-center justify-between lg:px-8">
+          {/*Desktop*/}
 
         {/*Logo*/}
         <img
@@ -101,12 +102,30 @@ export default function NavBar() {
           <button className="lg:hidden w-8">
             <img src={CP} />
           </button>
-          <button type="button" className="lg:hidden w-8">
-            <img src={lupa} />
-          </button>
           <Avatar
             size="sm"
             classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+          />
+        </div>
+        </section>
+        
+        <div className="mt-4 lg:hidden">
+        <Input
+            variant="underlined"
+            classNames={{
+              input: [
+                "bg-transparent",
+                "text-black/90 dark:text-white/90",
+                "placeholder:text-default-700/50 dark:placeholder:text-white/60",
+              ],
+              innerWrapper: "bg-transparent",
+              inputWrapper: [
+                "group-data-[focused=true]:bg-default-200/50",
+                "!cursor-text",
+              ],
+            }}
+            placeholder="Buscar..."
+            startContent={<img src={lupa} className="w-7" />}
           />
         </div>
       </header>
