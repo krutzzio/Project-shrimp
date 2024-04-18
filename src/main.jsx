@@ -14,7 +14,7 @@ import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
 
 import HomeRecetas from './pages/HomeRecetas.jsx';
-import Perfil_cliente from "./components/Perfil_cliente.jsx";
+import Perfil_cliente from "./pages/Perfil_cliente.jsx";
 
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";

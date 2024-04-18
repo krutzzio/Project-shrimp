@@ -1,6 +1,7 @@
 import { Button } from "@nextui-org/react"
 import "./forms.css"
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function LogForm() {
 
@@ -18,8 +19,12 @@ export default function LogForm() {
             <article className="py-8">
                 {
                     logging
-                        ? <Button isLoading className="w-full text-xl bg-black text-white font-semibold">Entrar</Button>
-                        : <Button onClick={() => setLogging(true)} className="w-full text-xl bg-black text-white font-semibold">Entrar</Button>
+                        ? <Button isLoading className="relative z-10 w-full text-xl bg-black text-white font-semibold">
+                        <Link className="w-full" to={"/home"}>Entrar</Link>
+                        </Button>
+                        : <Button onClick={() => setLogging(true)} className="relative z-10 w-full text-xl bg-black text-white font-semibold">
+                        <Link className="w-full" to={"/home"}>Entrar</Link>
+                        </Button>
                 }
             </article>
         </div>
