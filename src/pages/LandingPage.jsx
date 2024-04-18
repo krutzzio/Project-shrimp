@@ -20,6 +20,7 @@ export default function LandingPage() {
         <Button color="primary" className="shadow-xl content-end font-bold">
 
           <Link className="text-[#FAFAFA]" to={"/login"}>Log in</Link>
+
         </Button>
       </header>
 
