@@ -15,7 +15,7 @@ const {
   Restaurante,
   Receta,
   TipoCocina,
-  Procedimiento,
+
   Receta_Ingrediente,
 } = require("./models"); // Importa els models de dades
 
@@ -402,15 +402,17 @@ router.post(
         nombre_receta,
         desc_receta,
         TipoCocinaId,
-        procedimientos,
         persones,
         tiempo,
         dificultad,
         tipo,
         ingredientes,
+
       } = req.body;
 
-      const foto_receta = req.file ? req.file.path : null; // Obtiene la ruta del archivo subido
+     
+      const baseUrl = 'http://localhost:3000/api/uploads/'
+      const foto_receta = req.file ? baseUrl+ req.file.filename : null; // Obtiene la ruta del archivo subido
 
       const restauranteId = req.params.restId;
 
@@ -419,8 +421,6 @@ router.post(
         !nombre_receta ||
         !desc_receta ||
         !TipoCocinaId ||
-        !procedimientos ||
-        procedimientos.length === 0 ||
         !ingredientes ||
         ingredientes.length === 0
       ) {
@@ -447,7 +447,7 @@ router.post(
       if (!tipoCocina) {
         return res.status(404).json({ error: "Tipo de cocina no encontrado" });
       }
-
+        
       // Crea receta
       const receta = await Receta.create({
         nombre_receta,
@@ -461,17 +461,6 @@ router.post(
         foto_receta,
       });
 
-      // Crea procedimientos
-      const procedimientosCreados = [];
-      for (const procedimiento of procedimientos) {
-        const nuevoProcedimiento = await Procedimiento.create({
-          numero_procedimiento: procedimiento.numero_procedimiento,
-          desc_procedimiento: procedimiento.desc_procedimiento,
-          foto_procedimiento: procedimiento.foto_procedimiento,
-          RecetumId: receta.id,
-        });
-        procedimientosCreados.push(nuevoProcedimiento);
-      }
       // Crea ingredientes
       for (const ingrediente of ingredientes) {
         const { id, cantidad, medida } = ingrediente;
@@ -480,6 +469,7 @@ router.post(
           IngredienteId: id,
           cantidad,
           medida,
+
         });
       }
 
@@ -491,11 +481,12 @@ router.post(
           desc_receta: receta.desc_receta,
           TipoCocinaId: receta.TipoCocinaId,
           RestauranteId: restauranteId,
+          foto_receta: foto_receta
         },
-        procedimientos: procedimientosCreados,
         ingredientes: ingredientes,
       });
     } catch (error) {
+
       res.status(500).json({ error: error.message });
     }
   }

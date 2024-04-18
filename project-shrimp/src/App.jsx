@@ -8,28 +8,24 @@ const RegistroRecetaForm = () => {
   const [dificultad, setDificultad] = useState("");
   const [tipo, setTipo] = useState("");
   const [persones, setPersones] = useState("");
-  const [foto_receta, setFoto_Receta] = useState("");
-  const [procedimientos, setProcedimientos] = useState([]);
+  const [foto_receta, setPhotos] = useState("");
+  const [mostrarIngredientes, setMostrarIngredientes] = useState(false); // Estado para controlar la visibilidad de la sección de ingredientes
+  const [mostrarInfo, setInfo] = useState(true); // Estado para controlar la visibilidad de la sección de Info
   const [ingredientes, setIngredientes] = useState([]);
-  const [fotosProcedimiento, setFotosProcedimiento] = useState([]);
+  const [imgProfile, setImageProfile] = useState()
 
-  const addProcedimiento = (e) => {
-    setProcedimientos([
-      ...procedimientos,
-      {
-        desc_procedimiento: "",
-        numero_procedimiento: procedimientos.length + 1,
-        foto_procedimiento:""
-
-      },
-    ]);
+  const toggleMostrarIngredientes = () => {
+  
+      setMostrarIngredientes(!mostrarIngredientes);
+      setInfo(!mostrarInfo);
+  
   };
 
   const addIngrediente = () => {
     setIngredientes([
       ...ingredientes,
       {
-        nombre:"",
+        id:"",
         medida: "",
         cantidad: "",
 
@@ -41,28 +37,27 @@ const RegistroRecetaForm = () => {
     e.preventDefault();
 
 
-    const recetaData = {
-      nombre_receta: nombreReceta,
-      desc_receta: descripcionReceta,
-      TipoCocinaId: tipoCocinaId,
-      persones: persones,
-      dificultad: dificultad,
-      tipo: tipo,
-      tiempo: tiempo,
-      procedimientos: procedimientos,
-      ingredientes: ingredientes,
-      foto_receta: foto_receta
-    };
-    console.log(recetaData)
+    const formData = new FormData();
+    formData.append("nombre_receta", nombreReceta);
+    formData.append("desc_receta", descripcionReceta);
+    formData.append("TipoCocinaId", tipoCocinaId);
+    formData.append("persones", persones);
+    formData.append("dificultad", dificultad);
+    formData.append("tipo", tipo);
+    formData.append("tiempo", tiempo);
+    formData.append("photo", foto_receta);
+  
+    ingredientes.forEach((ingrediente, index) => {
+      formData.append(`ingredientes[${index}][id]`, ingrediente.id);
+      formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
+      formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
+    });
 
     const options = {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(recetaData),
+      body:formData,
     };
-
+console.log(formData)
     fetch("http://localhost:3000/api/home/1/registerReceta", options)
       .then((response) => response.json())
       .then((data) => {
@@ -73,23 +68,25 @@ const RegistroRecetaForm = () => {
       });
   };
 
-  const DescProcedimiento = (index, value) => {
-    const nuevosProcedimientos = [...procedimientos];
-    nuevosProcedimientos[index].desc_procedimiento = value;
-    setProcedimientos(nuevosProcedimientos);
-  };
+
+  const handleChange = (e) => {
+    setPhotos(e.target.files[0])
+    setImageProfile(URL.createObjectURL(e.target.files[0]))
+  }
+
   const CantiIngre = (index, value) => {
     const nuevosIngredientes = [...ingredientes];
     nuevosIngredientes[index].cantidad = value;
     setIngredientes(nuevosIngredientes);
   };
 
-  const ImgProcedimiento = (index, file) => {
-    const nuevosImg = [...procedimientos];
-    nuevosImg[index].foto_procedimiento = file;
-    console.log(nuevosImg[index].foto_procedimiento)
-    setProcedimientos(nuevosImg);
+  const idIngre = (index, value) => {
+    const nuevosIngredientes = [...ingredientes];
+    nuevosIngredientes[index].id = value;
+    setIngredientes(nuevosIngredientes);
   };
+
+  
 
   const mediIngre = (index, value) => {
     const nuevosIngredientes = [...ingredientes];
@@ -97,21 +94,14 @@ const RegistroRecetaForm = () => {
     setIngredientes(nuevosIngredientes);
   };
 
-  const handlePhotoUpload = (e) => {
-    const file = e.target.files[0]; // Obtiene el archivo de imagen seleccionado
-    const fileName = file.name; // Obtiene el nombre del archivo
-    const photoUrl = `http://localhost:3000/api/uploads/${fileName}`; // Construye la URL deseada
-  
-    // Ahora puedes usar photoUrl según sea necesario, como guardarla en el estado
-    setPhotos(photoUrl);
-  };
-
-
-
-
 
   return (
+    <>
+    <div >
+    <h3 className="p-1">Formulario receta</h3>
     <form onSubmit={registroReceta}>
+      {mostrarInfo&&
+      <div>
       <div>
         <label htmlFor="nombreReceta">Nombre</label>
         <input
@@ -120,7 +110,7 @@ const RegistroRecetaForm = () => {
         />
       </div>
       <div>
-        <label htmlFor="descripcionReceta">Descripcio</label>
+        <label className="text-xs" htmlFor="descripcionReceta">Descripcio</label>
         <input
           onInput={(e) => setDescripcionReceta(e.target.value)}
           value={descripcionReceta}
@@ -138,8 +128,9 @@ const RegistroRecetaForm = () => {
         <input
           type="file"
           accept="image/*"
-          onChange={handlePhotoUpload}
+          onChange={handleChange}
         />
+        <img className="w-16 h-16 border-black" src={imgProfile} alt="" />
       </div>
       <div>
         <label htmlFor="tiempo">Tiempo</label>
@@ -160,42 +151,20 @@ const RegistroRecetaForm = () => {
         <label htmlFor="tipo">Tipo</label>
         <input onInput={(e) => setTipo(e.target.value)} value={tipo} />
       </div>
-      <div>
-        <h3>Procedimiento</h3>
-        {procedimientos.map((procedimiento, index) => (
-          <div key={index}>
-            <label>Paso {index + 1}:</label>
-            <input
-              type="text"
-              value={procedimiento.desc_procedimiento}
-              onChange={(e) =>
-                DescProcedimiento(index, e.target.value)
-              }
-              placeholder="Descripción del paso"
-            />
-            <input
-              type="file"
-              // value={procedimiento.foto_procedimiento}
-              accept="image/*"
-              onChange={(e) =>
-                ImgProcedimiento(index, e.target.files[0])
-              }
-              placeholder="URL de la imagen"
-            />
-          </div>
-        ))}
-        <button type="button" onClick={addProcedimiento}>
-          Agregar Procedimiento
-        </button>
       </div>
+      }
+ 
+ {mostrarIngredientes &&
       <h3>Ingredientes</h3>
-      {ingredientes.map((ingrediente, index) => (
+ }
+      {mostrarIngredientes &&
+      ingredientes.map((ingrediente, index) => (
         <div key={index}>
           <label>Ingrediente{index + 1}:</label> {/* Hay que poner el nombre del ingrediente*/}
           <input
             type="text"
-            value={ingrediente.IngredienteId}
-            onChange={(e) => handleIngredientChange(index, e.target.value)}
+            value={ingrediente.id}
+            onChange={(e) => idIngre(index, e.target.value)}
             placeholder="Nombre"
           />
           <input
@@ -215,12 +184,21 @@ const RegistroRecetaForm = () => {
             placeholder="Medida"
           />
         </div>
-      ))}
+      ))
+    }
+    {mostrarIngredientes &&
       <button type="button" onClick={addIngrediente}>
         Agregar Ingrediente
       </button>
+}
+
+      <button type="button" onClick={toggleMostrarIngredientes}>
+        {mostrarIngredientes ? "Ocultar Ingredientes" : "Mostrar Ingredientes"}
+      </button>
       <button type="submit">Registrar Receta</button>
     </form>
+    </div>
+    </>
   );
 };
 
