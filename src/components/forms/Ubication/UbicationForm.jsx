@@ -1,7 +1,7 @@
 
 export function UbicationClientForm() {
     return (
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-4 items-center">
             <h1 className="text-gray-400 font-medium">Añade tu Codigo Postal</h1>
             <section className="w-8/12 flex flex-col justify-start">
                 <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="cp">Codigo Postal</label>
@@ -13,7 +13,7 @@ export function UbicationClientForm() {
 
 export function UbicationRestaurantForm() {
     return (
-        <div className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col gap-4 items-center">
             <h1 className="text-gray-400 font-medium">Dirección de tu local</h1>
             <section className="w-8/12 flex flex-col gap-4">
                 <article className="flex flex-col justify-start">
