@@ -1,12 +1,19 @@
+import { Link } from 'react-router-dom';
+
 const Recetas_vista = () => {
   return (
     <div className="max-w-2xl mx-auto p-4">
       <header className="flex justify-between items-center mb-4">
+        <Link to={`/`}>
         <img
           className="h-12 mb-4"
           src="src\assets\logo\logoGamba_logoNaranja.svg"
           alt="Logo"
         />
+        </Link>
+        <Link to={`/Perfil_cliente`}>
+        <img src="src\assets\Recetas\Icon_perfil.png" className="h-16 mb-4 rounded-full" alt="Perfil"/>
+        </Link>
       </header>
 
       <button
@@ -17,7 +24,7 @@ const Recetas_vista = () => {
       </button>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img className="w-full" src="../Receta1.jpg" alt="Receta" />
+        <img className="w-full" src="src\assets\Recetas\Receta1.jpg" alt="Receta" />
 
         <div className="p-4">
           <h2 className="text-lg font-bold mb-2 text-orange-500">
@@ -30,7 +37,7 @@ const Recetas_vista = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="../Tiempo.png"
+                src="src\assets\Recetas\Tiempo.png"
                 alt="Tiempo"
               />
               <p className="text-gray-500">30 mins</p>
@@ -39,7 +46,7 @@ const Recetas_vista = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="../sombrero-de-cocinero.png"
+                src="src\assets\Recetas\sombrero-de-cocinero.png"
                 alt="Dificultad"
               />
               <p className="text-gray-500">Fácil</p>
@@ -48,7 +55,7 @@ const Recetas_vista = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="../utensilios.png"
+                src="src\assets\Recetas\utensilios.png"
                 alt="Utensilios"
               />
               <p className="text-gray-500">utensilios</p>
@@ -67,13 +74,13 @@ const Recetas_vista = () => {
 
           <div className="flex flex-col">
             <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src="../paso1.avif" alt="Receta" />
+              <img className="w-full" src="src\assets\Recetas\paso1.avif" alt="Receta" />
               <p className="text-sm text-gray-500">
                 Paso 1 de la preparación...
               </p>
             </div>
             <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src="../paso1.avif" alt="Receta" />
+              <img className="w-full" src="src\assets\Recetas\paso1.avif" alt="Receta" />
               <p className="text-sm text-gray-500">
                 Paso 2 de la preparación...
               </p>

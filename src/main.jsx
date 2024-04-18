@@ -12,11 +12,11 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
-import Perfil_cliente from "./components/Perfil_cliente.jsx";
+import Perfil_cliente from "./pages/Perfil_cliente.jsx";
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
-import Recetas_vista from "./components/Recetas_vista.jsx";
+import Recetas_vista from "./pages/Recetas_vista.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     element: <CreateProfile />
   }, {
     path: "/Recetas_vista",
-    element: <Recetas_vista />,
+    element: <Recetas_vista/>,
   },
   {
     path: "/Promociones",

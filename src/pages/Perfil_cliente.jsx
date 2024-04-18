@@ -8,7 +8,7 @@ const Perfil_cliente = () => {
           <div className="flex flex-col items-center justify-center h-auto w-auto border-2 border-black rounded-md h-auto w-auto p-9 shadow-xl bg-white">
             <img
               className="h-40 w-40 rounded-full shadow-lg"
-              src="../Icon_perfil.png"
+              src="src\assets\Recetas\Icon_perfil.png"
             />
             <p className="text-4xl">Alberto Marín</p>
           </div>
