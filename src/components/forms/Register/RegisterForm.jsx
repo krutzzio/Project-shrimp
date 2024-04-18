@@ -12,19 +12,19 @@ export default function RegisterForm() {
         <div className="w-full flex flex-col gap-6">
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="name">Nombre del restaurante</label>
-                <input type="text" id="name" name="name" />
+                <input className="input-form" type="text" id="name" name="name" />
             </article>
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
-                <input type="email" id="correo" name="correo" />
+                <input className="input-form" type="email" id="correo" name="correo" />
             </article>
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="password">Contraseña</label>
-                <input type="password" id="password" name="password" />
+                <input className="input-form" type="password" id="password" name="password" />
             </article>
             <article className="flex flex-col justify-start">
                 <label className="w-fit text-xs font-semibold" htmlFor="confirmedPassword">Confirma la contraseña</label>
-                <input type="password" id="confirmedPassword" name="confirmedPassword" />
+                <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
             <article className="py-8">
                 <Button className="w-full text-xl bg-black text-white font-semibold">

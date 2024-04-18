@@ -41,10 +41,9 @@ export default function LandingPage() {
               voluptates aspernatur cumque libero, fugit nisi doloremque qui hic
               numquam maxime totam in, tempore placeat.
             </p>
-            <Button className="px-28 py-7 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-              <Link to={"/register"}>Regístrate</Link>
+            <Button className="w-[24rem] h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
+              <Link className="w-full" to={"/register"}>Regístrate</Link>
             </Button>
-            <Link to={"/home"}>Home</Link>
           </div>
           <img
             src={landing1}
