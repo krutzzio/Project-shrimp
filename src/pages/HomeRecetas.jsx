@@ -21,12 +21,16 @@ export default function HomeRecetas() {
   return (
     <div>
       <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
+        {/*Desktop*/}
+
+        {/*Logo*/}
         <img className="hidden w-32 lg:block lg:w-44" src={logoGamba} alt="Gamba Logo" />
-        <section className="hidden lg:block">
+        {/*Switch largo*/}
+        <section className="hidden mx-2 lg:block">
           <SwitchHome />
         </section>
-        
-        <section className="hidden lg:block w-1/6">
+        {/*Codigo Postal*/}
+        <section className="hidden lg:block w-24">
           <Input
             variant="underlined"
             classNames={{
@@ -41,11 +45,12 @@ export default function HomeRecetas() {
                 "!cursor-text",
               ],
             }}
-            placeholder="Código Postal..."
-            startContent={<img src={CP} className="w-6" />}
+            placeholder="CP..."
+            startContent={<img src={CP} className="w-5" />}
           />
         </section>
-        <section className="hidden lg:block w-1/3">
+        {/*Barra Buscador*/}
+        <section className="hidden mx-2 lg:block w-1/2">
           <Input
             variant="underlined"
             classNames={{
@@ -61,9 +66,13 @@ export default function HomeRecetas() {
               ],
             }}
             placeholder="Buscar..."
-            startContent={<img src={lupa} className="w-6" />}
+            startContent={<img src={lupa} className="w-5" />}
           />
         </section>
+
+        {/*Mobile*/}
+
+        {/*Logo + switch pequeño*/}
         <div className="flex gap-2 items-center">
           <img className="hidden w-32 md:block lg:hidden lg:w-44" src={logoGamba} alt="Gamba Logo" />
           <img className="w-9 md:hidden lg:w-44" src={iconoGamba} alt="Gamba Icono" />
@@ -80,8 +89,7 @@ export default function HomeRecetas() {
             }
           />
         </div>
-
-        {/*Mobile*/}
+        {/*iconos + avatar*/}
         <div className="flex gap-2 items-center">
           <button className="lg:hidden w-8">
             <img src={CP} />
@@ -92,6 +100,7 @@ export default function HomeRecetas() {
           <Avatar size="sm" classNames={{base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }} />
         </div>
       </header>
+
       <section className="items-center justify-evenly">
       <article className="flex flex-col items-center">
                 <img src={mex} className="w-20"/>
