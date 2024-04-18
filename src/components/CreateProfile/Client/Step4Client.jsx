@@ -8,14 +8,15 @@ export default function Step4Client() {
             </header>
             <main className="w-9/12 m-auto flex flex-col items-center ">
                 <CheckboxGroupTest>
-                    <CustomCheckboxTest value="wifi">Gluten</CustomCheckboxTest>
-                    <CustomCheckboxTest value="tv">Cacahuetes</CustomCheckboxTest>
-                    <CustomCheckboxTest value="kitchen">Huevo</CustomCheckboxTest>
-                    <CustomCheckboxTest value="parking">Soja</CustomCheckboxTest>
-                    <CustomCheckboxTest value="pool">Pescado</CustomCheckboxTest>
-                    <CustomCheckboxTest value="gym">Lacteos</CustomCheckboxTest>
+                    <CustomCheckboxTest value="wifi">Española</CustomCheckboxTest>
+                    <CustomCheckboxTest value="tv">India</CustomCheckboxTest>
+                    <CustomCheckboxTest value="kitchen">Francesa</CustomCheckboxTest>
+                    <CustomCheckboxTest value="parking">Italiana</CustomCheckboxTest>
+                    <CustomCheckboxTest value="pool">Portuguesa</CustomCheckboxTest>
+                    <CustomCheckboxTest value="gym">Americana</CustomCheckboxTest>
                 </CheckboxGroupTest>
             </main>
+
             <footer>
 
             </footer>
