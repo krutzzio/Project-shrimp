@@ -1,4 +1,10 @@
 import NavBar from '../components/navbar/NavBar';
+import Receta from '../assets/Recetas/Receta1.jpg';
+import Tiempo from '../assets/Recetas/Tiempo.png';
+import Dificultad from '../assets/Recetas/sombrero-de-cocinero.png'
+import TipoComida from '../assets/Recetas/pastel.png'
+import Paso1 from '../assets/Recetas/paso1.avif'
+import Paso2 from '../assets/Recetas/paso2.jpg'
 
 const Recetas = () => {
 
@@ -15,7 +21,7 @@ const Recetas = () => {
       </button>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img className="w-full" src="src\assets\Recetas\Receta1.jpg" alt="Receta" />
+        <img className="w-full" src={Receta} alt="Receta" />
 
         <div className="p-4">
           <h2 className="text-xl font-bold mb-2 text-orange-500">
@@ -28,7 +34,7 @@ const Recetas = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="src\assets\Recetas\Tiempo.png"
+                src={Tiempo}
                 alt="Tiempo"
               />
               <p className="text-gray-500">30 mins</p>
@@ -37,7 +43,7 @@ const Recetas = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="src\assets\Recetas\sombrero-de-cocinero.png"
+                src={Dificultad}
                 alt="Dificultad"
               />
               <p className="text-gray-500">Fácil</p>
@@ -46,7 +52,7 @@ const Recetas = () => {
             <div className="flex items-center">
               <img
                 className="w-5 mr-2 text-orange-500"
-                src="src\assets\Recetas\pastel.png"
+                src={TipoComida}
                 alt="Utensilios"
               />
               <p className="text-gray-500">Tipo de comida</p>
@@ -65,7 +71,7 @@ const Recetas = () => {
 
           <div className="flex flex-col">
             <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src="src\assets\Recetas\paso1.avif" alt="Receta" />
+              <img className="w-full" src={Paso1} alt="Receta" />
               <p className="text-ml text-gray-500">
                 Paso 1 de la preparación...
                 <br></br>
@@ -73,7 +79,7 @@ const Recetas = () => {
               </p>
             </div>
             <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src="src\assets\Recetas\paso2.jpg" alt="Receta" />
+              <img className="w-full" src={Paso2} alt="Receta" />
               <p className="text-ml text-gray-500">
                 Paso 2 de la preparación...
                 <br></br>

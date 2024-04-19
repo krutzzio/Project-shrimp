@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import NavBar from '../components/navbar/NavBar';
+import FotoPerfil from '../assets/Recetas/Icon_perfil.png';
 
 const PerfilCliente = () => {
   return (
@@ -10,7 +11,7 @@ const PerfilCliente = () => {
       
         <img 
           className="w-32 h-32 rounded-full border-4 border-white mb-6"
-          src="/src/assets/Recetas/Icon_perfil.png" 
+          src={FotoPerfil} 
           alt="Perfil" 
         />
         
