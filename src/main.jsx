@@ -23,6 +23,7 @@ import Promociones from "./components/Promociones.jsx";
 import Recetas from "./pages/Recetas.jsx";
 import Perfil_Restaurante_Cliente from "./pages/Perfil_Restaurante_Cliente.jsx";
 import Recetas_componente from './components/Recetas_componente.jsx';
+import { RegisterProvider } from './contexts/RegisterContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -63,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: "perfil/restaurantes-seguidos",
-        element: <Recetas />,
+        element: <Perfil_Restaurante_Cliente/>,
       }
     ]
   },
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
     path: "/Recetas",
     element: <Recetas />
 
+  },
+  {
+    path: "/promos",
+    element: <Promociones />,
   }
 ])
 
