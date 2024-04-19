@@ -14,58 +14,46 @@ export default function Login() {
 
   return (
     <div
-      className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${
-        userType ? `restaurant-theme` : `client-theme`
-      } bg-primary transition-colors`}
+      className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
+        } bg-primary transition-colors`}
     >
       <header className="w-full">
         <div className="max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
 
-            {/*Flecha*/}
-            <Link to={"/"} className="w-6 flex-1/3">
-                <img src={flecha}/>
-            </Link>
+          {/*Flecha*/}
+          <Link to={"/"} className="w-6 flex-1/3">
+            <img src={flecha} />
+          </Link>
 
-            {/*Logo*/}
-            <div className="flex-1/3">
-                <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
-            </div>
+          {/*Logo*/}
+          <div className="flex-1/3">
+            <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+          </div>
 
-            <div className="flex-1/3"></div>
-            
+          <div className="flex-1/3"></div>
+
         </div>
       </header>
 
       <main className="relative z-10 flex">
         <section className="flex flex-col items-center justify-center md:flex-row md:gap-6 md:max-w-2xl lg:max-w-6xl xl:max-w-6xl">
 
-            {/* Formulario Log in */}
-            <div className="flex flex-col gap-20">
+          {/* Formulario Log in */}
+          <div className="flex flex-col gap-20">
 
-                {/* Switch */}
-                <section className="flex flex-col justify-center items-center">
-                    <h3 className="text-center mb-1">¿Quién eres?</h3>
-                    <SwitchUser />
-                </section>
+            {/* Switch */}
+            <section className="flex flex-col justify-center items-center">
+              <h3 className="text-center mb-1">¿Quién eres?</h3>
+              <SwitchUser />
+            </section>
 
-                {/* Formulario */}
-                <section className="">
-                    <LogForm userType={userType} />
-                </section>
+            {/* Formulario */}
+            <section className="">
+              <LogForm userType={userType} />
+            </section>
 
-                {/* Link registro */}
-                <section className="flex items-end justify-center z-10 relative">
-                    <h1 className="text-black font-medium">
-                    ¿Nuevo en Gamba?{" "}
-                    <NavLink
-                    to={"/register"}
-                    className="text-primary font-semibold"
-                    >
-                    Regístrate
-                    </NavLink>
-                </h1>
-                </section>
-            </div>
+
+          </div>
 
           {/* Ilustración */}
           <img
@@ -76,7 +64,20 @@ export default function Login() {
         </section>
       </main>
 
-      <footer className="h-[10dvh]"></footer>
+      <footer className="h-[10dvh]">
+        {/* Link registro */}
+        <section className="flex items-end justify-center z-10 relative">
+          <h1 className="text-black font-medium">
+            ¿Nuevo en Gamba?{" "}
+            <NavLink
+              to={"/register"}
+              className="text-primary font-semibold"
+            >
+              Regístrate
+            </NavLink>
+          </h1>
+        </section>
+      </footer>
 
       {/* Mancha arriba izquierda */}
       <article
@@ -94,11 +95,10 @@ export default function Login() {
 
       {/* Mancha abajo izquierda */}
       <article
-        className={`absolute z-0  ${
-          userType
-            ? `rotate-[46deg] bottom-[-26rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
-            : `rotate-[-43deg] bottom-[-26rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
-        } transition-all`}
+        className={`absolute z-0  ${userType
+            ? `rotate-[46deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+            : `rotate-[-43deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+          } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
       </article>

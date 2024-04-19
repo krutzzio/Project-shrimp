@@ -1,4 +1,3 @@
-import AddIcon from "../../assets/add.svg"
 
 
 // eslint-disable-next-line react/prop-types
@@ -10,7 +9,7 @@ export default function Step2Rest() {
             </header>
 
             <main className="flex flex-col items-center ">
-
+                
             </main>
 
             <footer>
