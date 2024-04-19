@@ -10,7 +10,7 @@ const checkbox = tv({
         isSelected: {
             true: {
                 base: "border-primary bg-primary hover:bg-primary hover:border-primary",
-                content: "text-white pl-1"
+                content: "text-white"
             }
         },
         isFocusVisible: {

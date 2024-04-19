@@ -4,7 +4,7 @@ const infoClient = {
     name: "",
     correo: "",
     password: "",
-    avatar: "",
+    avatar: null,
     cp: "",
     dieta: "",
     alergias: [],
