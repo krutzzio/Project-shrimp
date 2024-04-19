@@ -6,7 +6,6 @@ export function useSteps(user) {
 
     useEffect(() => {
         setMaxSteps(user === "client" ? 4 : 3)
-        console.log(user)
     }, [user])
     return { step, setStep, maxSteps }
 

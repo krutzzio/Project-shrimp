@@ -20,6 +20,7 @@ import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
 import Recetas_vista from "./pages/Recetas_vista.jsx";
+import { RegisterProvider } from './contexts/RegisterContext.jsx';
 
 const router = createBrowserRouter([
   {
@@ -67,14 +68,13 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
-    {/* Podem fer un context per pasar el tema de (fosc a clar) */}
-    <NextUIProvider>
-      <ThemeProvider>
+  <NextUIProvider>
+    <ThemeProvider>
+      <RegisterProvider>
         <main className="h-dvh client-theme">
           <RouterProvider router={router} />
         </main>
-      </ThemeProvider>
-    </NextUIProvider>
-  </>,
+      </RegisterProvider>
+    </ThemeProvider>
+  </NextUIProvider>
 )
