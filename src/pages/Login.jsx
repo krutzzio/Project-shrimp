@@ -10,7 +10,7 @@ import landing2 from "../assets/illustrations/landing2.svg";
 import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 
 export default function Login() {
-  const { userType } = useContext(ThemeContext);
+  const { userType } = useContext(ThemeContext)
 
   return (
     <div
@@ -43,7 +43,7 @@ export default function Login() {
         <article className="hidden w-full  justify-center md:flex">
           <img
             src={landing2}
-            className="hidden md:block md:h-full md:max-h-[24rem]"
+            className="hidden md:block md:h-full md:max-h-[35rem]"
             alt="landing2"
           />
         </article>
@@ -77,7 +77,7 @@ export default function Login() {
 
       {/* Mancha arriba derecha */}
       <article
-        className={`absolute z-0 rotate-[46deg] bottom-[26rem] left-[12rem] md:bottom-[-16rem] lg:left-[30rem] lg:bottom-[22rem] xl:left-[36rem] xl:bottom-[32rem]`}
+        className={`absolute z-0 rotate-[46deg] top-[-30rem] right-[-35rem] md:right-[-25rem] md:top-[-20rem] `}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
       </article>
@@ -85,8 +85,8 @@ export default function Login() {
       {/* Mancha abajo izquierda */}
       <article
         className={`absolute z-0  ${userType
-          ? `rotate-[46deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
-          : `rotate-[-43deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+          ? `rotate-[46deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] md:left-[5rem]`
+          : `rotate-[-43deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem]  md:left-[5rem]`
           } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
