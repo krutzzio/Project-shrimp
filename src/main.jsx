@@ -23,6 +23,7 @@ import Promociones from "./components/Promociones.jsx";
 import Recetas from "./pages/Recetas.jsx";
 import Perfil_Restaurante_Cliente from "./pages/Perfil_Restaurante_Cliente.jsx";
 import Recetas_componente from './components/Recetas_componente.jsx';
+import { RegisterProvider } from './contexts/RegisterContext.jsx';
 
 const router = createBrowserRouter([
   {
