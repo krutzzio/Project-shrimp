@@ -1,6 +1,6 @@
 import CheckboxGroupTest, { CustomCheckboxTest } from "../Radio/Checkbox";
 
-export default function Step3Client() {
+export default function StepAlergens() {
     return (
         <main className="h-[70%] w-full text-center flex flex-col justify-between gap-8">
             <header>
