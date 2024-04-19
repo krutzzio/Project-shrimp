@@ -17,52 +17,36 @@ export default function Login() {
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full">
-        <div className="max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
-
-          {/*Flecha*/}
-          <Link to={"/"} className="w-6 flex-1/3">
-            <img src={flecha} />
-          </Link>
-
-          {/*Logo*/}
-          <div className="flex-1/3">
-            <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
-          </div>
-
-          <div className="flex-1/3"></div>
-
-        </div>
+      <header className="w-full max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
+        {/*Flecha*/}
+        <Link to={"/"} className="w-6">
+          <img src={flecha} />
+        </Link>
+        {/*Logo*/}
+        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+        <div className="w-6"></div>
       </header>
 
       <main className="relative z-10 w-11/12 flex flex-col items-center justify-around md:grid md:grid-cols-2 md:content-between ">
-
         {/* Formulario Log in */}
         <div className="flex flex-col gap-20">
-
           {/* Switch */}
           <section className="flex flex-col justify-center items-center">
             <h3 className="text-center mb-1">¿Quién eres?</h3>
             <SwitchUser />
           </section>
-
           {/* Formulario */}
-          <section className="">
-            <LogForm userType={userType} />
-          </section>
-
-
+          <LogForm userType={userType} />
         </div>
 
         {/* Ilustración */}
         <article className="hidden w-full  justify-center md:flex">
           <img
             src={landing2}
-            className="hidden md:block md:h-full md:max-h-[24rem] "
+            className="hidden md:block md:h-full md:max-h-[24rem]"
             alt="landing2"
           />
         </article>
-
       </main>
 
       <footer className="h-[10dvh] md:w-11/12 md:grid md:grid-cols-2 md:content-between">

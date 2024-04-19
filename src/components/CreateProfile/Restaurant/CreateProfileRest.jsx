@@ -1,7 +1,6 @@
-import Step3Client from "../Client/Step3Client";
-import Step4Client from "../Client/Step4Client";
-import Step1 from "../Step1";
-import Step2Rest from "./Step2Rest";
+import StepAvatarUbi from "../StepAvatarUbi";
+import StepDescRest from "./StepDescRest";
+import StepCocina from "../Client/StepCocina";
 
 // eslint-disable-next-line react/prop-types
 export default function CreateProfileRest({ step, img, handleImg, profile }) {
@@ -10,14 +9,12 @@ export default function CreateProfileRest({ step, img, handleImg, profile }) {
         <>
             {
                 step === 1
-                    ? <Step1 imgProfile={img} handleChange={handleImg} profileType={profile} />
+                    ? <StepAvatarUbi imgProfile={img} handleChange={handleImg} profileType={profile} />
                     : step === 2
-                        ? <Step2Rest />
+                        ? <StepDescRest />
                         : step === 3
-                            ? <Step3Client />
-                            : step === 4
-                                ? <Step4Client />
-                                : <></>
+                            ? <StepCocina />
+                            : <></>
             }
         </>
     )

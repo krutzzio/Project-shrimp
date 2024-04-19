@@ -3,8 +3,6 @@ import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
 import { useState } from "react"
-import Next from "../assets/next-arrow.svg"
-import Prev from "../assets/prev-arrow.svg"
 import { useSteps } from "../hooks/useSteps"
 import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
 import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
@@ -59,12 +57,12 @@ export default function CreateProfile() {
             : (
               <section className="flex justify-between w-full">
                 <Button onClick={() => setStep(step - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
-                  <img src={Prev} alt="" />
+                  <h1 className="text-base">Volver</h1>
                 </Button>
                 <Button onClick={() => setStep(step + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
                   {
                     step !== maxSteps
-                      ? <img className="w-[48px]" src={Next} alt="" />
+                      ? <h1 className="text-base">Siguiente</h1>
                       : <NavLink className="w-full text-base" to={"/home"}>Completar alta</NavLink>
                   }
                 </Button>
