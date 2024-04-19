@@ -49,37 +49,30 @@ const router = createBrowserRouter([
   {
     path: "/perfil",
     element: <Perfil_cliente />,
-    children: [
-      {
-        path: "perfil/recetas-guardadas",
-        element: <Recetas_guardadas />,
-      },
-      {
-        path: "perfil/recetas-hechas",
-        element: <Recetas_hechas />,
-      },
-      {
-        path: "perfil/promos",
-        element: <Promociones />,
-      },
-      {
-        path: "perfil/restaurantes-seguidos",
-        element: <Recetas />,
-      }
-    ]
   },
   {
-    path: "/Perfil_Restaurante_Cliente",
+    path: "perfil/recetas-hechas",
+    element: <Recetas_hechas />,
+  },
+  {
+    path: "perfil/recetas-guardadas",
+    element: <Recetas_guardadas />,
+  },
+  {
+    path: "/perfil/promos",
+    element: <Promociones />,
+  },
+  {
+    path: "/perfil/restaurante-cliente",
     element: <Perfil_Restaurante_Cliente />
   },
   {
-    path: "/Recetas_componente",
-    element: <Recetas_componente/>
+    path: "/recetas-componente",
+    element: <Recetas_componente />
   },
   {
-    path: "/Recetas",
+    path: "/receta",
     element: <Recetas />
-
   }
 ])
 
