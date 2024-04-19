@@ -51,21 +51,25 @@ export default function CreateProfile() {
       <footer className="w-8/12 h-[10dvh] flex justify-center ">
         {
           step === 1
-            ? (<Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
-              Continuar
-            </Button>)
-            : step === maxSteps
-              ? (<Button className="w-full text-xl bg-primary text-white font-semibold">
-                <NavLink className="w-full" to={"/home"}>Completar alta</NavLink>
-              </Button>)
-              : (<section className="flex justify-between w-full">
+            ? (
+              <Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
+                Continuar
+              </Button>
+            )
+            : (
+              <section className="flex justify-between w-full">
                 <Button onClick={() => setStep(step - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
                   <img src={Prev} alt="" />
                 </Button>
                 <Button onClick={() => setStep(step + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
-                  <img className="w-[48px]" src={Next} alt="" />
+                  {
+                    step !== maxSteps
+                      ? <img className="w-[48px]" src={Next} alt="" />
+                      : <NavLink className="w-full text-base" to={"/home"}>Completar alta</NavLink>
+                  }
                 </Button>
-              </section>)
+              </section>
+            )
         }
       </footer>
     </div >
