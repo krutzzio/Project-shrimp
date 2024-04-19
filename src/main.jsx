@@ -19,7 +19,7 @@ import Perfil_cliente from "./pages/Perfil_cliente.jsx";
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
-import Recetas_vista from "./pages/Recetas_vista.jsx";
+import Recetas from "./pages/Recetas.jsx";
 import Perfil_Restaurante_Cliente from "./pages/Perfil_Restaurante_Cliente.jsx";
 import Recetas_componente from './components/Recetas_componente.jsx';
 
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: "perfil/restaurantes-seguidos",
-        element: <Recetas_vista />,
+        element: <Recetas />,
       }
     ]
   },
@@ -73,6 +73,10 @@ const router = createBrowserRouter([
   {
     path: "/Recetas_componente",
     element: <Recetas_componente/>
+  },
+  {
+    path: "/Recetas",
+    element: <Recetas />
   }
 ])
 

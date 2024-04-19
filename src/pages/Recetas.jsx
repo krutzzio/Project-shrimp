@@ -1,22 +1,11 @@
-import { Link } from 'react-router-dom';
+import NavBar from '../components/navbar/NavBar';
 
-const Recetas_vista = () => {
+const Recetas = () => {
 
 
   return (
     <div className="max-w-2xl mx-auto p-4 ">
-      <header className="flex justify-between items-center mb-4 ">
-        <Link to={`/`}>
-        <img
-          className="h-12 mb-4 hover:opacity-75"
-          src="src\assets\logo\logoGamba_logoNaranja.svg"
-          alt="Logo"
-        />
-        </Link>
-        <Link to={`/Perfil_cliente`}>
-        <img src="src\assets\Recetas\Icon_perfil.png" className="h-16 mb-4 rounded-full hover:opacity-75" alt="Perfil"/>
-        </Link>
-      </header>
+      <NavBar></NavBar>
 
       <button
         className="bg-orange-500 text-white font-bold py-2 px-4 rounded-full hover:bg-orange-600"
@@ -107,4 +96,4 @@ const Recetas_vista = () => {
   );
 };
 
-export default Recetas_vista;
+export default Recetas;
