@@ -15,7 +15,6 @@ const {
   Restaurante,
   Receta,
   TipoCocina,
-
   Receta_Ingrediente,
 } = require("./models"); // Importa els models de dades
 
@@ -491,7 +490,11 @@ router.post(
     }
   }
 );
+router.get(
+  "/tipuscuina",
 
+  async (req, res) => await readItems(req, res, TipoCocina)
+);
 
 
 router.get('/uploads/:fileName', (req, res) => {

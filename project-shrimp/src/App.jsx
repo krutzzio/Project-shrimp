@@ -98,7 +98,7 @@ console.log(formData)
   return (
     <>
     <div >
-    <h3 className="p-1">Formulario receta</h3>
+    <h3 className="text-red-500">Formulario receta</h3>
     <form onSubmit={registroReceta}>
       {mostrarInfo&&
       <div>
@@ -110,7 +110,7 @@ console.log(formData)
         />
       </div>
       <div>
-        <label className="text-xs" htmlFor="descripcionReceta">Descripcio</label>
+        <label className="text-red" htmlFor="descripcionReceta">Descripcio</label>
         <input
           onInput={(e) => setDescripcionReceta(e.target.value)}
           value={descripcionReceta}
