@@ -276,7 +276,7 @@ export default function HomeRecetas() {
           </section>
 
           {/*Filtros*/}
-          <section className="flex pt-4 pl-1 overflow-x-auto hidden lg:block	">
+          <section className="md:flex pt-4 pl-1 overflow-x-auto hidden lg:block	">
             <div className="mx-1 flex gap-2">
               <Dropdown >
                 <DropdownTrigger >

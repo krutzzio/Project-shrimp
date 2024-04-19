@@ -14,12 +14,12 @@ const Perfil_cliente = () => {
           </div>
           <div className="flex flex-col py-5">
             <div className="flex flex-col border-2 border-black rounded-md h-auto w-auto p-4 mb-5 shadow-xl bg-white hover:bg-orange-400">
-              <Link to= "/Recetas_guardadas">
+              <Link to= "/perfil/recetas-guardadas">
                 <button className="text-xl">Recetas Guardadas</button>
               </Link>
             </div>
             <div className="flex flex-col border-2 border-black rounded-md h-auto w-auto p-4 mb-5 shadow-xl bg-white hover:bg-orange-400">
-              <Link to="/Recetas_hechas">
+              <Link to="/perfil/recetas-hechas">
                 <button className="text-xl">Recetas Hechas</button>
               </Link>
             </div>

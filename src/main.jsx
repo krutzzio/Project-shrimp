@@ -20,6 +20,8 @@ import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
 import Recetas_vista from "./pages/Recetas_vista.jsx";
+import Perfil_Restaurante_Cliente from "./pages/Perfil_Restaurante_Cliente.jsx";
+import Recetas_componente from './components/Recetas_componente.jsx';
 
 const router = createBrowserRouter([
   {
@@ -61,10 +63,17 @@ const router = createBrowserRouter([
       {
         path: "perfil/restaurantes-seguidos",
         element: <Recetas_vista />,
-      },
-
+      }
     ]
   },
+  {
+    path: "/Perfil_Restaurante_Cliente",
+    element: <Perfil_Restaurante_Cliente />
+  },
+  {
+    path: "/Recetas_componente",
+    element: <Recetas_componente/>
+  }
 ])
 
 

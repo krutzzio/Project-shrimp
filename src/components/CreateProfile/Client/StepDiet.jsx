@@ -6,7 +6,7 @@ export default function StepDiet() {
             <header>
                 <h1 className="text-primary text-3xl font-bold leading-8">Sigues alguna dieta?</h1>
             </header>
-            <main className="flex flex-col items-center ">
+            <main className="flex flex-col items-center">
                 <RadioChoose />
             </main>
             <footer>

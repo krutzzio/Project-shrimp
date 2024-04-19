@@ -34,7 +34,7 @@ export const CustomCheckboxTest = (props) => {
     const styles = checkbox({ isSelected, isFocusVisible })
 
     return (
-        <label {...getBaseProps()}>
+        <label {...getBaseProps()} className="m-0 w-fit">
             <VisuallyHidden>
                 <input {...getInputProps()} />
             </VisuallyHidden>
@@ -55,7 +55,6 @@ export const CustomCheckboxTest = (props) => {
 
 
 
-
 // eslint-disable-next-line react/prop-types
 export default function CheckboxGroupTest({ children, group, setGroup }) {
 
@@ -64,7 +63,7 @@ export default function CheckboxGroupTest({ children, group, setGroup }) {
             <CheckboxGroup
                 className=""
                 classNames={{
-                    wrapper: "grid grid-cols-2 content-center"
+                    wrapper:"flex flex-wrap justify-center"
                 }}
                 orientation="horizontal"
                 value={group}
