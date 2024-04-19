@@ -11,6 +11,7 @@ import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 export default function Register() {
   const { userType } = useContext(ThemeContext);
 
+
   return (
     <div
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
