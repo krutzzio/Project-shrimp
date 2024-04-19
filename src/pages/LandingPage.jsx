@@ -12,9 +12,8 @@ export default function LandingPage() {
 
   return (
     <div
-      className={`overflow-hidden relative text-white h-full flex flex-col justify-between ${
-        userType ? `restaurant-theme` : `client-theme`
-      } bg-primary transition-colors`}
+      className={`overflow-hidden relative text-white h-full flex flex-col justify-between ${userType ? `restaurant-theme` : `client-theme`
+        } bg-primary transition-colors`}
     >
       <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
         <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
@@ -48,11 +47,24 @@ export default function LandingPage() {
               </Link>
             </Button>
           </div>
-          <img
-            src={landing1}
-            className="hidden md:block md:h-auto md:w-1/2"
-            alt="landing1"
-          />
+          {
+            userType
+              ? (
+                <img
+                  src={landing1}
+                  className="hidden md:block md:h-auto md:w-1/2"
+                  alt="landing1"
+                />
+              )
+              : (
+                <img
+                  src={landing1}
+                  className="hidden md:block md:h-auto md:w-1/2"
+                  alt="landing1"
+                />
+              )
+          }
+
         </section>
       </main>
 
