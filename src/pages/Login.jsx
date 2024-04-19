@@ -1,47 +1,96 @@
-import { useContext } from 'react'
-import { NavLink } from "react-router-dom"
-import logoGamba from '../assets/logo/logoGamba_logoBlanco.svg'
-import shape1 from '../assets/shapes/shape1.svg'
-import shape2 from '../assets/shapes/shape2.svg'
-import SwitchUser from '../components/SwitchUser'
-import { ThemeContext } from '../contexts/ThemeContext'
-import LogForm from '../components/forms/LogForm'
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import logoGamba from "../assets/logo/logoGamba_logoBlanco.svg";
+import shape1 from "../assets/shapes/shape1.svg";
+import shape2 from "../assets/shapes/shape2.svg";
+import SwitchUser from "../components/SwitchUser";
+import { ThemeContext } from "../contexts/ThemeContext";
+import LogForm from "../components/forms/LogForm";
+import landing2 from "../assets/illustrations/landing2.svg";
+import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 
 export default function Login() {
+  const { userType } = useContext(ThemeContext);
 
-    const { userType } = useContext(ThemeContext)
+  return (
+    <div
+      className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
+        } bg-primary transition-colors`}
+    >
+      <header className="w-full max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
+        {/*Flecha*/}
+        <Link to={"/"} className="w-6">
+          <img src={flecha} />
+        </Link>
+        {/*Logo*/}
+        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+        <div className="w-6"></div>
+      </header>
 
+      <main className="relative z-10 w-11/12 flex flex-col items-center justify-around md:grid md:grid-cols-2 md:content-between ">
+        {/* Formulario Log in */}
+        <div className="flex flex-col gap-20">
+          {/* Switch */}
+          <section className="flex flex-col justify-center items-center">
+            <h3 className="text-center mb-1">¿Quién eres?</h3>
+            <SwitchUser />
+          </section>
+          {/* Formulario */}
+          <LogForm userType={userType} />
+        </div>
 
-    return (
-        <div className={`overflow-hidden relative flex flex-col items-center justify-between text-white h-full ${userType ? `restaurant-theme` : `client-theme`} bg-primary transition-colors`}>
-            <header className='pt-10 flex justify-center'>
-                <img
-                    className="w-44"
-                    src={logoGamba}
-                    alt='Gamba Logo' />
-            </header>
+        {/* Ilustración */}
+        <article className="hidden w-full  justify-center md:flex">
+          <img
+            src={landing2}
+            className="hidden md:block md:h-full md:max-h-[24rem]"
+            alt="landing2"
+          />
+        </article>
+      </main>
 
-            <main className='w-9/12 flex flex-col gap-10 items-center justify-center'>
-                <section className=''>
-                    <h3 className='text-center mb-1'>¿Quién eres?</h3>
-                    <SwitchUser />
-                </section>
-                <section className='w-full'>
-                    <LogForm userType={userType} />
-                </section>
-            </main>
+      <footer className="h-[10dvh] md:w-11/12 md:grid md:grid-cols-2 md:content-between">
+        {/* Link registro */}
+        <section className="flex items-end justify-center z-10 relative">
+          <h1 className="text-black font-medium">
+            ¿Nuevo en Gamba?{" "}
+            <NavLink
+              to={"/register"}
+              className="text-primary font-semibold"
+            >
+              Regístrate
+            </NavLink>
+          </h1>
+        </section>
 
-            <footer className='mb-12 flex items-end justify-center z-10 relative'>
-                <h1 className='text-black font-medium'>¿Nuevo en Gamba? <NavLink to={"/register"} className='text-primary font-semibold'>Regístrate</NavLink></h1>
-            </footer>
+        {/* Para poder centrar el footer en el form */}
+        <aside className="hidden md:max-w-[24rem]">
+        </aside>
+      </footer>
 
-            <article className={`absolute z-0 top-[-17rem] left-[-17rem] rotate-[50deg]`}>
-                <img src={shape1} className='max-w-[30rem] w-[50rem]' alt="" />
-            </article>
+      {/* Mancha arriba izquierda */}
+      <article
+        className={`absolute z-0 top-[-17rem] left-[-16rem] rotate-[50deg] md:left-[-10rem] lg:top-[-18rem] lg:left-[-12rem] xl:top-[-14rem]`}
+      >
+        <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
+      </article>
 
-            <article className={`absolute z-0  ${userType ? `rotate-[46deg] bottom-[-30rem] left-[-10rem]` : `rotate-[-43deg] bottom-[-30rem] left-[-12rem]`} transition-all`}>
-                <img src={shape2} className='max-w-[50rem] w-[50rem]' alt="" />
-            </article>
-        </div >
-    )
+      {/* Mancha arriba derecha */}
+      <article
+        className={`absolute z-0 rotate-[46deg] bottom-[26rem] left-[12rem] md:bottom-[-16rem] lg:left-[30rem] lg:bottom-[22rem] xl:left-[36rem] xl:bottom-[32rem]`}
+      >
+        <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
+      </article>
+
+      {/* Mancha abajo izquierda */}
+      <article
+        className={`absolute z-0  ${userType
+          ? `rotate-[46deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+          : `rotate-[-43deg] bottom-[-30rem] left-[-12rem] md:bottom-[-16rem] lg:left-[-6rem] lg:bottom-[-26rem] xl:bottom-[-24rem]`
+          } transition-all`}
+      >
+        <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
+      </article>
+    </div>
+  );
 }

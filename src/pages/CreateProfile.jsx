@@ -1,13 +1,19 @@
-import { useParams } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
-import { Avatar } from "@nextui-org/react"
+import { Button } from "@nextui-org/react"
 import { useState } from "react"
+import { useSteps } from "../hooks/useSteps"
+import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
+import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
+
 
 
 export default function CreateProfile() {
 
   const { profileType } = useParams()
+
+  const { step, setStep, maxSteps } = useSteps(profileType)
 
   const [imgProfile, setImageProfile] = useState()
 
@@ -16,8 +22,8 @@ export default function CreateProfile() {
   }
 
   return (
-    <div className={`bg-background h-full flex flex-col items-center justify-between relative overflow-hidden ${profileType}-theme`}>
-      <header className='pt-10 flex justify-center'>
+    <div className={`h-full flex flex-col items-center justify-between relative overflow-hidden ${profileType}-theme`}>
+      <header className='pt-6 flex justify-center'>
         {
           profileType === "client"
             ? <img
@@ -31,20 +37,38 @@ export default function CreateProfile() {
         }
       </header>
 
-      <main className="h-[80%] text-center">
-        <header>
-          <h1 className="text-primary text-3xl font-bold leading-8">¡Bienvenido! Vamos<br /> a crear tu perfil</h1>
-          <p className="text-gray-400 text-sm font-medium">¡Deja que te conozcamos mejor!</p>
-        </header>
-        <main>
-          <h1>Añade un avatar</h1>
-          <input type="file" onChange={handleChange} />
-          <img className="w-16 h-16 border-black" src={imgProfile} alt="" />
-        </main>
-      </main>
+      {/* Formularios para cada paso de la alta del perfil */}
 
-      <footer className="">
-        footer elimina esta linia es un test
+      {
+        profileType === "client"
+          ? <CreateProfileClient step={step} img={imgProfile} handleImg={handleChange} profile={profileType} />
+          : <CreateProfileRest step={step} img={imgProfile} handleImg={handleChange} profile={profileType} />
+      }
+
+      {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
+      <footer className="w-8/12 h-[10dvh] flex justify-center ">
+        {
+          step === 1
+            ? (
+              <Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
+                Continuar
+              </Button>
+            )
+            : (
+              <section className="flex justify-between w-full">
+                <Button onClick={() => setStep(step - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
+                  <h1 className="text-base">Volver</h1>
+                </Button>
+                <Button onClick={() => setStep(step + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
+                  {
+                    step !== maxSteps
+                      ? <h1 className="text-base">Siguiente</h1>
+                      : <NavLink className="w-full text-base" to={"/home"}>Completar alta</NavLink>
+                  }
+                </Button>
+              </section>
+            )
+        }
       </footer>
     </div >
   )
