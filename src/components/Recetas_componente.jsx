@@ -1,9 +1,9 @@
 const Recetas_componente = () => {
   return (
-    <div>
-      <div className=" items-center jusitfy-center mb-4 p-5 border-2 border-orange-500 rounded-lg shadow-lg">
+    <div className="p-2">
+      <div className=" flex flex-col bg-white rounded-xl shadow-lg border-5 border-orange-300">
         <img
-          className="border-2 border-orange-500 rounded-lg shadow-lg"
+          className="border-2 border-orange-500 rounded-lg shadow-lg w-full h-48 object-cover"
           src="src\assets\Recetas\Receta1.jpg"
           alt=""
         />
@@ -35,8 +35,11 @@ const Recetas_componente = () => {
             <p className="text-gray-500">Tipo de comida</p>
           </div>
         </div>
+        <div className="p-2">
         <h2 className="font-bold mb-2 text-xl">Ensalada de kamaron</h2>
-        <p className="text-gray-500 text-ml">Tipo de cocina</p>
+        <p className="text-gray-500 text-ml ">Tipo de cocina</p>
+        </div>
+        
       </div>
     </div>
   );
