@@ -9,8 +9,8 @@ const RegistroRecetaForm = () => {
   const [tipo, setTipo] = useState("");
   const [persones, setPersones] = useState("");
   const [foto_receta, setPhotos] = useState("");
-  const [mostrarIngredientes, setMostrarIngredientes] = useState(false); // Estado para controlar la visibilidad de la sección de ingredientes
-  const [mostrarInfo, setInfo] = useState(true); // Estado para controlar la visibilidad de la sección de Info
+  const [mostrarIngredientes, setMostrarIngredientes] = useState(false); 
+  const [mostrarInfo, setInfo] = useState(true); 
   const [ingredientes, setIngredientes] = useState(['']);
   const [imgProfile, setImageProfile] = useState();
   const [datos, setDatos] = useState([]);
@@ -31,7 +31,7 @@ const RegistroRecetaForm = () => {
       }
     };
 
-    fetchData(); // Llama a la función para obtener los datos cuando el componente se monta
+    fetchData(); 
   }, []); 
   console.log(datos)
   const toggleMostrarIngredientes = () => {
@@ -43,8 +43,8 @@ const RegistroRecetaForm = () => {
     }
 
     if(!mostrarInfo){
-      setPhotos(""); // Reiniciar el estado del input file
-    setImageProfile(null); // Reiniciar la vista previa de la imagen
+      setPhotos(""); 
+    setImageProfile(null); 
     }
   };
 
