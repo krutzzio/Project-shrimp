@@ -30,12 +30,12 @@ export const RegisterContext = createContext(null)
 // eslint-disable-next-line react/prop-types
 export function RegisterProvider({ children }) {
 
-    const [infoRegisterClient, setInfoRegisterClient] = useState(infoClient)
-    const [infoRegisterRest, setInfoRegisterRest] = useState(infoRest)
+    const [registerClient, setRegisterClient] = useState(infoClient)
+    const [registerRest, setRegisterRest] = useState(infoRest)
 
 
     return (
-        <RegisterContext.Provider value={{ client: infoRegisterClient, rest: infoRegisterRest, setInfoRegisterClient, setInfoRegisterRest }}>
+        <RegisterContext.Provider value={{ client: registerClient, rest: registerRest, setRegisterClient, setRegisterRest }}>
             {children}
         </RegisterContext.Provider>
     )

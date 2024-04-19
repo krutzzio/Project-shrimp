@@ -1,20 +1,15 @@
 import { Button } from "@nextui-org/react"
 import "../forms.css"
 import { NavLink } from "react-router-dom"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { ThemeContext } from "../../../contexts/ThemeContext"
 import { RegisterContext, } from "../../../contexts/RegisterContext"
 
 export default function RegisterForm() {
 
-
     const { userType } = useContext(ThemeContext)
-
-    const { client, rest } = useContext(RegisterContext)
-
-
+    const { client, rest, setRegisterClient, setRegisterRest } = useContext(RegisterContext)
     const [infoUser, setInfoUser] = useState(userType ? { ...rest } : { ...client })
-
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -22,12 +17,14 @@ export default function RegisterForm() {
     }
 
     const handleContinue = () => {
-        
+        if (userType) {
+            setRegisterRest(infoUser)
+        } else {
+            setRegisterClient(infoUser)
+        }
+        console.log("SETTED INFO")
     }
 
-    useEffect(() => {
-        console.log(infoUser, client)
-    }, [infoUser])
 
     return (
         <div className="w-[20rem] flex flex-col items-center m-auto gap-6">
@@ -49,11 +46,7 @@ export default function RegisterForm() {
             </article>
             <article className="w-9/12 py-8">
                 <Button className="z-10 w-full h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-                    {
-                        userType
-                            ? < NavLink to={"/create/restaurant"} className="w-full" >Crear cuenta</NavLink>
-                            : <NavLink to={"/create/client"} className="w-full" >Crear cuenta</NavLink>
-                    }
+                    <NavLink to={`/create/${userType ? `restaurant` : `client`}`} onClick={handleContinue} className="w-full">Crear Cuenta</NavLink>
                 </Button>
             </article>
         </div >

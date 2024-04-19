@@ -2,20 +2,25 @@ import { NavLink, useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useSteps } from "../hooks/useSteps"
 import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
 import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
+import { RegisterContext } from "../contexts/RegisterContext"
 
 
 
 export default function CreateProfile() {
 
   const { profileType } = useParams()
-
   const { step, setStep, maxSteps } = useSteps(profileType)
-
   const [imgProfile, setImageProfile] = useState()
+  const { client, rest, setRegisterClient, setRegisterRest } = useContext(RegisterContext)
+
+  useEffect(() => {
+    console.log(client, rest)
+  }, [client, rest])
+
 
   const handleChange = (event) => {
     setImageProfile(URL.createObjectURL(event.target.files[0]))
