@@ -11,6 +11,7 @@ import CP from "../../assets/iconos/iconos_Mapa.svg";
 import rest from "../../assets/iconos/iconos_Restaurante.svg";
 import receta from "../../assets/iconos/iconos_Recetas.svg";
 import filtro from "../../assets/iconos/iconos_Filtro.svg";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
 
@@ -19,12 +20,12 @@ export default function NavBar() {
         <section className="relative z-10 flex items-center justify-between lg:px-8">
           {/*Desktop*/}
 
-        {/*Logo*/}
-        <img
-          className="hidden w-32 lg:block lg:w-44"
-          src={logoGamba}
-          alt="Gamba Logo"
-        />
+          {/*Logo*/}
+          <img
+            className="hidden w-32 lg:block lg:w-44"
+            src={logoGamba}
+            alt="Gamba Logo"
+          />
         {/*Switch largo*/}
         <section className="hidden mx-2 lg:block">
           <SwitchHome />
@@ -103,10 +104,13 @@ export default function NavBar() {
           <button className="lg:hidden w-8">
             <img src={CP} />
           </button>
-          <Avatar
-            size="sm"
-            classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
-          />
+          <Link to={"/perfil"}>
+            <Avatar
+              size="sm"
+              classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+            />
+          </Link>
+          
         </div>
         </section>
         

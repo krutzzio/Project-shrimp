@@ -3,12 +3,6 @@ import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
 import { useState } from "react"
-import Step1 from "../components/CreateProfile/Step1"
-import Step2Client from "../components/CreateProfile/Client/Step2Client"
-import Step3Client from "../components/CreateProfile/Client/Step3Client"
-import Step4Client from "../components/CreateProfile/Client/Step4Client"
-import Next from "../assets/next-arrow.svg"
-import Prev from "../assets/prev-arrow.svg"
 import { useSteps } from "../hooks/useSteps"
 import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
 import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
@@ -55,21 +49,25 @@ export default function CreateProfile() {
       <footer className="w-8/12 h-[10dvh] flex justify-center ">
         {
           step === 1
-            ? (<Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
-              Continuar
-            </Button>)
-            : step === maxSteps
-              ? (<Button className="w-full text-xl bg-primary text-white font-semibold">
-                <NavLink className="w-full" to={"/home"}>Completar alta</NavLink>
-              </Button>)
-              : (<section className="flex justify-between w-full">
+            ? (
+              <Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
+                Continuar
+              </Button>
+            )
+            : (
+              <section className="flex justify-between w-full">
                 <Button onClick={() => setStep(step - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
-                  <img src={Prev} alt="" />
+                  <h1 className="text-base">Volver</h1>
                 </Button>
                 <Button onClick={() => setStep(step + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
-                  <img className="w-[48px]" src={Next} alt="" />
+                  {
+                    step !== maxSteps
+                      ? <h1 className="text-base">Siguiente</h1>
+                      : <NavLink className="w-full text-base" to={"/home"}>Completar alta</NavLink>
+                  }
                 </Button>
-              </section>)
+              </section>
+            )
         }
       </footer>
     </div >

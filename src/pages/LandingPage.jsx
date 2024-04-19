@@ -12,15 +12,16 @@ export default function LandingPage() {
 
   return (
     <div
-      className={`overflow-hidden relative text-white h-full flex flex-col justify-between ${userType ? `restaurant-theme` : `client-theme`
-        } bg-primary transition-colors`}
+      className={`overflow-hidden relative text-white h-full flex flex-col justify-between ${
+        userType ? `restaurant-theme` : `client-theme`
+      } bg-primary transition-colors`}
     >
       <header className="relative z-10 flex p-4 items-center justify-between lg:px-8">
         <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
         <Button color="primary" className="shadow-xl content-end font-bold">
-
-          <Link className="text-[#FAFAFA]" to={"/login"}>Log in</Link>
-
+          <Link className="text-[#FAFAFA]" to={"/login"}>
+            Log in
+          </Link>
         </Button>
       </header>
 
@@ -41,10 +42,11 @@ export default function LandingPage() {
               voluptates aspernatur cumque libero, fugit nisi doloremque qui hic
               numquam maxime totam in, tempore placeat.
             </p>
-            <Button className="px-28 py-7 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-              <Link to={"/register"}>Regístrate</Link>
+            <Button className="w-[20rem] h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
+              <Link className="w-full" to={"/register"}>
+                Regístrate
+              </Link>
             </Button>
-            <Link to={"/home"}>Home</Link>
           </div>
           <img
             src={landing1}
@@ -60,14 +62,13 @@ export default function LandingPage() {
       <article
         className={`absolute z-0 top-[-17rem] rotate-[100deg] right-[-14rem] md:top-[-14rem] md:right-[-12rem]`}
       >
-        <img 
-        src={shape1} 
-        className="max-w-[30rem] w-[50rem]" 
-        alt="" />
+        <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
       </article>
 
       {/* Mancha abajo derecha */}
-      <article className={`absolute z-0 rotate-[-20deg] bottom-[-36rem] right-[-26rem] md:right-[-22rem] md:bottom-[-26rem] lg:bottom-[-32rem] xl:bottom-[-26rem]`}>
+      <article
+        className={`absolute z-0 rotate-[-20deg] bottom-[-36rem] right-[-26rem] md:right-[-22rem] md:bottom-[-26rem] lg:bottom-[-32rem] xl:bottom-[-26rem]`}
+      >
         <img
           src={shape2}
           className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
@@ -75,7 +76,9 @@ export default function LandingPage() {
         />
       </article>
       {/* Mancha abajo izquierda */}
-      <article className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block xl:bottom-[-26rem]`}>
+      <article
+        className={`absolute hidden z-0 rotate-[200deg] bottom-[-30rem] left-[-18rem] md:block xl:bottom-[-26rem]`}
+      >
         <img
           src={shape2}
           className="max-w-[50rem] w-[50rem] md:max-w-[46rem]"
