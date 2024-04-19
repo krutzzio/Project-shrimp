@@ -17,13 +17,13 @@ export default function Login() {
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
+      <header className="w-full max-w-screen-2xl mx-auto p-6 relative z-10 flex items-center justify-between lg:px-8">
         {/*Flecha*/}
         <Link to={"/"} className="w-6">
           <img src={flecha} />
         </Link>
         {/*Logo*/}
-        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
         <div className="w-6"></div>
       </header>
 
@@ -40,7 +40,7 @@ export default function Login() {
         </div>
 
         {/* Ilustración */}
-        <article className="hidden w-full  justify-center md:flex">
+        <article className="hidden w-full justify-center md:flex">
           <img
             src={landing2}
             className="hidden md:block md:h-full md:max-h-[35rem]"
