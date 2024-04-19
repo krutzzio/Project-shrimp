@@ -1,9 +1,18 @@
 import SwitchHome from "../SwitchHome";
 import {
-    Avatar,
-    Input,
-    Switch,
-  } from "@nextui-org/react";
+  Avatar,
+  Button,
+  Checkbox,
+  CheckboxGroup,
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  Switch,
+  useDisclosure,
+} from "@nextui-org/react";
 import logoGamba from "../../assets/logo/logoGamba_logoNaranja.svg";
 import iconoGamba from "../../assets/logo/iconoGamba_iconoNaranja.svg";
 import lupa from "../../assets/iconos/iconos_Lupa.svg";
@@ -14,18 +23,18 @@ import filtro from "../../assets/iconos/iconos_Filtro.svg";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-    return (
-        <header className="p-4">
-        <section className="relative z-10 flex items-center justify-between lg:px-8">
-          {/*Desktop*/}
+  return (
+    <header className="p-4">
+      <section className="relative z-10 flex items-center justify-between lg:px-8">
+        {/*Desktop*/}
 
-          {/*Logo*/}
-          <img
-            className="hidden w-32 lg:block lg:w-44"
-            src={logoGamba}
-            alt="Gamba Logo"
-          />
+        {/*Logo*/}
+        <Link to={"/home"} className="hidden w-32 lg:block lg:w-52">
+          <img src={logoGamba} alt="Gamba Logo" />
+        </Link>
+
         {/*Switch largo*/}
         <section className="hidden mx-2 lg:block">
           <SwitchHome />
@@ -75,16 +84,9 @@ export default function NavBar() {
 
         {/*Logo + switch pequeño*/}
         <div className="flex gap-2 items-center">
-          <img
-            className="hidden w-32 md:block lg:hidden lg:w-44"
-            src={logoGamba}
-            alt="Gamba Logo"
-          />
-          <img
-            className="w-9 md:hidden lg:w-44"
-            src={iconoGamba}
-            alt="Gamba Icono"
-          />
+          <Link to={"/home"} className="w-9 md:hidden lg:w-44">
+            <img src={iconoGamba} alt="Gamba Icono" />
+          </Link>
           <Switch
             className="lg:hidden"
             defaultSelected
@@ -99,6 +101,7 @@ export default function NavBar() {
             }
           />
         </div>
+
         {/*iconos + avatar*/}
         <div className="flex gap-2 items-center">
           <button className="lg:hidden w-8">
@@ -106,24 +109,79 @@ export default function NavBar() {
           </button>
           <Link to={"/perfil"}>
             <Avatar
-              size="sm"
+              size="md"
               classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
             />
           </Link>
-          
         </div>
-        </section>
-        
-        <div className="flex mt-4 lg:hidden">
+      </section>
+
+      <div className="flex mt-4 lg:hidden">
         <Input
-            variant="underlined"
-            placeholder="Buscar..."
-            startContent={<img src={lupa} className="w-7" />}
-          />
-          <button className="lg:hidden w-8">
+          variant="underlined"
+          placeholder="Buscar..."
+          startContent={<img src={lupa} className="w-7" />}
+        />
+        <div className="w-12">
+          <Button
+            onPress={onOpen}
+            size="sm"
+            variant="light"
+            className="md:hidden"
+          >
             <img src={filtro} />
-          </button>
+          </Button>
         </div>
-      </header>
-    )
+
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  Filtros
+                </ModalHeader>
+                <ModalBody>
+                  <CheckboxGroup
+                    label="Dietética"
+                    orientation="vertical"
+                    color="primary"
+                  >
+                    <Checkbox value="vegetariano">Vegetariano</Checkbox>
+                    <Checkbox value="vegano">Vegano</Checkbox>
+                  </CheckboxGroup>
+                  <CheckboxGroup
+                    label="Dificultad"
+                    orientation="vertical"
+                    color="primary"
+                  >
+                    <Checkbox value="facil">Fácil</Checkbox>
+                    <Checkbox value="media">Media</Checkbox>
+                    <Checkbox value="difícil">Difícil</Checkbox>
+                  </CheckboxGroup>
+                  <CheckboxGroup
+                    label="Plato"
+                    orientation="vertical"
+                    color="primary"
+                  >
+                    <Checkbox value="entrante">Entrante</Checkbox>
+                    <Checkbox value="primero">Primero</Checkbox>
+                    <Checkbox value="segundo">Segundo</Checkbox>
+                    <Checkbox value="postre">Postre</Checkbox>
+                  </CheckboxGroup>
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="light" onPress={onClose}>
+                    Cerrar
+                  </Button>
+                  <Button color="primary" onPress={onClose}>
+                    Aplicar
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </Modal>
+      </div>
+    </header>
+  );
 }
