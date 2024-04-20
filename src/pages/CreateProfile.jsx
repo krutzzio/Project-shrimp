@@ -2,7 +2,7 @@ import { NavLink, useParams } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { useSteps } from "../hooks/useSteps"
 import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
 import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
@@ -14,16 +14,27 @@ export default function CreateProfile() {
 
   const { profileType } = useParams()
   const { step, setStep, maxSteps } = useSteps(profileType)
-  const [imgProfile, setImageProfile] = useState()
-  const { client, rest, setRegisterClient, setRegisterRest } = useContext(RegisterContext)
-
-  useEffect(() => {
-    console.log(client, rest)
-  }, [client, rest])
+  const { client, rest } = useContext(RegisterContext)
 
 
-  const handleChange = (event) => {
-    setImageProfile(URL.createObjectURL(event.target.files[0]))
+  const register = () => {
+    const registerData = new FormData()
+    for (const prop in client) {
+      registerData.append(prop, client[prop])
+      if (prop === "photo") {
+        registerData.append("photo", client.photo)
+        console.log(client)
+      }
+    }
+
+    const requestOptions = {
+      method: 'POST',
+      'Content-Type': 'multipart/form-data',
+      body: registerData,
+    };
+    fetch("http://localhost:3000/api/registerUser", requestOptions)
+      .then(resp => console.log(resp))
+      .then(data => console.log(data))
   }
 
   return (
@@ -43,11 +54,10 @@ export default function CreateProfile() {
       </header>
 
       {/* Formularios para cada paso de la alta del perfil */}
-
       {
         profileType === "client"
-          ? <CreateProfileClient step={step} img={imgProfile} handleImg={handleChange} profile={profileType} />
-          : <CreateProfileRest step={step} img={imgProfile} handleImg={handleChange} profile={profileType} />
+          ? <CreateProfileClient step={step} client={client} profile={profileType} />
+          : <CreateProfileRest step={step} rest={rest} profile={profileType} />
       }
 
       {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
@@ -68,7 +78,7 @@ export default function CreateProfile() {
                   {
                     step !== maxSteps
                       ? <h1 className="text-base">Siguiente</h1>
-                      : <NavLink className="w-full text-base" to={"/home"}>Completar alta</NavLink>
+                      : <NavLink onClick={register} className="w-full text-base" to={"/home"}>Completar alta</NavLink>
                   }
                 </Button>
               </section>

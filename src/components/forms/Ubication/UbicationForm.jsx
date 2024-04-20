@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 
-export function UbicationClientForm() {
+export function UbicationClientForm({ handleChange, client }) {
     return (
         <div className="flex flex-col gap-4 items-center">
             <h1 className="text-gray-400 font-medium">Añade tu Codigo Postal</h1>
             <section className="w-8/12 flex flex-col justify-start">
                 <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="cp">Codigo Postal</label>
-                <input className="outline-none bg-transparent border-primary border-b-2 " type="number" max={5} id="cp" name="cp" />
+                <input className="outline-none bg-transparent border-primary border-b-2" type="number" max={5} id="cp" name="cp" value={client.cp} onChange={handleChange} />
             </section>
         </div>
     )
