@@ -49,6 +49,8 @@ const router = createBrowserRouter([
   {
     path: "/perfil",
     element: <Perfil_cliente />,
+
+
   },
   {
     path: "perfil/recetas-hechas",
@@ -73,6 +75,7 @@ const router = createBrowserRouter([
   {
     path: "/receta",
     element: <Recetas />
+
   }
 ])
 
