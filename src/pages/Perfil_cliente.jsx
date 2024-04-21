@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import NavBar from '../components/navbar/NavBar';
+
 import { Avatar, Card, CardBody, Tab, Tabs } from '@nextui-org/react';
+
 
 const PerfilCliente = () => {
   return (
@@ -12,6 +14,7 @@ const PerfilCliente = () => {
         <Avatar
           classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
           className="w-32 h-32 rounded-full border-4 border-white mb-6"
+
           alt="Perfil"
         />
 
@@ -23,23 +26,28 @@ const PerfilCliente = () => {
 
       <div className="flex flex-1 flex-col px-4">
 
-        <Link to="/perfil/recetas-guardadas">
+        <Link to="/Recetas">
           <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
             Recetas Guardadas
           </button>
         </Link>
 
+
         <Link to="/perfil/recetas-hechas">
+
           <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
             Recetas Hechas
           </button>
         </Link>
 
+
         <Link to={"/receta"}>
+
           <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
             Restaurantes Suscritos
           </button>
         </Link>
+
 
         <Link to="/perfil/promos">
           <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
@@ -51,6 +59,7 @@ const PerfilCliente = () => {
             Restaurante
           </button>
         </Link>
+
 
       </div>
 
