@@ -20,10 +20,10 @@ export default function CreateProfile() {
   const register = () => {
     const registerData = new FormData()
     for (const prop in client) {
-      registerData.append(prop, client[prop])
       if (prop === "photo") {
         registerData.append("photo", client.photo)
-        console.log(client)
+      } else {
+        registerData.append(prop, client[prop])
       }
     }
 
