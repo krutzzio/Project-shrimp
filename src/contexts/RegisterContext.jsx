@@ -1,15 +1,14 @@
 import { createContext, useState } from "react";
 
 const infoClient = {
-    name: "",
+    nombre: "",
     correo: "",
     password: "",
-    avatar: "",
+    photo: null,
     cp: "",
     dieta: "",
     alergias: [],
-    tipoCocina: [],
-    client: ""
+    tipos_cocina: [],
 }
 
 
@@ -22,7 +21,6 @@ const infoRest = {
     dieta: "",
     alergias: [],
     tipoCocina: [],
-    restaurant: ""
 }
 
 export const RegisterContext = createContext(null)

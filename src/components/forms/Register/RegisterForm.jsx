@@ -22,15 +22,14 @@ export default function RegisterForm() {
         } else {
             setRegisterClient(infoUser)
         }
-        console.log("SETTED INFO")
     }
 
 
     return (
         <div className="w-[20rem] flex flex-col items-center m-auto gap-6">
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="name">Nombre {userType ? <span>del restaurante</span> : <></>}</label>
-                <input className="input-form" type="text" id="name" name="name" onChange={handleChange} />
+                <label className="w-fit text-xs font-semibold" htmlFor="nombre">Nombre {userType ? <span>del restaurante</span> : <></>}</label>
+                <input className="input-form" type="text" id="name" name="nombre" onChange={handleChange} />
             </article>
             <article className="flex flex-col justify-start w-11/12">
                 <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
