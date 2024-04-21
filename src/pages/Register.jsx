@@ -11,20 +11,19 @@ import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 export default function Register() {
   const { userType } = useContext(ThemeContext);
 
-
   return (
     <div
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full max-w-screen-2xl mx-auto p-4 relative z-10 flex items-center justify-between lg:px-8">
+      <header className="w-full max-w-screen-2xl mx-auto p-6 relative z-10 flex items-center justify-between lg:px-8">
         {/*Flecha*/}
         <Link to={"/"} className="w-6 ">
           <img src={flecha} />
         </Link>
 
         {/*Logo*/}
-        <img className="w-32 lg:w-44" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
 
         <div className="w-6"></div>
       </header>
@@ -35,7 +34,7 @@ export default function Register() {
         <div className="flex flex-col gap-10 mx-6 md:mx-0">
           {/* Título */}
           <section className="text-center">
-            <h3 className=" text-primary-foreground font-bold text-4xl mb-1">
+            <h3 className=" text-primary-foreground font-bold text-4xl mb-1 md:text-6xl md:mb-4">
               Únete a Gamba
             </h3>
             {userType
@@ -46,9 +45,10 @@ export default function Register() {
                 </p>
               )
               : (
-                <p className="leading-5">
-                  Cocina las recetas de tus restaurantes favoritos en un mismo
-                  lugar. Comparte tus recetas y consigue descuentos.
+                <p className="leading-5 md:text-2xl">
+                  Cocina las recetas de tus restaurantes <br />
+                  favoritos en un mismo lugar. Comparte <br />
+                  tus recetas y consigue descuentos.
                 </p>
               )
             }
@@ -61,7 +61,7 @@ export default function Register() {
         <article className="hidden w-full justify-center md:flex">
           <img
             src={landing3}
-            className="hidden md:block md:h-full md:max-h-[24rem]"
+            className="hidden md:block md:h-full md:max-h-[35rem]"
             alt="landing3"
           />
         </article>
@@ -85,7 +85,7 @@ export default function Register() {
 
       {/* Mancha arriba izquierda */}
       <article
-        className={`absolute z-0 top-[-21rem] left-[-15rem] rotate-[60deg]`}
+        className={`absolute z-0 top-[-21rem] left-[-15rem] rotate-[60deg] md:left-[-2rem] md:top-[-14rem]`}
       >
         <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
       </article>
@@ -93,8 +93,8 @@ export default function Register() {
       {/* Mancha abajo izquierda */}
       <article
         className={`absolute z-0  ${userType
-          ? `bottom-[-29rem] left-[-10rem] rotate-[66deg]`
-          : `bottom-[-29rem] left-[-10rem] rotate-[-53deg]`
+          ? `bottom-[-29rem] left-[4rem] rotate-[66deg]`
+          : `bottom-[-29rem] left-[4rem] rotate-[-53deg]`
           } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />

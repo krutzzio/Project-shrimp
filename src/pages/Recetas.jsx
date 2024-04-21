@@ -21,7 +21,8 @@ const Recetas = () => {
       </button>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <img className="w-full" src={Receta} alt="Receta" />
+
+        <img className="w-full" src="src\assets\Recetas\Receta1.jpg" alt="Receta" />
 
         <div className="p-4">
           <h2 className="text-xl font-bold mb-2 text-orange-500">
