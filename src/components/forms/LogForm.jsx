@@ -18,7 +18,7 @@ export default function LogForm() {
                 <input className="input-form" type="password" id="password" name="password" />
             </article>
             <article className="w-9/12 py-8 ">
-
+                asfasf
             </article>
         </div >
     )
