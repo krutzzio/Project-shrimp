@@ -15,8 +15,8 @@ export default function LandingPage() {
         {/*Logo*/}
         <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
         {/*Log in*/}
-        <Button color="primary" className="shadow-xl content-end font-bold md:w-28 md:h-14">
-          <Link className="text-[#FAFAFA] md:text-2xl" to={"/login"}>
+        <Button color="primary" className="shadow-xl content-end font-bold md:w-28 md:h-12">
+          <Link className="text-[#FAFAFA] md:text-xl" to={"/login"}>
             Log in
           </Link>
         </Button>

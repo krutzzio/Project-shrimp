@@ -36,6 +36,11 @@ export default {
             foreground: "#FED339",
           },
           focus: "#F182F6",
+          secondary: {
+            50: "#6183FE",
+            DEFAULT: "#3964FE",
+            foreground: "#FED339",
+          },
         },
       },
       "restaurant-theme": {
