@@ -1,25 +1,40 @@
-import { Link } from 'react-router-dom';
-import NavBar from '../components/navbar/NavBar';
+import { Link } from "react-router-dom";
+import NavBar from "../components/navbar/NavBarSinBusqueda";
 
-import { Avatar, Card, CardBody, Tab, Tabs } from '@nextui-org/react';
-
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  Tab,
+  Tabs,
+  Input,
+  Chip,
+} from "@nextui-org/react";
+import Recetas_componente from "../components/Recetas_componente";
 
 const PerfilCliente = () => {
   return (
-
     <div className="flex flex-col h-screen">
-      <NavBar/>
-      <div className="flex flex-col items-center px-6 py-8">
+      <NavBar />
 
+      <div className="flex flex-col items-center gap-2 mt-4">
         <Avatar
           classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
-          className="w-32 h-32 rounded-full border-4 border-white mb-6"
-
+          className="w-32 h-32 rounded-full border-white"
           alt="Perfil"
         />
 
-        <h2 className="text-2xl font-bold text-primary">Alberto Marín</h2>
+        <h2 className="text-2xl font-bold">Alberto Marín</h2>
 
+        <div className="flex gap-2">
+          <Chip color="primary" className="text-white">
+            13 recetas
+          </Chip>
+          <Chip color="primary" className="text-white">
+            Vegetariana
+          </Chip>
+        </div>
       </div>
 
       {/* 
@@ -65,50 +80,91 @@ const PerfilCliente = () => {
 
       */}
 
-
-      <div className="flex w-full flex-col">
-      <Tabs aria-label="Options" radius='none' variant='underlined'>
-        <Tab key="Favoritas" title="Favoritas">
-          <Card>
-            <CardBody>
-              Aquí irán los restaurantes favoritos.
-            </CardBody>
-          </Card>  
-        </Tab>
-        <Tab key="Hechas" title="Hechas">
-          <Card>
-            <CardBody>
-            Aquí irán las recetas que ya han hecho.
-            </CardBody>
-          </Card>  
-        </Tab>
-        <Tab key="Restaurantes" title="Restaurantes">
-          <Card>
-            <CardBody>
-            Aquí irán los restaurantes guardados.
-            </CardBody>
-          </Card>  
-        </Tab>
-        <Tab key="Promociones" title="Promociones">
-          <Card>
-            <CardBody>
-            Aquí irán las promociones.
-            </CardBody>
-          </Card>  
-        </Tab>
-      </Tabs>
-    </div>  
+      <div className="flex w-full flex-col mt-4">
+        <Tabs aria-label="Options" radius="none" variant="underlined">
+          <Tab key="Datos" title="Datos">
+            <Card>
+              <CardBody>
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-bold text-lg">Datos básicos</h2>
+                  <article className="flex flex-col justify-start text-sm">
+                    <label className="w-fit" htmlFor="nombre">
+                      Nombre
+                    </label>
+                    <Input
+                      placeholder="Mireia Matas"
+                      variant="underlined"
+                      className="input-form"
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                    />
+                  </article>
+                  <article className="flex flex-col justify-start text-sm">
+                    <label className="w-fit" htmlFor="dirección">
+                      Dirección
+                    </label>
+                    <Input
+                      placeholder="Calle Pilar, 93, 08940, Cornellà de Llobregat"
+                      variant="underlined"
+                      className="input-form"
+                      type="text"
+                      id="dirección"
+                      name="dirección"
+                    />
+                  </article>
+                  <article className="flex flex-col justify-start text-sm">
+                    <label className="w-fit" htmlFor="teléfono">
+                      Correo
+                    </label>
+                    <Input
+                      placeholder="info@doncorleone.es"
+                      variant="underlined"
+                      className="input-form"
+                      type="text"
+                      id="teléfono"
+                      name="teléfono"
+                    />
+                  </article>
+                  <Button color="primary" className="text-white w-36">
+                    Aplicar cambios
+                  </Button>
+                </div>
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="Recetas" title="Recetas">
+            <Card>
+              <CardBody>
+              <div className="flex flex-col gap-4">
+                    <h2 className="font-bold text-lg">Tus recetas</h2>
+                        <Recetas_componente/>
+                        <Recetas_componente/>
+                        <Recetas_componente/>
+                    </div>
+              </CardBody>
+            </Card>
+          </Tab>
+          <Tab key="Restaurantes" title="Restaurantes">
+            <Card>
+              <CardBody>Aquí irán los restaurantes guardados.</CardBody>
+            </Card>
+          </Tab>
+          <Tab key="Promociones" title="Promociones">
+            <Card>
+              <CardBody>Aquí irán las promociones.</CardBody>
+            </Card>
+          </Tab>
+        </Tabs>
+      </div>
 
       <div className="flex items-center justify-center px-4 py-6 mt-4 bg-orange-500 rounded shadow hover:bg-orange-600">
         <Link to="/">
-          <button className="text-lg font-bold text-white">
-            Desloguear
-          </button>
+          <button className="text-lg font-bold text-white">Desloguear</button>
         </Link>
       </div>
-
     </div>
   );
-}
+};
 
 export default PerfilCliente;

@@ -33,7 +33,7 @@ export default function PerfilRestaurante() {
           alt="NextUI hero Image"
           src={perfil}
         />
-        <h2 className="text-2xl font-bold text-secondary">Don Corleone</h2>
+        <h2 className="text-2xl font-bold">Don Corleone</h2>
         <div className="flex gap-2">
           <Chip color="secondary" className="text-white">
             3 recetas
@@ -51,11 +51,11 @@ export default function PerfilRestaurante() {
           color="secondary"
           size="lg"
         >
-          <Tab key="Información" title="Información">
+          <Tab key="Datos" title="Datos">
             <Card>
                 <CardBody>
                 <div className="flex flex-col gap-4">
-                  <h2 className="font-bold text-lg">Información básica</h2>
+                  <h2 className="font-bold text-lg">Datos básicos</h2>
                   <article className="flex flex-col justify-start text-sm">
                     <label className="w-fit" htmlFor="nombre">
                       Nombre del restaurante

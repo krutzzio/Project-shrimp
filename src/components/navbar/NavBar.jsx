@@ -26,8 +26,8 @@ export default function NavBar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <header className="p-4">
-      <section className="relative z-10 flex items-center justify-between lg:px-8">
+    <header className="p-2">
+      <section className="relative z-10 flex flex-row items-center justify-between lg:gap-4">
         {/*Desktop*/}
 
         {/*Logo*/}
@@ -36,13 +36,14 @@ export default function NavBar() {
         </Link>
 
         {/*Switch largo*/}
-        <section className="hidden mx-2 lg:block">
+        <section className="hidden lg:block">
           <SwitchHome />
         </section>
         {/*Codigo Postal*/}
-        <section className="hidden lg:block w-24">
+        <section className="hidden lg:block w-28">
           <Input
-            variant="underlined"
+            variant="faded"
+            radius="full"
             classNames={{
               input: [
                 "bg-transparent",
@@ -60,9 +61,10 @@ export default function NavBar() {
           />
         </section>
         {/*Barra Buscador*/}
-        <section className="hidden mx-2 lg:block w-1/2">
+        <section className="hidden lg:block w-1/2">
           <Input
-            variant="underlined"
+            variant="faded"
+            radius="full"
             classNames={{
               input: [
                 "bg-transparent",
@@ -118,9 +120,10 @@ export default function NavBar() {
 
       <div className="flex mt-4 lg:hidden">
         <Input
-          variant="underlined"
+          variant="faded"
+          radius="full"
           placeholder="Buscar..."
-          startContent={<img src={lupa} className="w-7" />}
+          startContent={<img src={lupa} className="w-6" />}
         />
         <div className="w-12">
           <Button

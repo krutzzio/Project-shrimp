@@ -1,4 +1,4 @@
-import NavBar from '../components/navbar/NavBar';
+import NavBar from '../components/navbar/NavBarSinBusqueda';
 import Receta from '../assets/Recetas/Receta1.jpg';
 import Tiempo from '../assets/Recetas/Tiempo.png';
 import Dificultad from '../assets/Recetas/sombrero-de-cocinero.png'
@@ -10,7 +10,7 @@ const Recetas = () => {
 
 
   return (
-    <div className="max-w-2xl mx-auto p-4 ">
+    <div className="max-w-2xl mx-auto">
       <NavBar></NavBar>
 
       <button

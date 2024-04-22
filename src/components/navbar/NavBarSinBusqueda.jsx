@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
 
   return (
-    <header className="p-4">
-      <section className="relative z-10 flex items-center justify-between lg:px-8">
+    <header className="p-2">
+      <section className="relative z-10 flex items-center justify-between lg:gap-4">
         {/*Desktop*/}
 
         {/*Logo*/}
@@ -21,7 +21,7 @@ export default function NavBar() {
         </Link>
 
         {/*Switch largo*/}
-        <section className="hidden mx-2 lg:block">
+        <section className="hidden lg:block">
           <SwitchHome />
         </section>
         {/*Codigo Postal*/}
@@ -45,7 +45,7 @@ export default function NavBar() {
           />
         </section>
         {/*Barra Buscador*/}
-        <section className="hidden mx-2 lg:block w-1/2">
+        <section className="hidden lg:block w-1/2">
           <Input
             variant="underlined"
             classNames={{

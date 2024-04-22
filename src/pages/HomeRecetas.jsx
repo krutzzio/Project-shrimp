@@ -19,10 +19,11 @@ import React from "react";
 import NavBar from "../components/navbar/NavBar";
 
 export default function HomeRecetas() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Dietética"]));
+  const [selectedKeys, setSelectedKeys] = React.useState(
+    new Set(["Dietética"])
+  );
   const [selectedDif, setSelectedDif] = React.useState(new Set(["Dificultad"]));
   const [selectedPlato, setSelectedPlato] = React.useState(new Set(["Plato"]));
-
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
@@ -39,9 +40,9 @@ export default function HomeRecetas() {
 
   return (
     <div className="max-w-screen-2xl mx-auto">
-      <NavBar/>
+      <NavBar />
       <main className="block">
-        <div className="md:pl-4 lg:pl-8">
+        <div className="pl-2 lg:pl-8">
           {/*Tipos de comida*/}
           <section className="relative flex">
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
@@ -53,12 +54,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={mex}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={mex}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -78,12 +77,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={chino}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={chino}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -103,12 +100,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={burguer}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={burguer}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -128,12 +123,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={indio}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={indio}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -153,12 +146,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={japo}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={japo}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -178,12 +169,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={marroc}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={marroc}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -203,12 +192,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={pincho}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={pincho}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -228,12 +215,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={italia}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={italia}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -253,12 +238,10 @@ export default function HomeRecetas() {
                         <div className="block relative mb-1">
                           <div className="object-contain aspect-square block w-full transition">
                             <div className="w-fit overflow-hidden flex">
-                              <div className="w-max overflow-hidden flex">
-                                <img
-                                  src={poke}
-                                  className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
-                                />
-                              </div>
+                              <img
+                                src={poke}
+                                className="w-16 object-cover max-h-full max-w-full h-16 overflow-clip"
+                              />
                             </div>
                           </div>
                         </div>
@@ -278,9 +261,14 @@ export default function HomeRecetas() {
           {/*Filtros*/}
           <section className="md:flex pt-4 pl-1 overflow-x-auto hidden lg:block	">
             <div className="mx-1 flex gap-2">
-              <Dropdown >
-                <DropdownTrigger >
-                  <Button disableRipple variant="bordered" color="primary" className="min-w-36">
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    variant="bordered"
+                    color="primary"
+                    className="min-w-36"
+                  >
                     {selectedValue}
                   </Button>
                 </DropdownTrigger>
@@ -294,14 +282,23 @@ export default function HomeRecetas() {
                 >
                   <DropdownItem key="Vegetariano">Vegetariano</DropdownItem>
                   <DropdownItem key="Vegano">Vegano</DropdownItem>
-                  <DropdownItem key="Dietética" className="text-danger" color="danger">
+                  <DropdownItem
+                    key="Dietética"
+                    className="text-danger"
+                    color="danger"
+                  >
                     Restablecer
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <Dropdown >
+              <Dropdown>
                 <DropdownTrigger>
-                  <Button disableRipple variant="bordered" color="primary" className="min-w-32">
+                  <Button
+                    disableRipple
+                    variant="bordered"
+                    color="primary"
+                    className="min-w-32"
+                  >
                     {selectedValueDif}
                   </Button>
                 </DropdownTrigger>
@@ -316,14 +313,23 @@ export default function HomeRecetas() {
                   <DropdownItem key="Fácil">Fácil</DropdownItem>
                   <DropdownItem key="Medio">Medio</DropdownItem>
                   <DropdownItem key="Dificil">Difícil</DropdownItem>
-                  <DropdownItem key="Dietética" className="text-danger" color="danger">
+                  <DropdownItem
+                    key="Dietética"
+                    className="text-danger"
+                    color="danger"
+                  >
                     Restablecer
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
-              <Dropdown >
+              <Dropdown>
                 <DropdownTrigger>
-                  <Button disableRipple variant="bordered" color="primary" className="min-w-32">
+                  <Button
+                    disableRipple
+                    variant="bordered"
+                    color="primary"
+                    className="min-w-32"
+                  >
                     {selectedValuePlato}
                   </Button>
                 </DropdownTrigger>
@@ -339,7 +345,11 @@ export default function HomeRecetas() {
                   <DropdownItem key="Principal">Principal</DropdownItem>
                   <DropdownItem key="Segundo">Segundo</DropdownItem>
                   <DropdownItem key="Postre">Postre</DropdownItem>
-                  <DropdownItem key="Plato" className="text-danger" color="danger">
+                  <DropdownItem
+                    key="Plato"
+                    className="text-danger"
+                    color="danger"
+                  >
                     Restablecer
                   </DropdownItem>
                 </DropdownMenu>

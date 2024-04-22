@@ -1,5 +1,5 @@
 import Recetas_componente from "../components/Recetas_componente";
-import NavBar from "../components/navbar/NavBar";
+import NavBar from "../components/navbar/NavBarSinBusqueda";
 
 
 
