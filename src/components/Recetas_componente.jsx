@@ -10,18 +10,18 @@ const Recetas_componente = () => {
 
   return (
     <div className="p-2">
-      <div className=" flex flex-col bg-white rounded-xl shadow-lg border-5 border-orange-300">
+      <div className=" flex flex-col rounded-xl shadow-lg">
         <img
 
-          className="border-2 border-orange-500 rounded-lg shadow-lg w-full h-48 object-cover"
+          className="border-2 rounded-t-xl w-full h-48 object-cover"
           src={receta1}
 
           alt=""
         />
-        <div className="flex justify-between text-sm mb-4 p-2">
+        <div className="flex justify-between text-sm px-4 pt-2">
           <div className="flex items-center">
             <img
-              className="w-5 mr-2 text-orange-500"
+              className="w-5 mr-2"
 
               src={tiempo}
 
@@ -32,7 +32,7 @@ const Recetas_componente = () => {
 
           <div className="flex items-center">
             <img
-              className="w-5 mr-2 text-orange-500"
+              className="w-5 mr-2"
 
               src={sombrero}
 
@@ -43,7 +43,7 @@ const Recetas_componente = () => {
 
           <div className="flex items-center">
             <img
-              className="w-5 mr-2 text-orange-500"
+              className="w-5 mr-2"
 
               src={pastel}
 
@@ -52,8 +52,8 @@ const Recetas_componente = () => {
             <p className="text-gray-500">Tipo de comida</p>
           </div>
         </div>
-        <div className="p-2">
-          <h2 className="font-bold mb-2 text-xl">Ensalada de kamaron</h2>
+        <div className="flex flex-col p-4">
+          <h2 className="font-bold text-xl">Ensalada de kamaron</h2>
           <p className="text-gray-500 text-ml ">Tipo de cocina</p>
         </div>
       </div>
