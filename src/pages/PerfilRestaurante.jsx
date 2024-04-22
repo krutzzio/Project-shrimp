@@ -3,7 +3,7 @@ import NavBar from "../components/navbar/NavBarSinBusqueda";
 import perfil from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
 
 import {
-    Button,
+  Button,
   Card,
   CardBody,
   Chip,
