@@ -18,15 +18,7 @@ export default function LogForm() {
                 <input className="input-form" type="password" id="password" name="password" />
             </article>
             <article className="w-9/12 py-8 ">
-                {
-                    !logging
-                        ? < Button onClick={() => setLogging(true)} className="relative z-10 w-full h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-                            <Link className="w-full" to={"/home"}>Entrar</Link>
-                        </Button>
-                        : <Button isLoading className="relative z-10 w-full h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-                            <Link className="w-full" to={"/home"}>Entrar</Link>
-                        </Button>
-                }
+
             </article>
         </div >
     )
