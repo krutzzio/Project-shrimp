@@ -1,56 +1,76 @@
 import Recetas_componente from "../components/Recetas_componente";
 import NavBar from "../components/navbar/NavBar";
-
+import { Divider } from "@nextui-org/react";
+import { Chip } from "@nextui-org/react";
+import Tiempo from "../assets/Recetas/Tiempo.png";
+import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
+import TipoComida from "../assets/Recetas/pastel.png";
 
 
 const Perfil_Restaurante_Cliente = () => {
   return (
     <div className="max-w-2xl mx-auto p-4  ">
       <NavBar></NavBar>
-      <img
-        className="border-2 border-orange-500 rounded-lg shadow-lg w-full h-48 object-cover"
-        src="https://media-cdn.tripadvisor.com/media/photo-s/1a/ac/54/52/front-and-east-side-of.jpg"
-      ></img>
-      <h3 className="font-bold mb-2 text-orange-500 text-xl">
-        Nombre Restaurante:
-      </h3>
-      <p className="mb-2 text-ml text-gray-500">DON KAMARON</p>
-      <h2 className="font-bold mb-2 text-orange-500 text-xl">Tipo Cocina: </h2>
-      <p className="mb-2 text-gray-500 text-ml">Americana</p>
-      <h2 className="font-bold mb-2 text-orange-500 text-xl">Descripción:</h2>
-      <p className="text-gray-500 ">
+      <div className=" relative ">
+        <img
+          className="w-full h-48 object-cover grid place-items-center"
+          src="https://media-cdn.tripadvisor.com/media/photo-s/1a/ac/54/52/front-and-east-side-of.jpg"
+        />
+        <div className="absolute p-2 bottom-0 right-0">
+          
+          <button className=" bg-orange-500 text-white rounded-lg p-2 hover:bg-orange-600">
+            <p>Barcelona</p>
+          </button>
+        </div>
+        <div className="absolute p-2 top-0 left-0">
+          <button className="bg-orange-500 text-white py-2 px-4 rounded-xl hover:bg-orange-600">
+            <p>{"<"}</p>
+          </button>
+        </div>
+      </div>
+      <div className="flex flex-col justify-center mt-4">
+        <h3 className="font-bold mb-2 text-orange-500 text-xl">
+          Nombre Restaurante
+        </h3>
+        <img src="" />
+      </div>
+      <div className="flex gap-4 ">
+        <Chip color="warning">Hawaiano</Chip>
+        <Chip color="warning">Healthy</Chip>
+      </div>
+
+      <p className="text-gray-500 py-4 ">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet nulla
         placeat nemo voluptas porro nam, iste unde mollitia cumque aspernatur
         incidunt dolorum officiis eligendi. Maxime quod deserunt dolor id
         tempora.
       </p>
-      <div className="flex justify-between text-sm mb-4 p-4 bg-gray-100 rounded-lg">
-        <div className="flex items-center">
-          <img 
-          className="w-5 mr-2 text-orange-500"
-          src="https://cdn-icons-png.flaticon.com/512/0/191.png" alt="Telefono" />
-          <a href="tel:+34678567876" className="text-gray-500">Telefono</a>
+
+      <div className="flex h-5 items-center space-x-4 text-small justify-between">
+        <div>
+          <img className="w-5" src={Tiempo} alt="Tiempo" />
         </div>
-        <div className="flex items-center">
-          <img
-          className="w-5 mr-2 text-orange-500"
-            src="https://cdn-icons-png.flaticon.com/512/646/646094.png"
-            alt="Correo"
-          />
-          <a href="correo:Donkamaron@donkamaron.com" className="text-gray-500">Correo</a>
+        <div>
+          <p>30ms</p>
         </div>
-        <div className="flex items-center">
-          <img
-          className="w-5 mr-2 text-orange-500"
-            src="https://cdn-icons-png.flaticon.com/512/535/535188.png"
-            alt="Ubicacion"
-          />
-          <a href="https://maps.app.goo.gl/47ohvd5SkDLAxAbi8" className="text-gray-500">Ubicacion</a>
+        <Divider orientation="vertical" />
+        <div>
+          <img className="w-5" src={Dificultad} alt="Dificultad" />
+        </div>
+        <div>
+          <p>Fácil</p>
+        </div>
+        <Divider orientation="vertical" />
+        <div>
+          <img className="w-5" src={TipoComida} alt="Tipo de comida" />
+        </div>
+        <div>
+          <p>Tipo de comida</p>
         </div>
       </div>
-      <h3 className="font-bold mb-2 text-orange-500 py-4 text-xl">Recetas</h3>
-      <Recetas_componente/>
-      <Recetas_componente/>
+      <h3 className="font-bold mb-2  py-4 text-xl">Recetas</h3>
+      <Recetas_componente />
+      <Recetas_componente />
     </div>
   );
 };
