@@ -12,6 +12,7 @@ import {
   Chip,
 } from "@nextui-org/react";
 import Recetas_componente from "../components/Recetas_componente";
+import AddIcon from "../assets/add.svg";
 
 const PerfilCliente = () => {
   return (
@@ -19,11 +20,20 @@ const PerfilCliente = () => {
       <NavBar />
 
       <div className="flex flex-col items-center gap-2 mt-4">
-        <Avatar
-          classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
-          className="w-32 h-32 rounded-full border-white"
-          alt="Perfil"
-        />
+        <article className="w-44 h-44 rounded-full relative flex justify-center items-center">
+          <label
+            htmlFor="photo"
+            className="absolute bg-success bottom-[1rem] left-[4.8rem] flex justify-center items-center rounded-full text-3xl h-6 w-6"
+          >
+            <img src={AddIcon} alt="" />
+            <span className="absolute h-7 w-7 rounded-full border-3 border-bgcolor"></span>
+          </label>
+          <Avatar
+            classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+            className="w-32 h-32 rounded-full border-white"
+            alt="Perfil"
+          />
+        </article>
 
         <h2 className="text-2xl font-bold">Alberto Marín</h2>
 
@@ -136,12 +146,12 @@ const PerfilCliente = () => {
           <Tab key="Recetas" title="Recetas">
             <Card>
               <CardBody>
-              <div className="flex flex-col gap-4">
-                    <h2 className="font-bold text-lg">Tus recetas</h2>
-                        <Recetas_componente/>
-                        <Recetas_componente/>
-                        <Recetas_componente/>
-                    </div>
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-bold text-lg">Tus recetas</h2>
+                  <Recetas_componente />
+                  <Recetas_componente />
+                  <Recetas_componente />
+                </div>
               </CardBody>
             </Card>
           </Tab>
