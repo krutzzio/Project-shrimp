@@ -10,7 +10,9 @@ import landing2 from "../assets/illustrations/landing2.svg";
 import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 
 export default function Login() {
+
   const { userType } = useContext(ThemeContext)
+
 
   return (
     <div

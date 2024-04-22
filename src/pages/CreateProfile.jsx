@@ -43,9 +43,8 @@ export default function CreateProfile() {
     };
     fetch("http://localhost:3000/api/registerUser", requestOptions)
       .then(resp => {
-        if (resp.ok) navigate("/home")
+        if (resp.ok) navigate("/login")
       })
-      .then(data => console.log(data))
   }
 
   return (
