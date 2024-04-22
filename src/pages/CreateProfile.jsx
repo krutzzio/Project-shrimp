@@ -1,4 +1,4 @@
-import { NavLink, useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import LogoGambaCl from "../assets/logo/logoGamba_logoNaranja.svg"
 import LogoGambaRs from "../assets/logo/logoGamba_logoAzul.svg"
 import { Button } from "@nextui-org/react"
@@ -12,18 +12,27 @@ import { RegisterContext } from "../contexts/RegisterContext"
 
 export default function CreateProfile() {
 
+  const navigate = useNavigate()
   const { profileType } = useParams()
   const { step, setStep, maxSteps } = useSteps(profileType)
   const { client, rest } = useContext(RegisterContext)
 
 
   const register = () => {
+
+    if (step < maxSteps) {
+      setStep(step + 1)
+      return
+    }
+
+    setStep(step + 1)
+
     const registerData = new FormData()
     for (const prop in client) {
-      registerData.append(prop, client[prop])
       if (prop === "photo") {
         registerData.append("photo", client.photo)
-        console.log(client)
+      } else {
+        registerData.append(prop, client[prop])
       }
     }
 
@@ -33,8 +42,9 @@ export default function CreateProfile() {
       body: registerData,
     };
     fetch("http://localhost:3000/api/registerUser", requestOptions)
-      .then(resp => console.log(resp))
-      .then(data => console.log(data))
+      .then(resp => {
+        if (resp.ok) navigate("/login")
+      })
   }
 
   return (
@@ -63,26 +73,23 @@ export default function CreateProfile() {
       {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
       <footer className="w-8/12 h-[10dvh] flex justify-center ">
         {
-          step === 1
-            ? (
-              <Button onClick={() => setStep(step + 1)} className="w-full text-xl bg-primary text-white font-semibold">
-                Continuar
-              </Button>
-            )
-            : (
-              <section className="flex justify-between w-full">
-                <Button onClick={() => setStep(step - 1)} className="w-[20%]  text-xl bg-primary text-white font-semibold">
-                  <h1 className="text-base">Volver</h1>
-                </Button>
-                <Button onClick={() => setStep(step + 1)} className="w-[60%]  text-xl bg-primary text-white font-semibold">
-                  {
-                    step !== maxSteps
-                      ? <h1 className="text-base">Siguiente</h1>
-                      : <NavLink onClick={register} className="w-full text-base" to={"/home"}>Completar alta</NavLink>
-                  }
-                </Button>
-              </section>
-            )
+          /* step === maxSteps
+            ? (<Button isLoading={step > maxSteps ? this : false} onClick={register} className="w-full text-base">
+              Completar alta
+            </Button>
+            ) */
+          <section className="flex justify-between w-full">
+            <Button onClick={() => setStep(step - 1)} className={`${step === 1 && `hidden`} w-[20%] text-base bg-primary text-white font-semibold`}>
+              <h1>Volver</h1>
+            </Button>
+            <Button onClick={register} isLoading={step > maxSteps ? true : false} className={`${step === 1 ? `w-full` : `w-[65%]`}  text-base bg-primary text-white font-semibold`}>
+              {
+                step >= maxSteps
+                  ? <h1>Completar Alta</h1>
+                  : <h1>Siguiente</h1>
+              }
+            </Button>
+          </section>
         }
       </footer>
     </div >

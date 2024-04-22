@@ -6,6 +6,7 @@ import Ubicacion from "../assets/Recetas/ubicacion.png";
 
 const Recetas_componente = () => {
   return (
+
     <div className="">
       <div className=" flex flex-col  ">
         <div className="py-2">
@@ -35,10 +36,11 @@ const Recetas_componente = () => {
           </div>
           <div>
             <p>Ubicación</p>
+
           </div>
         </div>
-        <div className="p-2">
-          <h2 className="font-bold mb-2 text-xl">Ensalada de kamaron</h2>
+        <div className="flex flex-col p-4">
+          <h2 className="font-bold text-xl">Ensalada de kamaron</h2>
           <p className="text-gray-500 text-ml ">Tipo de cocina</p>
         </div>
       </div>

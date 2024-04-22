@@ -93,8 +93,8 @@ export default function Register() {
       {/* Mancha abajo izquierda */}
       <article
         className={`absolute z-0  ${userType
-          ? `bottom-[-29rem] left-[4rem] rotate-[66deg]`
-          : `bottom-[-29rem] left-[4rem] rotate-[-53deg]`
+          ? `bottom-[-31rem] left-[-12rem] rotate-[66deg]`
+          : `bottom-[-31rem] left-[-14rem] rotate-[-65deg]`
           } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />

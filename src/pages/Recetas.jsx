@@ -1,3 +1,4 @@
+
 import NavBar from "../components/navbar/NavBar";
 import Tiempo from "../assets/Recetas/Tiempo.png";
 import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
@@ -20,9 +21,12 @@ import {
 } from "@nextui-org/react";
 import Receta3 from "../assets/Recetas/Receta1.jpg";
 
+
 const Recetas = () => {
   return (
+
     <div className=" ">
+
       <NavBar></NavBar>
       <div>
         <Card isFooterBlurred radius="lg" className="border-none">
