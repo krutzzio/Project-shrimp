@@ -45,8 +45,7 @@ export default function HomeRecetas() {
   return (
     <div className="max-w-screen-2xl mx-auto">
       <NavBar />
-      <main className="block">
-        <div className="pl-2 lg:pl-8">
+      <main className="block pl-2 lg:pl-4">
           {/*Tipos de comida*/}
           <section className="relative flex">
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
@@ -446,7 +445,7 @@ export default function HomeRecetas() {
               </div>
             </div>
           </div>
-        </div>
+        
       </main>
     </div>
   );
