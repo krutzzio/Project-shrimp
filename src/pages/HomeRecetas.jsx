@@ -43,9 +43,9 @@ export default function HomeRecetas() {
     .replaceAll("_", " ");
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen mx-auto">
       <NavBar />
-      <main className="block pl-2 lg:pl-4">
+      <main className="block  pl-2 lg:pl-4">
           {/*Tipos de comida*/}
           <section className="relative flex">
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
@@ -293,8 +293,8 @@ export default function HomeRecetas() {
           </section>
 
           {/*Filtros*/}
-          <section className="md:flex pt-4 pl-1 overflow-x-auto hidden lg:block	">
-            <div className="mx-1 flex gap-2">
+          <section className="md:flex pt-4 pl-1 overflow-x-auto hidden">
+            <div className=" flex gap-2">
               <Dropdown>
                 <DropdownTrigger>
                   <Button

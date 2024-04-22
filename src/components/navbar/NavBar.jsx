@@ -26,7 +26,7 @@ export default function NavBar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <header className="p-2">
+    <header className="w-full p-2">
       <section className="relative z-10 flex flex-row items-center justify-between lg:gap-4">
         {/*Desktop*/}
 
@@ -118,23 +118,22 @@ export default function NavBar() {
         </div>
       </section>
 
-      <div className="flex mt-4 lg:hidden">
+      <div className="flex items-center justify-between mt-4 lg:hidden">
         <Input
           variant="faded"
           radius="full"
           placeholder="Buscar..."
           startContent={<img src={lupa} className="w-6" />}
         />
-        <div className="w-12">
-          <Button
-            onPress={onOpen}
-            size="sm"
-            variant="light"
-            className="md:hidden"
-          >
-            <img src={filtro} />
-          </Button>
-        </div>
+        <img className="w-10" onClick={onOpen} src={filtro} />
+
+        {/* <Button
+          onPress={onOpen}
+          size="sm"
+          variant="light"
+          className="md:hidden p-0"
+        >
+        </Button> */}
 
         <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
           <ModalContent>
