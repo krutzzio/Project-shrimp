@@ -1,55 +1,42 @@
-
-import sombrero from "../assets/Recetas/sombrero-de-cocinero.png"
-import receta1 from "../assets/Recetas/Receta1.jpg"
-import pastel from "../assets/Recetas/pastel.png"
-import tiempo from "../assets/Recetas/sombrero-de-cocinero.png"
-
+import receta1 from "../assets/Recetas/Receta1.jpg";
+import { Divider } from "@nextui-org/react";
+import Telefono from "../assets/Recetas/telefono.png";
+import Correo from "../assets/Recetas/correo.png";
+import Ubicacion from "../assets/Recetas/ubicacion.png";
 
 const Recetas_componente = () => {
-
-
   return (
-    <div className="p-2">
-      <div className=" flex flex-col rounded-xl shadow-lg">
-        <img
 
-          className="border-2 rounded-t-xl w-full h-48 object-cover"
-          src={receta1}
-
-          alt=""
-        />
-        <div className="flex justify-between text-sm px-4 pt-2">
-          <div className="flex items-center">
-            <img
-              className="w-5 mr-2"
-
-              src={tiempo}
-
-              alt="Tiempo"
-            />
-            <p className="text-gray-500">30 mins</p>
+    <div className="">
+      <div className=" flex flex-col  ">
+        <div className="py-2">
+          <img
+            className="border-2 border-orange-500 rounded-3xl shadow-lg w-full h-48 object-cover "
+            src={receta1}
+            alt=""
+          />
+        </div>
+        <div className="flex h-5 items-center space-x-4 text-small justify-between ">
+          <div>
+            <img className="w-5" src={Telefono} alt="Telefono" />
           </div>
-
-          <div className="flex items-center">
-            <img
-              className="w-5 mr-2"
-
-              src={sombrero}
-
-              alt="Dificultad"
-            />
-            <p className="text-gray-500">Fácil</p>
+          <div>
+            <p>Teléfono</p>
           </div>
+          <Divider orientation="vertical" />
+          <div>
+            <img className="w-5" src={Correo} alt="Correo" />
+          </div>
+          <div>
+            <p>Correo</p>
+          </div>
+          <Divider orientation="vertical" />
+          <div>
+            <img className="w-5" src={Ubicacion} alt="Ubicacion" />
+          </div>
+          <div>
+            <p>Ubicación</p>
 
-          <div className="flex items-center">
-            <img
-              className="w-5 mr-2"
-
-              src={pastel}
-
-              alt="Utensilios"
-            />
-            <p className="text-gray-500">Tipo de comida</p>
           </div>
         </div>
         <div className="flex flex-col p-4">

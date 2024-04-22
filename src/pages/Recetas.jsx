@@ -1,101 +1,210 @@
-import NavBar from '../components/navbar/NavBarSinBusqueda';
-import Receta from '../assets/Recetas/Receta1.jpg';
-import Tiempo from '../assets/Recetas/Tiempo.png';
-import Dificultad from '../assets/Recetas/sombrero-de-cocinero.png'
-import TipoComida from '../assets/Recetas/pastel.png'
-import Paso1 from '../assets/Recetas/paso1.avif'
-import Paso2 from '../assets/Recetas/paso2.jpg'
+
+import NavBar from "../components/navbar/NavBar";
+import Tiempo from "../assets/Recetas/Tiempo.png";
+import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
+import TipoComida from "../assets/Recetas/pastel.png";
+import Paso1 from "../assets/Recetas/paso1.avif";
+import Paso2 from "../assets/Recetas/paso2.jpg";
+import {
+  Divider,
+  Chip,
+  CheckboxGroup,
+  Checkbox,
+  Tab,
+  Tabs,
+  Card,
+  CardBody,
+  Image,
+  CardFooter,
+  Button,
+  User,
+} from "@nextui-org/react";
+import Receta3 from "../assets/Recetas/Receta1.jpg";
+
 
 const Recetas = () => {
-
-
   return (
-    <div className="max-w-2xl mx-auto">
-      <NavBar></NavBar>
 
-      <button
-        className="bg-orange-500 text-white font-bold py-2 px-4 rounded-full hover:bg-orange-600"
-        onClick={() => window.history.back()}
-      >
-        {"< Atrás"}
-      </button>
+    <div className=" ">
+
+      <NavBar></NavBar>
+      <div>
+        <Card isFooterBlurred radius="lg" className="border-none">
+          <Image
+            alt="Woman listing to music"
+            className="object-cover rounded-xl"
+            src={Receta3}
+          />
+          <CardFooter className="justify-between before:bg-white/10 bg-white border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_15px)] shadow-small ml-1 z-10">
+            <User
+              name="Don Kamaron"
+              description="@donkamaron"
+              avatarProps={{
+                src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
+              }}
+            ></User>
+            <Button
+              className="text-tiny text-white bg-orange-200"
+              variant="flat"
+              color="default"
+              radius="lg"
+              size="sm"
+            >
+              Guardar
+            </Button>
+          </CardFooter>
+        </Card>
+      </div>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-
-        <img className="w-full" src="src\assets\Recetas\Receta1.jpg" alt="Receta" />
-
         <div className="p-4">
           <h2 className="text-xl font-bold mb-2 text-orange-500">
             Nombre de la Receta
           </h2>
+          <p className="text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe amet
+            in, facere necessitatibus enim architecto vero repellat quam, veniam
+            omnis asperiores, deserunt excepturi cumque doloremque harum! Enim
+            ex maiores doloremque!
+          </p>
+          <br />
 
-          <p className="text-gray-500 mb-4 text-ml">Nombre del Restaurante</p>
-
-          <div className="flex justify-between text-sm mb-4">
-            <div className="flex items-center">
-              <img
-                className="w-5 mr-2 text-orange-500"
-                src={Tiempo}
-                alt="Tiempo"
-              />
-              <p className="text-gray-500">30 mins</p>
+          <div className="flex h-5 items-center space-x-4 text-small justify-between">
+            <div>
+              <img className="w-5" src={Tiempo} alt="Tiempo" />
             </div>
-
-            <div className="flex items-center">
-              <img
-                className="w-5 mr-2 text-orange-500"
-                src={Dificultad}
-                alt="Dificultad"
-              />
-              <p className="text-gray-500">Fácil</p>
+            <div>
+              <p>30ms</p>
             </div>
-
-            <div className="flex items-center">
-              <img
-                className="w-5 mr-2 text-orange-500"
-                src={TipoComida}
-                alt="Utensilios"
-              />
-              <p className="text-gray-500">Tipo de comida</p>
+            <Divider orientation="vertical" />
+            <div>
+              <img className="w-5" src={Dificultad} alt="Dificultad" />
+            </div>
+            <div>
+              <p>Fácil</p>
+            </div>
+            <Divider orientation="vertical" />
+            <div>
+              <img className="w-5" src={TipoComida} alt="Tipo de comida" />
+            </div>
+            <div>
+              <p>Tipo de comida</p>
             </div>
           </div>
-
-          <h3 className="font-bold mb-2 text-orange-500 text-xl">Ingredientes:</h3>
-
-          <ul className="text-gray-500 text-ml">
-            <li>Ingrediente 1</li>
-            <li>Ingrediente 2</li>
-            <li>Ingrediente 3</li>
-          </ul>
-
-          <h3 className="font-bold mb-2 mt-4 text-orange-500 text-xl">Preparación:</h3>
+          <br />
 
           <div className="flex flex-col">
-            <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src={Paso1} alt="Receta" />
-              <p className="text-ml text-gray-500">
-                Paso 1 de la preparación...
-                <br></br>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem quas maiores tempore possimus vitae, atque, molestias sequi doloribus non fugiat aut hic facere ut? Animi sunt labore fugiat velit esse.
-              </p>
-            </div>
-            <div className="border border-gray-200 p-3 mb-4">
-              <img className="w-full" src={Paso2} alt="Receta" />
-              <p className="text-ml text-gray-500">
-                Paso 2 de la preparación...
-                <br></br>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam quasi suscipit distinctio dolore dolorem quas ea perferendis placeat optio molestiae eos quia ipsam dolorum aspernatur, culpa doloremque voluptates dignissimos rerum!
-              </p>
+            <div>
+              <p className="text-gray-500">Alérgenos:</p>
+              <div className="flex gap-4 ">
+                <Chip color="warning" variant="bordered">
+                  Sésamo
+                </Chip>
+                <Chip color="warning" variant="bordered">
+                  Pescado
+                </Chip>
+                <Chip color="warning" variant="bordered">
+                  Soja
+                </Chip>
+              </div>
+              <br></br>
             </div>
           </div>
 
+          <div className="">
+            <h3 className="font-bold mb-2 text-xl">Ingredientes:</h3>
+            <div className="flex flex-col gap-3">
+              <CheckboxGroup label="Select cities" color="warning">
+                <Checkbox>200gr Salmón fresco</Checkbox>
+                <Checkbox>200gr Arroz</Checkbox>
+                <Checkbox>1 Aguacate</Checkbox>
+                <Checkbox>1 Zanahoria</Checkbox>
+                <Checkbox>1/4 Colombarda</Checkbox>
+                <Checkbox>1 Mango</Checkbox>
+              </CheckboxGroup>
+            </div>
+          </div>
+
+          <h3 className="font-bold mb-2 mt-4 text-xl">Preparación:</h3>
+
+          <div className="flex w-full flex-col">
+            <Tabs aria-label="Options">
+              <Tab key="1/3" title="1/3">
+                <Card>
+                  <CardBody>
+                    <img src={Paso1}></img>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="2/3" title="2/3">
+                <Card>
+                  <CardBody>
+                    <img src={Paso2}></img>
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum
+                    dolore eu fugiat nulla pariatur.
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="3/3" title="3/3">
+                <Card>
+                  <CardBody>
+                    <img src={Paso1}></img>
+                    Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </CardBody>
+                </Card>
+              </Tab>
+            </Tabs>
+          </div>
+
+          <div>
+          <p>Instagram</p>
+              <p className="text-orange-500">#DONKAMARONELMEJOR</p>
+          </div>
           <div className="flex justify-between items-center">
-            <button href="/" className="text-blue-500">
-              Ver en Instagram
-            </button>
-            <button href="/" className="text-blue-500">
-              Visitar Restaurante
-            </button>
+            
+            <div>
+              <Card isFooterBlurred radius="lg" className="border-none">
+                <Image
+                  src={Receta3}
+                  width={240}
+                  isBlurred
+                  className="object-cover rounded-x"
+                  alt="Receta"
+                />
+              </Card>
+            </div>
+            <div>
+              <Card isFooterBlurred radius="lg" className="border-none">
+                <Image
+                  src={Receta3}
+                  width={240}
+                  isBlurred
+                  className="object-cover rounded-x"
+                  alt="Receta"
+                />
+              </Card>
+            </div>
+          </div>
+
+          <br/>
+          <div>
+            <p>Restaurantes</p>
+            <Image
+                  src={Receta3}
+                  width={400}
+                  isBlurred
+                  className="object-cover rounded-xl border-2 border-orange-500" 
+                  alt="Receta"
+                />
+            <p>Don Kamaron</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aliquam, saepe assumenda cum nemo repudiandae quas culpa quidem voluptate atque non! Dolor amet impedit recusandae laboriosam nemo molestias porro ex.</p>
           </div>
         </div>
       </div>
