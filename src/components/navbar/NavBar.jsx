@@ -22,8 +22,10 @@ import receta from "../../assets/iconos/iconos_Recetas.svg";
 import filtro from "../../assets/iconos/iconos_Filtro.svg";
 import { Link } from "react-router-dom";
 
+
 export default function NavBar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  
 
   return (
     <header className="w-full p-2">

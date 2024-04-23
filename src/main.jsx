@@ -22,6 +22,7 @@ import { PerfilRestauranteVistaCliente } from "./pages/PerfilRestauranteVistaCli
 import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
 import HomePrincipal from './components/Home/HomePrincipal.jsx';
+import Busqueda from './pages/Busqueda.jsx';
 
 
 const router = createBrowserRouter([
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
     path: "/perfil-restaurante",
     element: <PerfilRestaurante />
 
+  },
+  {
+    path: "/busqueda",
+    element: <Busqueda />
   }
 ])
 
