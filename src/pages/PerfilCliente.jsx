@@ -12,6 +12,7 @@ import {
   Chip,
 } from "@nextui-org/react";
 import { CardReceta } from "../components/Home/Cards/CardReceta";
+import { CardRestaurante } from "../components/Home/Cards/CardRestaurante";
 import AddIcon from "../assets/add.svg";
 
 export function PerfilCliente() {
@@ -157,7 +158,13 @@ export function PerfilCliente() {
           </Tab>
           <Tab key="Restaurantes" title="Restaurantes">
             <Card>
-              <CardBody>Aquí irán los restaurantes guardados.</CardBody>
+              <CardBody>
+              <div className="flex flex-col gap-4 md:flex-row">
+                <CardRestaurante/>
+                <CardRestaurante/>
+                <CardRestaurante/>
+              </div>
+              </CardBody>
             </Card>
           </Tab>
           <Tab key="Promociones" title="Promociones">
