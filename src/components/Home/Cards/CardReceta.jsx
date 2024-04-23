@@ -1,8 +1,8 @@
 import receta1 from "../../../assets/Recetas/Receta1.jpg";
 import { Divider } from "@nextui-org/react";
-import Telefono from "../../../assets/Recetas/telefono.png";
-import Correo from "../../../assets/Recetas/correo.png";
-import Ubicacion from "../../../assets/Recetas/ubicacion.png";
+import Tiempo from "../../../assets/Recetas/Tiempo.png";
+import Dificultad from "../../../assets/Recetas/sombrero-de-cocinero.png";
+import TipoComida from "../../../assets/Recetas/cuchilleria.png";
 
 export function CardReceta() {
 
@@ -18,24 +18,24 @@ export function CardReceta() {
         </div>
         <div className="flex h-5 items-center space-x-4 text-small justify-between ">
           <div>
-            <img className="w-5" src={Telefono} alt="Telefono" />
+            <img className="w-5" src={Tiempo} alt="Telefono" />
           </div>
           <div>
-            <p>Teléfono</p>
-          </div>
-          <Divider orientation="vertical" />
-          <div>
-            <img className="w-5" src={Correo} alt="Correo" />
-          </div>
-          <div>
-            <p>Correo</p>
+            <p>Tiempo</p>
           </div>
           <Divider orientation="vertical" />
           <div>
-            <img className="w-5" src={Ubicacion} alt="Ubicacion" />
+            <img className="w-5" src={Dificultad} alt="Correo" />
           </div>
           <div>
-            <p>Ubicación</p>
+            <p>Dificultad</p>
+          </div>
+          <Divider orientation="vertical" />
+          <div>
+            <img className="w-5" src={TipoComida} alt="Ubicacion" />
+          </div>
+          <div>
+            <p>TipoComida</p>
 
           </div>
         </div>

@@ -1,8 +1,7 @@
-
 import NavBar from "../components/navbar/NavBar";
 import Tiempo from "../assets/Recetas/Tiempo.png";
 import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
-import TipoComida from "../assets/Recetas/pastel.png";
+import TipoComida from "../assets/Recetas/cuchilleria.png";
 import Paso1 from "../assets/Recetas/paso1.avif";
 import Paso2 from "../assets/Recetas/paso2.jpg";
 import {
@@ -20,6 +19,8 @@ import {
   User,
 } from "@nextui-org/react";
 import Receta3 from "../assets/Recetas/Receta1.jpg";
+import Guardar from "../assets/Recetas/guardar-instagram.png";
+
 
 
 export function Receta() {
@@ -34,22 +35,26 @@ export function Receta() {
             className="object-cover rounded-xl"
             src={Receta3}
           />
-          <CardFooter className="justify-between before:bg-white/10 bg-white border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_15px)] shadow-small ml-1 z-10">
+          <CardFooter
+            className="justify-between before:bg-white/10 bg-white
+              border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_15px)] shadow-small ml-1 z-10"
+          >
             <User
               name="Don Kamaron"
               description="@donkamaron"
+              className="text-orange-500"
               avatarProps={{
                 src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
               }}
             ></User>
             <Button
-              className="text-tiny text-white bg-orange-200"
+              className="text-tiny text-orange-500 hover:bg-orange-600"
               variant="flat"
-              color="default"
+              color="warning"
               radius="lg"
               size="sm"
             >
-              Guardar
+              <img className="w-5" src={Guardar} alt="Guardar en favoritos" />
             </Button>
           </CardFooter>
         </Card>
@@ -112,16 +117,14 @@ export function Receta() {
 
           <div className="">
             <h3 className="font-bold mb-2 text-xl">Ingredientes:</h3>
-            <div className="flex flex-col gap-3">
-              <CheckboxGroup label="Select cities" color="warning">
-                <Checkbox>200gr Salmón fresco</Checkbox>
-                <Checkbox>200gr Arroz</Checkbox>
-                <Checkbox>1 Aguacate</Checkbox>
-                <Checkbox>1 Zanahoria</Checkbox>
-                <Checkbox>1/4 Colombarda</Checkbox>
-                <Checkbox>1 Mango</Checkbox>
+              <CheckboxGroup color="warning">
+                <Checkbox className="w-full" value="1" >200gr Salmón fresco</Checkbox>
+                <Checkbox value="2" className="w-full">200gr Arroz</Checkbox>
+                <Checkbox value="3" className="w-full">1 Aguacate</Checkbox>
+                <Checkbox value="4"  className="w-full">1 Zanahoria</Checkbox>
+                <Checkbox value="5" className="w-full">1/4 Colombarda</Checkbox>
+                <Checkbox value="6" className="w-full">1 Mango</Checkbox>
               </CheckboxGroup>
-            </div>
           </div>
 
           <h3 className="font-bold mb-2 mt-4 text-xl">Preparación:</h3>
