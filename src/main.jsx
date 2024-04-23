@@ -12,19 +12,18 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
-
 import HomeRecetas from './pages/HomeRecetas.jsx';
 import Perfil_cliente from "./pages/Perfil_cliente.jsx";
-
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
 import Promociones from "./components/Promociones.jsx";
-
 import Recetas from "./pages/Recetas.jsx";
 import Perfil_Restaurante_Cliente from "./pages/Perfil_Restaurante_Cliente.jsx";
 import Recetas_componente from './components/Recetas_componente.jsx';
 import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
+import HomePrincipal from './components/Home/HomePrincipal.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -45,12 +44,17 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <HomeRecetas />
+    element: <HomeRecetas />,
+    children: [
+      {
+        path: "/home",
+        element: <HomePrincipal />
+      }
+    ]
   },
   {
     path: "/perfil",
     element: <Perfil_cliente />,
-
 
   },
   {
