@@ -2,13 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import CheckboxGroupTest, { CustomCheckboxTest } from "../Radio/Checkbox";
 
-export default function StepCocina() {
+// eslint-disable-next-line react/prop-types
+export default function StepCocina({ profile }) {
 
-    const { client, setRegisterClient } = useContext(RegisterContext)
-    const [cocina, setCocina] = useState(client.tipos_cocina);
+    const { client, setRegisterClient, rest, setRegisterRest } = useContext(RegisterContext)
+    const [cocina, setCocina] = useState(profile === "client" ? client.tipos_cocina : rest.tipos_cocina);
 
     useEffect(() => {
-        setRegisterClient({ ...client, tipos_cocina: cocina })
+        profile === "client"
+            ? setRegisterClient({ ...client, tipos_cocina: cocina })
+            : setRegisterRest({ ...rest, tipos_cocina: cocina })
     }, [cocina])
 
 
@@ -44,9 +47,7 @@ export default function StepCocina() {
                     <CustomCheckboxTest value="Otros">Otros</CustomCheckboxTest>
                 </CheckboxGroupTest>
             </main>
-
             <footer>
-
             </footer>
         </main>
     )

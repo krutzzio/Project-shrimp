@@ -22,11 +22,10 @@ import {
 import Receta3 from "../assets/Recetas/Receta1.jpg";
 
 
-const Recetas = () => {
+export function Receta() {
   return (
 
     <div className=" ">
-
       <NavBar></NavBar>
       <div>
         <Card isFooterBlurred radius="lg" className="border-none">
@@ -164,11 +163,11 @@ const Recetas = () => {
           </div>
 
           <div>
-          <p>Instagram</p>
-              <p className="text-orange-500">#DONKAMARONELMEJOR</p>
+            <p>Instagram</p>
+            <p className="text-orange-500">#DONKAMARONELMEJOR</p>
           </div>
           <div className="flex justify-between items-center">
-            
+
             <div>
               <Card isFooterBlurred radius="lg" className="border-none">
                 <Image
@@ -193,16 +192,16 @@ const Recetas = () => {
             </div>
           </div>
 
-          <br/>
+          <br />
           <div>
             <p>Restaurantes</p>
             <Image
-                  src={Receta3}
-                  width={400}
-                  isBlurred
-                  className="object-cover rounded-xl border-2 border-orange-500" 
-                  alt="Receta"
-                />
+              src={Receta3}
+              width={400}
+              isBlurred
+              className="object-cover rounded-xl border-2 border-orange-500"
+              alt="Receta"
+            />
             <p>Don Kamaron</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aliquam, saepe assumenda cum nemo repudiandae quas culpa quidem voluptate atque non! Dolor amet impedit recusandae laboriosam nemo molestias porro ex.</p>
           </div>
@@ -210,6 +209,4 @@ const Recetas = () => {
       </div>
     </div>
   );
-};
-
-export default Recetas;
+}

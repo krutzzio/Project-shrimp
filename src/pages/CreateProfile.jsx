@@ -7,7 +7,7 @@ import { useSteps } from "../hooks/useSteps"
 import CreateProfileRest from "../components/CreateProfile/Restaurant/CreateProfileRest"
 import CreateProfileClient from "../components/CreateProfile/Client/CreateProfileClient"
 import { RegisterContext } from "../contexts/RegisterContext"
-
+import { registroCliente, registroRest } from "../utils/fetchs/registros"
 
 
 export default function CreateProfile() {
@@ -17,34 +17,22 @@ export default function CreateProfile() {
   const { step, setStep, maxSteps } = useSteps(profileType)
   const { client, rest } = useContext(RegisterContext)
 
-
-  const register = () => {
+  const register = async () => {
 
     if (step < maxSteps) {
       setStep(step + 1)
       return
     }
-
     setStep(step + 1)
 
-    const registerData = new FormData()
-    for (const prop in client) {
-      if (prop === "photo") {
-        registerData.append("photo", client.photo)
-      } else {
-        registerData.append(prop, client[prop])
-      }
+    if (profileType === "client") {
+      const fetchRegistro = await registroCliente({ client })
+      fetchRegistro ? navigate("/home") : console.log("ERROR REGISTRO CLIENTE")
+    } else {
+      const fetchRegistro = await registroRest({ rest })
+      fetchRegistro ? navigate("/perfil") : console.log("ERROR REGISTRO REST")
     }
 
-    const requestOptions = {
-      method: 'POST',
-      'Content-Type': 'multipart/form-data',
-      body: registerData,
-    };
-    fetch("http://localhost:3000/api/registerUser", requestOptions)
-      .then(resp => {
-        if (resp.ok) navigate("/login")
-      })
   }
 
   return (

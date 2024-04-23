@@ -1,12 +1,12 @@
-import receta1 from "../assets/Recetas/Receta1.jpg";
+import receta1 from "../../../assets/Recetas/Receta1.jpg";
 import { Divider } from "@nextui-org/react";
-import Telefono from "../assets/Recetas/telefono.png";
-import Correo from "../assets/Recetas/correo.png";
-import Ubicacion from "../assets/Recetas/ubicacion.png";
+import Telefono from "../../../assets/Recetas/telefono.png";
+import Correo from "../../../assets/Recetas/correo.png";
+import Ubicacion from "../../../assets/Recetas/ubicacion.png";
 
-const Recetas_componente = () => {
+export function CardReceta() {
+
   return (
-
     <div className="">
       <div className=" flex flex-col  ">
         <div className="py-2">
@@ -46,6 +46,4 @@ const Recetas_componente = () => {
       </div>
     </div>
   );
-};
-
-export default Recetas_componente;
+}

@@ -19,7 +19,7 @@ import {
   Tabs,
   Textarea,
 } from "@nextui-org/react";
-import Recetas_componente from "../components/Recetas_componente";
+import { CardReceta } from "../components/Home/Cards/CardReceta";
 
 export default function PerfilRestaurante() {
   return (
@@ -53,7 +53,7 @@ export default function PerfilRestaurante() {
         >
           <Tab key="Datos" title="Datos">
             <Card>
-                <CardBody>
+              <CardBody>
                 <div className="flex flex-col gap-4">
                   <h2 className="font-bold text-lg">Datos básicos</h2>
                   <article className="flex flex-col justify-start text-sm">
@@ -120,25 +120,24 @@ export default function PerfilRestaurante() {
                     Aplicar cambios
                   </Button>
                 </div>
-                </CardBody>
+              </CardBody>
             </Card>
           </Tab>
           <Tab key="Recetas" title="Recetas">
             <Card>
-                <CardBody>
-                    <div className="flex flex-col items-center">
-                        <Button color="secondary" className="text-white w-36 my-4">
-                        Generar código
-                        </Button>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                    <h2 className="font-bold text-lg">Tus recetas</h2>
-                        <Recetas_componente/>
-                        <Recetas_componente/>
-                        <Recetas_componente/>
-                    </div>
-                    
-                </CardBody>
+              <CardBody>
+                <div className="flex flex-col items-center">
+                  <Button color="secondary" className="text-white w-36 my-4">
+                    Generar código
+                  </Button>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <h2 className="font-bold text-lg">Tus recetas</h2>
+                  <CardReceta />
+                  <CardReceta />
+                  <CardReceta />
+                </div>
+              </CardBody>
             </Card>
           </Tab>
           <Tab key="Promociones" title="Promociones">
@@ -176,34 +175,34 @@ export default function PerfilRestaurante() {
                 </div>
 
                 <div className="flex flex-col gap-4 mt-6">
-                    <h2 className="font-bold text-lg">Promociones que has dado</h2>
-                    
-                    <Table removeWrapper aria-label="Example static collection table">
-                      <TableHeader>
-                        <TableColumn>CÓDIGO</TableColumn>
-                        <TableColumn>USUARIO</TableColumn>
-                      </TableHeader>
-                      <TableBody>
-                        <TableRow key="1">
-                          <TableCell>444444</TableCell>
-                          <TableCell>@laquelra</TableCell>
-                        </TableRow>
-                        <TableRow key="2">
-                          <TableCell>444444</TableCell>
-                          <TableCell>@laquelra</TableCell>
-                        </TableRow>
-                        <TableRow key="3">
-                          <TableCell>444444</TableCell>
-                          <TableCell>@laquelra</TableCell>
-                        </TableRow>
-                        <TableRow key="4">
-                          <TableCell>444444</TableCell>
-                          <TableCell>@laquelra</TableCell>
-                        </TableRow>
-                      </TableBody>
-                    </Table>
+                  <h2 className="font-bold text-lg">Promociones que has dado</h2>
+
+                  <Table removeWrapper aria-label="Example static collection table">
+                    <TableHeader>
+                      <TableColumn>CÓDIGO</TableColumn>
+                      <TableColumn>USUARIO</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                      <TableRow key="1">
+                        <TableCell>444444</TableCell>
+                        <TableCell>@laquelra</TableCell>
+                      </TableRow>
+                      <TableRow key="2">
+                        <TableCell>444444</TableCell>
+                        <TableCell>@laquelra</TableCell>
+                      </TableRow>
+                      <TableRow key="3">
+                        <TableCell>444444</TableCell>
+                        <TableCell>@laquelra</TableCell>
+                      </TableRow>
+                      <TableRow key="4">
+                        <TableCell>444444</TableCell>
+                        <TableCell>@laquelra</TableCell>
+                      </TableRow>
+                    </TableBody>
+                  </Table>
                 </div>
-                
+
               </CardBody>
             </Card>
           </Tab>

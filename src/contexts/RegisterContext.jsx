@@ -11,16 +11,17 @@ const infoClient = {
     tipos_cocina: [],
 }
 
-
 const infoRest = {
-    name: "",
+    nombre: "",
     correo: "",
     password: "",
-    avatar: "",
+    photo: "",
+    numero: "",
+    direccion: "",
     cp: "",
-    dieta: "",
-    alergias: [],
-    tipoCocina: [],
+    telefono: "",
+    descripcio: "",
+    tipos_cocina: [],
 }
 
 export const RegisterContext = createContext(null)

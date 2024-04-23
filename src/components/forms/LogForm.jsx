@@ -2,6 +2,7 @@ import { Button } from "@nextui-org/react"
 import "./forms.css"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { loginProfile } from "../../utils/fetchs/login"
 
 // eslint-disable-next-line react/prop-types
 export default function LogForm({ userType }) {
@@ -15,21 +16,10 @@ export default function LogForm({ userType }) {
         setLoginInfo({ ...loginInfo, [name]: value })
     }
 
-    const login = () => {
+    const login = async () => {
         setLogging(true)
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: JSON.stringify(loginInfo)
-        };
-
-        fetch(`http://localhost:3000/api/${userType ? `/loginRest` : `/loginUser`}`, requestOptions)
-            .then(resp => {
-                console.log(resp)
-                if (resp.ok) navigate("/home")
-            })
-            .then(data => console.log(data))
+        const fetchStatus = await loginProfile({ loginInfo, userType })
+        fetchStatus.id ? navigate("/home") : console.log("ERROR LOGIN")
     }
 
     return (

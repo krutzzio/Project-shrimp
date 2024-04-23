@@ -11,10 +11,10 @@ import {
   Input,
   Chip,
 } from "@nextui-org/react";
-import Recetas_componente from "../components/Recetas_componente";
+import { CardReceta } from "../components/Home/Cards/CardReceta";
 import AddIcon from "../assets/add.svg";
 
-const PerfilCliente = () => {
+export function PerfilCliente() {
   return (
     <div className="flex flex-col h-screen">
       <NavBar />
@@ -148,9 +148,9 @@ const PerfilCliente = () => {
               <CardBody>
                 <div className="flex flex-col gap-4">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
-                  <Recetas_componente />
-                  <Recetas_componente />
-                  <Recetas_componente />
+                  <CardReceta />
+                  <CardReceta />
+                  <CardReceta />
                 </div>
               </CardBody>
             </Card>
@@ -175,6 +175,4 @@ const PerfilCliente = () => {
       </div>
     </div>
   );
-};
-
-export default PerfilCliente;
+}

@@ -4,8 +4,7 @@ import { UbicationClientForm, UbicationRestaurantForm } from "../forms/Ubication
 
 
 // eslint-disable-next-line react/prop-types
-export default function StepAvatarUbi({ imgProfile, handleImg, handleChange, client, profileType }) {
-
+export default function StepAvatarUbi({ imgProfile, handleImg, handleChange, client, rest, profileType }) {
 
     return (
         <main className="h-[70%] w-full text-center flex flex-col gap-8">
@@ -28,7 +27,7 @@ export default function StepAvatarUbi({ imgProfile, handleImg, handleChange, cli
             {
                 profileType === "client"
                     ? <UbicationClientForm handleChange={handleChange} client={client} />
-                    : <UbicationRestaurantForm />
+                    : <UbicationRestaurantForm handleChange={handleChange} rest={rest} />
             }
         </main>
     )

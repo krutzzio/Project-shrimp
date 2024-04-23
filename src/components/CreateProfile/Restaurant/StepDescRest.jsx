@@ -1,7 +1,7 @@
+/* eslint-disable react/prop-types */
 
 
-// eslint-disable-next-line react/prop-types
-export default function StepDescRest() {
+export default function StepDescRest({ handleChange, rest }) {
     return (
         <main className="h-[70%] w-full text-center flex flex-col justify-between gap-8">
             <header>
@@ -11,11 +11,11 @@ export default function StepDescRest() {
             <section className="w-8/12 flex flex-col justify-between m-auto h-4/6">
                 <article className="flex flex-col justify-start">
                     <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="calle">Número de teléfono</label>
-                    <input className="outline-none bg-transparent border-primary border-b-2" type="number" max={10} id="tel" name="tel" />
+                    <input className="outline-none bg-transparent border-primary border-b-2" type="number" max={10} id="telefono" name="telefono" value={rest.telefono} onChange={handleChange} />
                 </article>
                 <article className="flex flex-col justify-start">
                     <label className="w-fit text-xs text-gray-400 font-medium" htmlFor="calle">Descripción</label>
-                    <textarea className="outline-none bg-transparent border-primary border-b-2" type="number" rows={10} id="tel" name="tel" placeholder="Una pequeña descripción para dar a conocer tu local a los usuarios" />
+                    <textarea className="outline-none bg-transparent border-primary border-b-2" type="number" rows={10} id="descripcio" name="descripcio" value={rest.descripcio} onChange={handleChange} placeholder="Una pequeña descripción para dar a conocer tu local a los usuarios" />
                 </article>
             </section>
 
