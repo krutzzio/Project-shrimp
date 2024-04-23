@@ -2,10 +2,9 @@ import { CardReceta } from "../components/Home/Cards/CardReceta";
 import NavBar from "../components/navbar/NavBar";
 import { Divider } from "@nextui-org/react";
 import { Chip } from "@nextui-org/react";
-import Tiempo from "../assets/Recetas/Tiempo.png";
-import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
-import TipoComida from "../assets/Recetas/pastel.png";
-
+import Telefono from "../assets/Recetas/telefono.png";
+import Correo from "../assets/Recetas/correo.png";
+import Ubicacion from "../assets/Recetas/ubicacion.png";
 
 export function PerfilRestauranteVistaCliente() {
   return (
@@ -48,21 +47,21 @@ export function PerfilRestauranteVistaCliente() {
 
       <div className="flex h-5 items-center space-x-4 text-small justify-between">
         <div>
-          <img className="w-5" src={Tiempo} alt="Tiempo" />
+          <img className="w-5" src={Telefono} alt="Tiempo" />
         </div>
         <div>
           <p>30ms</p>
         </div>
         <Divider orientation="vertical" />
         <div>
-          <img className="w-5" src={Dificultad} alt="Dificultad" />
+          <img className="w-5" src={Correo} alt="Dificultad" />
         </div>
         <div>
           <p>Fácil</p>
         </div>
         <Divider orientation="vertical" />
         <div>
-          <img className="w-5" src={TipoComida} alt="Tipo de comida" />
+          <img className="w-5" src={Ubicacion} alt="Tipo de comida" />
         </div>
         <div>
           <p>Tipo de comida</p>
