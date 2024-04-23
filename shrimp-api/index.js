@@ -17,7 +17,7 @@ if (!fs.existsSync(uploadDirectory)) {
 // permet llegir contingut json en posts
 app.use(express.json());
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: '*', credentials: true }));
 // cors necessari quan api/front son a servidors diferents
 // permet llegir les cookies
 app.use(cookieParser());

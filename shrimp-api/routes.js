@@ -15,8 +15,8 @@ const {
   Restaurante,
   Receta,
   TipoCocina,
-  Procedimiento,
   Receta_Ingrediente,
+  Ingrediente,
 } = require("./models"); // Importa els models de dades
 
 const {
@@ -85,11 +85,34 @@ router.get(
   checkToken,
   async (req, res) => await readItems(req, res, Usuario)
 ); // Llegeix tots els usuaris
-router.get(
-  "/users/:id",
-  checkToken,
-  async (req, res) => await readItem(req, res, Usuario)
-); // Llegeix un usuari específic
+// router.get(
+//   "/users/:id",
+//   checkToken,
+//   async (req, res) => await readItem(req, res, Usuario)
+// ); // Llegeix un usuari específic
+
+router.get("/users/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await Usuario.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Comprueba si el usuario tiene una imagen de perfil
+
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+
+
+
+
+
 router.put(
   "/users/:id",
   checkToken,
@@ -140,7 +163,8 @@ router.post("/registerUser", upload.single("photo"), async (req, res) => {
       dieta,
     } = req.body; // Obté el nom, email i contrasenya de la petició
 
-    const foto_perfil = req.file ? req.file.path : null; // Obtiene la ruta del archivo subido
+    const baseUrl = 'http://localhost:3000/api/uploads/'
+    const foto_perfil = req.file ? baseUrl + req.file.filename : null; // Obtiene la ruta del archivo subido
 
     if (!nombre || !apellidos || !correo || !password || !localizacion) {
       return res
@@ -370,7 +394,7 @@ router.delete(
 /* ----------------------------- CREAR RECETA ---------------------------- */
 router.post(
   "/home/:restId/registerReceta",
-  checkToken,
+
   upload.single("photo"),
   async (req, res) => {
     try {
@@ -378,15 +402,17 @@ router.post(
         nombre_receta,
         desc_receta,
         TipoCocinaId,
-        procedimientos,
         persones,
         tiempo,
         dificultad,
         tipo,
         ingredientes,
+
       } = req.body;
 
-      const foto_receta = req.file ? req.file.path : null; // Obtiene la ruta del archivo subido
+     
+      const baseUrl = 'http://localhost:3000/api/uploads/'
+      const foto_receta = req.file ? baseUrl+ req.file.filename : null; // Obtiene la ruta del archivo subido
 
       const restauranteId = req.params.restId;
 
@@ -395,8 +421,6 @@ router.post(
         !nombre_receta ||
         !desc_receta ||
         !TipoCocinaId ||
-        !procedimientos ||
-        procedimientos.length === 0 ||
         !ingredientes ||
         ingredientes.length === 0
       ) {
@@ -407,6 +431,7 @@ router.post(
               "Nombre, descripción, TipoCocinaId, al menos un procedimiento y al menos un ingrediente son requeridos",
           });
       }
+      // Mira si hay otra igual sengun el nombre de la receta en un mismo restaurante
       const existingReceta = await Receta.findOne({
         where: { nombre_receta, RestauranteId: restauranteId },
       });
@@ -422,8 +447,8 @@ router.post(
       if (!tipoCocina) {
         return res.status(404).json({ error: "Tipo de cocina no encontrado" });
       }
-
-      // Crea la receta
+        
+      // Crea receta
       const receta = await Receta.create({
         nombre_receta,
         desc_receta,
@@ -436,19 +461,7 @@ router.post(
         foto_receta,
       });
 
-      // Crea los procedimientos
-      const procedimientosCreados = [];
-      for (const procedimiento of procedimientos) {
-        const nuevoProcedimiento = await Procedimiento.create({
-          numero_procedimiento: procedimiento.numero_procedimiento,
-          desc_procedimiento: procedimiento.desc_procedimiento,
-          foto_procedimiento: procedimiento.foto_procedimiento,
-          RecetumId: receta.id,
-        });
-        procedimientosCreados.push(nuevoProcedimiento);
-      }
-
-      // Crea los ingredientes
+      // Crea ingredientes
       for (const ingrediente of ingredientes) {
         const { id, cantidad, medida } = ingrediente;
         const recetaIngrediente = await Receta_Ingrediente.create({
@@ -456,10 +469,11 @@ router.post(
           IngredienteId: id,
           cantidad,
           medida,
+
         });
       }
 
-      // Devuelve la receta
+
       res.status(201).json({
         receta: {
           id: receta.id,
@@ -467,14 +481,32 @@ router.post(
           desc_receta: receta.desc_receta,
           TipoCocinaId: receta.TipoCocinaId,
           RestauranteId: restauranteId,
+          foto_receta: foto_receta
         },
-        procedimientos: procedimientosCreados,
         ingredientes: ingredientes,
       });
     } catch (error) {
+
       res.status(500).json({ error: error.message });
     }
   }
 );
+router.get(
+  "/tipuscuina",
 
+  async (req, res) => await readItems(req, res, TipoCocina)
+);
+router.get(
+  "/ingredientes",
+
+  async (req, res) => await readItems(req, res, Ingrediente)
+);
+
+router.get('/uploads/:fileName', (req, res) => {
+  const fileName = req.params.fileName;
+  const filePath = path.join(__dirname, 'uploads', fileName);
+
+  // Envía el archivo al cliente
+  res.sendFile(filePath);
+});
 module.exports = router; // Exporta el router amb les rutes definides

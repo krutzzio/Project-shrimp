@@ -123,27 +123,27 @@ const Restaurante = sequelize.define("Restaurante", {
 const Receta = sequelize.define("Receta", {
     nombre_receta: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     desc_receta: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     persones: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     tiempo: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     dificultad: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     tipo: {
-        type: DataTypes.ENUM('postre','primero','segundo','entrante'),
-        allowNull: false,
+        type: DataTypes.ENUM('postre','primero','segundo','entrante', ''),
+        allowNull: true,
     },
     foto_receta: {
         type: DataTypes.STRING,
@@ -155,7 +155,7 @@ const Receta = sequelize.define("Receta", {
 const Ingrediente = sequelize.define("Ingrediente", {
     nombre_ingrediente: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
 });
 
