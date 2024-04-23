@@ -1,5 +1,4 @@
-import Recetas_componente from "../components/Recetas_componente";
-
+import { CardReceta } from "../components/Home/Cards/CardReceta";
 import NavBar from "../components/navbar/NavBar";
 import { Divider } from "@nextui-org/react";
 import { Chip } from "@nextui-org/react";
@@ -8,7 +7,7 @@ import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
 import TipoComida from "../assets/Recetas/pastel.png";
 
 
-const Perfil_Restaurante_Cliente = () => {
+export function PerfilRestauranteVistaCliente() {
   return (
     <div className="max-w-2xl mx-auto p-4  ">
       <NavBar></NavBar>
@@ -18,7 +17,7 @@ const Perfil_Restaurante_Cliente = () => {
           src="https://media-cdn.tripadvisor.com/media/photo-s/1a/ac/54/52/front-and-east-side-of.jpg"
         />
         <div className="absolute p-2 bottom-0 right-0">
-          
+
           <button className=" bg-orange-500 text-white rounded-lg p-2 hover:bg-orange-600">
             <p>Barcelona</p>
           </button>
@@ -70,10 +69,8 @@ const Perfil_Restaurante_Cliente = () => {
         </div>
       </div>
       <h3 className="font-bold mb-2  py-4 text-xl">Recetas</h3>
-      <Recetas_componente />
-      <Recetas_componente />
+      <CardReceta />
+      <CardReceta />
     </div>
   );
-};
-
-export default Perfil_Restaurante_Cliente;
+}

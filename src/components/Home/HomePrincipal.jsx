@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Receta from "../Recetas_componente";
+import { CardReceta } from "./Cards/CardReceta";
 
 export default function HomePrincipal() {
 
@@ -9,16 +9,16 @@ export default function HomePrincipal() {
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
                 <div className="relative flex gap-4">
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                 </div>
             </div>
@@ -26,16 +26,16 @@ export default function HomePrincipal() {
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
                 <div className="relative flex gap-4">
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                 </div>
             </div>
@@ -43,16 +43,16 @@ export default function HomePrincipal() {
             <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide">
                 <div className="relative flex gap-4">
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                     <Link className="max-w-fit min-w-50 items-center flex flex-col">
-                        <Receta />
+                        <CardReceta />
                     </Link>
                 </div>
             </div>
