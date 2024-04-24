@@ -48,49 +48,6 @@ export function PerfilCliente() {
         </div>
       </div>
 
-      {/* 
-
-      <div className="flex flex-1 flex-col px-4">
-
-        <Link to="/Recetas">
-          <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
-            Recetas Guardadas
-          </button>
-        </Link>
-
-
-        <Link to="/perfil/recetas-hechas">
-
-          <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
-            Recetas Hechas
-          </button>
-        </Link>
-
-
-        <Link to={"/receta"}>
-
-          <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
-            Restaurantes Suscritos
-          </button>
-        </Link>
-
-
-        <Link to="/perfil/promos">
-          <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
-            Promociones
-          </button>
-        </Link>
-        <Link to="/perfil/restaurante-cliente">
-          <button className="w-full p-4 my-2 text-lg font-bold text-white bg-orange-500 rounded shadow hover:bg-orange-600">
-            Restaurante
-          </button>
-        </Link>
-
-
-      </div>
-
-      */}
-
       <div className="flex w-full flex-col mt-4">
         <Tabs aria-label="Options" radius="none" variant="underlined">
           <Tab key="Datos" title="Datos">
@@ -147,11 +104,13 @@ export function PerfilCliente() {
           <Tab key="Recetas" title="Recetas">
             <Card>
               <CardBody>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
-                  <CardReceta />
-                  <CardReceta />
-                  <CardReceta />
+                  <div className="m-auto">
+                    <CardReceta />
+                    <CardReceta />
+                    <CardReceta />
+                  </div>
                 </div>
               </CardBody>
             </Card>
