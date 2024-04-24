@@ -262,6 +262,278 @@
     {
         "nombre_ingrediente": "Mejillones",
         "GrupoAlimentoId": "13"
+    },
+    {
+        "nombre_ingrediente": "Salmón",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Atún",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Merluza",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Dorada",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Lubina",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Bacalao",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Trucha",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Rape",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Pez espada",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Pargo",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Sardina",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Bonito",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Lenguado",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Caballa",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Anguila",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Almejas",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Pulpo",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Calamar",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Mejillones",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Vieiras",
+        "GrupoAlimentoId": "3"
+    },
+    {
+        "nombre_ingrediente": "Langosta",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Cangrejo",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Langostino",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Camarón",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Carabinero",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Centollo",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Bogavante",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Cigala",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Nécora",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Gamba",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Buey de mar",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Gambón",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Langostinos tigre",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Camarón de río",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Langostino patagónico",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Cangrejo de río",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Cigalas",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Camarón de mar",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Buey de mar gigante",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Cangrejo real",
+        "GrupoAlimentoId": "1"
+    },
+    {
+        "nombre_ingrediente": "Pollo",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Pavo",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Ternera",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Cordero",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Cerdo",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Carne picada de res",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Carne picada de pollo",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Carne de canguro",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Carne de pato",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Carne de búfalo",
+        "GrupoAlimentoId": "14"
+    },
+    {
+        "nombre_ingrediente": "Manzana",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Plátano",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Naranja",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Uva",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Fresa",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Pera",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Melón",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Kiwi",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Mango",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Piña",
+        "GrupoAlimentoId": "17"
+    },
+    {
+        "nombre_ingrediente": "Lentejas",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Garbanzos",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Frijoles",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Alubias",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Judías pintas",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Judías verdes",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Habas",
+        "GrupoAlimentoId": "18"
+    },
+    {
+        "nombre_ingrediente": "Guisantes",
+        "GrupoAlimentoId": "18"
     }
 
 ]
