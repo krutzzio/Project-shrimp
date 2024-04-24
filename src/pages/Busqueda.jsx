@@ -67,7 +67,7 @@ const Busqueda = () => {
             <tr key={user.id} className="border-b border-orange-200 hover:bg-orange-100">
               <td className="p-3">
                 <img className="mx-auto block" src={user.thumbnailUrl} alt={user.title}/>
-                {user.title}
+                <p className="text-center capitalize ">{user.title}</p>
                 
               </td>
             </tr>
