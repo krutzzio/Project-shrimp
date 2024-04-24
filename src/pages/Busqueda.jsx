@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SwitchHome from "../components/SwitchHome";
+
 import {
   Avatar,
   Button,
@@ -22,6 +22,7 @@ import rest from "../assets/iconos/iconos_Restaurante.svg";
 import receta from "../assets/iconos/iconos_Recetas.svg";
 import filtro from "../assets/iconos/iconos_Filtro.svg";
 import { Link } from "react-router-dom";
+import { CardReceta } from "../components/Home/Cards/CardReceta";
 
 const Busqueda = () => {
   const [users, setUsers] = useState([]);
@@ -113,7 +114,7 @@ const Busqueda = () => {
         />
         <img className="w-10" onClick={onOpen} src={filtro} />
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} >
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
@@ -123,7 +124,6 @@ const Busqueda = () => {
                   label="Dietética"
                   orientation="vertical"
                   color="primary"
-                  
                 >
                   <Checkbox value="vegetariano">Vegetariano</Checkbox>
                   <Checkbox value="vegano">Vegano</Checkbox>
@@ -152,7 +152,7 @@ const Busqueda = () => {
                 <Button color="danger" variant="light" onPress={onClose}>
                   Cerrar
                 </Button>
-                <Button color="primary" onPress={onClose} >
+                <Button color="primary" onPress={onClose}>
                   Aplicar
                 </Button>
               </ModalFooter>
@@ -161,10 +161,21 @@ const Busqueda = () => {
         </ModalContent>
       </Modal>
 
+      <div className="flex flex-col">
+        <h1 className="text-2xl py-2 font-bold">Te puede gustar</h1>
+        <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
+          <div className="relative flex gap-4">
+            <CardReceta />
+            <CardReceta />
+            <CardReceta />
+
+          </div>
+        </div>
+      </div>
       <table className="w-full bg-white rounded-lg overflow-hidden shadow">
-        <thead className="bg-orange-600 text-white">
+        <thead className="">
           <tr>
-            <th className="p-3">Recetas</th>
+            <th className="p-3"><h1 className="text-2xl py-2 font-bold">Todas las recetas</h1></th>
           </tr>
         </thead>
         <tbody>
