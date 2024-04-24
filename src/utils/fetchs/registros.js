@@ -18,7 +18,7 @@ function createFormData({ profile }) {
 }
 
 export async function registroCliente({ client }) {
-    const URL = `http://localhost:3000/api/registerUser`
+    const URL = `http://192.168.1.229:3000/api/registerUser`
     const requestOptions = createFormData({ profile: client })
 
     return fetch(URL, requestOptions)
@@ -34,7 +34,7 @@ export async function registroCliente({ client }) {
 
 
 export async function registroRest({ rest }) {
-    const URL = `http://localhost:3000/api/registerRest`
+    const URL = `http://192.168.1.229:3000/api/registerRest`
     const requestOptions = createFormData({ profile: rest })
 
     return fetch(URL, requestOptions)

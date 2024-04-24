@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import CheckboxGroupTest, { CustomCheckboxTest } from "../Radio/Checkbox";
 import { RegisterContext } from "../../../contexts/RegisterContext";
+import { tiposAlergias } from '../../../utils/tiposAlergias';
+
 
 export default function StepAlergens() {
 
@@ -16,24 +18,25 @@ export default function StepAlergens() {
             <header>
                 <h1 className="text-primary text-3xl font-bold leading-8">¿Tienes alguna alergia <br />o intolerancia?</h1>
             </header>
-            <main className="w-9/12 m-auto flex flex-col items-center ">
+            <main className="m-auto flex flex-wrap items-center ">
                 <CheckboxGroupTest
                     value={alergens}
-                    setGroup={setAlergens}>
-                    <CustomCheckboxTest value="Gluten">Gluten</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Crustaceos">Crustáceos</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Huevos">Huevos</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Pescado">Pescado</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Cacahuetes">Cacahuetes</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Soja">Soja</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Lacteos">Lácteos</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Mostaza">Mostaza</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Apio">Apio</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Sulfitos">Sulfitos</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Sesamo">Sésamo</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Moluscos">Moluscos</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Altramuces">Altramuces</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Frutos secos">Frutos secos</CustomCheckboxTest>
+                    setGroup={setAlergens}
+                    className="gap-1">
+                    {
+                    tiposAlergias.map(alergia => {
+                        return (
+                            <CustomCheckboxTest value={alergia} variant='bordered' color='primary' className=''>
+                                <div className='flex items-center gap-1'>
+                                    <img className='h-5' src={`../iconosAlergias/${alergia}.svg`} />
+                                    <span className="text-md">
+                                        {alergia}
+                                    </span>
+                                </div>
+                            </CustomCheckboxTest>
+                        )
+                    })
+                }
                 </CheckboxGroupTest>
             </main>
 
