@@ -7,8 +7,7 @@ import CheckboxGroupTest, { CustomCheckboxTest } from '../CreateProfile/Radio/Ch
 export default function TiposAlergias() {
 
     return (
-        <section className="m-auto flex flex-col items-center">
-            <CheckboxGroupTest orientation="horizontal">
+        <section className="m-auto flex flex-wrap gap-1 items-center">
                 {
                     tiposAlergias.map(alergia => {
                         return (
@@ -23,7 +22,6 @@ export default function TiposAlergias() {
                         )
                     })
                 }
-            </CheckboxGroupTest>
         </section>
     )
 }
