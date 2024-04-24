@@ -20,7 +20,6 @@ export function CardRestaurante() {
                     Don Corleone
                 </h1>
 
-
                 <img
                     className="shadow-lg rounded-xl w-full md:max-w-60 h-80 object-cover"
                     src={restaurante1}
