@@ -17,6 +17,7 @@ const {
   TipoCocina,
   Receta_Ingrediente,
   Ingrediente,
+  Procedimiento
 } = require("./models"); // Importa els models de dades
 
 const {
@@ -407,6 +408,7 @@ router.post(
         dificultad,
         tipo,
         ingredientes,
+        procedimientos
 
       } = req.body;
 
@@ -472,7 +474,16 @@ router.post(
 
         });
       }
-
+      const procedimientosCreados = [];
+      for (const procedimiento of procedimientos) {
+        const nuevoProcedimiento = await Procedimiento.create({
+          numero_procedimiento: procedimiento.numero_procedimiento,
+          desc_procedimiento: procedimiento.desc_procedimiento,
+          foto_procedimiento: procedimiento.foto_procedimiento,
+          RecetumId: receta.id // Asociar el procedimiento con la receta recién creada
+        });
+        procedimientosCreados.push(nuevoProcedimiento);
+      }
 
       res.status(201).json({
         receta: {
