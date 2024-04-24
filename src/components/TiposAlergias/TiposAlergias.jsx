@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import { tiposAlergias } from '../../utils/tiposAlergias';
 import { Chip } from '@nextui-org/react';
-import CheckboxGroupTest, { CustomCheckboxTest } from '../CreateProfile/Radio/Checkbox';
-
 
 export default function TiposAlergias() {
 
