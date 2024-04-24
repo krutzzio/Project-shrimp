@@ -1,3 +1,5 @@
+import { URL } from "./constants"
+
 function createFormData({ profile }) {
 
     const registerData = new FormData()
@@ -18,10 +20,10 @@ function createFormData({ profile }) {
 }
 
 export async function registroCliente({ client }) {
-    const URL = `http://192.168.1.229:3000/api/registerUser`
+    const URL_REGISTER = `${URL}/registerUser`
     const requestOptions = createFormData({ profile: client })
 
-    return fetch(URL, requestOptions)
+    return fetch(URL_REGISTER, requestOptions)
         .then(resp => {
             if (resp.ok) return true
             else return false
@@ -34,10 +36,10 @@ export async function registroCliente({ client }) {
 
 
 export async function registroRest({ rest }) {
-    const URL = `http://192.168.1.229:3000/api/registerRest`
+    const URL_REGISTER = `${URL}/registerRest`
     const requestOptions = createFormData({ profile: rest })
 
-    return fetch(URL, requestOptions)
+    return fetch(URL_REGISTER, requestOptions)
         .then(resp => {
             if (resp.ok) return true
             else return false
