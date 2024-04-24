@@ -1,8 +1,6 @@
-import { Chip, Image } from "@nextui-org/react";
+import { Chip } from "@nextui-org/react";
 import restaurante1 from "../../../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../../../assets/iconos/iconos_Favorito.svg";
-import { Link } from "react-router-dom";
-
 
 export function CardRestaurante() {
 
