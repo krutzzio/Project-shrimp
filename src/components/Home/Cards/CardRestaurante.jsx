@@ -1,8 +1,6 @@
-import { Chip, Image } from "@nextui-org/react";
+import { Chip } from "@nextui-org/react";
 import restaurante1 from "../../../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../../../assets/iconos/iconos_Favorito.svg";
-import { Link } from "react-router-dom";
-
 
 export function CardRestaurante() {
 
@@ -21,7 +19,6 @@ export function CardRestaurante() {
                 >
                     Don Corleone
                 </h1>
-
 
                 <img
                     className="shadow-lg rounded-xl w-full md:max-w-60 h-80 object-cover"
