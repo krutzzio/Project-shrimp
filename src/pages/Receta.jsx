@@ -151,6 +151,7 @@ export function Receta() {
           </Tabs>
         </div>
 
+        {/*Instagram*/}
         <div className="flex flex-col gap-1 mx-4">
           <div>
             <h3 className="font-bold text-xl">Instagram:</h3>

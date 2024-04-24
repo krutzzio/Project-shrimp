@@ -1,75 +1,117 @@
 import { CardReceta } from "../components/Home/Cards/CardReceta";
-import NavBar from "../components/navbar/NavBar";
-import { Divider } from "@nextui-org/react";
+import NavBar from "../components/navbar/NavBarSinBusqueda";
+import { Card, Divider, Image } from "@nextui-org/react";
 import { Chip } from "@nextui-org/react";
 import Telefono from "../assets/Recetas/telefono.png";
 import Correo from "../assets/Recetas/correo.png";
 import Ubicacion from "../assets/Recetas/ubicacion.png";
+import rest from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
+import fav from "../assets/iconos/iconos_Favorito.svg";
+import Receta3 from "../assets/Recetas/Receta1.jpg";
+
 
 export function PerfilRestauranteVistaCliente() {
   return (
-    <div className="max-w-2xl mx-auto p-4  ">
-      <NavBar></NavBar>
-      <div className=" relative ">
-        <img
-          className="w-full h-48 object-cover grid place-items-center"
-          src="https://media-cdn.tripadvisor.com/media/photo-s/1a/ac/54/52/front-and-east-side-of.jpg"
-        />
-        <div className="absolute p-2 bottom-0 right-0">
+    <div className="">
+      <NavBar />
 
-          <button className=" bg-orange-500 text-white rounded-lg p-2 hover:bg-orange-600">
-            <p>Barcelona</p>
-          </button>
+      <div className="relative">
+        <div className="absolute z-20 p-2 bottom-0 right-0">
+          <Chip color="primary" className="text-white">Barcelona</Chip>
         </div>
-        <div className="absolute p-2 top-0 left-0">
+        <div className="absolute z-20 p-2 top-0 left-0">
           <button className="bg-orange-500 text-white py-2 px-4 rounded-xl hover:bg-orange-600">
             <p>{"<"}</p>
           </button>
         </div>
-      </div>
-      <div className="flex flex-col justify-center mt-4">
-        <h3 className="font-bold mb-2 text-orange-500 text-xl">
-          Nombre Restaurante
-        </h3>
-        <img src="" />
-      </div>
-      <div className="flex gap-4 ">
-        <Chip color="warning">Hawaiano</Chip>
-        <Chip color="warning">Healthy</Chip>
+        <Image
+          alt="Foto de la receta"
+          width={400}
+          height={200}
+          radius="none"
+          className="object-cover h-72"
+          src={rest}
+        />
       </div>
 
-      <p className="text-gray-500 py-4 ">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet nulla
-        placeat nemo voluptas porro nam, iste unde mollitia cumque aspernatur
-        incidunt dolorum officiis eligendi. Maxime quod deserunt dolor id
-        tempora.
-      </p>
+      <div className="flex flex-col gap-8 my-4">
+        <div className="flex flex-col gap-3 mx-4">
+          <div className="flex justify-between gap-2 items-start">
+            <h2 className="text-3xl font-bold text-orange-500 leading-7">
+              Nombre del restaurante
+            </h2>
+            <img src={fav} className="h-8" />
+          </div>
+          <div className="flex gap-1">
+            <Chip color="primary" className="text-white">Hawaiano</Chip>
+            <Chip color="primary" className="text-white">Vegetariano</Chip>
+          </div>
+        </div>
 
-      <div className="flex h-5 items-center space-x-4 text-small justify-between">
-        <div>
-          <img className="w-5" src={Telefono} alt="Tiempo" />
+        <p className="text-gray-500 leading-5 text-md mx-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe amet
+          in, facere necessitatibus enim architecto vero repellat quam, veniam
+          omnis asperiores, deserunt excepturi cumque doloremque harum!
+        </p>
+
+        <div className="flex h-8 items-center space-x-4 text-md justify-between mx-4">
+          <div className="flex gap-2">
+            <img className="h-6" src={Telefono} alt="Tiempo" />
+            <p>30 min</p>
+          </div>
+          <Divider orientation="vertical" />
+          <div className="flex gap-2">
+            <img className="h-6" src={Correo} alt="Dificultad" />
+            <p>Fácil</p>
+          </div>
+          <Divider orientation="vertical" />
+          <div className="flex gap-2">
+            <img className="h-5" src={Ubicacion} alt="Tipo de comida" />
+            <p>Segundo</p>
+          </div>
         </div>
-        <div>
-          <p>30ms</p>
+
+        <div className="flex flex-col gap-2 mx-4">
+          <h3 className="font-bold text-xl">Recetas:</h3>
+          <div className="m-auto md:m-0 md:flex md:gap-4">
+          <CardReceta/>
+          <CardReceta/>
+          <CardReceta/>
+          <CardReceta/>
+          <CardReceta/>
+          <CardReceta/>
+          </div>
         </div>
-        <Divider orientation="vertical" />
-        <div>
-          <img className="w-5" src={Correo} alt="Dificultad" />
-        </div>
-        <div>
-          <p>Fácil</p>
-        </div>
-        <Divider orientation="vertical" />
-        <div>
-          <img className="w-5" src={Ubicacion} alt="Tipo de comida" />
-        </div>
-        <div>
-          <p>Tipo de comida</p>
+
+        {/*Instagram*/}
+        <div className="flex flex-col gap-1 mx-4">
+          <div>
+            <h3 className="font-bold text-xl">Instagram:</h3>
+            <p className="text-primary">#donkamaronelmejor</p>
+          </div>
+          <div className="flex gap-2 items-center">
+            <Card isFooterBlurred radius="lg">
+              <Image
+                src={Receta3}
+                width={300}
+                height={200}
+
+                className="object-cover rounded-x"
+                alt="Receta"
+              />
+            </Card>
+            <Card isFooterBlurred radius="lg">
+              <Image
+                src={Receta3}
+                width={300}
+                height={200}
+                className="object-cover rounded-x"
+                alt="Receta"
+              />
+            </Card>
+          </div>
         </div>
       </div>
-      <h3 className="font-bold mb-2  py-4 text-xl">Recetas</h3>
-      <CardReceta />
-      <CardReceta />
     </div>
   );
 }
