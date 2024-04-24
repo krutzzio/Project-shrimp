@@ -21,6 +21,7 @@ import Receta3 from "../assets/Recetas/Receta1.jpg";
 import fav from "../assets/iconos/iconos_Favorito.svg";
 import corazon from "../assets/iconos/iconos_Corazon.svg";
 import { Link } from "react-router-dom";
+import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 
 export function Receta() {
   return (
@@ -99,17 +100,7 @@ export function Receta() {
 
         <div className="flex flex-col gap-1 mx-4">
           <p className="text-gray-500">Alérgenos:</p>
-          <div className="flex gap-1">
-            <Chip color="primary" variant="bordered">
-              Sésamo
-            </Chip>
-            <Chip color="primary" variant="bordered">
-              Pescado
-            </Chip>
-            <Chip color="primary" variant="bordered">
-              Soja
-            </Chip>
-          </div>
+          <TiposAlergias/>          
         </div>
 
         <div className="flex flex-col gap-2 mx-4">
