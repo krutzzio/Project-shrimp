@@ -6,7 +6,6 @@ export function useHomeRecetas() {
 
     useEffect(() => {
         setRecetasHome(homeRecetas())
-        console.log(homeRecetas())
     }, [])
 
     return { recetasHome }
