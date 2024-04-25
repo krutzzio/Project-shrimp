@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { RegisterContext } from "../../../contexts/RegisterContext";
 import CheckboxGroupTest, { CustomCheckboxTest } from "../Radio/Checkbox";
+import { tiposComidas } from '../../../utils/tiposComidas';
 
 // eslint-disable-next-line react/prop-types
 export default function StepCocina({ profile }) {
@@ -20,20 +21,24 @@ export default function StepCocina({ profile }) {
             <header>
                 <h1 className="text-primary text-3xl font-bold leading-8">¿Qué cocina te gusta?</h1>
             </header>
-            <main className="w-10/12 m-auto flex flex-col  items-center ">
+            <main className="m-auto flex flex-col  items-center md:max-w-2xl">
                 <CheckboxGroupTest
                     value={cocina}
-                    setGroup={setCocina}>
-                    <CustomCheckboxTest value="Americana">Americana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="China">China</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Griega">Griega</CustomCheckboxTest>
-                    <CustomCheckboxTest value="India">India</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Italiana">Italiana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Japonesa">Japonesa</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Mexicana">Mexicana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Marroqui">Marroqui</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Española">Española</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Thailandesa">Thailandesa</CustomCheckboxTest>
+                    setGroup={setCocina}
+                    className="gap-1">
+                    {
+                        tiposComidas.map(comidas => {
+                            return (
+                                <CustomCheckboxTest key={comidas} value={comidas} variant='bordered' color='primary' className=''>
+                                    <div className='flex items-center gap-1'>
+                                        <span className="text-md">
+                                            {comidas}
+                                        </span>
+                                    </div>
+                                </CustomCheckboxTest>
+                            )
+                        })
+                    }
                 </CheckboxGroupTest>
             </main>
             <footer>

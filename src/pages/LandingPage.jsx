@@ -9,21 +9,20 @@ export default function LandingPage() {
 
   return (
     <div
-      className="overflow-hidden relative text-white bg-primary h-full flex flex-col justify-between"
+      className="overflow-hidden relative text-white bg-primary h-full flex flex-col justify-between items-center"
     >
-      <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex p-6 items-center justify-between lg:px-8">
+      <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex py-4 px-2 items-center justify-between">
         {/*Logo*/}
-        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-44" src={logoGamba} alt="Gamba Logo" />
         {/*Log in*/}
-        <Button color="primary" className="shadow-xl content-end font-bold md:w-28 md:h-12">
-          <Link className="text-[#FAFAFA] md:text-xl" to={"/login"}>
+        <Button className="bg-[#272D2F] shadow-lg font-semibold md:w-28 md:h-12">
+          <Link className="text-[#FAFAFA] text-lg" to={"/login"}>
             Log in
           </Link>
         </Button>
       </header>
 
-      <main className="relative z-10 flex flex-col mx-auto items-center justify-around md:grid md:grid-cols-2 md:gap-20 md:w-9/12 md:content-between">
-        {/*<main className="relative z-10 w-11/12 mx-auto grid md:grid-cols-2 gap-10 items-center justify-around">*/}
+      <main className="relative z-10 flex flex-col mx-auto items-center justify-around md:grid md:grid-cols-2 md:gap-20 md:w-10/12 md:content-between max-w-screen-2xl">
 
           {/*Ilustración mobile*/}
           <img
@@ -48,8 +47,8 @@ export default function LandingPage() {
               </p>
             </div>
             {/*Botón regístrate*/}
-            <Button className="w-[20rem] h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
-              <Link className="w-full" to={"/register"}>
+            <Button className="bg-[#272D2F] shadow-lg font-semibold h-12 md:w-48">
+              <Link className="text-[#FAFAFA] text-lg" to={"/register"}>
                 Regístrate
               </Link>
             </Button>

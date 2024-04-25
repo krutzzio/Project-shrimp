@@ -24,27 +24,26 @@ export default function RegisterForm() {
         }
     }
 
-
     return (
-        <div className="w-[20rem] flex flex-col items-center m-auto gap-6">
+        <div className="w-[22rem] flex flex-col items-center m-auto gap-4">
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="nombre">Nombre {userType ? <span>del restaurante</span> : <></>}</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="nombre">Nombre {userType ? <span>del restaurante</span> : <></>}</label>
                 <input className="input-form" type="text" id="name" name="nombre" onChange={handleChange} />
             </article>
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="correo">Correo</label>
                 <input className="input-form" type="email" id="correo" name="correo" onChange={handleChange} />
             </article>
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="password">Contraseña</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="password">Contraseña</label>
                 <input className="input-form" type="password" id="password" name="password" onChange={handleChange} />
             </article>
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="confirmedPassword">Confirma la contraseña</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="confirmedPassword">Confirma la contraseña</label>
                 <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" />
             </article>
-            <article className="w-9/12 py-8">
-                <Button className="z-10 w-full h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
+            <article className="w-10/12 py-8">
+                <Button className="relative z-10 w-full h-12 text-lg bg-[#272D2F] text-[#FAFAFA] font-semibold shadow-lg">
                     <NavLink to={`/create/${userType ? `restaurant` : `client`}`} onClick={handleContinue} className="w-full">Crear Cuenta</NavLink>
                 </Button>
             </article>
