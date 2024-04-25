@@ -2,32 +2,34 @@ import { useState } from 'react';
 
 function CrearProcedimientos() {
   const [procedimientos, setProcedimientos] = useState([
-    { numero_procedimiento: 1, desc_procedimiento: "", foto_procedimiento: null }
+    { numero_procedimiento: 1, desc_procedimiento: "", photo: null }
   ]);
-
+console.log(procedimientos)
   const handleChange = (index, event) => {
-    const { name, value, files } = event.target;
+    const { name, value } = event.target;
     const newProcedimientos = [...procedimientos];
-    if (files) {
-      newProcedimientos[index][name] = files[0];
-    } else {
-      newProcedimientos[index][name] = value;
-    }
+    newProcedimientos[index][name] = value;
+    setProcedimientos(newProcedimientos);
+  };
+
+  const handleChangePhoto = (index, event) => {
+    const newProcedimientos = [...procedimientos];
+    newProcedimientos[index].photo = event.target.files[0];
     setProcedimientos(newProcedimientos);
   };
 
   const handleSubmit = async () => {
     try {
-      const recetaId = 3; // ID de la receta a la que se agregarán los procedimientos
+      const recetaId = 1; // ID de la receta a la que se agregarán los procedimientos
 
       const formData = new FormData();
       procedimientos.forEach((procedimiento, index) => {
         formData.append(`procedimientos[${index}][numero_procedimiento]`, procedimiento.numero_procedimiento);
         formData.append(`procedimientos[${index}][desc_procedimiento]`, procedimiento.desc_procedimiento);
-        formData.append(`procedimientos[${index}][foto_procedimiento]`, procedimiento.foto_procedimiento);
+        formData.append("photo", procedimiento.photo);
       });
 
-      const response = await fetch(`http://localhost:3000/api/home/${recetaId}/registerReceta`, {
+      const response = await fetch(`http://localhost:3000/api/home/${recetaId}/procedimientos`, {
         method: 'POST',
         body: formData
       });
@@ -44,7 +46,7 @@ function CrearProcedimientos() {
   };
 
   const handleAddProcedimiento = () => {
-    setProcedimientos([...procedimientos, { numero_procedimiento: procedimientos.length + 1, desc_procedimiento: "", foto_procedimiento: "" }]);
+    setProcedimientos([...procedimientos, { numero_procedimiento: procedimientos.length + 1, desc_procedimiento: "", photo: null }]);
   };
 
   return (
@@ -67,7 +69,7 @@ function CrearProcedimientos() {
             <input
               type="file"
               name="photo"
-              onChange={(e) => handleChange(index, e)}
+              onChange={(e) => handleChangePhoto(index, e)}
             />
           </label>
         </div>
