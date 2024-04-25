@@ -39,13 +39,13 @@ export default function Register() {
             </h3>
             {userType
               ? (
-                <p className="leading-5">
+                <p className="leading-5 md:text-xl md:leading-6">
                   Comparte tus recetas con tus <br />
                   actuales y futuros clientes.
                 </p>
               )
               : (
-                <p className="leading-5 md:text-xl">
+                <p className="leading-5 md:text-xl md:leading-6">
                   Cocina las recetas de tus restaurantes <br />
                   favoritos en un mismo lugar. Comparte <br />
                   tus recetas y consigue descuentos.
