@@ -25,26 +25,15 @@ export default function StepCocina({ profile }) {
                     value={cocina}
                     setGroup={setCocina}>
                     <CustomCheckboxTest value="Americana">Americana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Britanica">Britanica</CustomCheckboxTest>
                     <CustomCheckboxTest value="China">China</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Croata">Croata</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Alemana">Alemana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Egicia">Egicia</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Filipina">Filipina</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Francesa">Francesa</CustomCheckboxTest>
                     <CustomCheckboxTest value="Griega">Griega</CustomCheckboxTest>
                     <CustomCheckboxTest value="India">India</CustomCheckboxTest>
                     <CustomCheckboxTest value="Italiana">Italiana</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Jamaicana">Jamaicana</CustomCheckboxTest>
                     <CustomCheckboxTest value="Japonesa">Japonesa</CustomCheckboxTest>
                     <CustomCheckboxTest value="Mexicana">Mexicana</CustomCheckboxTest>
                     <CustomCheckboxTest value="Marroqui">Marroqui</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Portuguesa">Portuguesa</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Rusa">Rusa</CustomCheckboxTest>
                     <CustomCheckboxTest value="Española">Española</CustomCheckboxTest>
                     <CustomCheckboxTest value="Thailandesa">Thailandesa</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Indonesia">Indonesia</CustomCheckboxTest>
-                    <CustomCheckboxTest value="Otros">Otros</CustomCheckboxTest>
                 </CheckboxGroupTest>
             </main>
             <footer>

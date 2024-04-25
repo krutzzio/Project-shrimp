@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   Dropdown,
@@ -9,6 +9,7 @@ import {
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/navbar/NavBar";
 import TiposComida from "../components/TiposComida/TiposComida";
+import { useHomeRecetas } from "../hooks/useHomeRecetas";
 
 
 export default function HomeRecetas() {
@@ -27,6 +28,8 @@ export default function HomeRecetas() {
   const selectedValuePlato = Array.from(selectedPlato)
     .join(", ")
     .replaceAll("_", " ");
+
+  const { recetasHome } = useHomeRecetas()
 
   return (
     <div className="max-w-screen mx-auto">
