@@ -44,7 +44,7 @@ export default function PerfilRestaurante() {
         </div>
       </div>
 
-      <div className="flex w-full flex-col mt-4">
+      <div className="flex w-full flex-col mt-4 block max-w-screen-2xl m-auto">
         <Tabs
           aria-label="Options"
           variant="underlined"
