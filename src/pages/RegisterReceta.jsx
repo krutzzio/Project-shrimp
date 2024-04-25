@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../components/forms/Receta/formsReceta.css";
-import Selector from "../components/forms/Receta/Selector";
+import "../components/Receta/formsReceta.css";
+import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
 export default function RegisterRecetaForm() {
@@ -15,8 +15,7 @@ export default function RegisterRecetaForm() {
     const [foto_receta, setPhotos] = useState("");
     const [mostrarIngredientes, setMostrarIngredientes] = useState(false);
     const [mostrarInfo, setInfo] = useState(true);
-    const [ingredientes, setIngredientes] = useState([""]);
-    const [procedimientos, setProcedimientos] = useState([""]);
+    const [ingredientes, setIngredientes] = useState([]);
     const [datos, setDatos] = useState([]);
     const [valor, setValor] = useState([]);
     const [selectedIngredientId, setSelectedIngredientId] = useState("")
@@ -55,14 +54,9 @@ console.log('hola '+tipoCocinaId)
           formData.append(`ingredientes[${index}][id]`, ingrediente.id);
           formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
           formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
-        }),
+        })
         
-        ingredientes.forEach((procedimiento, index) => {
-            formData.append(`procedimientos[${index}][id]`, procedimiento.id);
-            formData.append(`procedimientos[${index}][descripcion]`, procedimiento.descripcion);
-            formData.append(`procedimientos[${index}][numero]`, procedimiento.numero);
-          }
-    );
+
     
         const options = {
           method: "POST",

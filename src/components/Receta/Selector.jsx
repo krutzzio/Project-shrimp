@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 
-import { BiChevronDown } from "react-icons/bi";
-// import { AiOutlineSearch } from "react-icons/ai";
+
+
 
 const Selector = ({endpoint, onSelectId}) => {
   const [base, setBase] = useState([]);
@@ -42,7 +42,7 @@ console.log('2'+ '' + selectedId)
             ? selected?.substring(0, 25) + "..."
             : selected
           : "Selecciona"}
-       <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
+
       </div>
       <ul
         className={`bg-[#F2F2F2] mt-2 overflow-y-auto ${
