@@ -1,4 +1,4 @@
-export const tiposComida = [
+export const tiposComidas = [
     "Mexicana",
     "China",
     "Americana",
