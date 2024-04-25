@@ -59,7 +59,7 @@ export default function CreateProfile() {
       }
 
       {/* Aqui ponemos los botones para continuar con el formulario de alta. Cuando ya hemos hecho el primer paso se añade otro boton para volver atrás */}
-      <footer className="w-8/12 h-[10dvh] flex justify-center ">
+      <footer className="w-8/12 h-[10dvh] flex justify-center">
         {
           /* step === maxSteps
             ? (<Button isLoading={step > maxSteps ? this : false} onClick={register} className="w-full text-base">
@@ -67,10 +67,10 @@ export default function CreateProfile() {
             </Button>
             ) */
           <section className="flex gap-2">
-            <Button onClick={() => setStep(step - 1)} className={`${step === 1 && `hidden`} w-40 h-12 text-lg bg-primary text-[#FAFAFA] font-semibold`}>
+            <Button onClick={() => setStep(step - 1)} className={`${step === 1 && `hidden`} w-40 md:w-44 h-12 text-lg bg-primary text-[#FAFAFA] font-semibold`}>
               <h1>Volver</h1>
             </Button>
-            <Button onClick={register} isLoading={step > maxSteps ? true : false} className={`${step === 1 ? `w-40` : `w-40`} h-12 text-lg bg-primary text-[#FAFAFA] font-semibold`}>
+            <Button onClick={register} isLoading={step > maxSteps ? true : false} className={`${step === 1 ? `w-72` : `w-40`} md:w-44 h-12 text-lg bg-primary text-[#FAFAFA] font-semibold`}>
               {
                 step >= maxSteps
                   ? <h1>Completar Alta</h1>
