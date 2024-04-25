@@ -19,17 +19,17 @@ export default function Login() {
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full max-w-screen-2xl mx-auto p-6 relative z-10 flex items-center justify-between lg:px-8">
+      <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex py-4 px-2 items-center justify-between">
         {/*Flecha*/}
         <Link to={"/"} className="w-6">
           <img src={flecha} />
         </Link>
         {/*Logo*/}
-        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-44" src={logoGamba} alt="Gamba Logo" />
         <div className="w-6"></div>
       </header>
 
-      <main className="relative z-10 w-11/12 flex flex-col items-center justify-around md:grid md:grid-cols-2 md:content-between ">
+      <main className="relative z-10 flex flex-col w-11/12 items-center justify-around md:grid md:grid-cols-2 md:content-between max-w-screen-2xl">
         {/* Formulario Log in */}
         <div className="flex flex-col gap-20">
           {/* Switch */}

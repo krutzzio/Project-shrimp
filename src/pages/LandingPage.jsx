@@ -9,7 +9,7 @@ export default function LandingPage() {
 
   return (
     <div
-      className="overflow-hidden relative text-white bg-primary h-full flex flex-col justify-between"
+      className="overflow-hidden relative text-white bg-primary h-full flex flex-col justify-between items-center"
     >
       <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex py-4 px-2 items-center justify-between">
         {/*Logo*/}
