@@ -16,36 +16,36 @@ export default function Register() {
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full max-w-screen-2xl mx-auto p-6 relative z-10 flex items-center justify-between lg:px-8">
+      <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex py-4 px-2 items-center justify-between">
         {/*Flecha*/}
         <Link to={"/"} className="w-6 ">
           <img src={flecha} />
         </Link>
 
         {/*Logo*/}
-        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-44" src={logoGamba} alt="Gamba Logo" />
 
         <div className="w-6"></div>
       </header>
 
 
-      <main className="relative z-10 w-11/12 flex flex-col items-center justify-around md:grid md:grid-cols-2 md:content-between">
+      <main className="relative z-10 flex flex-col w-11/12 items-center justify-around md:grid md:grid-cols-2 md:content-between max-w-screen-2xl">
         {/* Formulario Registro */}
         <div className="flex flex-col gap-10 mx-6 md:mx-0">
           {/* Título */}
           <section className="text-center">
-            <h3 className=" text-primary-foreground font-bold text-4xl mb-1 md:text-6xl md:mb-4">
+            <h3 className=" text-primary-foreground font-bold text-4xl mb-1 md:text-5xl md:mb-4">
               Únete a Gamba
             </h3>
             {userType
               ? (
-                <p className="leading-5">
+                <p className="leading-5 md:text-xl md:leading-6">
                   Comparte tus recetas con tus <br />
                   actuales y futuros clientes.
                 </p>
               )
               : (
-                <p className="leading-5 md:text-2xl">
+                <p className="leading-5 md:text-xl md:leading-6">
                   Cocina las recetas de tus restaurantes <br />
                   favoritos en un mismo lugar. Comparte <br />
                   tus recetas y consigue descuentos.

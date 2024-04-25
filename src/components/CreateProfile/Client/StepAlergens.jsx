@@ -18,7 +18,7 @@ export default function StepAlergens() {
             <header>
                 <h1 className="text-primary text-3xl font-bold leading-8">¿Tienes alguna alergia <br />o intolerancia?</h1>
             </header>
-            <main className="m-auto flex flex-wrap items-center ">
+            <main className="m-auto flex flex-wrap items-center md:max-w-2xl">
                 <CheckboxGroupTest
                     value={alergens}
                     setGroup={setAlergens}
@@ -26,9 +26,9 @@ export default function StepAlergens() {
                     {
                     tiposAlergias.map(alergia => {
                         return (
-                            <CustomCheckboxTest value={alergia} variant='bordered' color='primary' className=''>
+                            <CustomCheckboxTest value={alergia} variant='bordered' size="" color='primary' className=''>
                                 <div className='flex items-center gap-1'>
-                                    <img className='h-5' src={`../iconosAlergias/${alergia}.svg`} />
+                                    <img className='h-6' src={`../iconosAlergias/${alergia}.svg`} />
                                     <span className="text-md">
                                         {alergia}
                                     </span>
