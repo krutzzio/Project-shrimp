@@ -47,7 +47,7 @@ export default function LandingPage() {
               </p>
             </div>
             {/*Botón regístrate*/}
-            <Button className="bg-[#272D2F] shadow-lg font-semibold md:w-44 md:h-12">
+            <Button className="bg-[#272D2F] shadow-lg font-semibold h-12 md:w-48">
               <Link className="text-[#FAFAFA] text-lg" to={"/register"}>
                 Regístrate
               </Link>
