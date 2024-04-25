@@ -31,7 +31,7 @@ export default function HomeRecetas() {
   return (
     <div className="max-w-screen mx-auto">
       <NavBar />
-      <main className="block pl-2 lg:pl-4">
+      <main className="block max-w-screen-2xl m-auto">
 
         <TiposComida />
 

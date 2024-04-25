@@ -106,7 +106,7 @@ export function PerfilCliente() {
               <CardBody>
                 <div className="flex flex-col">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
-                  <div className="m-auto">
+                  <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
                     <CardReceta />
                     <CardReceta />
                     <CardReceta />
@@ -118,11 +118,14 @@ export function PerfilCliente() {
           <Tab key="Restaurantes" title="Restaurantes">
             <Card>
               <CardBody>
-              <div className="flex flex-col gap-4 md:flex-row">
-                <CardRestaurante/>
-                <CardRestaurante/>
-                <CardRestaurante/>
-              </div>
+              <div className="flex flex-col">
+                  <h2 className="font-bold text-lg">Tus recetas</h2>
+                  <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
+                    <CardRestaurante />
+                    <CardRestaurante />
+                    <CardRestaurante />
+                  </div>
+                  </div>
               </CardBody>
             </Card>
           </Tab>
