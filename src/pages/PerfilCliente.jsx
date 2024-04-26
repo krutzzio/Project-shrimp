@@ -130,11 +130,6 @@ export function PerfilCliente() {
                 </CardBody>
               </Card>
             </Tab>
-            <Tab key="Promociones" title="Promociones">
-              <Card>
-                <CardBody>Aquí irán las promociones.</CardBody>
-              </Card>
-            </Tab>
           </Tabs>
         </div>
 
