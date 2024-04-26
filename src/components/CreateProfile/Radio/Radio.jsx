@@ -34,13 +34,13 @@ export default function RadioChoose() {
         <RadioGroup
             value={dieta}
             onValueChange={setDieta}>
-            <CustomRadio value="vegano">
+            <CustomRadio value="2">
                 Vegana
             </CustomRadio>
-            <CustomRadio value="vegetal">
+            <CustomRadio value="1">
                 Vegetariana
             </CustomRadio>
-            <CustomRadio value="otro">
+            <CustomRadio value="0">
                 Ninguna en concreto
             </CustomRadio>
         </RadioGroup>
