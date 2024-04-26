@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
 import { CardReceta } from "./Cards/CardReceta";
 
 export default function HomePrincipal() {
 
     return (
-        <div className="flex flex-col mt-4 gap-4">
+        <div className="flex flex-col mt-6 md:mt-8 gap-4">
             <div className='flex flex-col'>
             <div className="flex items-end justify-between">
                 <h1 className="text-2xl font-bold ml-2">Te puede gustar</h1>
@@ -15,9 +14,8 @@ export default function HomePrincipal() {
                             <CardReceta />
                             <CardReceta />
                             <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
+                          
+                          
                     </div>
                 </div>
             </div>
@@ -31,9 +29,7 @@ export default function HomePrincipal() {
                             <CardReceta />
                             <CardReceta />
                             <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
+                           
                     </div>
                 </div>
             </div>
@@ -47,9 +43,7 @@ export default function HomePrincipal() {
                             <CardReceta />
                             <CardReceta />
                             <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
-                            <CardReceta />
+                            
                     </div>
                 </div>
             </div>
