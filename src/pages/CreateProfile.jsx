@@ -25,7 +25,10 @@ export default function CreateProfile() {
     }
     setStep(step + 1)
 
+
+
     if (profileType === "client") {
+      console.log(client)
       const fetchRegistro = await registroCliente({ client })
       fetchRegistro ? navigate("/home") : console.log("ERROR REGISTRO CLIENTE")
     } else {

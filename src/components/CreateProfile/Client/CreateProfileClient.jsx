@@ -20,6 +20,7 @@ export default function CreateProfileClient({ step, profile }) {
         const { name, value } = event.target
         setRegisterClient({ ...client, [name]: value })
     }
+
     return (
         <>
             {
@@ -30,7 +31,7 @@ export default function CreateProfileClient({ step, profile }) {
                         : step === 3
                             ? <StepAlergens />
                             : step === 4
-                                ? <StepCocina />
+                                ? <StepCocina profile={profile} />
                                 : <></>
             }
         </>

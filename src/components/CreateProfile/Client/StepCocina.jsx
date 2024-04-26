@@ -27,17 +27,17 @@ export default function StepCocina({ profile }) {
                     setGroup={setCocina}
                     className="gap-1">
                     {
-                    tiposComidas.map(comidas => {
-                        return (
-                            <CustomCheckboxTest value={comidas} variant='bordered' color='primary' className=''>
-                                <div className='flex items-center gap-1'>
-                                    <span className="text-md">
-                                        {comidas}
-                                    </span>
-                                </div>
-                            </CustomCheckboxTest>
-                        )
-                    })
+                        tiposComidas.map(comidas => {
+                            return (
+                                <CustomCheckboxTest key={comidas} value={comidas} variant='bordered' color='primary' className=''>
+                                    <div className='flex items-center gap-1'>
+                                        <span className="text-md">
+                                            {comidas}
+                                        </span>
+                                    </div>
+                                </CustomCheckboxTest>
+                            )
+                        })
                     }
                 </CheckboxGroupTest>
             </main>
