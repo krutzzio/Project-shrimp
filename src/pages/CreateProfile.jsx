@@ -11,9 +11,13 @@ import { registroCliente, registroRest } from "../utils/fetchs/registros"
 import shape1 from "../assets/shapes/shape1.svg";
 import shape2 from "../assets/shapes/shape2.svg";
 import shape3 from "../assets/shapes/shape3.svg";
+import shape4 from "../assets/shapes/shape4.svg";
+import { ThemeContext } from "../contexts/ThemeContext"
 
 
 export default function CreateProfile() {
+
+  const { userType } = useContext(ThemeContext)
 
   const navigate = useNavigate()
   const { profileType } = useParams()
@@ -86,11 +90,11 @@ export default function CreateProfile() {
           </section>
         }
       </footer>
-      
+
       {/* Mancha amarilla izquierda */}
       <article
         className={`absolute z-0 bottom-[-46rem] left-[-20rem] rotate-[200deg] md:left-[-30rem] md:bottom-[0rem]`
-          }
+        }
       >
         <img src={shape2} className="max-w-[60rem] w-[60rem]" alt="" />
       </article>
@@ -103,21 +107,38 @@ export default function CreateProfile() {
         <img src={shape1} className="max-w-[60rem] w-[60rem]" alt="" />
       </article>
 
-      {/* Mancha naranja derecha */}
-      <article
+      {/* Mancha naranja/azul derecha */}
+      {userType
+      ? <article
+        className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
+        }
+      >
+        <img src={shape4} className="max-w-[30rem] w-[30rem]" alt="" />
+      </article>
+      : <article
         className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
         }
       >
         <img src={shape3} className="max-w-[30rem] w-[30rem]" alt="" />
       </article>
+      }
 
-      {/* Mancha naranja abajo */}
-      <article
-        className={`absolute z-0 bottom-[-2rem] left-[-38rem] rotate-[100deg] md:left-[-5rem] md:bottom-[-25rem]`
-        }
-      >
-        <img src={shape3} className="max-w-[50rem] w-[50rem]" alt="" />
-      </article>
+      {/* Mancha naranja/azul abajo */}
+      {userType
+        ? <article
+          className={`absolute z-0 bottom-[-2rem] left-[-39rem] rotate-[100deg] md:left-[-5rem] md:bottom-[-25rem]`
+          }
+        >
+          <img src={shape4} className="max-w-[50rem] w-[50rem]" alt="" />
+        </article>
+        : <article
+          className={`absolute z-0 bottom-[-2rem] left-[-38rem] rotate-[100deg] md:left-[-5rem] md:bottom-[-25rem]`
+          }
+        >
+          <img src={shape3} className="max-w-[50rem] w-[50rem]" alt="" />
+        </article>
+      }
+
     </div >
   )
 }
