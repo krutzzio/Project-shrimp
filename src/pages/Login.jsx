@@ -43,7 +43,6 @@ export default function Login() {
 
         {/* Ilustración */}
         
-
         <article className="hidden w-full justify-center md:flex">
         {
           userType
@@ -56,8 +55,6 @@ export default function Login() {
             className="hidden md:block md:h-full md:max-h-[35rem]"
             alt="landing2"/>
         }
-          
-          
         </article>
       </main>
 
