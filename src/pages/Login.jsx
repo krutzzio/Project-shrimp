@@ -7,12 +7,12 @@ import SwitchUser from "../components/SwitchUser";
 import { ThemeContext } from "../contexts/ThemeContext";
 import LogForm from "../components/forms/LogForm";
 import landing2 from "../assets/illustrations/landing2.svg";
+import landing4 from "../assets/illustrations/landing4.svg"
 import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
 
 export default function Login() {
 
   const { userType } = useContext(ThemeContext)
-
 
   return (
     <div
@@ -42,12 +42,22 @@ export default function Login() {
         </div>
 
         {/* Ilustración */}
+        
+
         <article className="hidden w-full justify-center md:flex">
-          <img
+        {
+          userType
+        ? <img
+            src={landing4}
+            className="hidden md:block md:h-full md:max-h-[35rem]"
+            alt="landing4"/>
+        : <img
             src={landing2}
             className="hidden md:block md:h-full md:max-h-[35rem]"
-            alt="landing2"
-          />
+            alt="landing2"/>
+        }
+          
+          
         </article>
       </main>
 
@@ -72,14 +82,20 @@ export default function Login() {
 
       {/* Mancha arriba izquierda */}
       <article
-        className={`absolute z-0 top-[-17rem] left-[-16rem] rotate-[50deg] md:left-[-10rem] lg:top-[-18rem] lg:left-[-12rem] xl:top-[-14rem]`}
+        className={`absolute z-0 ${userType
+        ? `top-[-20rem] left-[-20rem] rotate-[50deg] md:left-[-10rem] md:top-[-14rem]`
+        : `top-[-20rem] left-[-20rem] rotate-[-50deg] md:left-[-10rem] md:top-[-14rem]`
+        } transition-all`}
       >
-        <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
+        <img src={shape1} className="max-w-[35rem] w-[35rem]" alt="" />
       </article>
 
       {/* Mancha arriba derecha */}
       <article
-        className={`absolute z-0 rotate-[46deg] top-[-30rem] right-[-35rem] md:right-[-25rem] md:top-[-20rem] `}
+        className={`absolute z-0 ${userType
+        ? `rotate-[46deg] top-[-30rem] right-[-35rem] md:right-[-25rem] md:top-[-20rem] `
+        : `rotate-[-46deg] top-[-30rem] right-[-35rem] md:right-[-25rem] md:top-[-20rem]`
+        } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
       </article>
