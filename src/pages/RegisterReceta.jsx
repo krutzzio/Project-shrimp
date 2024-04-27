@@ -3,7 +3,7 @@ import "../components/Receta/formsReceta.css";
 import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
-export default function RegisterRecetaForm() {
+export function RegisterReceta() {
     const [imgProfile, setImageProfile] = useState();
     const [nombreReceta, setNombreReceta] = useState("");
     const [descripcionReceta, setDescripcionReceta] = useState("");
@@ -19,15 +19,13 @@ export default function RegisterRecetaForm() {
     const [datos, setDatos] = useState([]);
 
 
-
-
     // Esto es para esconder las cosas(gerdad esta mal lo se...:(  )
     const change = () => {
         setMostrarIngredientes(!mostrarIngredientes);
         setInfo(!mostrarInfo);
     };
 
-// Para agregar otros inputs para el siguiente ingrediente
+    // Para agregar otros inputs para el siguiente ingrediente
     const addIngrediente = () => {
         setIngredientes([
             ...ingredientes,
@@ -38,10 +36,10 @@ export default function RegisterRecetaForm() {
             },
         ]);
     };
-// el req.body que necesita la api
+    // el req.body que necesita la api
     const registroReceta = (e) => {
         e.preventDefault();
-    
+
         const formData = new FormData();
         formData.append("nombre_receta", nombreReceta);
         formData.append("desc_receta", descripcionReceta);
@@ -51,31 +49,31 @@ export default function RegisterRecetaForm() {
         formData.append("tipo", tipo);
         formData.append("tiempo", tiempo);
         formData.append("photo", foto_receta);
-    // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
+        // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
         ingredientes.forEach((ingrediente, index) => {
-          formData.append(`ingredientes[${index}][id]`, ingrediente.id);
-          formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
-          formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
+            formData.append(`ingredientes[${index}][id]`, ingrediente.id);
+            formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
+            formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
         })
 
         const options = {
-          method: "POST",
-          body: formData,
+            method: "POST",
+            body: formData,
         };
         console.log(formData);
         fetch("http://localhost:3000/api/home/1/registerReceta", options)
-          .then((response) => response.json())
-          .then((data) => {
-            setDatos(data)
-          })
-          .catch((error) => {
-            console.error("Error al registrar receta:", error);
-          });
-      };
+            .then((response) => response.json())
+            .then((data) => {
+                setDatos(data)
+            })
+            .catch((error) => {
+                console.error("Error al registrar receta:", error);
+            });
+    };
 
 
-      // esto es para poner la cantidad en ingredeintes, al ser un array
-      // copias el array iañades en la posicion el valor del input en la cantidad
+    // esto es para poner la cantidad en ingredeintes, al ser un array
+    // copias el array iañades en la posicion el valor del input en la cantidad
     const CantiIngre = (index, value) => {
         const nuevosIngredientes = [...ingredientes];
         nuevosIngredientes[index].cantidad = value;
@@ -83,7 +81,7 @@ export default function RegisterRecetaForm() {
 
         setIngredientes(nuevosIngredientes);
     };
-     //Lo mismo pero con id
+    //Lo mismo pero con id
     const idIngre = (index, id) => {
 
         const nuevosIngredientes = [...ingredientes];
@@ -92,7 +90,7 @@ export default function RegisterRecetaForm() {
         console.log(id)
         setIngredientes(nuevosIngredientes);
     };
-     //Lo mismo pero con la medida
+    //Lo mismo pero con la medida
     const mediIngre = (index, value) => {
         const nuevosIngredientes = [...ingredientes];
         nuevosIngredientes[index].medida = value;
@@ -108,9 +106,9 @@ export default function RegisterRecetaForm() {
     return (
         <div className=" flex flex-col items-center h-auto">
             <img className="w-44 p-2 " src="/src/assets/logo/logoGamba_logoNaranja.svg" alt="Gamba Logo"></img>
-            {mostrarInfo&&
-            
-            <h1 className="text-primary text-3xl font-bold leading-8 mb-4">¡Vamos a crear tu receta!</h1>
+            {mostrarInfo &&
+
+                <h1 className="text-primary text-3xl font-bold leading-8 mb-4">¡Vamos a crear tu receta!</h1>
             }
             <div className="h-[150px] w-[150px] border border-black">
                 <img src={imgProfile} alt="aaa" />
@@ -136,7 +134,7 @@ export default function RegisterRecetaForm() {
                             Nombre receta
                         </label>
                         <input
-                        className="border-[#3964fe]"
+                            className="border-[#3964fe]"
                             type="text"
                             id="name"
                             name="name"
@@ -202,7 +200,7 @@ export default function RegisterRecetaForm() {
                             <option value="Primero">Primero</option>
                             <option value="Segundo">Segundo</option>
                             <option value="Postre">Postre</option>
-          
+
                         </select>
                     </article>
                     <article className="flex flex-col justify-start p-2">
@@ -213,7 +211,7 @@ export default function RegisterRecetaForm() {
                             Dificultad
                         </label>
                         <select type="dificultad" id="dificultad" name="dificultad" onInput={(e) => setDificultad(e.target.value)}
-                    value={dificultad}>
+                            value={dificultad}>
                             <option value="Baja">Baja</option>
                             <option value="Media">Media</option>
                             <option value="Alta">Alta</option>
@@ -226,13 +224,13 @@ export default function RegisterRecetaForm() {
                         >
                             Tiempo
                         </label>
-                        <input 
-                        className="border-[#3964fe]"
-                        type="tiempo" 
-                        id="tiempo" 
-                        name="tiempo"
-                        onInput={(e) => setTiempo(e.target.value)}
-                        value={tiempo}/>
+                        <input
+                            className="border-[#3964fe]"
+                            type="tiempo"
+                            id="tiempo"
+                            name="tiempo"
+                            onInput={(e) => setTiempo(e.target.value)}
+                            value={tiempo} />
                     </article>
                     <article className="flex flex-col justify-start">
                         {/* Este componente es para tener un input select pero con un buscador incorporado para que no se haga pesado buscar las cosas
@@ -251,7 +249,7 @@ export default function RegisterRecetaForm() {
                                 <label className="text-[#3964FE] font-black">
                                     Ingrediente{index + 1}:
                                 </label>
-                                
+
                             </div>
                             <Selector endpoint="ingredientes" onSelectId={(id) => idIngre(index, id)} />
 
@@ -273,25 +271,25 @@ export default function RegisterRecetaForm() {
                     ))}
             </div>
             <div>
-            {mostrarIngredientes &&
-            <div className="p-2">
+                {mostrarIngredientes &&
+                    <div className="p-2">
 
-            <button
-                className="border border-black"
-                type="button"
-                onClick={addIngrediente}
-              >
-                Agregar Ingrediente
-              </button>
-              <button
-                className="border border-black"
-                type="button"
-                onClick={registroReceta}
-              >
-                Crear
-              </button>
-              </div>
-}
+                        <button
+                            className="border border-black"
+                            type="button"
+                            onClick={addIngrediente}
+                        >
+                            Agregar Ingrediente
+                        </button>
+                        <button
+                            className="border border-black"
+                            type="button"
+                            onClick={registroReceta}
+                        >
+                            Crear
+                        </button>
+                    </div>
+                }
 
             </div>
             <div className="">

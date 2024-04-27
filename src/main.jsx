@@ -23,8 +23,8 @@ import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
 import HomePrincipal from './components/Home/HomePrincipal.jsx';
 import Busqueda from './pages/Busqueda.jsx';
-import RegisterReceta from './pages/RegisterReceta.jsx';
-import CrearProcedimientos from './pages/Procediminetos.jsx';
+import { RegisterReceta } from './pages/RegisterReceta.jsx';
+import { CrearProcedimientos } from './pages/CrearProcediminetos.jsx';
 import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
 
 
@@ -90,14 +90,6 @@ const router = createBrowserRouter([
   {
     path: "/busqueda",
     element: <Busqueda />
-  },
-  {
-    path: "/registerReceta",
-    element: <RegisterReceta />
-  },
-  {
-    path: "/procedimientos",
-    element: <CrearProcedimientos />
   },
 ])
 
