@@ -25,6 +25,8 @@ import HomePrincipal from './components/Home/HomePrincipal.jsx';
 import Busqueda from './pages/Busqueda.jsx';
 import RegisterReceta from './pages/RegisterReceta.jsx';
 import Procedimientos from './pages/procediminetos.jsx';
+import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -104,9 +106,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <NextUIProvider>
     <ThemeProvider>
       <RegisterProvider>
-        <main className="h-dvh client-theme">
-          <RouterProvider router={router} />
-        </main>
+        <UserInfoProvider>
+          <main className="h-dvh client-theme">
+            <RouterProvider router={router} />
+          </main>
+        </UserInfoProvider>
       </RegisterProvider>
     </ThemeProvider>
   </NextUIProvider>
