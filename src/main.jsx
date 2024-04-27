@@ -24,7 +24,7 @@ import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
 import HomePrincipal from './components/Home/HomePrincipal.jsx';
 import Busqueda from './pages/Busqueda.jsx';
 import RegisterReceta from './pages/RegisterReceta.jsx';
-import Procedimientos from './pages/Procediminetos.jsx';
+import CrearProcedimientos from './pages/Procediminetos.jsx';
 import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
 
 
@@ -97,7 +97,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/procedimientos",
-    element: <Procedimientos />
+    element: <CrearProcedimientos />
   },
 ])
 
