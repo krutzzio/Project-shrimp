@@ -24,7 +24,7 @@ import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
 import HomePrincipal from './components/Home/HomePrincipal.jsx';
 import Busqueda from './pages/Busqueda.jsx';
 import RegisterReceta from './pages/RegisterReceta.jsx';
-import Procedimientos from './pages/procediminetos.jsx';
+import Procedimientos from './pages/Procediminetos.jsx';
 import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
 
 

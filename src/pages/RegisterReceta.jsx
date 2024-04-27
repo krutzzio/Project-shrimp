@@ -17,15 +17,17 @@ export default function RegisterRecetaForm() {
     const [mostrarInfo, setInfo] = useState(true);
     const [ingredientes, setIngredientes] = useState([]);
     const [datos, setDatos] = useState([]);
-    const [valor, setValor] = useState([]);
-    const [selectedIngredientId, setSelectedIngredientId] = useState("")
 
+
+
+
+    // Esto es para esconder las cosas(gerdad esta mal lo se...:(  )
     const change = () => {
         setMostrarIngredientes(!mostrarIngredientes);
         setInfo(!mostrarInfo);
     };
 
-
+// Para agregar otros inputs para el siguiente ingrediente
     const addIngrediente = () => {
         setIngredientes([
             ...ingredientes,
@@ -36,7 +38,7 @@ export default function RegisterRecetaForm() {
             },
         ]);
     };
-console.log('hola '+tipoCocinaId)
+// el req.body que necesita la api
     const registroReceta = (e) => {
         e.preventDefault();
     
@@ -49,15 +51,13 @@ console.log('hola '+tipoCocinaId)
         formData.append("tipo", tipo);
         formData.append("tiempo", tiempo);
         formData.append("photo", foto_receta);
-    
+    // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
         ingredientes.forEach((ingrediente, index) => {
           formData.append(`ingredientes[${index}][id]`, ingrediente.id);
           formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
           formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
         })
-        
 
-    
         const options = {
           method: "POST",
           body: formData,
@@ -66,7 +66,6 @@ console.log('hola '+tipoCocinaId)
         fetch("http://localhost:3000/api/home/1/registerReceta", options)
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
             setDatos(data)
           })
           .catch((error) => {
@@ -75,30 +74,32 @@ console.log('hola '+tipoCocinaId)
       };
 
 
-
+      // esto es para poner la cantidad en ingredeintes, al ser un array
+      // copias el array iañades en la posicion el valor del input en la cantidad
     const CantiIngre = (index, value) => {
         const nuevosIngredientes = [...ingredientes];
         nuevosIngredientes[index].cantidad = value;
-              console.log(ingredientes)
+
 
         setIngredientes(nuevosIngredientes);
     };
-
+     //Lo mismo pero con id
     const idIngre = (index, id) => {
-        console.log('ptua' +index)
+
         const nuevosIngredientes = [...ingredientes];
         nuevosIngredientes[index].id = id;
 
         console.log(id)
         setIngredientes(nuevosIngredientes);
     };
-
+     //Lo mismo pero con la medida
     const mediIngre = (index, value) => {
         const nuevosIngredientes = [...ingredientes];
         nuevosIngredientes[index].medida = value;
-        console.log(ingredientes)
         setIngredientes(nuevosIngredientes);
     };
+
+    // para previsualizar la imagen de la receta
     const handleChange = (e) => {
         setPhotos(e.target.files[0]);
         setImageProfile(URL.createObjectURL(e.target.files[0]));
@@ -226,7 +227,7 @@ console.log('hola '+tipoCocinaId)
                             Tiempo
                         </label>
                         <input 
-                         className="border-[#3964fe]"
+                        className="border-[#3964fe]"
                         type="tiempo" 
                         id="tiempo" 
                         name="tiempo"
@@ -234,6 +235,9 @@ console.log('hola '+tipoCocinaId)
                         value={tiempo}/>
                     </article>
                     <article className="flex flex-col justify-start">
+                        {/* Este componente es para tener un input select pero con un buscador incorporado para que no se haga pesado buscar las cosas
+                        en la propiedad endpoint de momento solo hay dos posibilidades que son: tipuscuina o ingredientes. Esto segun lo que querais buscar
+                        */ }
                         <Selector endpoint="tipuscuina" onSelectId={setTipoCocinaId} />
                     </article>
                 </div>
@@ -247,7 +251,7 @@ console.log('hola '+tipoCocinaId)
                                 <label className="text-[#3964FE] font-black">
                                     Ingrediente{index + 1}:
                                 </label>
-                                {/* Hay que poner el nombre del ingrediente*/}
+                                
                             </div>
                             <Selector endpoint="ingredientes" onSelectId={(id) => idIngre(index, id)} />
 
