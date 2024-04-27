@@ -21,11 +21,14 @@ import rest from "../../assets/iconos/iconos_Restaurante.svg";
 import receta from "../../assets/iconos/iconos_Recetas.svg";
 import filtro from "../../assets/iconos/iconos_Filtro.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserInfoContext } from "../../contexts/UserInfoContext";
 
 
 export default function NavBar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  
+  const { user } = useContext(UserInfoContext)
+
 
   return (
     <header className="w-full p-2">
@@ -115,6 +118,7 @@ export default function NavBar() {
             <Avatar
               size="md"
               classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+              src={user.foto_perfil}
             />
           </Link>
         </div>

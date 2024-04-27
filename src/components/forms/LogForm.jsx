@@ -1,8 +1,9 @@
 import { Button } from "@nextui-org/react"
 import "./forms.css"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { loginProfile } from "../../utils/fetchs/login"
+import { UserInfoContext } from "../../contexts/UserInfoContext"
 
 // eslint-disable-next-line react/prop-types
 export default function LogForm({ userType }) {
@@ -10,7 +11,7 @@ export default function LogForm({ userType }) {
     const [logging, setLogging] = useState(false)
     const navigate = useNavigate()
     const [loginInfo, setLoginInfo] = useState({})
-
+    const { setUser } = useContext(UserInfoContext)
     const handleChange = (event) => {
         const { name, value } = event.target
         setLoginInfo({ ...loginInfo, [name]: value })
@@ -19,6 +20,7 @@ export default function LogForm({ userType }) {
     const login = async () => {
         setLogging(true)
         const fetchStatus = await loginProfile({ loginInfo, userType })
+        setUser(fetchStatus)
         fetchStatus.id ? navigate("/home") : console.log("ERROR LOGIN")
     }
 
