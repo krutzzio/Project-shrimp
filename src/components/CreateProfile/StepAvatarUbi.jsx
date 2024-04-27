@@ -21,7 +21,7 @@ export default function StepAvatarUbi({ imgProfile, handleImg, handleChange, cli
                         <span className="absolute h-10 w-10 rounded-full border-3 border-bgcolor"></span>
                     </label>
                     <input type="file" accept="image/*" className="hidden" id="photo" name="photo" onChange={handleImg} />
-                    <Avatar classNames={{ icon: "text-white" }} className="w-40 h-40 bg-primary-50" src={imgProfile} />
+                    <Avatar classNames={{ icon: "text-white" }} className="w-40 h-40 bg-primary" src={imgProfile} />
                 </article>
             </main>
             {
