@@ -32,7 +32,7 @@ export default {
         colors: {
           primary: {
             50: "#FF7C03",
-            DEFAULT: "#FE7139",
+            DEFAULT: "#f14900",
             foreground: "#FED339",
           },
           focus: "#F182F6",

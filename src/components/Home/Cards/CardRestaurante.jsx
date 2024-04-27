@@ -1,33 +1,40 @@
-import { Chip } from "@nextui-org/react";
+import { Card, CardFooter, Chip } from "@nextui-org/react";
 import restaurante1 from "../../../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../../../assets/iconos/iconos_Favorito.svg";
+import { Link } from "react-router-dom";
 
 export function CardRestaurante() {
 
     return (
 
-        <div className="flex flex-col gap-2 relative">
-
-            <article className="relative flex justify-center items-center">
-                <Chip color="primary" className="absolute z-20 top-[1rem] left-[1rem] text-white">Italiano</Chip>
-                <button >
-                    <img className="absolute z-20 w-8 top-[1rem] right-[1rem]" src={fav} />
-                </button>
-
-                <h1
-                    className="absolute z-20 bottom-[3rem] left-[1rem] text-3xl pr-3 md:text-2xl text-white font-bold leading-7"
+        <Link to={"/perfil/restaurante-cliente"} className="max-w-fit min-w-50 items-center flex flex-col">
+            <div className="flex flex-col gap-1 relative shadow-lg my-4 rounded-2xl">
+                <Card
+                    isFooterBlurred
+                    className="border-none"
                 >
-                    Don Corleone
-                </h1>
-
-                <img
-                    className="shadow-lg rounded-xl w-full md:max-w-60 h-80 object-cover"
-                    src={restaurante1}
-                    alt=""
-                />
-                <Chip color="primary" className="absolute z-20 bottom-[1rem] left-[1rem] text-white">2 recetas</Chip>
-            </article>
-        </div>
+                    <Chip color="primary" className="absolute z-20 top-[0.5rem] left-[0.5rem] text-white">Italiano</Chip>
+                    <img
+                        alt="Foto del restaurante"
+                        className="object-cover w-52 h-64"
+                        src={restaurante1}
+                    />
+                    <CardFooter
+                        className="justify-between before:bg-white/10 overflow-hidden py-4 absolute before:rounded-xl rounded-large bottom-2 w-[calc(100%_-_8px)] shadow-small ml-1 z-10"
+                    >
+                        <div className="flex absolute z-11 gap-2 items-center">
+                            <div className="flex flex-col leading-4">
+                                <p className="text-xl font-bold text-white leading-6">Don Kamaron</p>
+                                <p className="text-md text-white">Barcelona</p>
+                            </div>
+                        </div>
+                        <Link>
+                            <img className="h-6 items-start" src={fav} alt="Guardar en favoritos" />
+                        </Link>
+                    </CardFooter>
+                </Card>
+            </div>
+        </Link>
 
     );
 }

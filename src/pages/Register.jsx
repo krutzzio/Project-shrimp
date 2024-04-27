@@ -6,7 +6,9 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import RegisterForm from "../components/forms/Register/RegisterForm";
 import { Link, NavLink } from "react-router-dom";
 import landing3 from "../assets/illustrations/landing3.svg";
+import landing5 from "../assets/illustrations/landing5.svg";
 import flecha from "../assets/iconos/iconos_FlechaAtras-01.svg";
+import SwitchUser from "../components/SwitchUser";
 
 export default function Register() {
   const { userType } = useContext(ThemeContext);
@@ -16,54 +18,51 @@ export default function Register() {
       className={`overflow-hidden relative text-white h-full flex flex-col justify-between items-center ${userType ? `restaurant-theme` : `client-theme`
         } bg-primary transition-colors`}
     >
-      <header className="w-full max-w-screen-2xl mx-auto p-6 relative z-10 flex items-center justify-between lg:px-8">
+      <header className="relative z-10 max-w-screen-2xl w-full mx-auto flex py-4 px-2 items-center justify-between">
         {/*Flecha*/}
         <Link to={"/"} className="w-6 ">
           <img src={flecha} />
         </Link>
 
         {/*Logo*/}
-        <img className="w-32 md:w-52" src={logoGamba} alt="Gamba Logo" />
+        <img className="w-32 md:w-44" src={logoGamba} alt="Gamba Logo" />
 
         <div className="w-6"></div>
       </header>
 
 
-      <main className="relative z-10 w-11/12 flex flex-col items-center justify-around md:grid md:grid-cols-2 md:content-between">
+      <main className="relative z-10 flex flex-col w-11/12 items-center justify-around md:grid md:grid-cols-2 md:content-between max-w-screen-2xl">
         {/* Formulario Registro */}
-        <div className="flex flex-col gap-10 mx-6 md:mx-0">
+        <div className="flex flex-col gap-4 md:gap-10">
           {/* Título */}
-          <section className="text-center">
-            <h3 className=" text-primary-foreground font-bold text-4xl mb-1 md:text-6xl md:mb-4">
-              Únete a Gamba
-            </h3>
-            {userType
-              ? (
-                <p className="leading-5">
-                  Comparte tus recetas con tus <br />
-                  actuales y futuros clientes.
-                </p>
-              )
-              : (
-                <p className="leading-5 md:text-2xl">
-                  Cocina las recetas de tus restaurantes <br />
-                  favoritos en un mismo lugar. Comparte <br />
-                  tus recetas y consigue descuentos.
-                </p>
-              )
-            }
-          </section>
-          {/* Formulario */}
-          <RegisterForm />
+            <section className="text-center">
+              <h3 className="text-primary-foreground font-bold text-4xl md:text-5xl">
+                Únete a Gamba
+              </h3>
+            </section>
+            {/* Switch */}
+            <section className="flex flex-col justify-center items-center">
+                  <h3 className="text-center mb-1">¿Quién eres?</h3>
+                  <SwitchUser/>
+                </section>
+                {/* Formulario */}
+                <RegisterForm userType={userType} />
         </div>
 
         {/* Ilustración */}
+
         <article className="hidden w-full justify-center md:flex">
-          <img
+        {
+          userType
+        ? <img
+            src={landing5}
+            className="hidden md:block md:h-full md:max-h-[35rem]"
+            alt="landing5"/>
+        : <img
             src={landing3}
             className="hidden md:block md:h-full md:max-h-[35rem]"
-            alt="landing3"
-          />
+            alt="landing2"/>
+        }
         </article>
 
       </main>
@@ -85,7 +84,10 @@ export default function Register() {
 
       {/* Mancha arriba izquierda */}
       <article
-        className={`absolute z-0 top-[-21rem] left-[-15rem] rotate-[60deg] md:left-[-2rem] md:top-[-14rem]`}
+        className={`absolute z-0 ${userType
+        ? `top-[-20rem] left-[-16rem] rotate-[60deg] md:left-[-2rem] md:top-[-14rem]`
+        : `top-[-20rem] left-[-16rem] rotate-[-60deg] md:left-[-2rem] md:top-[-14rem]`
+        } transition-all`}
       >
         <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
       </article>
@@ -93,11 +95,21 @@ export default function Register() {
       {/* Mancha abajo izquierda */}
       <article
         className={`absolute z-0  ${userType
-          ? `bottom-[-31rem] left-[-12rem] rotate-[66deg]`
-          : `bottom-[-31rem] left-[-14rem] rotate-[-65deg]`
+          ? `bottom-[-31rem] left-[-14rem] rotate-[66deg] md:left-[10rem] md:bottom-[-25rem]`
+          : `bottom-[-31rem] left-[-14rem] rotate-[-65deg] md:left-[10rem] md:bottom-[-25rem]`
           } transition-all`}
       >
         <img src={shape2} className="max-w-[50rem] w-[50rem]" alt="" />
+      </article>
+
+      {/* Mancha arriba izquierda */}
+      <article
+        className={`absolute z-0 ${userType
+        ? `top-[-30rem] right-[-41rem] rotate-[100deg] md:right-[-30rem] md:top-[-10rem]`
+        : `top-[-30rem] right-[-41rem] rotate-[-100deg] md:right-[-30rem] md:top-[-10rem]`
+        } transition-all`}
+      >
+        <img src={shape1} className="max-w-[60rem] w-[60rem]" alt="" />
       </article>
     </div>
   );

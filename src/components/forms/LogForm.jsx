@@ -25,17 +25,17 @@ export default function LogForm({ userType }) {
     }
 
     return (
-        <div className="w-[20rem] flex flex-col items-center m-auto gap-6">
+        <div className="w-[22rem] flex flex-col items-center m-auto gap-6">
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="correo">Correo</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="correo">Correo</label>
                 <input onChange={handleChange} className="input-form" type="email" id="correo" name="correo" />
             </article>
             <article className="flex flex-col justify-start w-11/12">
-                <label className="w-fit text-xs font-semibold" htmlFor="password">Contraseña</label>
+                <label className="w-fit text-sm font-semibold mb-4" htmlFor="password">Contraseña</label>
                 <input onChange={handleChange} className="input-form" type="password" id="password" name="password" />
             </article>
-            <article className="w-9/12 py-8 ">
-                <Button isLoading={logging ? true : false} onClick={login} className="relative z-10 w-full h-12 text-xl bg-[#272D2F] text-white font-semibold shadow-lg">
+            <article className="w-10/12 py-8">
+                <Button isLoading={logging ? true : false} onClick={login} className="relative z-10 w-full h-12 text-lg bg-[#272D2F] text-[#FAFAFA] font-semibold shadow-lg">
                     Entrar
                 </Button>
             </article>
