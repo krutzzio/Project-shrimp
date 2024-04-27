@@ -12,5 +12,6 @@ export const tiposComidas = [
     "Coreana",
     "Griega",
     "Peruana",
-    "Tailandesa"
+    "Tailandesa",
+    "Catalana"
 ];

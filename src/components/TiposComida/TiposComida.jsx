@@ -5,7 +5,7 @@ import { tiposComidas } from '../../utils/tiposComidas';
 export default function TiposComida() {
 
     return (
-        <section className='px-2 flex gap-4 overflow-x-scroll whitespace-nowrap scrollbar-hide'>
+        <section className='px-2 flex gap-4 md:gap-8 overflow-x-scroll whitespace-nowrap scrollbar-hide'>
             {
                 tiposComidas.map(comida => {
                     return (
