@@ -5,8 +5,7 @@ export function useHomeRecetas() {
     const [recetasRecomendadas, setRecetasRecomendadas] = useState([])
     const [recetasCercanas, setRecetasCercanas] = useState([])
     const [recetasNuevas, setRecetasNuevas] = useState([])
-
-
+    const RECETAS_LOADING = Array(4).fill(null)
 
 
     useEffect(() => {
@@ -19,5 +18,5 @@ export function useHomeRecetas() {
         fetch()
     }, [])
 
-    return { recetasRecomendadas, recetasCercanas, recetasNuevas }
+    return { recetasRecomendadas, recetasCercanas, recetasNuevas, RECETAS_LOADING }
 }

@@ -3,13 +3,14 @@ import flechader from "../../assets/iconos/iconos_flecha_der.svg"
 import flechaizq from "../../assets/iconos/iconos_flecha_izq.svg"
 import { useHomeRecetas } from "../../hooks/useHomeRecetas";
 import { useEffect } from "react";
+import { Skeleton } from "@nextui-org/react";
 
 
 export default function HomeRecetas() {
 
-    const { recetasRecomendadas, recetasCercanas, recetasNuevas } = useHomeRecetas()
+    const { recetasRecomendadas, recetasCercanas, recetasNuevas, RECETAS_LOADING } = useHomeRecetas()
     useEffect(() => {
-        console.log(recetasRecomendadas,)
+        console.log(recetasRecomendadas == true)
         console.log(recetasCercanas)
         console.log(recetasNuevas)
     }, [recetasRecomendadas, recetasCercanas, recetasNuevas])
@@ -39,7 +40,7 @@ export default function HomeRecetas() {
                         {
                             recetasRecomendadas
                                 ? recetasRecomendadas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : <h1>Hola</h1>
+                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
                         }
                     </div>
                 </div>
@@ -62,7 +63,7 @@ export default function HomeRecetas() {
                         {
                             recetasCercanas
                                 ? recetasCercanas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : <h1>Hola</h1>
+                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
                         }
                     </div>
                 </div>
@@ -84,7 +85,7 @@ export default function HomeRecetas() {
                         {
                             recetasNuevas
                                 ? recetasNuevas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : <h1>Hoola</h1>
+                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
                         }
                     </div>
                 </div>
