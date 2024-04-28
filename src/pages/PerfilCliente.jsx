@@ -11,11 +11,13 @@ import {
   Input,
   Chip,
 } from "@nextui-org/react";
-import { CardReceta } from "../components/Home/Cards/CardReceta";
-import { CardRestaurante } from "../components/Home/Cards/CardRestaurante";
 import AddIcon from "../assets/add.svg";
+import { UserInfoContext } from "../contexts/UserInfoContext";
+import { useContext } from "react";
 
 export function PerfilCliente() {
+  const { user } = useContext(UserInfoContext)
+
   return (
     <div className="flex flex-col h-screen ">
       <NavBar />
@@ -34,10 +36,11 @@ export function PerfilCliente() {
               classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
               className="w-32 h-32 rounded-full border-white"
               alt="Perfil"
+              src={user.foto_perfil}
             />
           </article>
 
-          <h2 className="text-2xl font-bold">Alberto Marín</h2>
+          <h2 className="text-2xl font-bold">{user.nombre}</h2>
 
           <div className="flex gap-2">
             <Chip color="primary" className="text-white">
@@ -49,7 +52,7 @@ export function PerfilCliente() {
           </div>
         </div>
 
-        <div className="flex w-full flex-col mt-4 block max-w-screen-2xl m-auto">
+        <div className="flex w-full flex-col mt-4 max-w-screen-2xl m-auto">
           <Tabs aria-label="Options" radius="none" variant="underlined">
             <Tab key="Datos" title="Datos">
               <Card>
@@ -61,7 +64,7 @@ export function PerfilCliente() {
                         Nombre
                       </label>
                       <Input
-                        placeholder="Mireia Matas"
+                        placeholder={user.nombre}
                         variant="underlined"
                         className="input-form"
                         type="text"
@@ -74,7 +77,7 @@ export function PerfilCliente() {
                         Dirección
                       </label>
                       <Input
-                        placeholder="Calle Pilar, 93, 08940, Cornellà de Llobregat"
+                        placeholder={user.cp}
                         variant="underlined"
                         className="input-form"
                         type="text"
@@ -87,7 +90,7 @@ export function PerfilCliente() {
                         Correo
                       </label>
                       <Input
-                        placeholder="info@doncorleone.es"
+                        placeholder={user.correo}
                         variant="underlined"
                         className="input-form"
                         type="text"
@@ -108,9 +111,7 @@ export function PerfilCliente() {
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
                     <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
-                      <CardReceta />
-                      <CardReceta />
-                      <CardReceta />
+                      
                     </div>
                   </div>
                 </CardBody>
@@ -122,9 +123,7 @@ export function PerfilCliente() {
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
                     <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
-                      <CardRestaurante />
-                      <CardRestaurante />
-                      <CardRestaurante />
+                      
                     </div>
                   </div>
                 </CardBody>
@@ -133,7 +132,7 @@ export function PerfilCliente() {
           </Tabs>
         </div>
 
-        <div className="flex items-center justify-center px-4 py-6 mt-4 bg-orange-500 rounded shadow hover:bg-orange-600">
+        <div className="flex items-center justify-center px-4 py-6 mt-4 bg-primary rounded shadow hover:bg-orange-600">
           <Link to="/">
             <button className="text-lg font-bold text-white">Desloguear</button>
           </Link>
