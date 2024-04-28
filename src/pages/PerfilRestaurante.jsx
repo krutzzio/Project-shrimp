@@ -9,14 +9,23 @@ import {
   Chip,
   Image,
   Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
   Tab,
   Tabs,
   Textarea,
+  useDisclosure
 } from "@nextui-org/react";
 import { CardReceta } from "../components/Home/Cards/CardReceta";
 import Promociones from "../components/Promociones";
+import { RegisterReceta } from "./RegisterReceta";
 
 export default function PerfilRestaurante() {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
   return (
     <div className="flex flex-col h-screen">
       <NavBar />
@@ -127,9 +136,39 @@ export default function PerfilRestaurante() {
             <Card>
               <CardBody>
                 <div className="flex flex-col items-center">
-                  <Button color="secondary" className="text-white w-36 my-4">
+                  <Button
+                    color="secondary"
+                    onPress={onOpen}
+                    className="text-white w-36 my-4"
+                  >
                     Subir receta
                   </Button>
+                  <Modal isOpen={isOpen} scrollBehavior="outside" size="2xl" onOpenChange={onOpenChange}>
+                    <ModalContent>
+                      {(onClose) => (
+                        <>
+                          <ModalHeader className="flex flex-col gap-1 text-primary text-2xl font-bold mt-4">
+                            ¡Vamos a crear tu receta!
+                          </ModalHeader>
+                          <ModalBody>
+                            <RegisterReceta />
+                          </ModalBody>
+                          <ModalFooter>
+                            <Button
+                              color="danger"
+                              variant="light"
+                              onPress={onClose}
+                            >
+                              Cerrar
+                            </Button>
+                            <Button color="primary" onPress={onClose}>
+                              Aplicar
+                            </Button>
+                          </ModalFooter>
+                        </>
+                      )}
+                    </ModalContent>
+                  </Modal>
                 </div>
                 <div className="flex flex-col gap-4">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
@@ -143,14 +182,14 @@ export default function PerfilRestaurante() {
           <Tab key="Promociones" title="Promociones">
             <Card>
               <CardBody>
-                <Promociones/>
+                <Promociones />
               </CardBody>
             </Card>
           </Tab>
         </Tabs>
       </div>
 
-      <div className="flex items-center justify-center px-4 py-6 mt-4 bg-orange-500 rounded shadow hover:bg-orange-600">
+      <div className="flex items-center justify-center px-4 py-6 mt-4 bg-primary rounded shadow hover:bg-orange-600">
         <Link to="/">
           <button className="text-lg font-bold text-white">Desloguear</button>
         </Link>

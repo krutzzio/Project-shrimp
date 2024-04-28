@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Button,
   Dropdown,
@@ -9,11 +9,10 @@ import {
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/navbar/NavBar";
 import TiposComida from "../components/TiposComida/TiposComida";
-import { useHomeRecetas } from "../hooks/useHomeRecetas";
 import Footer from "../components/Footer";
 
 
-export default function HomeRecetas() {
+export default function Home() {
   const [selectedKeys, setSelectedKeys] = React.useState(
     new Set(["Dietética"])
   );
@@ -30,12 +29,11 @@ export default function HomeRecetas() {
     .join(", ")
     .replaceAll("_", " ");
 
-  const { recetasHome } = useHomeRecetas()
 
   return (
     <div className="max-w-screen mx-auto">
       <NavBar />
-      <main className="block max-w-screen-2xl m-auto">
+      <main className="block max-w-screen-2xl m-auto mb-10">
 
         <TiposComida />
 
@@ -142,7 +140,7 @@ export default function HomeRecetas() {
 
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }

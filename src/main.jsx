@@ -1,4 +1,3 @@
-
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
@@ -12,7 +11,7 @@ import Login from './pages/Login.jsx';
 import { ThemeProvider } from './contexts/ThemeContext.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
-import HomeRecetas from './pages/HomeRecetas.jsx';
+import Home from './pages/Home.jsx';
 import { PerfilCliente } from "./pages/PerfilCliente.jsx";
 import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
 import Recetas_hechas from "./components/Recetas_hechas.jsx";
@@ -21,7 +20,7 @@ import { Receta } from "./pages/Receta.jsx";
 import { PerfilRestauranteVistaCliente } from "./pages/PerfilRestauranteVistaCliente.jsx";
 import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
-import HomePrincipal from './components/Home/HomePrincipal.jsx';
+import HomeRecetas from './components/Home/HomeRecetas.jsx';
 import Busqueda from './pages/Busqueda.jsx';
 import { RegisterReceta } from './pages/RegisterReceta.jsx';
 import { CrearProcedimientos } from './pages/CrearProcediminetos.jsx';
@@ -48,11 +47,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element: <HomeRecetas />,
+    element: <Home />,
     children: [
       {
         path: "/home",
-        element: <HomePrincipal />
+        element: <HomeRecetas />
       }
     ]
   },
@@ -78,7 +77,7 @@ const router = createBrowserRouter([
     element: <PerfilRestauranteVistaCliente />
   },
   {
-    path: "/receta",
+    path: "/receta/:id",
     element: <Receta />
 
   },
