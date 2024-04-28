@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-function CrearProcedimientos() {
+export function CrearProcedimientos() {
   const [procedimientos, setProcedimientos] = useState([
     { numero_procedimiento: 1, desc_procedimiento: "", photo: null }
   ]);
-console.log(procedimientos)
+  console.log(procedimientos)
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newProcedimientos = [...procedimientos];
@@ -20,7 +20,7 @@ console.log(procedimientos)
 
   const handleSubmit = async () => {
     try {
-      const recetaId = 1; // ID de la receta a la que se agregarán los procedimientos
+      const recetaId = 1; // Esto habra que pasarlo por la url o por props
 
       const formData = new FormData();
       procedimientos.forEach((procedimiento, index) => {
@@ -79,5 +79,3 @@ console.log(procedimientos)
     </div>
   );
 }
-
-export default CrearProcedimientos;

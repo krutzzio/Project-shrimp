@@ -1,3 +1,7 @@
+import { URL } from "./constants"
+import { getUserInfo } from "./userInfo";
+
+
 export function loginProfile({ loginInfo, userType }) {
     const requestOptions = {
         method: 'POST',
@@ -6,8 +10,11 @@ export function loginProfile({ loginInfo, userType }) {
         body: JSON.stringify(loginInfo)
     };
 
-    return fetch(`http://localhost:3000/api/${userType ? `/loginRest` : `/loginUser`}`, requestOptions)
+    return fetch(`${URL}${userType ? `/loginRest` : `/loginUser`}`, requestOptions)
         .then(resp => resp.json())
-        .then(data => data)
+        .then(data => {
+            const { id } = data
+            return getUserInfo({ id, userType })
+        })
         .catch(err => console.log(err))
 }

@@ -1,3 +1,5 @@
+import { URL } from "./constants"
+
 export async function homeRecetas() {
     const requestOptions = {
         method: 'GET',
@@ -6,7 +8,7 @@ export async function homeRecetas() {
     };
 
     try {
-        const resp = await fetch(`http://localhost:3000/api/home/recetas`, requestOptions);
+        const resp = await fetch(`${URL}/home/recetas`, requestOptions);
         const data = await resp.json();
         return data;
     } catch (err) {

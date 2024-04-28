@@ -7,8 +7,11 @@ import logoGamba from "../../assets/logo/logoGamba_logoNaranja.svg";
 import lupa from "../../assets/iconos/iconos_Lupa.svg";
 import CP from "../../assets/iconos/iconos_Mapa.svg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserInfoContext } from "../../contexts/UserInfoContext";
 
 export default function NavBar() {
+  const { user } = useContext(UserInfoContext)
 
   return (
     <header className="p-2">
@@ -66,12 +69,14 @@ export default function NavBar() {
         </section>
 
         {/*Avatar*/}
-          <Link to={"/perfil"}>
-            <Avatar
-              size="md"
-              classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
-            />
-          </Link>
+        <Link to={"/perfil"}>
+          <Avatar
+            size="md"
+            classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+            src={user.foto_perfil}
+
+          />
+        </Link>
       </section>
     </header>
   );

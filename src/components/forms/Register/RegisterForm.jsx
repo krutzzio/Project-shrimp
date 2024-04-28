@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react"
 import "../forms.css"
-import { NavLink } from "react-router-dom"
+import { NavLink, redirect } from "react-router-dom"
 import { useContext, useState } from "react"
 import { ThemeContext } from "../../../contexts/ThemeContext"
 import { RegisterContext, } from "../../../contexts/RegisterContext"
@@ -10,19 +10,37 @@ export default function RegisterForm() {
     const { userType } = useContext(ThemeContext)
     const { client, rest, setRegisterClient, setRegisterRest } = useContext(RegisterContext)
     const [infoUser, setInfoUser] = useState(userType ? { ...rest } : { ...client })
-
+    const [password, setPassword] = useState()
+    const [passwordConfirmar, setPasswordComfirmar] = useState()
+    const [error, setError] = useState()
     const handleChange = (event) => {
         const { name, value } = event.target
-        setInfoUser({ ...infoUser, [name]: value })
-    }
 
-    const handleContinue = () => {
-        if (userType) {
-            setRegisterRest(infoUser)
+        if (name === 'password') {
+            setPassword(value);
+            console.log(password)
+        } else if (name === 'confirmedPassword') {
+            setPasswordComfirmar(value);
+            console.log(passwordConfirmar)
         } else {
-            setRegisterClient(infoUser)
+            setInfoUser({ ...infoUser, [name]: value });
         }
     }
+
+
+    const handleContinue = () => {
+        if (password === passwordConfirmar && password !== undefined) {
+            if (userType) {
+                console.log("hola")
+                setRegisterRest(infoUser);
+            } else {
+                setRegisterClient(infoUser);
+            }
+            window.location.href = `/create/${userType ? 'restaurant' : 'client'}`// se que es un mierda el windows location mañana lo cambio pero tengo suenño surry :)
+        } else {
+            setError("Las contraseñas no coinciden");
+        }
+    };
 
     return (
         <div className="w-[22rem] flex flex-col items-center m-auto gap-4">
@@ -37,14 +55,16 @@ export default function RegisterForm() {
             <article className="flex flex-col justify-start w-11/12">
                 <label className="w-fit text-sm font-semibold mb-4" htmlFor="password">Contraseña</label>
                 <input className="input-form" type="password" id="password" name="password" onChange={handleChange} />
+                {error && <p className="text-black">{error}</p>}
             </article>
             <article className="flex flex-col justify-start w-11/12">
                 <label className="w-fit text-sm font-semibold mb-4" htmlFor="confirmedPassword">Confirma la contraseña</label>
-                <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" />
+                <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} />
             </article>
             <article className="w-10/12 py-8">
                 <Button className="relative z-10 w-full h-12 text-lg bg-[#272D2F] text-[#FAFAFA] font-semibold shadow-lg">
-                    <NavLink to={`/create/${userType ? `restaurant` : `client`}`} onClick={handleContinue} className="w-full">Crear Cuenta</NavLink>
+                    <NavLink  onClick={handleContinue} 
+         className="w-full">Crear Cuenta</NavLink>
                 </Button>
             </article>
         </div >

@@ -23,8 +23,10 @@ import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
 import HomePrincipal from './components/Home/HomePrincipal.jsx';
 import Busqueda from './pages/Busqueda.jsx';
-import RegisterReceta from './pages/RegisterReceta.jsx';
-import Procedimientos from './pages/procediminetos.jsx';
+import { RegisterReceta } from './pages/RegisterReceta.jsx';
+import { CrearProcedimientos } from './pages/CrearProcediminetos.jsx';
+import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -89,14 +91,6 @@ const router = createBrowserRouter([
     path: "/busqueda",
     element: <Busqueda />
   },
-  {
-    path: "/registerReceta",
-    element: <RegisterReceta />
-  },
-  {
-    path: "/procedimientos",
-    element: <Procedimientos />
-  },
 ])
 
 
@@ -104,9 +98,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <NextUIProvider>
     <ThemeProvider>
       <RegisterProvider>
-        <main className="h-dvh client-theme">
-          <RouterProvider router={router} />
-        </main>
+        <UserInfoProvider>
+          <main className="h-dvh client-theme">
+            <RouterProvider router={router} />
+          </main>
+        </UserInfoProvider>
       </RegisterProvider>
     </ThemeProvider>
   </NextUIProvider>
