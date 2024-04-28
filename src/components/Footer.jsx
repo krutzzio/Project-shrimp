@@ -2,6 +2,7 @@ import { useRef } from "react";
 import logo from "../assets/logo/logoGamba_logoBlanco.svg"
 import { Input, Textarea } from "@nextui-org/react";
 import emailjs from '@emailjs/browser';
+{/*Instalar npm i @emailjs/browser*/}
 
 export default function Footer() {
     const form = useRef();

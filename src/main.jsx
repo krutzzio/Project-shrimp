@@ -91,6 +91,10 @@ const router = createBrowserRouter([
     path: "/busqueda",
     element: <Busqueda />
   },
+  {
+    path: "/registerreceta",
+    element: <RegisterReceta />
+  },
 ])
 
 

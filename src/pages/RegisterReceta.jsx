@@ -4,299 +4,313 @@ import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
 export function RegisterReceta() {
-    const [imgProfile, setImageProfile] = useState();
-    const [nombreReceta, setNombreReceta] = useState("");
-    const [descripcionReceta, setDescripcionReceta] = useState("");
-    const [tipoCocinaId, setTipoCocinaId] = useState("");
-    const [tiempo, setTiempo] = useState("");
-    const [dificultad, setDificultad] = useState("");
-    const [tipo, setTipo] = useState("");
-    const [persones, setPersones] = useState("");
-    const [foto_receta, setPhotos] = useState("");
-    const [mostrarIngredientes, setMostrarIngredientes] = useState(false);
-    const [mostrarInfo, setInfo] = useState(true);
-    const [ingredientes, setIngredientes] = useState([]);
-    const [datos, setDatos] = useState([]);
+  const [imgProfile, setImageProfile] = useState();
+  const [nombreReceta, setNombreReceta] = useState("");
+  const [descripcionReceta, setDescripcionReceta] = useState("");
+  const [tipoCocinaId, setTipoCocinaId] = useState("");
+  const [tiempo, setTiempo] = useState("");
+  const [dificultad, setDificultad] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [persones, setPersones] = useState("");
+  const [foto_receta, setPhotos] = useState("");
+  const [ingredientes, setIngredientes] = useState([]);
+  const [datos, setDatos] = useState([]);
 
+  // Para agregar otros inputs para el siguiente ingrediente
+  const addIngrediente = () => {
+    setIngredientes([
+      ...ingredientes,
+      {
+        id: "",
+        medida: "",
+        cantidad: "",
+      },
+    ]);
+  };
+  // el req.body que necesita la api
+  const registroReceta = (e) => {
+    e.preventDefault();
 
-    // Esto es para esconder las cosas(gerdad esta mal lo se...:(  )
-    const change = () => {
-        setMostrarIngredientes(!mostrarIngredientes);
-        setInfo(!mostrarInfo);
+    const formData = new FormData();
+    formData.append("nombre_receta", nombreReceta);
+    formData.append("desc_receta", descripcionReceta);
+    formData.append("TipoCocinaId", tipoCocinaId);
+    formData.append("persones", persones);
+    formData.append("dificultad", dificultad);
+    formData.append("tipo", tipo);
+    formData.append("tiempo", tiempo);
+    formData.append("photo", foto_receta);
+    // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
+    ingredientes.forEach((ingrediente, index) => {
+      formData.append(`ingredientes[${index}][id]`, ingrediente.id);
+      formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
+      formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
+    });
+
+    const options = {
+      method: "POST",
+      body: formData,
     };
+    console.log(formData);
+    fetch("http://localhost:3000/api/home/1/registerReceta", options)
+      .then((response) => response.json())
+      .then((data) => {
+        setDatos(data);
+      })
+      .catch((error) => {
+        console.error("Error al registrar receta:", error);
+      });
+  };
 
-    // Para agregar otros inputs para el siguiente ingrediente
-    const addIngrediente = () => {
-        setIngredientes([
-            ...ingredientes,
-            {
-                id: "",
-                medida: "",
-                cantidad: "",
-            },
-        ]);
-    };
-    // el req.body que necesita la api
-    const registroReceta = (e) => {
-        e.preventDefault();
+  // esto es para poner la cantidad en ingredeintes, al ser un array
+  // copias el array iañades en la posicion el valor del input en la cantidad
+  const CantiIngre = (index, value) => {
+    const nuevosIngredientes = [...ingredientes];
+    nuevosIngredientes[index].cantidad = value;
 
-        const formData = new FormData();
-        formData.append("nombre_receta", nombreReceta);
-        formData.append("desc_receta", descripcionReceta);
-        formData.append("TipoCocinaId", tipoCocinaId);
-        formData.append("persones", persones);
-        formData.append("dificultad", dificultad);
-        formData.append("tipo", tipo);
-        formData.append("tiempo", tiempo);
-        formData.append("photo", foto_receta);
-        // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
-        ingredientes.forEach((ingrediente, index) => {
-            formData.append(`ingredientes[${index}][id]`, ingrediente.id);
-            formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
-            formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
-        })
+    setIngredientes(nuevosIngredientes);
+  };
+  //Lo mismo pero con id
+  const idIngre = (index, id) => {
+    const nuevosIngredientes = [...ingredientes];
+    nuevosIngredientes[index].id = id;
 
-        const options = {
-            method: "POST",
-            body: formData,
-        };
-        console.log(formData);
-        fetch("http://localhost:3000/api/home/1/registerReceta", options)
-            .then((response) => response.json())
-            .then((data) => {
-                setDatos(data)
-            })
-            .catch((error) => {
-                console.error("Error al registrar receta:", error);
-            });
-    };
+    console.log(id);
+    setIngredientes(nuevosIngredientes);
+  };
+  //Lo mismo pero con la medida
+  const mediIngre = (index, value) => {
+    const nuevosIngredientes = [...ingredientes];
+    nuevosIngredientes[index].medida = value;
+    setIngredientes(nuevosIngredientes);
+  };
 
+  // para previsualizar la imagen de la receta
+  const handleChange = (e) => {
+    setPhotos(e.target.files[0]);
+    setImageProfile(URL.createObjectURL(e.target.files[0]));
+  };
 
-    // esto es para poner la cantidad en ingredeintes, al ser un array
-    // copias el array iañades en la posicion el valor del input en la cantidad
-    const CantiIngre = (index, value) => {
-        const nuevosIngredientes = [...ingredientes];
-        nuevosIngredientes[index].cantidad = value;
+  return (
+    <div className="flex flex-col gap-4">
+      {/*Subir imágenes*/}
+      <article className="flex flex-col gap-4">
+        <label className="w-fit text-sm font-semibold">
+          Sube una imagen
+        </label>
+        <input
+          className="w-full border border-gray-300 py-2 text-gray-700 leading-tight"
+          id="imagen"
+          type="file"
+          onChange={handleChange}
+        />
+      </article>
 
+      {/*Imagen subida*/}
+      <div className="max-w-60 object-cover m-auto">
+        <img src={imgProfile} alt="" />
+      </div>
 
-        setIngredientes(nuevosIngredientes);
-    };
-    //Lo mismo pero con id
-    const idIngre = (index, id) => {
+      {/*Título receta*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="name"
+        >
+          Título receta
+        </label>
+        <input
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+          type="text"
+          id="name"
+          name="name"
+          onInput={(e) => setNombreReceta(e.target.value)}
+          value={nombreReceta}
+        />
+      </article>
 
-        const nuevosIngredientes = [...ingredientes];
-        nuevosIngredientes[index].id = id;
+      {/*Descripción receta*/}
+      <article className="flex flex-col gap-4">
+        <label
+          htmlFor="descripcion"
+          className="w-fit text-sm font-semibold"
+        >
+          Descripción
+        </label>
+        <textarea
+          id="descripcion"
+          rows="4"
+          className="bg-gray-200 p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"
+          placeholder="Breve explicación de la receta"
+          onInput={(e) => setDescripcionReceta(e.target.value)}
+          value={descripcionReceta}
+        ></textarea>
+      </article>
 
-        console.log(id)
-        setIngredientes(nuevosIngredientes);
-    };
-    //Lo mismo pero con la medida
-    const mediIngre = (index, value) => {
-        const nuevosIngredientes = [...ingredientes];
-        nuevosIngredientes[index].medida = value;
-        setIngredientes(nuevosIngredientes);
-    };
+      {/*Tipo de plato*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="tipo"
+        >
+          Tipo
+        </label>
+        <select
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+          type="tipo"
+          id="tipo"
+          name="tipo"
+          onInput={(e) => setTipo(e.target.value)}
+          value={tipo}
+        >
+          <option value="Entrante">Entrante</option>
+          <option value="Primero">Primero</option>
+          <option value="Segundo">Segundo</option>
+          <option value="Postre">Postre</option>
+        </select>
+      </article>
 
-    // para previsualizar la imagen de la receta
-    const handleChange = (e) => {
-        setPhotos(e.target.files[0]);
-        setImageProfile(URL.createObjectURL(e.target.files[0]));
-    };
+      {/*Dificultad*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="dificultad"
+        >
+          Dificultad
+        </label>
+        <select
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+          type="dificultad"
+          id="dificultad"
+          name="dificultad"
+          onInput={(e) => setDificultad(e.target.value)}
+          value={dificultad}
+        >
+          <option value="Baja">Baja</option>
+          <option value="Media">Media</option>
+          <option value="Alta">Alta</option>
+        </select>
+      </article>
 
-    return (
-        <div className=" flex flex-col items-center h-auto">
-            <img className="w-44 p-2 " src="/src/assets/logo/logoGamba_logoNaranja.svg" alt="Gamba Logo"></img>
-            {mostrarInfo &&
+      {/*Tiempo*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="tiempo"
+        >
+          Tiempo
+        </label>
+        <select
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+          type="tiempo"
+          id="tiempo"
+          name="tiempo"
+          onInput={(e) => setTiempo(e.target.value)}
+          value={tiempo}
+        >
+          <option value="10 min">10 min</option>
+          <option value="15 min">15 min</option>
+          <option value="20 min">20 min</option>
+          <option value="30 min">30 min</option>
+          <option value="40 min">40 min</option>
+          <option value="50 min">50 min</option>
+          <option value="1 hora">1 hora</option>
+          <option value="2 horas">2 horas</option>
+          <option value="3 horas">3 horas</option>
+        </select>
+      </article>
 
-                <h1 className="text-primary text-3xl font-bold leading-8 mb-4">¡Vamos a crear tu receta!</h1>
-            }
-            <div className="h-[150px] w-[150px] border border-black">
-                <img src={imgProfile} alt="aaa" />
-            </div>
-            {mostrarInfo && (
-                <div className="h-auto p-4 ">
-                    <article className="flex flex-col text-gray-400 justify-start p-2">
-                        <label className=" mb-2 w-fit text-xs text-gray-400 font-semibold">
-                            Subir imagen
-                        </label>
-                        <input
-                            className="text-sm text-gray-900 rounded bg-gray-50 "
-                            id="imagen"
-                            type="file"
-                            onChange={handleChange}
-                        />
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            className="w-fit text-xs text-gray-400  font-semibold"
-                            htmlFor="name"
-                        >
-                            Nombre receta
-                        </label>
-                        <input
-                            className="border-[#3964fe]"
-                            type="text"
-                            id="name"
-                            name="name"
-                            onInput={(e) => setNombreReceta(e.target.value)}
-                            value={nombreReceta}
-                        />
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            htmlFor="descripcion"
-                            className="mb-2 w-fit text-xs text-gray-400 font-semibold"
-                        >
-                            Descripción
-                        </label>
-                        <textarea
-                            id="descripcion"
-                            rows="4"
-                            className="p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300  "
-                            placeholder="Breve explicación de la receta"
-                            onInput={(e) => setDescripcionReceta(e.target.value)}
-                            value={descripcionReceta}
-                        ></textarea>
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            className="w-fit text-xs text-gray-400 font-semibold w/auto"
-                            htmlFor="personas"
-                        >
-                            Personas
-                        </label>
-                        <select
-                            className="{}"
-                            type="personas"
-                            id="personas"
-                            name="personas"
-                            onInput={(e) => setPersones(e.target.value)}
-                            value={persones}
-                        >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            className="w-fit text-xs text-gray-400 font-semibold w/auto"
-                            htmlFor="tipo"
-                        >
-                            tipo
-                        </label>
-                        <select
-                            className="{}"
-                            type="tipo"
-                            id="tipo"
-                            name="tipo"
-                            onInput={(e) => setTipo(e.target.value)}
-                            value={tipo}
-                        >
-                            <option value="Entrante">Entrante</option>
-                            <option value="Primero">Primero</option>
-                            <option value="Segundo">Segundo</option>
-                            <option value="Postre">Postre</option>
+      {/*Para cuantas personas*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="personas"
+        >
+          Personas
+        </label>
+        <select
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+          type="personas"
+          id="personas"
+          name="personas"
+          onInput={(e) => setPersones(e.target.value)}
+          value={persones}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+        </select>
+      </article>
 
-                        </select>
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            className="w-fit text-xs text-gray-400 font-semibold w/auto"
-                            htmlFor="dificultad"
-                        >
-                            Dificultad
-                        </label>
-                        <select type="dificultad" id="dificultad" name="dificultad" onInput={(e) => setDificultad(e.target.value)}
-                            value={dificultad}>
-                            <option value="Baja">Baja</option>
-                            <option value="Media">Media</option>
-                            <option value="Alta">Alta</option>
-                        </select>
-                    </article>
-                    <article className="flex flex-col justify-start p-2">
-                        <label
-                            className="w-fit text-xs text-gray-400 font-semibold"
-                            htmlFor="tiempo"
-                        >
-                            Tiempo
-                        </label>
-                        <input
-                            className="border-[#3964fe]"
-                            type="tiempo"
-                            id="tiempo"
-                            name="tiempo"
-                            onInput={(e) => setTiempo(e.target.value)}
-                            value={tiempo} />
-                    </article>
-                    <article className="flex flex-col justify-start">
-                        {/* Este componente es para tener un input select pero con un buscador incorporado para que no se haga pesado buscar las cosas
-                        en la propiedad endpoint de momento solo hay dos posibilidades que son: tipuscuina o ingredientes. Esto segun lo que querais buscar
-                        */ }
-                        <Selector endpoint="tipuscuina" onSelectId={setTipoCocinaId} />
-                    </article>
-                </div>
-            )}
+      {/*Incluir tipo cocina*/}
+      <article className="flex flex-col gap-4">
+        {/* 
+        Este componente es para tener un input select pero con un buscador incorporado para que no se haga pesado buscar las cosas en la propiedad endpoint de momento solo hay dos posibilidades que son: tipuscuina o ingredientes. Esto segun lo que querais buscar
+        */}
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="personas"
+        >
+          Cocina
+        </label>
+        <Selector
+          endpoint="tipuscuina"
+          onSelectId={setTipoCocinaId}
+          className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+        />
+      </article>
 
-            <div className="flex flex-col  space-y-4">
-                {mostrarIngredientes &&
-                    ingredientes.map((ingrediente, index) => (
-                        <div key={index}>
-                            <div>
-                                <label className="text-[#3964FE] font-black">
-                                    Ingrediente{index + 1}:
-                                </label>
-
-                            </div>
-                            <Selector endpoint="ingredientes" onSelectId={(id) => idIngre(index, id)} />
-
-                            <input
-                                className="border border-black"
-                                type="text"
-                                value={ingrediente.cantidad}
-                                onChange={(e) => CantiIngre(index, e.target.value)}
-                                placeholder="Cantidad"
-                            />
-                            <input
-                                className="border border-black"
-                                type="text"
-                                value={ingrediente.medida}
-                                onChange={(e) => mediIngre(index, e.target.value)}
-                                placeholder="Medida"
-                            />
-                        </div>
-                    ))}
-            </div>
+      {/*Incluir ingrediente*/}
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="personas"
+        >
+          Ingredientes
+        </label>
+        {ingredientes.map((ingrediente, index) => (
+          <div key={index}>
             <div>
-                {mostrarIngredientes &&
-                    <div className="p-2">
-
-                        <button
-                            className="border border-black"
-                            type="button"
-                            onClick={addIngrediente}
-                        >
-                            Agregar Ingrediente
-                        </button>
-                        <button
-                            className="border border-black"
-                            type="button"
-                            onClick={registroReceta}
-                        >
-                            Crear
-                        </button>
-                    </div>
-                }
-
+              <label className="text-primary text-sm font-black flex mb-2">
+                Ingrediente{index + 1}
+              </label>
             </div>
-            <div className="">
-                <Button className="" onClick={change}>
-                    <p>Ingredientes</p>
-                </Button>
+            <Selector
+              className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+              endpoint="ingredientes"
+              onSelectId={(id) => idIngre(index, id)}
+            />
+            <div className="flex gap-2">
+              <input
+                className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                type="text"
+                value={ingrediente.cantidad}
+                onChange={(e) => CantiIngre(index, e.target.value)}
+                placeholder="Cantidad"
+              />
+              <input
+                className="bg-gray-200 border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight"
+                type="text"
+                value={ingrediente.medida}
+                onChange={(e) => mediIngre(index, e.target.value)}
+                placeholder="Medida"
+              />
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </article>
+      {/*Botones Agregar ingrediente*/}
+      <Button className="w-40 bg-primary text-white" type="button" onClick={addIngrediente}>
+        Agregar Ingrediente
+      </Button>
+
+      {/*Botones Crear receta*/}
+      <Button className="" type="button" onClick={registroReceta}>
+        Crear
+      </Button>
+    </div>
+  );
 }
