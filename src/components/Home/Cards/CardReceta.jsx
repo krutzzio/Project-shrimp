@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 export function CardReceta({ recetaInfo }) {
   const { receta, nombreRestaurante, tipoCocinaReceta, recetaInUser } = recetaInfo
   return (
-    <Link to={`/receta/${receta.id}`} className="max-w-md min-w-50 items-center flex flex-col">
+    <Link to={`/receta/${receta.id}`}>
       {/*Imagen*/}
       <div className="flex flex-col gap-1 relative my-4 rounded-2xl bg-white">
-        <div className="flex relative">
+        <div className="relative">
           <Chip color="primary" size="sm" className="absolute px-2 z-20 top-[0.5rem] left-[0.5rem] text-white">{tipoCocinaReceta}</Chip>
           <img className="absolute z-20 w-6 top-[0.51rem] right-[0.5rem]" src={corazon} />
           <img
