@@ -10,6 +10,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../components/navbar/NavBar";
 import TiposComida from "../components/TiposComida/TiposComida";
 import { useHomeRecetas } from "../hooks/useHomeRecetas";
+import Footer from "../components/Footer";
 
 
 export default function HomeRecetas() {
@@ -140,6 +141,8 @@ export default function HomeRecetas() {
         <Outlet />
 
       </main>
+
+      <Footer/>
     </div>
   );
 }

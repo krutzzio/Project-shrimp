@@ -8,6 +8,7 @@ import Ubicacion from "../assets/Recetas/ubicacion.png";
 import rest from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../assets/iconos/iconos_Favorito.svg";
 import Receta3 from "../assets/Recetas/Receta1.jpg";
+import Footer from "../components/Footer";
 
 
 export function PerfilRestauranteVistaCliente() {
@@ -112,6 +113,7 @@ export function PerfilRestauranteVistaCliente() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@nextui-org/react": "^2.2.10",
+    "@emailjs/browser": "^4.3.3",
+    "@nextui-org/react": "^2.3.6",
     "framer-motion": "^11.0.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
