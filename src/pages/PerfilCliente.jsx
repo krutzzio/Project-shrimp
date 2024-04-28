@@ -11,38 +11,36 @@ import {
   Input,
   Chip,
 } from "@nextui-org/react";
-import AddIcon from "../assets/add.svg";
 import { UserInfoContext } from "../contexts/UserInfoContext";
 import { useContext } from "react";
+import logout from "../assets/iconos/iconos_Logout.svg";
 
 export function PerfilCliente() {
-  const { user } = useContext(UserInfoContext)
+  const { user } = useContext(UserInfoContext);
 
   return (
     <div className="flex flex-col h-screen ">
       <NavBar />
 
       <main className="">
-        <div className="flex flex-col items-center gap-2 mt-4 ">
-          <article className="w-44 h-44 rounded-full relative flex justify-center items-center">
-            <label
-              htmlFor="photo"
-              className="absolute bg-success bottom-[1rem] left-[4.8rem] flex justify-center items-center rounded-full text-3xl h-6 w-6"
-            >
-              <img src={AddIcon} alt="" />
-              <span className="absolute h-7 w-7 rounded-full border-3 border-bgcolor"></span>
-            </label>
+        <div className="flex flex-col gap-2 mt-4 max-w-screen-2xl m-auto">
+          <div className="flex items-start justify-between px-2">
+            <div className="w-8"></div>
+
             <Avatar
-              classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+              classNames={{ base: "bg-primary", icon: "text-[#F2F2F2]" }}
               className="w-32 h-32 rounded-full border-white"
               alt="Perfil"
               src={user.foto_perfil}
             />
-          </article>
-
-          <h2 className="text-2xl font-bold">{user.nombre}</h2>
-
-          <div className="flex gap-2">
+            <Link to={"/"}>
+              <img src={logout} className="w-8" />
+            </Link>
+          </div>
+          <div className="m-auto">
+            <h2 className="text-2xl font-bold">{user.nombre}</h2>
+          </div>
+          <div className="flex gap-2 m-auto">
             <Chip color="primary" className="text-white">
               13 recetas
             </Chip>
@@ -98,7 +96,7 @@ export function PerfilCliente() {
                         name="teléfono"
                       />
                     </article>
-                    <Button color="primary" className="text-white w-36">
+                    <Button color="primary" className="text-white w-36 m-auto">
                       Aplicar cambios
                     </Button>
                   </div>
@@ -110,9 +108,7 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
-                      
-                    </div>
+                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0"></div>
                   </div>
                 </CardBody>
               </Card>
@@ -122,24 +118,14 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
-                      
-                    </div>
+                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0"></div>
                   </div>
                 </CardBody>
               </Card>
             </Tab>
           </Tabs>
         </div>
-
-        <div className="flex items-center justify-center px-4 py-6 mt-4 bg-primary rounded shadow hover:bg-orange-600">
-          <Link to="/">
-            <button className="text-lg font-bold text-white">Desloguear</button>
-          </Link>
-        </div>
       </main>
-
-
     </div>
   );
 }

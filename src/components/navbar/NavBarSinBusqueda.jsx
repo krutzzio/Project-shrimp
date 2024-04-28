@@ -1,11 +1,7 @@
-import SwitchHome from "../SwitchHome";
 import {
   Avatar,
-  Input,
 } from "@nextui-org/react";
 import logoGamba from "../../assets/logo/logoGamba_logoNaranja.svg";
-import lupa from "../../assets/iconos/iconos_Lupa.svg";
-import CP from "../../assets/iconos/iconos_Mapa.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserInfoContext } from "../../contexts/UserInfoContext";
@@ -15,7 +11,7 @@ export default function NavBar() {
 
   return (
     <header className="p-2">
-      <section className="relative z-10 flex items-center justify-between lg:gap-4">
+      <section className="relative z-10 flex items-center justify-between lg:gap-2 max-w-screen-2xl m-auto">
         {/*Desktop*/}
 
         {/*Logo*/}
@@ -23,14 +19,17 @@ export default function NavBar() {
           <img src={logoGamba} alt="Gamba Logo" />
         </Link>
 
-        {/*Switch largo*/}
+        {/*Switch largo
         <section className="hidden lg:block">
           <SwitchHome />
         </section>
-        {/*Codigo Postal*/}
+        */}
+
+        {/*Codigo Postal
         <section className="hidden lg:block w-24">
           <Input
-            variant="underlined"
+            variant="faded"
+            radius="full"
             classNames={{
               input: [
                 "bg-transparent",
@@ -47,10 +46,13 @@ export default function NavBar() {
             startContent={<img src={CP} className="w-5" />}
           />
         </section>
-        {/*Barra Buscador*/}
+        */}
+
+        {/*Barra Buscador
         <section className="hidden lg:block w-1/2">
           <Input
-            variant="underlined"
+            variant="faded"
+            radius="full"
             classNames={{
               input: [
                 "bg-transparent",
@@ -67,7 +69,8 @@ export default function NavBar() {
             startContent={<img src={lupa} className="w-5" />}
           />
         </section>
-
+        */}
+      
         {/*Avatar*/}
         <Link to={"/perfil"}>
           <Avatar
