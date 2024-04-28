@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../components/Receta/formsReceta.css";
 import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
