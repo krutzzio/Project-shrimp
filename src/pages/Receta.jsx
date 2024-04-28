@@ -22,6 +22,7 @@ import fav from "../assets/iconos/iconos_Favorito.svg";
 import corazon from "../assets/iconos/iconos_Corazon.svg";
 import { Link } from "react-router-dom";
 import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
+import Footer from "../components/Footer";
 
 export function Receta() {
   return (
@@ -195,6 +196,7 @@ export function Receta() {
         
 
       </div>
+      <Footer/>
     </div>
   );
 }
