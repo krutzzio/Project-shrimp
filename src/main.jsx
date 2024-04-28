@@ -77,7 +77,7 @@ const router = createBrowserRouter([
     element: <PerfilRestauranteVistaCliente />
   },
   {
-    path: "/receta",
+    path: "/receta/:id",
     element: <Receta />
 
   },

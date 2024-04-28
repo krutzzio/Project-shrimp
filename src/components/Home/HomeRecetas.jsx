@@ -3,12 +3,12 @@ import flechader from "../../assets/iconos/iconos_flecha_der.svg"
 import flechaizq from "../../assets/iconos/iconos_flecha_izq.svg"
 import { useHomeRecetas } from "../../hooks/useHomeRecetas";
 import { useEffect } from "react";
-import { Skeleton } from "@nextui-org/react";
+import CardRecetaLoading from "./Cards/CardRecetaLoading";
 
 
 export default function HomeRecetas() {
 
-    const { recetasRecomendadas, recetasCercanas, recetasNuevas, RECETAS_LOADING } = useHomeRecetas()
+    const { recetasRecomendadas, recetasCercanas, recetasNuevas } = useHomeRecetas()
     useEffect(() => {
         console.log(recetasRecomendadas == true)
         console.log(recetasCercanas)
@@ -38,9 +38,9 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="flex gap-4 ml-2">
                         {
-                            recetasRecomendadas
-                                ? recetasRecomendadas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
+                            !recetasRecomendadas.length
+                                ? <CardRecetaLoading />
+                                : recetasRecomendadas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
                         }
                     </div>
                 </div>
@@ -61,9 +61,9 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="relative flex gap-4 ml-2">
                         {
-                            recetasCercanas
-                                ? recetasCercanas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
+                            !recetasCercanas.length
+                                ? <CardRecetaLoading />
+                                : recetasCercanas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
                         }
                     </div>
                 </div>
@@ -83,9 +83,10 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="relative flex gap-4 ml-2">
                         {
-                            recetasNuevas
-                                ? recetasNuevas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-                                : RECETAS_LOADING?.map((receta, index) => <Skeleton key={index}></Skeleton>)
+                            !recetasNuevas.length
+                                ? <CardRecetaLoading />
+                                : recetasNuevas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+
                         }
                     </div>
                 </div>

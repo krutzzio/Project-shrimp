@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 export function CardReceta({ recetaInfo }) {
   const { receta, nombreRestaurante, tipoCocinaReceta, recetaInUser } = recetaInfo
   return (
-    <Link to={"/receta"} className="max-w-md min-w-50 items-center flex flex-col">
+    <Link to={`/receta/${receta.id}`} className="max-w-md min-w-50 items-center flex flex-col">
       {/*Imagen*/}
       <div className="flex flex-col gap-1 relative my-4 rounded-2xl">
         <div className="flex relative">
