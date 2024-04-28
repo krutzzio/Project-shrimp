@@ -72,7 +72,7 @@ export default function NavBar() {
         <Link to={"/perfil"}>
           <Avatar
             size="md"
-            classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
+            classNames={{ base: "bg-primary", icon: "text-[#F2F2F2]" }}
             src={user.foto_perfil}
 
           />
