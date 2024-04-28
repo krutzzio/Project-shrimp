@@ -10,16 +10,11 @@ import {
   Image,
   Input,
   Tab,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
   Tabs,
   Textarea,
 } from "@nextui-org/react";
 import { CardReceta } from "../components/Home/Cards/CardReceta";
+import Promociones from "../components/Promociones";
 
 export default function PerfilRestaurante() {
   return (
@@ -44,7 +39,7 @@ export default function PerfilRestaurante() {
         </div>
       </div>
 
-      <div className="flex w-full flex-col mt-4 block max-w-screen-2xl m-auto">
+      <div className="flex w-full flex-col mt-4 max-w-screen-2xl m-auto">
         <Tabs
           aria-label="Options"
           variant="underlined"
@@ -60,7 +55,8 @@ export default function PerfilRestaurante() {
                     <label className="w-fit" htmlFor="nombre">
                       Nombre del restaurante
                     </label>
-                    <Input placeholder="Don Corleone"
+                    <Input
+                      placeholder="Don Corleone"
                       variant="underlined"
                       className="input-form"
                       type="text"
@@ -72,7 +68,8 @@ export default function PerfilRestaurante() {
                     <label className="w-fit" htmlFor="dirección">
                       Dirección
                     </label>
-                    <Input placeholder="Calle Pilar, 93, 08940, Cornellà de Llobregat"
+                    <Input
+                      placeholder="Calle Pilar, 93, 08940, Cornellà de Llobregat"
                       variant="underlined"
                       className="input-form"
                       type="text"
@@ -84,7 +81,8 @@ export default function PerfilRestaurante() {
                     <label className="w-fit" htmlFor="teléfono">
                       Correo
                     </label>
-                    <Input placeholder="info@doncorleone.es"
+                    <Input
+                      placeholder="info@doncorleone.es"
                       variant="underlined"
                       className="input-form"
                       type="text"
@@ -96,7 +94,8 @@ export default function PerfilRestaurante() {
                     <label className="w-fit" htmlFor="teléfono">
                       Teléfono
                     </label>
-                    <Input placeholder="93 337 03 06"
+                    <Input
+                      placeholder="93 337 03 06"
                       variant="underlined"
                       className="input-form"
                       type="text"
@@ -108,7 +107,8 @@ export default function PerfilRestaurante() {
                     <label className="w-fit" htmlFor="teléfono">
                       Descripción
                     </label>
-                    <Textarea placeholder="Restaurante italiano con una extensa carta de platos de nuestra tierra. Destacamos por nuestras pizzas al horno de piedra."
+                    <Textarea
+                      placeholder="Restaurante italiano con una extensa carta de platos de nuestra tierra. Destacamos por nuestras pizzas al horno de piedra."
                       variant="underlined"
                       className="input-form"
                       type="text"
@@ -128,7 +128,7 @@ export default function PerfilRestaurante() {
               <CardBody>
                 <div className="flex flex-col items-center">
                   <Button color="secondary" className="text-white w-36 my-4">
-                    Generar código
+                    Subir receta
                   </Button>
                 </div>
                 <div className="flex flex-col gap-4">
@@ -143,66 +143,7 @@ export default function PerfilRestaurante() {
           <Tab key="Promociones" title="Promociones">
             <Card>
               <CardBody>
-                <div className="flex flex-col gap-4">
-                  <h2 className="font-bold text-lg">Crea tu promoción</h2>
-                  <article className="flex flex-col justify-start text-sm">
-                    <label className="w-fit" htmlFor="usuario">
-                      Usuario Instagram
-                    </label>
-                    <Input
-                      variant="underlined"
-                      className="input-form"
-                      type="text"
-                      id="usuario"
-                      name="usuario"
-                    />
-                  </article>
-                  <article className="flex flex-col justify-start text-sm">
-                    <label className="w-fit" htmlFor="codigo">
-                      Código
-                    </label>
-                    <Input
-                      variant="underlined"
-                      className="input-form"
-                      type="number"
-                      id="codigo"
-                      name="codigo"
-                    />
-                  </article>
-                  <Button color="secondary" className="text-white w-36">
-                    Generar código
-                  </Button>
-                </div>
-
-                <div className="flex flex-col gap-4 mt-6">
-                  <h2 className="font-bold text-lg">Promociones que has dado</h2>
-
-                  <Table removeWrapper aria-label="Example static collection table">
-                    <TableHeader>
-                      <TableColumn>CÓDIGO</TableColumn>
-                      <TableColumn>USUARIO</TableColumn>
-                    </TableHeader>
-                    <TableBody>
-                      <TableRow key="1">
-                        <TableCell>444444</TableCell>
-                        <TableCell>@laquelra</TableCell>
-                      </TableRow>
-                      <TableRow key="2">
-                        <TableCell>444444</TableCell>
-                        <TableCell>@laquelra</TableCell>
-                      </TableRow>
-                      <TableRow key="3">
-                        <TableCell>444444</TableCell>
-                        <TableCell>@laquelra</TableCell>
-                      </TableRow>
-                      <TableRow key="4">
-                        <TableCell>444444</TableCell>
-                        <TableCell>@laquelra</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </div>
-
+                <Promociones/>
               </CardBody>
             </Card>
           </Tab>
