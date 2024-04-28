@@ -20,7 +20,7 @@ export function CrearProcedimientos() {
 
   const handleSubmit = async () => {
     try {
-      const recetaId = 1; // ID de la receta a la que se agregarán los procedimientos
+      const recetaId = 1; // Esto habra que pasarlo por la url o por props
 
       const formData = new FormData();
       procedimientos.forEach((procedimiento, index) => {
