@@ -10,12 +10,6 @@ import {
   Image,
   Input,
   Tab,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
   Tabs,
   Textarea,
 } from "@nextui-org/react";
