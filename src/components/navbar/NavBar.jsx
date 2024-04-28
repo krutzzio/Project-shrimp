@@ -23,11 +23,13 @@ import filtro from "../../assets/iconos/iconos_Filtro.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserInfoContext } from "../../contexts/UserInfoContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 
 export default function NavBar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { user } = useContext(UserInfoContext)
+  const { userType, setUserType } = useContext(ThemeContext)
 
 
   return (
@@ -96,9 +98,10 @@ export default function NavBar() {
           </Link>
           <Switch
             className="lg:hidden"
-            defaultSelected
             size="lg"
             color="primary"
+            isSelected={userType}
+            onValueChange={setUserType}
             thumbIcon={({ isSelected }) =>
               isSelected ? (
                 <img src={rest} className="w-5" />

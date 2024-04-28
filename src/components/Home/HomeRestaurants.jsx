@@ -5,7 +5,7 @@ import { useHomeRecetas } from "../../hooks/useHomeRecetas";
 import CardRecetaLoading from "./Cards/CardRecetaLoading";
 
 
-export default function HomeRecetas() {
+export default function HomeRestaurants() {
 
     const { recetasRecomendadas, recetasCercanas, recetasNuevas } = useHomeRecetas()
 
@@ -16,7 +16,7 @@ export default function HomeRecetas() {
             <div className='flex flex-col'>
                 {/*Título + Botones */}
                 <div className="flex items-end justify-between">
-                    <h1 className="text-2xl font-bold ml-2">Te puede gustar</h1>
+                    <h1 className="text-2xl font-bold ml-2">Restaurantes</h1>
                     {/*Botones */}
                     <div className="hidden md:flex md:gap-1">
                         <button type="button" data-carousel-prev>

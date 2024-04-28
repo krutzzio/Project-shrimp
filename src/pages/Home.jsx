@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Button,
   Dropdown,
@@ -6,10 +6,12 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/react";
-import { Outlet } from "react-router-dom";
 import NavBar from "../components/navbar/NavBar";
 import TiposComida from "../components/TiposComida/TiposComida";
 import Footer from "../components/Footer";
+import { ThemeContext } from "../contexts/ThemeContext";
+import HomeRecetas from "../components/Home/HomeRecetas";
+import HomeRestaurants from "../components/Home/HomeRestaurants";
 
 
 export default function Home() {
@@ -29,8 +31,10 @@ export default function Home() {
     .join(", ")
     .replaceAll("_", " ");
 
+  const { userType } = useContext(ThemeContext)
 
   return (
+
     <div className="max-w-screen mx-auto">
       <NavBar />
       <main className="block max-w-screen-2xl m-auto">
@@ -136,7 +140,11 @@ export default function Home() {
           </div>
         </section>
 
-        <Outlet />
+        {
+          !userType
+            ? <HomeRecetas />
+            : <HomeRestaurants />
+        }
 
       </main>
 
