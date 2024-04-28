@@ -31,10 +31,9 @@ export default function NavBar() {
   const { user } = useContext(UserInfoContext)
   const { userType, setUserType } = useContext(ThemeContext)
 
-
   return (
     <header className="w-full p-2">
-      <section className="relative z-10 flex flex-row items-center justify-between lg:gap-4">
+      <section className="relative z-10 flex flex-row items-center justify-between md:gap-2 max-w-screen-2xl m-auto">
         {/*Desktop*/}
 
         {/*Logo*/}

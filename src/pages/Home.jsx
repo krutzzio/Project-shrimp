@@ -37,7 +37,7 @@ export default function Home() {
 
     <div className="max-w-screen mx-auto">
       <NavBar />
-      <main className="block max-w-screen-2xl m-auto">
+      <main className="block max-w-screen-2xl m-auto mb-10">
 
         <TiposComida />
 

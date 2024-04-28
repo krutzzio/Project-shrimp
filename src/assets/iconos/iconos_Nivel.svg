@@ -3,9 +3,9 @@
 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#F14900;stroke-width:7;stroke-miterlimit:10;}
+	.st0{fill:none;stroke:#999999;stroke-width:25;stroke-miterlimit:10;}
 </style>
-<path class="st0" d="M24.2,57.3l24,36.4c0.2,0.3,0.6,0.3,0.8,0L72.7,57c5.2-8.4,7.4-17.3,5.9-27C76.7,18.9,65.9,6.3,48.4,6.3
-	S20.1,18.9,18.2,30.1C16.6,39.9,18.9,48.9,24.2,57.3z"/>
-<circle class="st0" cx="49.1" cy="37.5" r="12.9"/>
+<line class="st0" x1="19.2" y1="94.5" x2="19.2" y2="66.2"/>
+<line class="st0" x1="50.6" y1="94.5" x2="50.6" y2="44.2"/>
+<line class="st0" x1="82.3" y1="94.5" x2="82.3" y2="20"/>
 </svg>
