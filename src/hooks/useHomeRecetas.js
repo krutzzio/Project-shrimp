@@ -2,11 +2,22 @@ import { useEffect, useState } from "react";
 import { homeRecetas } from "../utils/fetchs/homeRecetas";
 
 export function useHomeRecetas() {
-    const [recetasHome, setRecetasHome] = useState([])
+    const [recetasRecomendadas, setRecetasRecomendadas] = useState([])
+    const [recetasCercanas, setRecetasCercanas] = useState([])
+    const [recetasNuevas, setRecetasNuevas] = useState([])
+
+
+
 
     useEffect(() => {
-        setRecetasHome(homeRecetas())
+        const fetch = async () => {
+            const data = await homeRecetas()
+            setRecetasRecomendadas(data.recetasRecomendadas)
+            setRecetasCercanas(data.recetasCercanas)
+            setRecetasNuevas(data.recetasNuevas)
+        }
+        fetch()
     }, [])
 
-    return { recetasHome }
+    return { recetasRecomendadas, recetasCercanas, recetasNuevas }
 }
