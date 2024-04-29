@@ -16,6 +16,7 @@ import { useContext } from "react";
 import logout from "../assets/iconos/iconos_Logout.svg";
 import { usePerfilCliente } from "../hooks/usePerfilCliente";
 import { CardReceta } from "../components/Home/Cards/CardReceta";
+import { CardRestaurante } from "../components/Home/Cards/CardRestaurante";
 
 export function PerfilCliente() {
   const { user } = useContext(UserInfoContext);
@@ -129,7 +130,13 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus restaurantes</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0"></div>
+                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
+                      {
+                        !restaurantesGuardados.length
+                          ? <></>
+                          : restaurantesGuardados.map(restaurante => <CardRestaurante key={restaurante.id} restInfo={restaurante} />)
+                      }
+                    </div>
                   </div>
                 </CardBody>
               </Card>

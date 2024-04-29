@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { homeRestaurantes } from "../utils/fetchs/homeRestaurantes";
+import { getUserInfo } from "../utils/fetchs/userProfile";
 
 export function usePerfilCliente() {
     const [restaurantesGuardados, setRestaurantesGuardados] = useState([])
@@ -7,7 +7,7 @@ export function usePerfilCliente() {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = await homeRestaurantes()
+            const data = await getUserInfo()
             setRestaurantesGuardados(data.restUser)
             setRecetasGuardadas(data.recetasUser)
         }

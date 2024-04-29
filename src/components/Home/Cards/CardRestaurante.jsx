@@ -33,7 +33,7 @@ export function CardRestaurante({ restInfo }) {
                             <p className="text-lg font-bold text-white text-wrap leading-6">{restaurante.nombre}</p>
                             <p className="text-md text-white">{restaurante.direccion}</p>
                         </div>
-                        <img onClick={handleSeguirRest} className="h-6 items-start" src={restGuardado ? favRelleno : fav} alt="Guardar en favoritos" />
+                        <img onClick={handleSeguirRest} className="h-6 items-start z-10" src={restGuardado ? favRelleno : fav} alt="Guardar en favoritos" />
                     </CardFooter>
                 </Card>
             </div>
