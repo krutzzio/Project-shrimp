@@ -1,5 +1,5 @@
 import { CardReceta } from "../components/Home/Cards/CardReceta";
-import NavBar from "../components/navbar/NavBarSinBusqueda";
+import NavBarSinBusqueda from "../components/navbar/NavBarSinBusqueda";
 import { Card, Divider, Image } from "@nextui-org/react";
 import { Chip } from "@nextui-org/react";
 import Telefono from "../assets/Recetas/telefono.png";
@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 export function PerfilRestauranteVistaCliente() {
   return (
     <div className="">
-      <NavBar />
+      <NavBarSinBusqueda />
 
       <div className="relative">
         <div className="absolute z-20 p-2 bottom-0 right-0">

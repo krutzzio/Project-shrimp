@@ -15,7 +15,7 @@ export default function HomeRestaurantes() {
             <div className='flex flex-col'>
                 {/*Título + Botones */}
                 <div className="flex items-end justify-between">
-                    <h1 className="text-2xl font-bold ml-2">Restaurantes</h1>
+                    <h1 className="text-2xl font-bold ml-2">Restaurantes para ti</h1>
                     {/*Botones */}
                     <div className="hidden md:flex md:gap-1">
                         <button type="button" data-carousel-prev>

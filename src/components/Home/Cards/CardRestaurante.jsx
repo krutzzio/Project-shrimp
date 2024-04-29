@@ -16,10 +16,11 @@ export function CardRestaurante({ restInfo }) {
         event.preventDefault();
         const restUser = await seguirRestaurante({ restId: restaurante.id })
         setRestGuardado(restUser)
+        console.log(restUser)
     }
 
     return (
-        <Link to={"/perfil/restaurante-cliente"} className="max-w-md min-w-50 items-center flex flex-col">
+        <Link to={`/perfil-restaurante/${restaurante.id}`} className="max-w-md min-w-50 items-center flex flex-col">
             <div className="relative shadow-lg my-4 rounded-2xl w-[15rem]">
                 <Card isFooterBlurred className="border-none">
                     <Chip color="primary" className="absolute z-20 top-[0.5rem] left-[0.5rem] text-white">{tipoCocinaRestaurante.length > 1 ? "Varios" : `${tipoCocinaRestaurante[0].nombre_tipo}`}</Chip>

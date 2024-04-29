@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import NavBar from "../components/navbar/NavBarSinBusqueda";
+import NavBarPerfil from "../components/navbar/NavBarPerfil";
 import { DIETAS } from "../utils/fetchs/constants";
 import {
   Avatar,
@@ -13,7 +12,6 @@ import {
 } from "@nextui-org/react";
 import { UserInfoContext } from "../contexts/UserInfoContext";
 import { useContext } from "react";
-import logout from "../assets/iconos/iconos_Logout.svg";
 import { usePerfilCliente } from "../hooks/usePerfilCliente";
 import { CardReceta } from "../components/Home/Cards/CardReceta";
 import { CardRestaurante } from "../components/Home/Cards/CardRestaurante";
@@ -24,29 +22,31 @@ export function PerfilCliente() {
 
   return (
     <div className="flex flex-col h-screen ">
-      <NavBar />
-
+      <NavBarPerfil userType={false} />
       <main className="">
         <div className="flex flex-col gap-2 mt-4 max-w-screen-2xl m-auto">
-          <div className="flex items-start justify-between px-2">
-            <div className="w-8"></div>
-
+          <div className="flex justify-center px-2">
             <Avatar
               classNames={{ base: "bg-primary", icon: "text-[#F2F2F2]" }}
               className="w-32 h-32 rounded-full border-white"
               alt="Perfil"
               src={user.foto_perfil}
             />
-            <Link to={"/"}>
-              <img src={logout} className="w-8" />
-            </Link>
+
           </div>
           <div className="m-auto">
             <h2 className="text-2xl font-bold">{user.nombre}</h2>
           </div>
           <div className="flex gap-2 m-auto">
             <Chip color="primary" className="text-white">
-              13 recetas
+              {
+                <h1>{recetasGuardadas.length} recetas</h1>
+              }
+            </Chip>
+            <Chip color="primary" className="text-white">
+              {
+                <h1>{restaurantesGuardados.length} restaurantes</h1>
+              }
             </Chip>
             {
               !user.dieta
@@ -134,7 +134,7 @@ export function PerfilCliente() {
                       {
                         !restaurantesGuardados.length
                           ? <></>
-                          : restaurantesGuardados.map(restaurante => <CardRestaurante key={restaurante.id} restInfo={restaurante} />)
+                          : restaurantesGuardados.map(restaurante => <CardRestaurante key={restaurante.restaurante.id} restInfo={restaurante} />)
                       }
                     </div>
                   </div>

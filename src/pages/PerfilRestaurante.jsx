@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NavBar from "../components/navbar/NavBarSinBusqueda";
+import NavBarPerfil from "../components/navbar/NavBarPerfil";
 import perfil from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
 
 import {
@@ -28,7 +28,7 @@ export default function PerfilRestaurante() {
 
   return (
     <div className="flex flex-col h-screen">
-      <NavBar />
+      <NavBarPerfil userType={true} />
       <div className="flex flex-col items-center gap-2">
         <Image
           width={400}
