@@ -1,4 +1,3 @@
-import { CardReceta } from "./Cards/CardReceta";
 import flechader from "../../assets/iconos/iconos_flecha_der.svg"
 import flechaizq from "../../assets/iconos/iconos_flecha_izq.svg"
 import { useHomeRestaurantes } from "../../hooks/useHomeRestaurantes";
@@ -11,7 +10,6 @@ export default function HomeRestaurantes() {
     const { restaurantesRecomendados, restaurantesCercanos } = useHomeRestaurantes()
 
     return (
-
         <div className="flex flex-col mt-6 md:mt-8 gap-4">
             {/*Primer Carrousel */}
             <div className='flex flex-col'>

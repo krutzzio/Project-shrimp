@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import NavBar from "../components/navbar/NavBarSinBusqueda";
-
+import { DIETAS } from "../utils/fetchs/constants";
 import {
   Avatar,
   Button,
@@ -14,9 +14,12 @@ import {
 import { UserInfoContext } from "../contexts/UserInfoContext";
 import { useContext } from "react";
 import logout from "../assets/iconos/iconos_Logout.svg";
+import { usePerfilCliente } from "../hooks/usePerfilCliente";
+import { CardReceta } from "../components/Home/Cards/CardReceta";
 
 export function PerfilCliente() {
   const { user } = useContext(UserInfoContext);
+  const { restaurantesGuardados, recetasGuardadas } = usePerfilCliente()
 
   return (
     <div className="flex flex-col h-screen ">
@@ -44,9 +47,11 @@ export function PerfilCliente() {
             <Chip color="primary" className="text-white">
               13 recetas
             </Chip>
-            <Chip color="primary" className="text-white">
-              Vegetariana
-            </Chip>
+            {
+              !user.dieta
+                ? <Chip color="primary" className="text-white">{DIETAS[1]}</Chip>
+                : <></>
+            }
           </div>
         </div>
 
@@ -108,7 +113,13 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0"></div>
+                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
+                      {
+                        !recetasGuardadas.length
+                          ? <></>
+                          : recetasGuardadas.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+                      }
+                    </div>
                   </div>
                 </CardBody>
               </Card>
@@ -117,7 +128,7 @@ export function PerfilCliente() {
               <Card>
                 <CardBody>
                   <div className="flex flex-col">
-                    <h2 className="font-bold text-lg">Tus recetas</h2>
+                    <h2 className="font-bold text-lg">Tus restaurantes</h2>
                     <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0"></div>
                   </div>
                 </CardBody>
