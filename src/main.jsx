@@ -91,7 +91,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <RegisterProvider>
         <UserInfoProvider>
-          <main className="h-dvh client-theme">
+          <main className="h-screen client-theme">
             <RouterProvider router={router} />
           </main>
         </UserInfoProvider>

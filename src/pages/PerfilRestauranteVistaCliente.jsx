@@ -75,12 +75,7 @@ export function PerfilRestauranteVistaCliente() {
         <div className="flex flex-col gap-2 mx-4">
           <h3 className="font-bold text-xl">Recetas:</h3>
           <div className="m-auto md:m-0 md:flex md:gap-4">
-          <CardReceta/>
-          <CardReceta/>
-          <CardReceta/>
-          <CardReceta/>
-          <CardReceta/>
-          <CardReceta/>
+
           </div>
         </div>
 

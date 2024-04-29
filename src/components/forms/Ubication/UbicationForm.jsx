@@ -6,7 +6,7 @@ export function UbicationClientForm({ handleChange, client }) {
             <h1 className="text-gray-400 font-medium text-lg">Añade tu Codigo Postal</h1>
             <section className="w-11/12 flex flex-col justify-start">
                 {/*<label className="w-fit text-sm text-gray-400 font-semibold mb-4" htmlFor="cp">Codigo Postal</label>*/}
-                <input className="outline-none bg-transparent border-primary border-b-2 w-72 m-auto" type="number" max={5} id="cp" name="cp" value={client.cp} onChange={handleChange} />
+                <input className="outline-none bg-transparent border-primary z-10 relative border-b-2 w-72 m-auto" type="number" max={5} id="cp" name="cp" value={client.cp} onChange={handleChange} />
             </section>
         </div>
     )
