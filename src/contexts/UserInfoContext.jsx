@@ -15,7 +15,10 @@ export const UserInfoContext = createContext(null)
 // eslint-disable-next-line react/prop-types
 export function UserInfoProvider({ children }) {
 
-    const [user, setUser] = useState(infoClient)
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const [user, setUser] = useState(userInfo || infoClient)
+
+    // When initializing the context value
 
 
     return (

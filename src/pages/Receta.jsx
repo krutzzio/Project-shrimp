@@ -25,6 +25,7 @@ import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 import Footer from "../components/Footer";
 
 export function Receta() {
+
   return (
 
     <div className=" ">
@@ -69,13 +70,13 @@ export function Receta() {
             </h2>
             <img src={corazon} className="h-8" />
           </div>
-            <div className="flex gap-1">
+          <div className="flex gap-1">
             <Chip color="primary" className="text-white">Hawaiano</Chip>
             <Chip color="primary" className="text-white">Vegetariano</Chip>
             <Chip color="primary" className="text-white">Sin gluten</Chip>
           </div>
         </div>
-        
+
         <p className="text-gray-500 leading-5 text-md mx-4">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe amet
           in, facere necessitatibus enim architecto vero repellat quam, veniam
@@ -101,7 +102,7 @@ export function Receta() {
 
         <div className="flex flex-col gap-1 mx-4">
           <p className="text-gray-500">Alérgenos:</p>
-          <TiposAlergias/>          
+          <TiposAlergias />
         </div>
 
         <div className="flex flex-col gap-2 mx-4">
@@ -193,10 +194,10 @@ export function Receta() {
           <h3 className="text-2xl font-bold text-primary">Don Kamaron</h3>
           <p className="leading-5 text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus aliquam, saepe assumenda cum nemo repudiandae quas culpa quidem voluptate atque non! Dolor amet impedit recusandae laboriosam nemo molestias porro ex.</p>
         </div>
-        
+
 
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

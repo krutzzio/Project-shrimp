@@ -1,22 +1,21 @@
-import { CardReceta } from "./Cards/CardReceta";
 import flechader from "../../assets/iconos/iconos_flecha_der.svg"
 import flechaizq from "../../assets/iconos/iconos_flecha_izq.svg"
-import { useHomeRecetas } from "../../hooks/useHomeRecetas";
+import { useHomeRestaurantes } from "../../hooks/useHomeRestaurantes";
 import CardRecetaLoading from "./Cards/CardRecetaLoading";
+import { CardRestaurante } from "./Cards/CardRestaurante";
 
 
-export default function HomeRecetas() {
+export default function HomeRestaurantes() {
 
-    const { recetasRecomendadas, recetasCercanas, recetasNuevas } = useHomeRecetas()
+    const { restaurantesRecomendados, restaurantesCercanos } = useHomeRestaurantes()
 
     return (
-
         <div className="flex flex-col mt-6 md:mt-8 gap-4">
             {/*Primer Carrousel */}
             <div className='flex flex-col'>
                 {/*Título + Botones */}
                 <div className="flex items-end justify-between">
-                    <h1 className="text-2xl font-bold ml-2">Te puede gustar</h1>
+                    <h1 className="text-2xl font-bold ml-2">Restaurantes</h1>
                     {/*Botones */}
                     <div className="hidden md:flex md:gap-1">
                         <button type="button" data-carousel-prev>
@@ -31,9 +30,9 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="flex gap-4 ml-2">
                         {
-                            !recetasRecomendadas.length
+                            !restaurantesRecomendados.length
                                 ? <CardRecetaLoading />
-                                : recetasRecomendadas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+                                : restaurantesRecomendados?.map(rest => <CardRestaurante key={rest.restaurante.id} restInfo={rest} />)
                         }
                     </div>
                 </div>
@@ -54,9 +53,9 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="relative flex gap-4 ml-2">
                         {
-                            !recetasCercanas.length
+                            !restaurantesCercanos.length
                                 ? <CardRecetaLoading />
-                                : recetasCercanas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+                                : restaurantesCercanos?.map(rest => <CardRestaurante key={rest.restaurante.id} restInfo={rest} />)
                         }
                     </div>
                 </div>
@@ -76,10 +75,10 @@ export default function HomeRecetas() {
                 <div className="block overflow-x-scroll whitespace-nowrap scrollbar-hide gap-4">
                     <div className="relative flex gap-4 ml-2">
                         {
-                            !recetasNuevas.length
-                                ? <CardRecetaLoading />
-                                : recetasNuevas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
-
+                            /*  !recetasNuevas.length
+                                 ? <CardRecetaLoading />
+                                 : recetasNuevas?.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+  */
                         }
                     </div>
                 </div>

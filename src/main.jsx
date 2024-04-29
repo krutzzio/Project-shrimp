@@ -20,10 +20,9 @@ import { Receta } from "./pages/Receta.jsx";
 import { PerfilRestauranteVistaCliente } from "./pages/PerfilRestauranteVistaCliente.jsx";
 import { RegisterProvider } from './contexts/RegisterContext.jsx';
 import PerfilRestaurante from './pages/PerfilRestaurante.jsx';
-import HomeRecetas from './components/Home/HomeRecetas.jsx';
 import Busqueda from './pages/Busqueda.jsx';
-import { RegisterReceta } from './pages/RegisterReceta.jsx';
-import { CrearProcedimientos } from './pages/CrearProcediminetos.jsx';
+/* import { RegisterReceta } from './pages/RegisterReceta.jsx';
+import { CrearProcedimientos } from './pages/CrearProcediminetos.jsx'; */
 import { UserInfoProvider } from './contexts/UserInfoContext.jsx';
 
 
@@ -48,12 +47,6 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <Home />,
-    children: [
-      {
-        path: "/home",
-        element: <HomeRecetas />
-      }
-    ]
   },
   {
     path: "/perfil",

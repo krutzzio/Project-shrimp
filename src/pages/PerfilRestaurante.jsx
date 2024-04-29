@@ -172,7 +172,6 @@ export default function PerfilRestaurante() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
-                  
                 </div>
               </CardBody>
             </Card>
