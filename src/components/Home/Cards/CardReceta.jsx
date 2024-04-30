@@ -6,11 +6,13 @@ import TipoComida from "../../../assets/iconos/iconos_Plato.svg";
 import guardarVacio from "../../../assets/iconos/iconos_Corazon.svg";
 import guardarRelleno from "../../../assets/iconos/iconos_CorazonRelleno.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { seguirReceta } from "../../../utils/fetchs/seguirReceta";
+import { UserInfoContext } from "../../../contexts/UserInfoContext";
 
 
 export function CardReceta({ recetaInfo }) {
+  const { user } = useContext(UserInfoContext)
   const { receta, nombreRestaurante, tipoCocinaReceta, recetaInUser } = recetaInfo
   const [recetaGuardada, setRecetaGuardada] = useState(recetaInUser)
 
@@ -25,8 +27,12 @@ export function CardReceta({ recetaInfo }) {
       {/*Imagen*/}
       <div className="flex flex-col gap-1 relative my-4 rounded-2xl bg-white">
         <div className="relative">
-          <Chip color="primary" size="sm" className="absolute px-2 z-20 top-[0.5rem] left-[0.5rem] text-white">{tipoCocinaReceta}</Chip>
-          <img onClick={handleSeguirReceta} className="absolute z-20 w-6 top-[0.51rem] right-[0.5rem]" src={recetaGuardada ? guardarRelleno : guardarVacio} />
+          <Chip color="primary" size="sm" className=" absolute px-2 z-20 top-[0.5rem] left-[0.5rem] text-white">{tipoCocinaReceta}</Chip>
+          {
+            user.direccion === undefined
+              ? <img onClick={handleSeguirReceta} className="absolute z-20 w-6 top-[0.51rem] right-[0.5rem]" src={recetaGuardada ? guardarRelleno : guardarVacio} />
+              : <></>
+          }
           <img
             className="rounded-xl w-full md:min-w-60 h-36 object-cover"
             src={receta.foto_receta}

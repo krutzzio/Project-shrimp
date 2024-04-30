@@ -13,9 +13,6 @@ import LandingPage from './pages/LandingPage.jsx';
 import CreateProfile from './pages/CreateProfile.jsx';
 import Home from './pages/Home.jsx';
 import { PerfilCliente } from "./pages/PerfilCliente.jsx";
-import Recetas_guardadas from "./components/Recetas_guardadas.jsx";
-import Recetas_hechas from "./components/Recetas_hechas.jsx";
-import Promociones from "./components/Promociones.jsx";
 import { Receta } from "./pages/Receta.jsx";
 import { PerfilRestauranteVistaCliente } from "./pages/PerfilRestauranteVistaCliente.jsx";
 import { RegisterProvider } from './contexts/RegisterContext.jsx';
@@ -51,33 +48,18 @@ const router = createBrowserRouter([
   {
     path: "/perfil",
     element: <PerfilCliente />,
-
   },
   {
-    path: "perfil/recetas-hechas",
-    element: <Recetas_hechas />,
-  },
-  {
-    path: "perfil/recetas-guardadas",
-    element: <Recetas_guardadas />,
-  },
-  {
-    path: "/perfil/promos",
-    element: <Promociones />,
-  },
-  {
-    path: "/perfil/restaurante-cliente",
+    path: "/perfil-restaurante/:id",
     element: <PerfilRestauranteVistaCliente />
   },
   {
     path: "/receta/:id",
     element: <Receta />
-
   },
   {
-    path: "/perfil-restaurante",
+    path: "/restaurante-perfil",
     element: <PerfilRestaurante />
-
   },
   {
     path: "/busqueda",
@@ -91,7 +73,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <RegisterProvider>
         <UserInfoProvider>
-          <main className="h-dvh client-theme">
+          <main className="h-screen client-theme">
             <RouterProvider router={router} />
           </main>
         </UserInfoProvider>

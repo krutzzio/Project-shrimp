@@ -22,7 +22,7 @@ export default function LogForm({ userType }) {
         const fetchStatus = await loginProfile({ loginInfo, userType })
         setUser(fetchStatus)
         localStorage.setItem('userInfo', JSON.stringify(fetchStatus));
-        fetchStatus.id ? navigate("/home") : console.log("ERROR LOGIN")
+        fetchStatus.id ? navigate(userType ? `/restaurante-perfil` : `/home`) : console.log("ERROR LOGIN")
     }
 
     return (

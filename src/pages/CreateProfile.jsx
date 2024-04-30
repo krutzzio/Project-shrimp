@@ -32,15 +32,13 @@ export default function CreateProfile() {
     }
     setStep(step + 1)
 
-
-
     if (profileType === "client") {
       console.log(client)
       const fetchRegistro = await registroCliente({ client })
-      fetchRegistro ? navigate("/home") : console.log("ERROR REGISTRO CLIENTE")
+      fetchRegistro ? navigate("/login") : console.log("ERROR REGISTRO CLIENTE")
     } else {
       const fetchRegistro = await registroRest({ rest })
-      fetchRegistro ? navigate("/perfil") : console.log("ERROR REGISTRO REST")
+      fetchRegistro ? navigate("/login") : console.log("ERROR REGISTRO REST")
     }
 
   }
@@ -109,18 +107,18 @@ export default function CreateProfile() {
 
       {/* Mancha naranja/azul derecha */}
       {userType
-      ? <article
-        className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
-        }
-      >
-        <img src={shape4} className="max-w-[30rem] w-[30rem]" alt="" />
-      </article>
-      : <article
-        className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
-        }
-      >
-        <img src={shape3} className="max-w-[30rem] w-[30rem]" alt="" />
-      </article>
+        ? <article
+          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
+          }
+        >
+          <img src={shape4} className="max-w-[30rem] w-[30rem]" alt="" />
+        </article>
+        : <article
+          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
+          }
+        >
+          <img src={shape3} className="max-w-[30rem] w-[30rem]" alt="" />
+        </article>
       }
 
       {/* Mancha naranja/azul abajo */}
