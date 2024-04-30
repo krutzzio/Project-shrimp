@@ -1,3 +1,4 @@
+import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 
 export function CrearProcedimientos() {
@@ -51,31 +52,57 @@ export function CrearProcedimientos() {
 
   return (
     <div>
-      <h1>Crear Procedimientos</h1>
-      {procedimientos.map((procedimiento, index) => (
-        <div key={index}>
-          <h3>Procedimiento {procedimiento.numero_procedimiento}</h3>
-          <label>
-            Descripción:
-            <input
-              type="text"
-              name="desc_procedimiento"
-              value={procedimiento.desc_procedimiento}
-              onChange={(e) => handleChange(index, e)}
-            />
-          </label>
-          <label>
-            Subir imagen:
-            <input
-              type="file"
-              name="photo"
-              onChange={(e) => handleChangePhoto(index, e)}
-            />
-          </label>
-        </div>
-      ))}
-      <button onClick={handleAddProcedimiento}>Agregar Procedimiento</button>
-      <button onClick={handleSubmit}>Crear Procedimientos</button>
+      <article className="flex flex-col gap-4">
+        <label
+          className="w-fit text-sm font-semibold"
+          htmlFor="personas"
+        >
+          Procedimientos
+        </label>
+        {procedimientos.map((procedimiento, index) => (
+          <div key={index}>
+            <div>
+              <label className="text-primary text-sm font-black flex mb-2">
+                <h1>Paso {procedimiento.numero_procedimiento}</h1>
+              </label>
+            </div>
+            <article className='flex flex-col gap-4'>
+              <label
+                htmlFor="descripcion"
+                className="w-fit text-sm font-semibold">
+                Descripción
+              </label>
+              <textarea
+                type="text"
+                rows="4"
+                className="bg-gray-200 p-2.5 w-full text-sm text-gray-900 rounded-lg border border-gray-300"
+                placeholder="Explicación del paso"
+                name="desc_procedimiento"
+                value={procedimiento.desc_procedimiento}
+                onChange={(e) => handleChange(index, e)}
+              />
+              <label
+                html="subir imagen"
+                className='w-fit text-sm font-semibold'>
+                Subir imagen:
+              </label>
+              <input
+                type="file"
+                name="photo"
+                className="w-full border border-gray-300 py-2 text-gray-700 leading-tight"
+                id="imagen"
+                onChange={(e) => handleChangePhoto(index, e)}
+              />
+            </article>
+
+          </div>
+        ))}
+      </article>
+      <article className='flex flex-col gap-6 my-6'>
+        <Button className="w-44 bg-primary text-white" type="button" onClick={handleAddProcedimiento}>Agregar Procedimiento</Button>
+        <Button onClick={handleSubmit}>Crear recetas</Button>
+      </article>
+
     </div>
   );
 }
