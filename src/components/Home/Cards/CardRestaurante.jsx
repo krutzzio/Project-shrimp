@@ -26,7 +26,7 @@ export function CardRestaurante({ restInfo }) {
                     <img
                         alt="Foto del restaurante"
                         className="object-cover h-64"
-                        src={restaurante1}
+                        src={restaurante.foto_restaurante}
                     />
                     <CardFooter className="justify-between before:bg-white/10 overflow-hidden p-2 py-4 absolute before:rounded-xl rounded-large bottom-2 left-0.5 w-[98%] mx-auto  h-24 z-10">
                         <div className="flex flex-col absolute z-11 gap-2 h-fit leading-4">
