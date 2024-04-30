@@ -35,7 +35,7 @@ export default function RegisterForm() {
   const handleContinue = () => {
     const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/
     if (!emailRegex.test(infoUser.correo)) {
-      setError("Por favor, introduce un correo electrónico válido.");
+      setError("Por favor, introduce un correo válido.");
       return;
     } else if (infoUser.password === passwordConfirmar && infoUser.password !== undefined) {
       if (userType) {
@@ -66,13 +66,16 @@ export default function RegisterForm() {
       <article className="flex flex-col justify-start w-11/12">
         <label className="w-fit text-sm font-semibold mb-4" htmlFor="password">Contraseña</label>
         <input className="input-form" type="password" id="password" name="password" onChange={handleChange} />
-        {error && <p className="text-black">{error}</p>}
+
       </article>
       <article className="flex flex-col justify-start w-11/12">
         <label className="w-fit text-sm font-semibold mb-4" htmlFor="confirmedPassword">Confirma la contraseña</label>
         <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} />
       </article>
-      <article className="w-10/12 py-8">
+      <article className="w-10/12 pt-4 pb-2">
+        <div className="text-center mb-2">
+          {error && <p className="text-black font-bold">{error}</p>}
+        </div>
         <Button onClick={handleContinue} className="relative z-10 w-full h-12 text-lg bg-[#272D2F] text-[#FAFAFA] font-semibold shadow-lg">
           Crear Cuenta
         </Button>
