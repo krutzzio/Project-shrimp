@@ -23,11 +23,13 @@ import corazon from "../assets/iconos/iconos_Corazon.svg";
 import { Link, useParams } from "react-router-dom";
 import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 import Footer from "../components/Footer";
+import { useReceta } from "../hooks/useReceta";
 
 export function Receta() {
 
   const { id } = useParams()
-
+  const { restauranteReceta, receta, alergias, ingredientesRecetas, procedimientosReceta } = useReceta({ recetaId: id })
+  console.log(restauranteReceta, receta, alergias, ingredientesRecetas, procedimientosReceta)
   return (
 
     <div className=" ">
@@ -55,7 +57,7 @@ export function Receta() {
             />
             <div className="flex flex-col leading-3">
               <p className="text-md text-white">Creado por:</p>
-              <p className="text-xl font-bold text-white">Don Kamaron</p>
+              <p className="text-xl font-bold text-white">{restauranteReceta.nombre}</p>
             </div>
           </div>
           <Link>
