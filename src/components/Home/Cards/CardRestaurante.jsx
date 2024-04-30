@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Card, CardFooter, Chip } from "@nextui-org/react";
-import restaurante1 from "../../../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../../../assets/iconos/iconos_Favorito.svg";
 import favRelleno from "../../../assets/iconos/iconos_FavoritoRelleno.svg";
 import { Link } from "react-router-dom";

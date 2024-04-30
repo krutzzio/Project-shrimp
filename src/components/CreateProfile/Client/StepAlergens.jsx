@@ -24,19 +24,19 @@ export default function StepAlergens() {
                     setGroup={setAlergens}
                     className="gap-1">
                     {
-                    tiposAlergias.map(alergia => {
-                        return (
-                            <CustomCheckboxTest value={alergia} variant='bordered' size="" color='primary' className=''>
-                                <div className='flex items-center gap-1'>
-                                    <img className='h-6' src={`../iconosAlergias/${alergia}.svg`} />
-                                    <span className="text-md">
-                                        {alergia}
-                                    </span>
-                                </div>
-                            </CustomCheckboxTest>
-                        )
-                    })
-                }
+                        tiposAlergias.map((alergia, ind) => {
+                            return (
+                                <CustomCheckboxTest key={ind} value={alergia} variant='bordered' size="" color='primary' className=''>
+                                    <div className='flex items-center gap-1'>
+                                        <img className='h-6' src={`../iconosAlergias/${alergia}.svg`} />
+                                        <span className="text-md">
+                                            {alergia}
+                                        </span>
+                                    </div>
+                                </CustomCheckboxTest>
+                            )
+                        })
+                    }
                 </CheckboxGroupTest>
             </main>
 

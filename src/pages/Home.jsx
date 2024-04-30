@@ -37,10 +37,8 @@ export default function Home() {
 
     <div className="max-w-screen mx-auto">
       <NavBar />
-      <main className="block max-w-screen-2xl m-auto mb-10">
-
+      <main className="block max-w-screen-2xl m-auto ">
         <TiposComida />
-
         {/*Filtros*/}
         <section className="md:flex pt-4 pl-1 overflow-x-auto hidden">
           <div className=" flex gap-2">
