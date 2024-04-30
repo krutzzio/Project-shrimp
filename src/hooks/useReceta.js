@@ -13,7 +13,6 @@ export function useReceta({ recetaId }) {
 
     const [restGuardado, setRestGuardado] = useState()
     const [recetaGuardada, setRecetaGuardada] = useState()
-    console.log(restGuardado, recetaGuardada)
 
     const handleSeguirReceta = async (event) => {
         event.preventDefault();
