@@ -50,8 +50,8 @@ export function PerfilCliente() {
             </Chip>
             {
               !user.dieta
-                ? <Chip color="primary" className="text-white">{DIETAS[1]}</Chip>
-                : <></>
+                ? <></>
+                : <Chip color="primary" className="text-white">{DIETAS[user.dieta]}</Chip>
             }
           </div>
         </div>

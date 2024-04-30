@@ -32,7 +32,6 @@ export default function RegisterForm() {
     }
   }
 
-
   const handleContinue = () => {
     const emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/
     if (!emailRegex.test(infoUser.correo)) {
@@ -40,16 +39,16 @@ export default function RegisterForm() {
       return;
     } else if (infoUser.password === passwordConfirmar && infoUser.password !== undefined) {
       if (userType) {
-        setRegisterRest(infoUser);
+        setRegisterRest(infoUser)
         navigate(`/create/restaurant`)
       } else {
-        setRegisterClient(infoUser);
+        setRegisterClient(infoUser)
         navigate(`/create/client`)
       }
       navigate()
     } else {
-      setError("Las contraseñas no coinciden");
-      return;
+      setError("Las contraseñas no coinciden")
+      return
     }
   };
 

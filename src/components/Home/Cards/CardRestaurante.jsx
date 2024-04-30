@@ -16,7 +16,6 @@ export function CardRestaurante({ restInfo }) {
         event.preventDefault();
         const restUser = await seguirRestaurante({ restId: restaurante.id })
         setRestGuardado(restUser)
-        console.log(restUser)
     }
 
     return (

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import NavBarPerfil from "../components/navbar/NavBarPerfil";
 import perfil from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
 
@@ -22,9 +21,14 @@ import {
 import { CardReceta } from "../components/Home/Cards/CardReceta";
 import Promociones from "../components/Promociones";
 import { RegisterReceta } from "./RegisterReceta";
+import { usePerfilRest } from "../hooks/usePerfilRest";
+import { useContext } from "react";
+import { UserInfoContext } from "../contexts/UserInfoContext";
 
 export default function PerfilRestaurante() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { user } = useContext(UserInfoContext)
+  const { promos, setPromos, cocinasRest, recetasRestaurante } = usePerfilRest({ restId: user.id })
 
   return (
     <div className="flex flex-col h-screen">
@@ -37,14 +41,22 @@ export default function PerfilRestaurante() {
           alt="NextUI hero Image"
           src={perfil}
         />
-        <h2 className="text-2xl font-bold">Don Corleone</h2>
+        <h2 className="text-2xl font-bold">{user.nombre}</h2>
         <div className="flex gap-2">
           <Chip color="secondary" className="text-white">
-            3 recetas
+            {recetasRestaurante.length} recetas
           </Chip>
-          <Chip color="secondary" className="text-white">
-            Italiano
-          </Chip>
+          {
+            !cocinasRest.length
+              ? <></>
+              : cocinasRest.map(tipoCocina => {
+                return (
+                  <Chip key={tipoCocina.id} color="secondary" className="text-white">
+                    {tipoCocina.nombre_tipo}
+                  </Chip>
+                )
+              })
+          }
         </div>
       </div>
 
@@ -172,6 +184,11 @@ export default function PerfilRestaurante() {
                 </div>
                 <div className="flex flex-col gap-4">
                   <h2 className="font-bold text-lg">Tus recetas</h2>
+                  {
+                    !recetasRestaurante.length
+                      ? <></>
+                      : recetasRestaurante.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+                  }
                 </div>
               </CardBody>
             </Card>
@@ -179,18 +196,12 @@ export default function PerfilRestaurante() {
           <Tab key="Promociones" title="Promociones">
             <Card>
               <CardBody>
-                <Promociones />
+                <Promociones promos={promos} setPromos={setPromos} />
               </CardBody>
             </Card>
           </Tab>
         </Tabs>
       </div>
-
-      <div className="flex items-center justify-center px-4 py-6 mt-4 bg-primary rounded shadow hover:bg-orange-600">
-        <Link to="/">
-          <button className="text-lg font-bold text-white">Desloguear</button>
-        </Link>
-      </div>
-    </div>
+    </div >
   );
 }

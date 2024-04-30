@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Button,
   Input,
@@ -8,10 +9,12 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { crearPromo } from "../utils/fetchs/crearPromo";
+import { UserInfoContext } from "../contexts/UserInfoContext";
 
-const Promociones = () => {
-
+const Promociones = ({ promos, setPromos }) => {
+  const { user } = useContext(UserInfoContext)
   const [numerosAleatorios, setNumerosAleatorios] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [usuarioInput, setUsuarioInput] = useState("");
@@ -29,6 +32,8 @@ const Promociones = () => {
     const codigo = generarCodigo();
     setNumerosAleatorios([codigo, ...numerosAleatorios]);
     setUsuarios([usuario, ...usuarios]);
+    crearPromo({ userInsta: usuario, codigo, restId: user.id })
+    setPromos([...promos, { id: 900000, usuarioInstagram: usuario, codigo, RestauranteId: user.id }])
     setUsuarioInput("");
   }
 
@@ -56,6 +61,7 @@ const Promociones = () => {
             type="text"
             id="usuario"
             name="usuario"
+            value={usuarioInput}
             placeholder="@nombre"
             onChange={handleInputChange}
           />
@@ -81,13 +87,14 @@ const Promociones = () => {
           </TableHeader>
           <TableBody>
             {
-              numerosAleatorios.map((codigo, index) => (
-              <TableRow key={index}>
-                <TableCell>{codigo}</TableCell>
-                <TableCell>@{usuarios[index]}</TableCell>
-                <TableCell><Button onClick={() => copiarCodigo(codigo)}>Copiar</Button></TableCell>
-              </TableRow>
-              ))
+              promos.map(promo => {
+                return (
+                  <TableRow key={promo.id}>
+                    <TableCell>{promo.codigo}</TableCell>
+                    <TableCell>@{promo.usuarioInstagram}</TableCell>
+                    <TableCell><Button onClick={() => copiarCodigo(promo.codigo)}>Copiar</Button></TableCell>
+                  </TableRow>)
+              })
             }
           </TableBody>
         </Table>

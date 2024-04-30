@@ -15,11 +15,11 @@ export default function NavBarSinBusqueda() {
         {/*Desktop*/}
 
         {/*Logo*/}
-        <Link to={"/home"} className="w-36 lg:w-52">
+        <Link to={user.direccion === undefined ? "/home" : ""} className="w-36 lg:w-52">
           <img src={logoGamba} alt="Gamba Logo" />
         </Link>
         {/*Avatar*/}
-        <Link to={"/perfil"}>
+        <Link to={user.direccion === undefined ? "/perfil" : "/restaurante-perfil"}>
           <Avatar
             size="md"
             classNames={{ base: "bg-primary", icon: "text-[#F2F2F2]" }}
