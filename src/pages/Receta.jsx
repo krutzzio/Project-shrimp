@@ -20,11 +20,13 @@ import {
 import Receta3 from "../assets/Recetas/Receta1.jpg";
 import fav from "../assets/iconos/iconos_Favorito.svg";
 import corazon from "../assets/iconos/iconos_Corazon.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 import Footer from "../components/Footer";
 
 export function Receta() {
+
+  const { id } = useParams()
 
   return (
 

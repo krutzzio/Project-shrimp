@@ -1,15 +1,15 @@
 import { URL } from "./constants"
 
-
-export function getUserInfo({ id, userType }) {
+export async function crearPromo({ codigo, restId, userInsta }) {
     const requestOptions = {
-        method: 'GET',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
+        body: JSON.stringify({ codigo, restId, userInsta })
     };
 
-    return fetch(`${URL}${!userType ? `/users/${id}` : `/restaurant/${id}`}`, requestOptions)
+    return fetch(`${URL}/promos`, requestOptions)
         .then(resp => resp.json())
-        .then(data => data)
+        .then(data => data.in)
         .catch(err => console.log(err))
 }

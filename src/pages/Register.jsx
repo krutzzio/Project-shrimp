@@ -23,10 +23,8 @@ export default function Register() {
         <Link to={"/"} className="w-6 ">
           <img src={flecha} />
         </Link>
-
         {/*Logo*/}
         <img className="w-32 md:w-44" src={logoGamba} alt="Gamba Logo" />
-
         <div className="w-6"></div>
       </header>
 
@@ -35,34 +33,34 @@ export default function Register() {
         {/* Formulario Registro */}
         <div className="flex flex-col gap-4 md:gap-10">
           {/* Título */}
-            <section className="text-center">
-              <h3 className="text-primary-foreground font-bold text-4xl md:text-5xl">
-                Únete a Gamba
-              </h3>
-            </section>
-            {/* Switch */}
-            <section className="flex flex-col justify-center items-center">
-                  <h3 className="text-center mb-1">¿Quién eres?</h3>
-                  <SwitchUser/>
-                </section>
-                {/* Formulario */}
-                <RegisterForm userType={userType} />
+          <section className="text-center">
+            <h3 className="text-primary-foreground font-bold text-4xl md:text-5xl">
+              Únete a Gamba
+            </h3>
+          </section>
+          {/* Switch */}
+          <section className="flex flex-col justify-center items-center">
+            <h3 className="text-center mb-1">¿Quién eres?</h3>
+            <SwitchUser />
+          </section>
+          {/* Formulario */}
+          <RegisterForm />
         </div>
 
         {/* Ilustración */}
 
         <article className="hidden w-full justify-center md:flex">
-        {
-          userType
-        ? <img
-            src={landing5}
-            className="hidden md:block md:h-full md:max-h-[35rem]"
-            alt="landing5"/>
-        : <img
-            src={landing3}
-            className="hidden md:block md:h-full md:max-h-[35rem]"
-            alt="landing2"/>
-        }
+          {
+            userType
+              ? <img
+                src={landing5}
+                className="hidden md:block md:h-full md:max-h-[35rem]"
+                alt="landing5" />
+              : <img
+                src={landing3}
+                className="hidden md:block md:h-full md:max-h-[35rem]"
+                alt="landing2" />
+          }
         </article>
 
       </main>
@@ -85,9 +83,9 @@ export default function Register() {
       {/* Mancha arriba izquierda */}
       <article
         className={`absolute z-0 ${userType
-        ? `top-[-20rem] left-[-16rem] rotate-[60deg] md:left-[-2rem] md:top-[-14rem]`
-        : `top-[-20rem] left-[-16rem] rotate-[-60deg] md:left-[-2rem] md:top-[-14rem]`
-        } transition-all`}
+          ? `top-[-20rem] left-[-16rem] rotate-[60deg] md:left-[-2rem] md:top-[-14rem]`
+          : `top-[-20rem] left-[-16rem] rotate-[-60deg] md:left-[-2rem] md:top-[-14rem]`
+          } transition-all`}
       >
         <img src={shape1} className="max-w-[30rem] w-[50rem]" alt="" />
       </article>
@@ -105,9 +103,9 @@ export default function Register() {
       {/* Mancha arriba izquierda */}
       <article
         className={`absolute z-0 ${userType
-        ? `top-[-30rem] right-[-41rem] rotate-[100deg] md:right-[-30rem] md:top-[-10rem]`
-        : `top-[-30rem] right-[-41rem] rotate-[-100deg] md:right-[-30rem] md:top-[-10rem]`
-        } transition-all`}
+          ? `top-[-30rem] right-[-41rem] rotate-[100deg] md:right-[-30rem] md:top-[-10rem]`
+          : `top-[-30rem] right-[-41rem] rotate-[-100deg] md:right-[-30rem] md:top-[-10rem]`
+          } transition-all`}
       >
         <img src={shape1} className="max-w-[60rem] w-[60rem]" alt="" />
       </article>
