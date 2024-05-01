@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPromosRest } from "../utils/fetchs/getPromosRest";
+import { RestProfile } from "../utils/fetchs/RestProfile";
 
 export function usePerfilRest({ restId }) {
     const [promos, setPromos] = useState([])
@@ -9,12 +9,10 @@ export function usePerfilRest({ restId }) {
 
     useEffect(() => {
         const fetch = async () => {
-            const data = await getPromosRest({ restId })
+            const data = await RestProfile({ restId })
             setPromos(data.promosRest)
             setCocinasRest(data.tiposCocinas)
             setRecetasRestaurante(data.recetasRest)
-
-
         }
         fetch()
     }, [])

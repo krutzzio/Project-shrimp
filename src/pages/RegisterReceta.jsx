@@ -15,7 +15,7 @@ export function RegisterReceta({ setProc, id }) {
     const [foto_receta, setPhotos] = useState("");
     const [ingredientes, setIngredientes] = useState([]);
     const [datos, setDatos] = useState([]);
-    
+
 
     // Para agregar otros inputs para el siguiente ingrediente
     const addIngrediente = () => {
@@ -52,9 +52,7 @@ export function RegisterReceta({ setProc, id }) {
             .then((response) => response.json())
             .then((data) => {
                 setDatos(data);
-                console.log(datos)
                 setProc(data.recetaId)
-                console.log(data.recetaId)
             })
             .catch((error) => {
                 console.error("Error al registrar receta:", error);

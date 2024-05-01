@@ -24,14 +24,15 @@ import { Link, useParams } from "react-router-dom";
 import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 import Footer from "../components/Footer";
 import { useReceta } from "../hooks/useReceta";
+import { useInstagramHashtag } from "../hooks/useInstagramHashtag";
 
 export function Receta() {
 
   const { id } = useParams()
   const { restauranteReceta, receta, tipoCocina, alergias, ingredientesRecetas, procedimientosReceta,
-    restGuardado, handleSeguirRest, recetaGuardada, handleSeguirReceta } = useReceta({ recetaId: id })
-
-
+    restGuardado, handleSeguirRest, recetaGuardada, handleSeguirReceta, hashtag } = useReceta({ recetaId: id })
+  const { instaPosts } = useInstagramHashtag({ hashtag })
+  console.log(instaPosts)
   return (
 
     <div className=" ">
@@ -151,9 +152,23 @@ export function Receta() {
         <div className="flex flex-col gap-1 mx-4">
           <div>
             <h3 className="font-bold text-xl">Instagram:</h3>
-            <p className="text-primary">#donkamaronelmejor</p>
+            <p className="text-primary">{`#${hashtag}`}</p>
           </div>
           <div className="flex gap-2 items-center">
+            {
+              !instaPosts
+                ? <></>
+                : !instaPosts.length
+                  ? <></>
+                  : instaPosts.map(post => {
+                    return (
+                      <div key={post.id}>
+                        <img crossOrigin="anonymous" src={post.image_versions2.candidates[1].url} alt="" />
+                        <h1>{post.code}</h1>
+                      </div>)
+                  })
+            }
+
             <Card isFooterBlurred radius="lg">
               <Image
                 src={Receta3}

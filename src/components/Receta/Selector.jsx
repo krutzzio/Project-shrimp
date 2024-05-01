@@ -22,8 +22,6 @@ const Selector = ({ endpoint, onSelectId }) => {
 
 
 
-  console.log('1' + '' + selected)
-  console.log('2' + '' + selectedId)
   return (
     <div className="w-fit text-xs text-red-500 font-semibold w-full">
 

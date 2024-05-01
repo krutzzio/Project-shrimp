@@ -1,26 +1,24 @@
 import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 
-export function CrearProcedimientos({proc}) {
+export function CrearProcedimientos({ proc ,setProc}) {
   const [procedimientos, setProcedimientos] = useState([
     { numero_procedimiento: 1, desc_procedimiento: "", photo: null }
   ]);
   const [imgProfiles, setImgProfiles] = useState([]);
-  console.log(procedimientos)
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index][name] = value;
     setProcedimientos(newProcedimientos);
   };
-console.log(proc)
   const handleChangePhoto = (index, event) => {
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index].photo = event.target.files[0];
     setProcedimientos(newProcedimientos);
     const newImgProfiles = [...imgProfiles];
-  newImgProfiles[index] = URL.createObjectURL(event.target.files[0]);
-  setImgProfiles(newImgProfiles);
+    newImgProfiles[index] = URL.createObjectURL(event.target.files[0]);
+    setImgProfiles(newImgProfiles);
   };
 
   const handleSubmit = async () => {
@@ -45,6 +43,7 @@ console.log(proc)
 
       const responseData = await response.json();
       console.log('Procedimientos creados:', responseData.procedimientos);
+      setProc(null)
     } catch (error) {
       console.error('Error:', error.message);
     }
@@ -68,7 +67,7 @@ console.log(proc)
         {procedimientos.map((procedimiento, index) => (
           <div key={index}>
             <div className="max-w-60 object-cover m-auto">
-                <img src={imgProfiles[index]} alt="a" />
+              <img src={imgProfiles[index]} alt="a" />
             </div>
             <div>
               <label className="text-primary text-sm font-black flex mb-2">
@@ -91,7 +90,7 @@ console.log(proc)
                 onChange={(e) => handleChange(index, e)}
               />
               <label
-                
+
                 className='w-fit text-sm font-semibold'>
                 Subir imagen:
               </label>
