@@ -30,8 +30,8 @@ import { CrearProcedimientos } from "./CrearProcediminetos";
 export default function PerfilRestaurante() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { user } = useContext(UserInfoContext)
-  const { promos, setPromos, cocinasRest, recetasRestaurante } = usePerfilRest({ restId: user.id })
-  const [proc, setProc] = useState(false)
+  const { promos, setPromos, cocinasRest, recetasRestaurante, id } = usePerfilRest({ restId: user.id })
+  const [proc, setProc] = useState('')
   return (
     <div className="flex flex-col h-screen">
       <NavBarPerfil userType={true} />
@@ -167,9 +167,9 @@ export default function PerfilRestaurante() {
                           </ModalHeader>
                           <ModalBody>
                             {
-                              !proc
-                                ? <RegisterReceta setProc={setProc} />
-                                : <CrearProcedimientos />
+                              proc==''
+                                ? <RegisterReceta setProc={setProc} id={user.id} />
+                                : <CrearProcedimientos proc={proc} />
                             }
                           </ModalBody>
                         </>

@@ -6,12 +6,15 @@ export function usePerfilRest({ restId }) {
     const [cocinasRest, setCocinasRest] = useState([])
     const [recetasRestaurante, setRecetasRestaurante] = useState([])
 
+
     useEffect(() => {
         const fetch = async () => {
             const data = await getPromosRest({ restId })
             setPromos(data.promosRest)
             setCocinasRest(data.tiposCocinas)
             setRecetasRestaurante(data.recetasRest)
+
+
         }
         fetch()
     }, [])

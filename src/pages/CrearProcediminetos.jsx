@@ -1,7 +1,7 @@
 import { Button } from '@nextui-org/react';
 import { useState } from 'react';
 
-export function CrearProcedimientos() {
+export function CrearProcedimientos({proc}) {
   const [procedimientos, setProcedimientos] = useState([
     { numero_procedimiento: 1, desc_procedimiento: "", photo: null }
   ]);
@@ -13,7 +13,7 @@ export function CrearProcedimientos() {
     newProcedimientos[index][name] = value;
     setProcedimientos(newProcedimientos);
   };
-
+console.log(proc)
   const handleChangePhoto = (index, event) => {
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index].photo = event.target.files[0];
@@ -25,7 +25,7 @@ export function CrearProcedimientos() {
 
   const handleSubmit = async () => {
     try {
-      const recetaId = 1; // Esto habra que pasarlo por la url o por props
+      const recetaId = proc; // Esto habra que pasarlo por la url o por props
 
       const formData = new FormData();
       procedimientos.forEach((procedimiento, index) => {
