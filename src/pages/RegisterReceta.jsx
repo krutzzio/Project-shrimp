@@ -45,8 +45,8 @@ export function RegisterReceta({setProc}) {
             formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
             formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
         });
-        setProc(true) //PONER DENTRO DEL FETCH
-
+        
+console.log(formData)
         const options = {
             method: "POST",
             body: formData,
@@ -56,6 +56,8 @@ export function RegisterReceta({setProc}) {
             .then((response) => response.json())
             .then((data) => {
                 setDatos(data);
+                setProc(true) //PONER DENTRO DEL FETCH
+                console.log(datos)
 
             })
             .catch((error) => {

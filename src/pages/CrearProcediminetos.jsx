@@ -5,18 +5,25 @@ export function CrearProcedimientos() {
   const [procedimientos, setProcedimientos] = useState([
     { numero_procedimiento: 1, desc_procedimiento: "", photo: null }
   ]);
+  const [imgProfiles, setImgProfiles] = useState([]);
   console.log(procedimientos)
   const handleChange = (index, event) => {
     const { name, value } = event.target;
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index][name] = value;
     setProcedimientos(newProcedimientos);
+    
+    
+    
   };
 
   const handleChangePhoto = (index, event) => {
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index].photo = event.target.files[0];
     setProcedimientos(newProcedimientos);
+    const newImgProfiles = [...imgProfiles];
+  newImgProfiles[index] = URL.createObjectURL(event.target.files[0]);
+  setImgProfiles(newImgProfiles);
   };
 
   const handleSubmit = async () => {
@@ -46,6 +53,8 @@ export function CrearProcedimientos() {
     }
   };
 
+
+
   const handleAddProcedimiento = () => {
     setProcedimientos([...procedimientos, { numero_procedimiento: procedimientos.length + 1, desc_procedimiento: "", photo: null }]);
   };
@@ -61,6 +70,9 @@ export function CrearProcedimientos() {
         </label>
         {procedimientos.map((procedimiento, index) => (
           <div key={index}>
+            <div className="max-w-60 object-cover m-auto">
+                <img src={imgProfiles[index]} alt="a" />
+            </div>
             <div>
               <label className="text-primary text-sm font-black flex mb-2">
                 <h1>Paso {procedimiento.numero_procedimiento}</h1>
@@ -82,7 +94,7 @@ export function CrearProcedimientos() {
                 onChange={(e) => handleChange(index, e)}
               />
               <label
-                html="subir imagen"
+                
                 className='w-fit text-sm font-semibold'>
                 Subir imagen:
               </label>
