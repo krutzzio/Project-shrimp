@@ -65,7 +65,7 @@ export default function Register() {
 
       </main>
 
-      <footer className="h-[10dvh] md:w-11/12 md:grid md:grid-cols-2 md:content-between">
+      <footer className="h-[10dvh] md:w-11/12 md:grid md:grid-cols-2 md:content-between max-w-screen-2xl">
         {/* Link Login */}
         <section className="flex items-end justify-center z-10 relative">
           <h1 className="text-black font-medium">
