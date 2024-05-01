@@ -2,7 +2,7 @@ import { useState } from "react";
 import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
-export function RegisterReceta() {
+export function RegisterReceta({setProc}) {
     const [imgProfile, setImageProfile] = useState();
     const [nombreReceta, setNombreReceta] = useState("");
     const [descripcionReceta, setDescripcionReceta] = useState("");
@@ -45,7 +45,8 @@ export function RegisterReceta() {
             formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
             formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
         });
-
+        
+console.log(formData)
         const options = {
             method: "POST",
             body: formData,
@@ -55,6 +56,9 @@ export function RegisterReceta() {
             .then((response) => response.json())
             .then((data) => {
                 setDatos(data);
+                setProc(true) //PONER DENTRO DEL FETCH
+                console.log(datos)
+
             })
             .catch((error) => {
                 console.error("Error al registrar receta:", error);
@@ -307,8 +311,8 @@ export function RegisterReceta() {
             </Button>
 
             {/*Botones Crear receta*/}
-            <Button className="" type="button" onClick={registroReceta}>
-                Crear
+            <Button className="mb-6" type="button" onClick={registroReceta}>
+                Añadir procedimientos
             </Button>
         </div>
     );

@@ -24,12 +24,14 @@ import { RegisterReceta } from "./RegisterReceta";
 import { usePerfilRest } from "../hooks/usePerfilRest";
 import { useContext } from "react";
 import { UserInfoContext } from "../contexts/UserInfoContext";
+import { useState } from "react";
+import { CrearProcedimientos } from "./CrearProcediminetos";
 
 export default function PerfilRestaurante() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { user } = useContext(UserInfoContext)
   const { promos, setPromos, cocinasRest, recetasRestaurante } = usePerfilRest({ restId: user.id })
-
+  const [proc, setProc] = useState(false)
   return (
     <div className="flex flex-col h-screen">
       <NavBarPerfil userType={true} />
@@ -149,6 +151,7 @@ export default function PerfilRestaurante() {
               <CardBody>
                 <div className="flex flex-col items-center">
                   <Button
+                  onClick={() =>setProc(false)}
                     color="secondary"
                     onPress={onOpen}
                     className="text-white w-36 my-4"
@@ -163,20 +166,12 @@ export default function PerfilRestaurante() {
                             ¡Vamos a crear tu receta!
                           </ModalHeader>
                           <ModalBody>
-                            <RegisterReceta />
+                            {
+                              !proc
+                                ? <RegisterReceta setProc={setProc} />
+                                : <CrearProcedimientos />
+                            }
                           </ModalBody>
-                          <ModalFooter>
-                            <Button
-                              color="danger"
-                              variant="light"
-                              onPress={onClose}
-                            >
-                              Cerrar
-                            </Button>
-                            <Button color="primary" onPress={onClose}>
-                              Aplicar
-                            </Button>
-                          </ModalFooter>
                         </>
                       )}
                     </ModalContent>

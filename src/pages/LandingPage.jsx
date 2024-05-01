@@ -24,45 +24,45 @@ export default function LandingPage() {
 
       <main className="relative z-10 flex flex-col mx-auto items-center justify-around md:grid md:grid-cols-2 md:gap-20 md:w-10/12 md:content-between max-w-screen-2xl">
 
-          {/*Ilustración mobile*/}
+        {/*Ilustración mobile*/}
+        <img
+          src={landing1}
+          className="w-full h-96 md:h-auto md:w-1/2 md:hidden"
+          alt="landing1"
+        />
+
+        {/*Texto*/}
+        <div className="flex flex-col md:gap-8">
+          <div className="text-center md:text-left ">
+            {/*Título texto*/}
+            <h1 className="text-4xl font-extrabold leading-none tracking-tight my-4  md:text-6xl">
+              Encuentra tus <br /> mejores recetas
+            </h1>
+            {/*Párrafo texto*/}
+            <p className="hidden md:block md:text-2xl">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Quibusdam saepe quo aliquam deserunt reprehenderit adipisci
+              voluptates aspernatur cumque libero, fugit nisi doloremque qui hic
+              numquam maxime totam in, tempore placeat.
+            </p>
+          </div>
+          {/*Botón regístrate*/}
+          <Button className="bg-[#272D2F] shadow-lg font-semibold h-12 md:w-48">
+            <Link className="text-[#FAFAFA] text-lg" to={"/register"}>
+              Regístrate
+            </Link>
+          </Button>
+        </div>
+
+        {/*Ilustración Desktop*/}
+        <article className="hidden w-full justify-center md:flex">
           <img
             src={landing1}
-            className="w-full h-96 md:h-auto md:w-1/2 md:hidden"
+            className="hidden md:block md:h-auto md:max-h-[35rem]"
             alt="landing1"
           />
-          
-          {/*Texto*/}
-          <div className="flex flex-col md:gap-8">
-            <div className="text-center md:text-left ">
-              {/*Título texto*/}
-              <h1 className="text-4xl font-extrabold leading-none tracking-tight my-4  md:text-6xl">
-                Encuentra tus <br /> mejores recetas
-              </h1>
-              {/*Párrafo texto*/}
-              <p className="hidden md:block md:text-2xl">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Quibusdam saepe quo aliquam deserunt reprehenderit adipisci
-                voluptates aspernatur cumque libero, fugit nisi doloremque qui hic
-                numquam maxime totam in, tempore placeat.
-              </p>
-            </div>
-            {/*Botón regístrate*/}
-            <Button className="bg-[#272D2F] shadow-lg font-semibold h-12 md:w-48">
-              <Link className="text-[#FAFAFA] text-lg" to={"/register"}>
-                Regístrate
-              </Link>
-            </Button>
-          </div>
+        </article>
 
-          {/*Ilustración Desktop*/}
-          <article className="hidden w-full justify-center md:flex">
-            <img
-              src={landing1}
-              className="hidden md:block md:h-auto md:max-h-[35rem]"
-              alt="landing1"
-            />
-          </article>
-        
       </main>
 
       <footer className="h-[10dvh]"></footer>

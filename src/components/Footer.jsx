@@ -18,7 +18,7 @@ export default function Footer() {
       };
 
     return (
-        <footer className="bg-primary text-white pt-6 md:pb-2">
+        <footer className="bg-primary text-white mt-10 pt-6 md:pb-2">
             {/*Logo + Formulario*/}
             <div className="max-w-screen-2xl mx-auto flex flex-col gap-4 justify-between md:flex-row">
                 <img src={logo} className="h-10 md:h-20" />

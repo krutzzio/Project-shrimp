@@ -74,7 +74,8 @@ export default function RegisterForm() {
       </article>
       <article className="w-10/12 pt-4 pb-2">
         <div className="text-center mb-2">
-          {error && <p className="text-black font-bold">{error}</p>}
+          {error ? <p className="text-black h-4 font-bold">{error}</p>
+            : <div className="h-4" > </div>}
         </div>
         <Button onClick={handleContinue} className="relative z-10 w-full h-12 text-lg bg-[#272D2F] text-[#FAFAFA] font-semibold shadow-lg">
           Crear Cuenta

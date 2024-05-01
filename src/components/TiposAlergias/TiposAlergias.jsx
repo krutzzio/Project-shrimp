@@ -1,18 +1,17 @@
-import { tiposAlergias } from '../../utils/tiposAlergias';
+/* eslint-disable react/prop-types */
 import { Chip } from '@nextui-org/react';
 
-export default function TiposAlergias() {
-
+export default function TiposAlergias({ alergiasChips }) {
     return (
-        <section className="m-auto flex flex-wrap gap-1 items-center">
+        <section className="flex flex-wrap gap-1 items-center">
             {
-                tiposAlergias.map((alergia, ind) => {
+                alergiasChips.map(alergia => {
                     return (
-                        <Chip key={ind} value={alergia} variant='bordered' color='primary' className=''>
+                        <Chip key={alergia.id} value={alergia.nombre_grupo} variant='bordered' color='primary' className=''>
                             <div className='flex items-center gap-1'>
-                                <img className='h-5' src={`../iconosAlergias/${alergia}.svg`} />
+                                <img className='h-5' src={`../iconosAlergias/${alergia.nombre_grupo}.svg`} />
                                 <span className="text-md">
-                                    {alergia}
+                                    {alergia.nombre_grupo}
                                 </span>
                             </div>
                         </Chip>
