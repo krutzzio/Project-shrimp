@@ -25,8 +25,21 @@ import TiposAlergias from "../components/TiposAlergias/TiposAlergias";
 import Footer from "../components/Footer";
 import { useReceta } from "../hooks/useReceta";
 import { useInstagramHashtag } from "../hooks/useInstagramHashtag";
+import { useState } from "react";
 
 export function Receta() {
+
+  const [cIngredientes, setCIngredientes] = useState({});
+
+
+  const handleChange = (event) => {
+    const { value, checked } = event.target;
+    setCIngredientes((Check) => ({
+      ...Check,
+      [value]: checked,
+    }));
+  };
+
 
   const { id } = useParams()
   const { restauranteReceta, receta, tipoCocina, alergias, ingredientesRecetas, procedimientosReceta,
@@ -113,8 +126,15 @@ export function Receta() {
           <CheckboxGroup color="primary">
             {
               ingredientesRecetas.map(ingrediente =>
-                <Checkbox key={ingrediente.id} value={ingrediente.id} className="w-full" >
-                  {ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}
+                <Checkbox checked={cIngredientes[ingrediente.id]} onChange={handleChange} key={ingrediente.id} value={ingrediente.id} className="w-full" >
+                 {cIngredientes[ingrediente.id]  ?(
+                    
+                    <s>{ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}</s>
+                    ):(
+                    <>
+                    {ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}
+                    </>
+                  )}
                 </Checkbox>)
             }
           </CheckboxGroup>
