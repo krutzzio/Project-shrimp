@@ -10,7 +10,7 @@ export function useReceta({ recetaId }) {
     const [alergias, setAlergias] = useState([])
     const [ingredientesRecetas, setIngredientesRecetas] = useState([])
     const [procedimientosReceta, setProcedimientosReceta] = useState([])
-
+    const [hashtag, setHashtag] = useState("")
     const [restGuardado, setRestGuardado] = useState()
     const [recetaGuardada, setRecetaGuardada] = useState()
 
@@ -37,12 +37,13 @@ export function useReceta({ recetaId }) {
             setProcedimientosReceta(data.procedimientosReceta)
             setRestGuardado(data.restauranteReceta.restInUser)
             setRecetaGuardada(data.receta.recetaInUser)
+            setHashtag(`gamba${data.receta.nombre_receta.split("")[0].toLowerCase()}${data.restauranteReceta.nombre.split("")[0].toLowerCase()}`)
         }
         fetch()
     }, [])
 
     return {
         restauranteReceta, receta, tipoCocina, alergias, ingredientesRecetas, procedimientosReceta,
-        restGuardado, handleSeguirRest, recetaGuardada, handleSeguirReceta
+        restGuardado, handleSeguirRest, recetaGuardada, handleSeguirReceta, hashtag
     }
 }

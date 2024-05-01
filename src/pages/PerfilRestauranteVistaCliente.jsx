@@ -5,70 +5,97 @@ import { Chip } from "@nextui-org/react";
 import Telefono from "../assets/Recetas/telefono.png";
 import Correo from "../assets/Recetas/correo.png";
 import Ubicacion from "../assets/Recetas/ubicacion.png";
-import rest from "../assets/perfilRestaurante/perfilRestaurante1.jpg";
 import fav from "../assets/iconos/iconos_Favorito.svg";
+import favRelleno from "../assets/iconos/iconos_FavoritoRelleno.svg";
 import Receta3 from "../assets/Recetas/Receta1.jpg";
 import Footer from "../components/Footer";
+import { useRestauranteCliente } from "../hooks/useRestauranteCliente";
+import { useParams } from "react-router-dom";
+import { DIETAS } from "../utils/fetchs/constants";
 
 
 export function PerfilRestauranteVistaCliente() {
+
+  const { id } = useParams()
+  const { recetasRest, restaurante, restGuardado, handleSeguirRest, cocinasRest } = useRestauranteCliente({ restId: id })
+  console.log(recetasRest[0], recetasRest)
+  const handleCorreo = () => {
+    window.location.href = `mailto:${restaurante.correo}?subject=Asunto del correo&body=Cuerpo del correo`
+  };
+
+  const handleTelefono = () => {
+    window.location.href = `tel:${restaurante.telefono}`
+  };
+
+  const handleMaps = () => {
+    window.open(`https://www.google.com/maps?q=${restaurante.direccion} ${restaurante.numero} ${restaurante.cp}`, '_blank');
+  };
+
   return (
     <div className="">
       <NavBarSinBusqueda />
 
       <div className="relative">
         <div className="absolute z-20 p-2 bottom-0 right-0">
-          <Chip color="primary" className="text-white">Barcelona</Chip>
+          <Chip color="primary" className="text-white">{`${recetasRest.length} receta${recetasRest.length == 1 ? `` : `s`} `}</Chip>
         </div>
-        <div className="absolute z-20 p-2 top-0 left-0">
-          <button className="bg-orange-500 text-white py-2 px-4 rounded-xl hover:bg-orange-600">
-            <p>{"<"}</p>
-          </button>
-        </div>
+
         <Image
           alt="Foto de la receta"
           width={400}
           height={200}
           radius="none"
           className="object-cover h-72"
-          src={rest}
+          src={restaurante.foto_restaurante}
         />
       </div>
 
       <div className="flex flex-col gap-8 my-4">
         <div className="flex flex-col gap-3 mx-4">
           <div className="flex justify-between gap-2 items-start">
-            <h2 className="text-3xl font-bold text-orange-500 leading-7">
-              Nombre del restaurante
+            <h2 className="text-3xl font-bold text-primary leading-7">
+              {restaurante.nombre}
             </h2>
-            <img src={fav} className="h-8" />
+            <img onClick={handleSeguirRest} src={restGuardado ? favRelleno : fav} className="h-8" />
           </div>
           <div className="flex gap-1">
-            <Chip color="primary" className="text-white">Hawaiano</Chip>
-            <Chip color="primary" className="text-white">Vegetariano</Chip>
+            {
+              !cocinasRest.length
+                ? <></>
+                : cocinasRest.map(tipoCocina => {
+                  return (
+                    <Chip key={tipoCocina.id} color="primary" className="text-white">
+                      {tipoCocina.nombre_tipo}
+                    </Chip>
+                  )
+                })
+            }
+            {
+              !restaurante.dieta
+                ? <></>
+                : <Chip color="primary" className="text-white">{DIETAS[restaurante.dieta]}</Chip>
+            }
           </div>
         </div>
 
         <p className="text-gray-500 leading-5 text-md mx-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe amet
-          in, facere necessitatibus enim architecto vero repellat quam, veniam
-          omnis asperiores, deserunt excepturi cumque doloremque harum!
+          {restaurante.descripcio}
         </p>
 
-        <div className="flex h-8 items-center space-x-4 text-md justify-between mx-4">
+        <div className="flex h-4 items-center text-md justify-around mx-4">
           <div className="flex gap-2">
-            <img className="h-6" src={Telefono} alt="Tiempo" />
-            <p>30 min</p>
+            <img onClick={handleTelefono} className="h-6" src={Telefono} alt="Tiempo" />
+            {/* <p>{restaurante.telefono}</p> */}
           </div>
           <Divider orientation="vertical" />
           <div className="flex gap-2">
-            <img className="h-6" src={Correo} alt="Dificultad" />
-            <p>Fácil</p>
+            <img onClick={handleCorreo} className="h-6" src={Correo} alt="Dificultad" />
+            {/* <p>{restaurante.correo}</p> */}
           </div>
           <Divider orientation="vertical" />
           <div className="flex gap-2">
-            <img className="h-5" src={Ubicacion} alt="Tipo de comida" />
-            <p>Segundo</p>
+            <img onClick={handleMaps} className="h-5" src={Ubicacion} alt="Tipo de comida" />
+            {/* <p>{restaurante.direccion} {restaurante.numero}, {restaurante.cp} </p> */}
           </div>
         </div>
 
@@ -76,6 +103,11 @@ export function PerfilRestauranteVistaCliente() {
           <h3 className="font-bold text-xl">Recetas:</h3>
           <div className="m-auto md:m-0 md:flex md:gap-4">
 
+            {
+              !recetasRest.length
+                ? <></>
+                : recetasRest.map(receta => <CardReceta key={receta.receta.id} recetaInfo={receta} />)
+            }
           </div>
         </div>
 
@@ -108,7 +140,7 @@ export function PerfilRestauranteVistaCliente() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
