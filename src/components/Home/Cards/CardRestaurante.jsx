@@ -30,7 +30,6 @@ export function CardRestaurante({ restInfo }) {
                     <CardFooter className="justify-between bg-background/40 overflow-hidden px-2 py-4 absolute before:rounded-xl rounded-large bottom-2 left-1.5 w-[95%] mx-auto h-16 z-10">
                         <div className="flex flex-col absolute z-11 gap-1 h-fit">
                             <p className="text-lg font-bold text-wrap leading-4 max-w-48">{restaurante.nombre}</p>
-                            <p className="text-sm font-semibold text-grey-200 leading-3">{restaurante.cp}</p>
                         </div>
                         <img onClick={handleSeguirRest} className="h-6 items-start z-10" src={restGuardado ? favRelleno : fav} alt="Guardar en favoritos" />
                     </CardFooter>

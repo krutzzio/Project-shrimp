@@ -41,7 +41,7 @@ export default function PerfilRestaurante() {
           height={200}
           radius="none"
           alt="NextUI hero Image"
-          src={perfil}
+          src={user.foto_restaurante}
         />
         <h2 className="text-2xl font-bold">{user.nombre}</h2>
         <div className="flex gap-2">
