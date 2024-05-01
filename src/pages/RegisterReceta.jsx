@@ -1,16 +1,17 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Selector from "../components/Receta/Selector";
 import { Button } from "@nextui-org/button";
 
-export function RegisterReceta({setProc}) {
+export function RegisterReceta({ setProc }) {
     const [imgProfile, setImageProfile] = useState();
     const [nombreReceta, setNombreReceta] = useState("");
     const [descripcionReceta, setDescripcionReceta] = useState("");
     const [tipoCocinaId, setTipoCocinaId] = useState("");
-    const [tiempo, setTiempo] = useState("");
-    const [dificultad, setDificultad] = useState("");
-    const [tipo, setTipo] = useState("");
-    const [persones, setPersones] = useState("");
+    const [tiempo, setTiempo] = useState("10 min");
+    const [dificultad, setDificultad] = useState("Baja");
+    const [tipo, setTipo] = useState("Entrante");
+    const [persones, setPersones] = useState("1");
     const [foto_receta, setPhotos] = useState("");
     const [ingredientes, setIngredientes] = useState([]);
     const [datos, setDatos] = useState([]);
@@ -39,26 +40,18 @@ export function RegisterReceta({setProc}) {
         formData.append("tipo", tipo);
         formData.append("tiempo", tiempo);
         formData.append("photo", foto_receta);
-        // como ingrediente es un array utilizamos un foreach para que ponga todos los ingredeintes
-        ingredientes.forEach((ingrediente, index) => {
-            formData.append(`ingredientes[${index}][id]`, ingrediente.id);
-            formData.append(`ingredientes[${index}][cantidad]`, ingrediente.cantidad);
-            formData.append(`ingredientes[${index}][medida]`, ingrediente.medida);
-        });
-        
-console.log(formData)
+        let formIngredientes = JSON.stringify(ingredientes);
+        formData.append("ingredientes", formIngredientes);
+
         const options = {
             method: "POST",
             body: formData,
         };
-        console.log(formData);
         fetch("http://localhost:3000/api/home/1/registerReceta", options)
             .then((response) => response.json())
             .then((data) => {
                 setDatos(data);
-                setProc(true) //PONER DENTRO DEL FETCH
-                console.log(datos)
-
+                setProc(true)
             })
             .catch((error) => {
                 console.error("Error al registrar receta:", error);

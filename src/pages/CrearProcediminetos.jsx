@@ -12,9 +12,6 @@ export function CrearProcedimientos() {
     const newProcedimientos = [...procedimientos];
     newProcedimientos[index][name] = value;
     setProcedimientos(newProcedimientos);
-    
-    
-    
   };
 
   const handleChangePhoto = (index, event) => {
