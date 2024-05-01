@@ -44,7 +44,7 @@ export function Receta() {
           radius="none"
           className="object-cover h-72"
           src={receta.foto_receta} />
-        <CardFooter className="justify-between before:bg-white/10 overflow-hidden p-2 py-4 absolute before:rounded-xl rounded-large bottom-2 left-0.5 w-[98%] mx-auto h-20 z-10">
+        <CardFooter className="justify-between bg-background/40 overflow-hidden p-2 py-4 absolute before:rounded-xl rounded-large bottom-2 left-0.5 w-[98%] mx-auto z-10">
           <div className="flex absolute z-11 gap-2 items-center">
             <Avatar
               size="md"
