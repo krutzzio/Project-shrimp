@@ -108,13 +108,13 @@ export default function CreateProfile() {
       {/* Mancha naranja/azul derecha */}
       {userType
         ? <article
-          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
+          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[-6rem] md:top-[26rem]`
           }
         >
           <img src={shape4} className="max-w-[30rem] w-[30rem]" alt="" />
         </article>
         : <article
-          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[0rem] md:bottom-[8rem]`
+          className={`absolute z-0 bottom-[-8rem] right-[-30rem] rotate-[300deg] md:right-[-6rem] md:top-[26rem]`
           }
         >
           <img src={shape3} className="max-w-[30rem] w-[30rem]" alt="" />
