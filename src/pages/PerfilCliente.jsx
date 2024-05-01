@@ -114,7 +114,7 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus recetas</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
+                    <div className="flex flex-col md:grid md:grid-cols-5 gap-4 m-auto md:m-0">
                       {
                         !recetasGuardadas.length
                           ? <></>
@@ -130,7 +130,7 @@ export function PerfilCliente() {
                 <CardBody>
                   <div className="flex flex-col">
                     <h2 className="font-bold text-lg">Tus restaurantes</h2>
-                    <div className="flex flex-col md:flex-row gap-4 m-auto md:m-0">
+                    <div className="flex flex-col md:grid md:grid-cols-6 gap-4 m-auto md:m-0">
                       {
                         !restaurantesGuardados.length
                           ? <></>
