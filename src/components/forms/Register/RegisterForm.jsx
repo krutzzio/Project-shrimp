@@ -72,8 +72,8 @@ export default function RegisterForm() {
         <label className="w-fit text-sm font-semibold mb-4" htmlFor="confirmedPassword">Confirma la contraseña</label>
         <input className="input-form" type="password" id="confirmedPassword" name="confirmedPassword" onChange={handleChange} />
       </article>
-      <article className="w-10/12 pt-4 pb-2">
-        <div className="text-center mb-2">
+      <article className="w-10/12 flex flex-col gap-4">
+        <div className="text-center">
           {error ? <p className="text-black h-4 font-bold">{error}</p>
             : <div className="h-4" > </div>}
         </div>
