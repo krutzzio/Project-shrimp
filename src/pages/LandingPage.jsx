@@ -40,10 +40,7 @@ export default function LandingPage() {
             </h1>
             {/*Párrafo texto*/}
             <p className="hidden md:block md:text-2xl">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Quibusdam saepe quo aliquam deserunt reprehenderit adipisci
-              voluptates aspernatur cumque libero, fugit nisi doloremque qui hic
-              numquam maxime totam in, tempore placeat.
+            Explora y disfruta de las recetas exclusivas de los restaurantes locales en nuestra plataforma. Desde platos clásicos hasta creaciones innovadoras, descubre la diversidad culinaria de tu comunidad y recrea tus favoritos en casa. Únete a una comunidad apasionada por la buena comida y comparte tus propias creaciones culinarias
             </p>
           </div>
           {/*Botón regístrate*/}
