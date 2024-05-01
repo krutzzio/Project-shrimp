@@ -115,12 +115,16 @@ export function PerfilRestauranteVistaCliente() {
         <div className="flex flex-col gap-1 mx-4">
           <div>
             <h3 className="font-bold text-xl">Instagram:</h3>
-            <p className="text-primary">#donkamaronelmejor</p>
+            {
+              !restaurante.nombre
+                ? <></>
+                : <p className="text-primary">#{restaurante.nombre.replace(/\s+/g, '')}</p>
+            }
           </div>
           <div className="flex gap-2 items-center">
             <Card isFooterBlurred radius="lg">
               <Image
-                src={Receta3}
+                src="../fotosInsta/1.jpg"
                 width={300}
                 height={200}
 
@@ -130,7 +134,7 @@ export function PerfilRestauranteVistaCliente() {
             </Card>
             <Card isFooterBlurred radius="lg">
               <Image
-                src={Receta3}
+                src="../fotosInsta/2.jpg"
                 width={300}
                 height={200}
                 className="object-cover rounded-x"

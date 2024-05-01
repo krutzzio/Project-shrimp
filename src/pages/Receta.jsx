@@ -127,12 +127,12 @@ export function Receta() {
             {
               ingredientesRecetas.map(ingrediente =>
                 <Checkbox checked={cIngredientes[ingrediente.id]} onChange={handleChange} key={ingrediente.id} value={ingrediente.id} className="w-full" >
-                 {cIngredientes[ingrediente.id]  ?(
-                    
+                  {cIngredientes[ingrediente.id] ? (
+
                     <s>{ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}</s>
-                    ):(
+                  ) : (
                     <>
-                    {ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}
+                      {ingrediente.Receta_Ingrediente.cantidad} {ingrediente.Receta_Ingrediente.medida} de {ingrediente.nombre_ingrediente}
                     </>
                   )}
                 </Checkbox>)
@@ -175,7 +175,7 @@ export function Receta() {
             <p className="text-primary">{`#${hashtag}`}</p>
           </div>
           <div className="flex gap-2 items-center">
-            {
+            {/* {
               !instaPosts
                 ? <></>
                 : !instaPosts.length
@@ -187,11 +187,11 @@ export function Receta() {
                         <h1>{post.code}</h1>
                       </div>)
                   })
-            }
+            } */}
 
             <Card isFooterBlurred radius="lg">
               <Image
-                src={Receta3}
+                src="../fotosInsta/2.jpg"
                 width={300}
                 height={200}
 
@@ -201,7 +201,7 @@ export function Receta() {
             </Card>
             <Card isFooterBlurred radius="lg">
               <Image
-                src={Receta3}
+                src="../fotosInsta/1.jpg"
                 width={300}
                 height={200}
                 className="object-cover rounded-x"
@@ -211,7 +211,7 @@ export function Receta() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 mx-4">
+        <Link to={`/perfil-restaurante/${restauranteReceta.id}`} className="flex flex-col gap-2 mx-4">
           <h3 className="font-bold text-xl">Restaurante:</h3>
           <Image
             src={restauranteReceta.foto_restaurante}
@@ -222,7 +222,7 @@ export function Receta() {
           />
           <h3 className="text-2xl font-bold text-primary">{restauranteReceta.nombre}</h3>
           <p className="leading-5 text-md">{restauranteReceta.descripcio}</p>
-        </div>
+        </Link>
       </div>
       <Footer />
     </div >
