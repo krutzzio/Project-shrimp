@@ -31,7 +31,7 @@ export default function Footer() {
                         <Input type="email" variant="flat" label="Correo" name="user_email"/>
                         <Textarea label="Mensaje" variant="flat" name="message"/>
                         
-                        <input type="submit" value="Send" className="bg-[#272D2F] hover:bg-black rounded-lg  shadow-lg font-semibold h-12 md:w-48 text-[#FAFAFA] text-lg" />
+                        <input type="submit" value="Enviar" className="bg-[#272D2F] hover:bg-black rounded-lg  shadow-lg font-semibold h-12 md:w-48 text-[#FAFAFA] text-lg" />
                     </form>
                 </div>
             </div>

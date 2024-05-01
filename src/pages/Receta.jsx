@@ -1,7 +1,7 @@
 import NavBar from "../components/navbar/NavBarSinBusqueda";
-import Tiempo from "../assets/Recetas/Tiempo.png";
-import Dificultad from "../assets/Recetas/sombrero-de-cocinero.png";
-import TipoComida from "../assets/Recetas/cuchilleria.png";
+import Tiempo from "../assets/iconos/iconos_Tiempo.svg";
+import Dificultad from "../assets/iconos/iconos_Nivel.svg";
+import TipoComida from "../assets/iconos/iconos_Plato.svg";
 import {
   Divider,
   Chip,
@@ -44,26 +44,26 @@ export function Receta() {
           radius="none"
           className="object-cover h-72"
           src={receta.foto_receta} />
-        <CardFooter className="justify-between before:bg-white/10  overflow-hidden py-4 absolute before:rounded-xl rounded-large bottom-2 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
+        <CardFooter className="justify-between bg-background/40 overflow-hidden p-2 py-4 absolute before:rounded-xl rounded-large bottom-2 left-0.5 w-[98%] mx-auto z-10">
           <div className="flex absolute z-11 gap-2 items-center">
             <Avatar
               size="md"
               src={restauranteReceta.foto_restaurante}
               classNames={{ base: "bg-[#FE7139]", icon: "text-[#F2F2F2]" }}
             />
-            <div className="flex flex-col leading-3">
-              <p className="text-md text-white">Creado por:</p>
-              <p className="text-xl font-bold text-white">{restauranteReceta.nombre}</p>
+            <div className="flex flex-col leading-5">
+              <p className="text-md font-bold">Creado por:</p>
+              <p className="text-xl font-bold text-primary max-w-64 leading-5">{restauranteReceta.nombre}</p>
             </div>
           </div>
           <Link>
-            <img onClick={handleSeguirRest} className="h-6 items-start z-10" src={restGuardado ? favRelleno : fav} alt="Guardar en favoritos" />
+            <img onClick={handleSeguirRest} className="h-8 items-start z-10" src={restGuardado ? favRelleno : fav} alt="Guardar en favoritos" />
 
           </Link>
         </CardFooter>
       </Card>
 
-      <div className="flex flex-col gap-8 mt-4">
+      <div className="flex flex-col gap-6 mt-4">
         <div className="flex flex-col gap-3 mx-4">
           <div className="flex justify-between gap-2 items-start">
             <h2 className="text-3xl font-bold text-primary leading-7">
@@ -85,7 +85,7 @@ export function Receta() {
           {receta.desc_receta}
         </p>
 
-        <div className="flex h-8 items-center space-x-4 text-md justify-between mx-4">
+        <div className="flex h-8 items-center space-x-2 text-md justify-between mx-4">
           <div className="flex gap-2">
             <img className="h-6" src={Tiempo} alt="Tiempo" />
             <p>{receta.tiempo}</p>
